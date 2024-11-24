@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex G. (Veetwo)</title>
+    <title>Graphic Design Projects</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
-            background-color: #121212; /* Very dark grey */
-            color: white;
             margin: 0;
+            background-image: url('banner optimized.gif'); /* Using the GIF as background */
+            background-size: cover; /* Ensures the image covers the entire viewport */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-position: center center; /* Centers the image */
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 100vh;
         }
         .navbar {
-            background-color: #1e1e1e; /* Darker grey for the nav bar */
+            background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background for better contrast */
             padding: 1em;
             text-align: center;
         }
@@ -28,19 +31,20 @@
         }
         .content {
             text-align: center;
-            margin-top: auto;
+            margin: auto;
+            padding: 2em;
         }
         .content h1 {
-            font-size: 4em;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px black; /* Black drop shadow for the title */
         }
-        .content h2 {
-            font-size: 2em;
-            margin-top: 1em;
+        .content p {
+            font-size: 1.5em;
+            text-shadow: 2px 2px 4px black; /* Black drop shadow for the subtitle */
         }
         .footer {
             text-align: center;
             padding: 1em 0;
-            margin-top: auto;
         }
         .footer a {
             margin: 0 0.5em;
@@ -62,14 +66,14 @@
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Coming soon.</h1>
-        <h2>Greatness awaits...</h2>
+        <h1>Graphic Design Projects</h1>
+        <p>Some projects made in After Effects and Premiere. All audio was edited in Audition/Audacity, and mastered using Dolby.</p>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <a href="https://github.com/v-tw0/axgord1633" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        <a href="https://github.com/v-tw0" target="_blank">
+            <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
         </a>
         <a href="https://www.youtube.com/@Veetwo_" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
@@ -81,7 +85,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
         </a>
         <a href="https://veetwomusic.carrd.co/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Carrd">
+            <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
         </a>
     </div>
 </body>
