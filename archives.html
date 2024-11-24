@@ -52,7 +52,9 @@
         .repo-title {
             font-size: 1.8em;
             margin-bottom: 0.2em;
-            color: #ffffff;
+            color: #306998; /* Link blue color */
+            display: flex;
+            align-items: center;
         }
         .repo-title:hover {
             text-decoration: underline;
@@ -81,17 +83,21 @@
             position: absolute;
         }
         .language-bar .python {
-            width: 70%;
+            width: 100%;
             background-color: #306998; /* Python Blue */
         }
         .language-bar .java {
-            width: 30%;
-            left: 70%;
+            width: 100%;
             background-color: #b07219; /* Java Brown */
         }
-        .language-bar .cpp {
-            width: 100%;
-            background-color: #004482; /* C++ Blue */
+        .compiler-icon {
+            margin-left: 10px;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        .compiler-icon:hover {
+            opacity: 0.8;
         }
         .footer {
             text-align: center;
@@ -126,18 +132,34 @@
         <div class="repo-list">
             <!-- ICS3U -->
             <div class="repo-item">
-                <a href="https://github.com/v-tw0/ICS3U" target="_blank" class="repo-title">ICS3U</a>
-                <div class="repo-description">'Intro to comp sci. 1'&#13;&#10;Base concepts, OOP, simple arithmetic operations w/ libraries.</div>
+                <a href="https://github.com/v-tw0/ICS3U" target="_blank" class="repo-title">
+                    ICS3U
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Eclipse_Logo.svg" 
+                         alt="Eclipse IDE" 
+                         class="compiler-icon" 
+                         title="Eclipse IDE">
+                </a>
+                <div class="repo-description">
+                    Intro to comp sci. 1<br>Base concepts, OOP, simple arithmetic operations with libraries.
+                </div>
                 <div class="language-label">Language: Java</div>
                 <div class="language-bar">
-                    <span class="python"></span>
+                    <span class="java"></span>
                 </div>
             </div>
 
             <!-- ICS4U -->
             <div class="repo-item">
-                <a href="https://github.com/v-tw0/ICS4U" target="_blank" class="repo-title">ICS4U</a>
-                <div class="repo-description">'Intro to comp sci. 2 - Project'&#13;&#10;Final Project. Uses swing GUI package & was compiled with eclipse.</div>
+                <a href="https://github.com/v-tw0/ICS4U" target="_blank" class="repo-title">
+                    ICS4U
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Eclipse_Logo.svg" 
+                         alt="Eclipse IDE" 
+                         class="compiler-icon" 
+                         title="Eclipse IDE">
+                </a>
+                <div class="repo-description">
+                    Intro to comp sci. 2 - Project<br>Final project using the Swing GUI package.
+                </div>
                 <div class="language-label">Language: Java</div>
                 <div class="language-bar">
                     <span class="java"></span>
@@ -146,8 +168,16 @@
 
             <!-- ITI1120 -->
             <div class="repo-item">
-                <a href="https://github.com/v-tw0/ITI1120" target="_blank" class="repo-title">ITI1120</a>
-                <div class="repo-description">Intro to comp sci. @ uO.&#13;&#10;Base concepts, simple matrix computations, eigenvectors, etc.</div>
+                <a href="https://github.com/v-tw0/ITI1120" target="_blank" class="repo-title">
+                    ITI1120
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Colab.png" 
+                         alt="Google Colabs" 
+                         class="compiler-icon" 
+                         title="Google Colabs">
+                </a>
+                <div class="repo-description">
+                    Intro to comp sci. @ uO<br>Base concepts, simple matrix computations, eigenvectors, etc.
+                </div>
                 <div class="language-label">Language: Python</div>
                 <div class="language-bar">
                     <span class="python"></span>
@@ -156,8 +186,16 @@
 
             <!-- ITI1121 -->
             <div class="repo-item">
-                <a href="https://github.com/v-tw0/ITI1121" target="_blank" class="repo-title">ITI1121</a>
-                <div class="repo-description">Intro to comp sci. @ uO.&#13;&#10;Concepts of data structures, algorithms and various containers.</div>
+                <a href="https://github.com/v-tw0/ITI1121" target="_blank" class="repo-title">
+                    ITI1121
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Sublime_Text_Logo.svg" 
+                         alt="Sublime Text" 
+                         class="compiler-icon" 
+                         title="Sublime Text">
+                </a>
+                <div class="repo-description">
+                    Intro to comp sci. @ uO<br>Concepts of data structures, algorithms, and various containers.
+                </div>
                 <div class="language-label">Language: Java</div>
                 <div class="language-bar">
                     <span class="java"></span>
