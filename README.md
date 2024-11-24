@@ -1,39 +1,19 @@
 # Alex G. (Veetwo)'s Temporary Page
 
 Welcome to the repository for **Alex G. (Veetwo)'s Temporary Page**! This simple GitHub Page is under construction and contains the following elements:
----
-<body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Archives</a>
-        <a href="#">Some Projects</a>
-        <a href="#">Linktree</a>
-    </div>
 
-    <!-- Main Content -->
-    <div class="content">
-        <h1>Coming soon.</h1>
-        <h2>Greatness awaits...</h2>
-    </div>
+## Features
+- **Dark Theme**: Black/very dark grey background with white text styled in Times New Roman.
+- **Navigation Bar**: Horizontal bar at the top with links to "Home," "Archives," "Some Projects," and "Linktree."
+- **Content**:
+  - Title: "Alex G. (Veetwo)"
+  - Large text: "Coming soon."
+  - Subtitle: "Greatness awaits..."
+- **Footer Icons**: Links to GitHub, YouTube, Twitter, Instagram, and Carrd.co.
 
-    <!-- Footer -->
-    <div class="footer">
-        <a href="https://github.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-        </a>
-        <a href="https://youtube.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-        </a>
-        <a href="https://twitter.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
-        </a>
-        <a href="https://instagram.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-        </a>
-        <a href="https://carrd.co" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Carrd">
-        </a>
-    </div>
-</body>
-</html>
+## Usage
+To host this page:
+1. Clone this repository or download it as a ZIP.
+2. Add the following HTML and CSS to an `index.html` file.
+3. Push the repository to GitHub and enable GitHub Pages in the repository settings.
+
