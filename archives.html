@@ -38,28 +38,44 @@
             font-size: 1.2em;
         }
         .repo-list {
-            text-align: left;
             margin-top: 2em;
-            padding-left: 2em;
         }
-        .repo-list a {
-            color: white;
-            font-size: 1.5em;
-            text-decoration: none;
+        .repo-item {
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+        }
+        .repo-title {
+            font-size: 1.8em;
+            margin-bottom: 0.2em;
+        }
+        .repo-description {
+            font-size: 1.2em;
+            color: #aaaaaa;
             margin-bottom: 1em;
+        }
+        .language-bar {
+            height: 8px;
+            width: 100%;
+            background-color: #555;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .language-bar span {
             display: block;
+            height: 100%;
+            position: absolute;
         }
-        .footer {
-            text-align: center;
-            padding: 1em 0;
-            margin-top: auto;
+        .language-bar .python {
+            width: 70%;
+            background-color: #306998; /* Python Blue */
         }
-        .footer a {
-            margin: 0 0.5em;
-        }
-        .footer img {
-            width: 30px;
-            height: 30px;
+        .language-bar .java {
+            width: 30%;
+            left: 70%;
+            background-color: #b07219; /* Java Brown */
         }
     </style>
 </head>
@@ -79,10 +95,41 @@
 
         <!-- Repository List -->
         <div class="repo-list">
-            <a href="https://github.com/v-tw0/ICS3U" target="_blank">ICS3U</a>
-            <a href="https://github.com/v-tw0/ICS4U" target="_blank">ICS4U</a>
-            <a href="https://github.com/v-tw0/ITI1120" target="_blank">ITI1120</a>
-            <a href="https://github.com/v-tw0/ITI1121" target="_blank">ITI1121</a>
+            <!-- ICS3U -->
+            <div class="repo-item">
+                <a href="https://github.com/v-tw0/ICS3U" target="_blank" class="repo-title">ICS3U</a>
+                <div class="repo-description">Introduction to Computer Science with Python. Basic programming concepts, including loops and functions.</div>
+                <div class="language-bar">
+                    <span class="python"></span>
+                </div>
+            </div>
+
+            <!-- ICS4U -->
+            <div class="repo-item">
+                <a href="https://github.com/v-tw0/ICS4U" target="_blank" class="repo-title">ICS4U</a>
+                <div class="repo-description">Advanced Computer Science with Java. Object-oriented programming and algorithm design.</div>
+                <div class="language-bar">
+                    <span class="java"></span>
+                </div>
+            </div>
+
+            <!-- ITI1120 -->
+            <div class="repo-item">
+                <a href="https://github.com/v-tw0/ITI1120" target="_blank" class="repo-title">ITI1120</a>
+                <div class="repo-description">Introduction to Programming for Engineers. Focused on Python for problem-solving and data analysis.</div>
+                <div class="language-bar">
+                    <span class="python"></span>
+                </div>
+            </div>
+
+            <!-- ITI1121 -->
+            <div class="repo-item">
+                <a href="https://github.com/v-tw0/ITI1121" target="_blank" class="repo-title">ITI1121</a>
+                <div class="repo-description">Intermediate Programming with Java. Concepts of data structures and algorithms.</div>
+                <div class="language-bar">
+                    <span class="java"></span>
+                </div>
+            </div>
         </div>
     </div>
 
