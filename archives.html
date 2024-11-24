@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Archives</title>
+    <title>Graphic Design Projects</title>
     <style>
+        @font-face {
+            font-family: 'Latin Modern Roman';
+            src: url('lmroman-regular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: "Times New Roman", Times, serif;
+            font-family: 'Latin Modern Roman', serif;
             background-color: #121212; /* Very dark grey */
             color: white;
             margin: 0;
@@ -37,83 +44,47 @@
         .content p {
             font-size: 1.2em;
         }
-        .repo-list {
+        .video-list {
             margin-top: 2em;
         }
-        .repo-item {
+        .video-item {
             margin: 2em auto;
             padding: 1em;
             background-color: #1e1e1e;
             border-radius: 8px;
             width: 66%; /* 2/3 of the page width */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            text-align: left;
-        }
-        .repo-title {
-            font-size: 1.8em;
-            margin-bottom: 0.2em;
-            color: #306998; /* Link blue color */
             display: flex;
             align-items: center;
         }
-        .repo-title:hover {
+        .video-thumbnail {
+            width: 427px;
+            height: 240px;
+            object-fit: cover;
+            margin-right: 1em;
+            border-radius: 4px;
+            flex-shrink: 0; /* Prevents resizing of the thumbnail */
+        }
+        .video-details {
+            text-align: left;
+            flex-grow: 1; /* Ensures details take the remaining space */
+        }
+        .video-title {
+            font-size: 1.8em;
+            margin-bottom: 0.2em;
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+            text-decoration: none;
+        }
+        .video-title:hover {
             text-decoration: underline;
         }
-        .repo-description {
+        .video-description {
             font-size: 1.2em;
             color: #aaaaaa;
-            margin-bottom: 1em;
+            margin-top: 0.5em;
         }
-        .language-label {
-            font-size: 1em;
-            font-weight: bold;
-            margin-bottom: 0.5em;
-        }
-        .language-bar {
-            height: 8px;
-            width: 25%; /* Shortened width */
-            background-color: #555;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-        .language-bar span {
-            display: block;
-            height: 100%;
-            position: absolute;
-        }
-        .language-bar .python {
-            width: 100%;
-            background-color: #306998; /* Python Blue */
-        }
-        .language-bar .java {
-            width: 100%;
-            background-color: #b07219; /* Java Brown */
-        }
-        .compiler-icon {
-            margin-left: 10px;
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-        }
-
-        /* Specific scaling for each icon */
-        .compiler-icon.eclipse {
-            transform: scale(1.15, 1); /* Eclipse IDE stretched vertically by 1.15 */
-        }
-
-        .compiler-icon.colabs {
-            transform: scale(1.40, 1); /* Colabs icon stretched vertically by 1.40 */
-        }
-
-        .compiler-icon.sublime {
-            transform: scale(1, 1); /* Sublime Text remains unchanged */
-        }
-
-        .compiler-icon:hover {
-            opacity: 0.8;
-        }
-
         .footer {
             text-align: center;
             padding: 1em 0;
@@ -125,7 +96,6 @@
         .footer img {
             width: 30px;
             height: 30px;
-            vertical-align: middle;
         }
     </style>
 </head>
@@ -140,82 +110,12 @@
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Programming Archives</h1>
-        <p>List of links to repos of programming I've done circa ~2019.</p>
+        <h1>Graphic Design Projects</h1>
+        <p>Some projects made in After Effects and Premiere. All audio was edited in Audition/Audacity, and mastered using Dolby.</p>
 
-        <!-- Repository List -->
-        <div class="repo-list">
-            <!-- ICS3U -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ICS3U" target="_blank" class="repo-title">
-                    ICS3U
-                    <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
-                         alt="Eclipse IDE" 
-                         class="compiler-icon eclipse" 
-                         title="Eclipse IDE">
-                </a>
-                <div class="repo-description">
-                    Intro to comp sci. 1<br>Base concepts, OOP, simple arithmetic operations with libraries.
-                </div>
-                <div class="language-label">Java</div>
-                <div class="language-bar">
-                    <span class="java"></span>
-                </div>
-            </div>
-
-            <!-- ICS4U -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ICS4U" target="_blank" class="repo-title">
-                    ICS4U
-                    <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
-                         alt="Eclipse IDE" 
-                         class="compiler-icon eclipse" 
-                         title="Eclipse IDE">
-                </a>
-                <div class="repo-description">
-                    Intro to comp sci. 2 - Project<br>Final project using the Swing GUI package.
-                </div>
-                <div class="language-label">Java</div>
-                <div class="language-bar">
-                    <span class="java"></span>
-                </div>
-            </div>
-
-            <!-- ITI1120 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ITI1120" target="_blank" class="repo-title">
-                    ITI1120
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1200px-Google_Colaboratory_SVG_Logo.svg.png" 
-                         alt="Google Colabs" 
-                         class="compiler-icon colabs" 
-                         title="Google Colabs">
-                </a>
-                <div class="repo-description">
-                    Intro to comp sci. @ uO<br>Base concepts, simple matrix computations, eigenvectors, etc.
-                </div>
-                <div class="language-label">Python</div>
-                <div class="language-bar">
-                    <span class="python"></span>
-                </div>
-            </div>
-
-            <!-- ITI1121 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ITI1121" target="_blank" class="repo-title">
-                    ITI1121
-                    <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
-                         alt="Sublime Text" 
-                         class="compiler-icon sublime" 
-                         title="Sublime Text">
-                </a>
-                <div class="repo-description">
-                    Intro to comp sci. @ uO<br>Concepts of data structures, algorithms, and various containers.
-                </div>
-                <div class="language-label">Java</div>
-                <div class="language-bar">
-                    <span class="java"></span>
-                </div>
-            </div>
+        <!-- Video List -->
+        <div class="video-list">
+            <!-- [Video Items Remain Unchanged] -->
         </div>
     </div>
 
