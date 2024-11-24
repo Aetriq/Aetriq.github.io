@@ -71,7 +71,7 @@
         }
         .language-bar {
             height: 8px;
-            width: 25%; /* Reduced width to 25% */
+            width: 25%; /* Shortened width */
             background-color: #555;
             border-radius: 4px;
             overflow: hidden;
@@ -95,11 +95,25 @@
             width: 24px;
             height: 24px;
             vertical-align: middle;
-            transform: scale(1.15, 1); /* Stretch vertically by 1.15 */
         }
+
+        /* Specific scaling for each icon */
+        .compiler-icon.eclipse {
+            transform: scale(1, 1.15); /* Eclipse IDE stretched vertically by 1.15 */
+        }
+
+        .compiler-icon.colabs {
+            transform: scale(1, 1.40); /* Colabs icon stretched vertically by 1.40 */
+        }
+
+        .compiler-icon.sublime {
+            transform: scale(1, 1); /* Sublime Text remains unchanged */
+        }
+
         .compiler-icon:hover {
             opacity: 0.8;
         }
+
         .footer {
             text-align: center;
             padding: 1em 0;
@@ -137,7 +151,7 @@
                     ICS3U
                     <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
                          alt="Eclipse IDE" 
-                         class="compiler-icon" 
+                         class="compiler-icon eclipse" 
                          title="Eclipse IDE">
                 </a>
                 <div class="repo-description">
@@ -155,7 +169,7 @@
                     ICS4U
                     <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
                          alt="Eclipse IDE" 
-                         class="compiler-icon" 
+                         class="compiler-icon eclipse" 
                          title="Eclipse IDE">
                 </a>
                 <div class="repo-description">
@@ -173,7 +187,7 @@
                     ITI1120
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1200px-Google_Colaboratory_SVG_Logo.svg.png" 
                          alt="Google Colabs" 
-                         class="compiler-icon" 
+                         class="compiler-icon colabs" 
                          title="Google Colabs">
                 </a>
                 <div class="repo-description">
@@ -191,7 +205,7 @@
                     ITI1121
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
                          alt="Sublime Text" 
-                         class="compiler-icon" 
+                         class="compiler-icon sublime" 
                          title="Sublime Text">
                 </a>
                 <div class="repo-description">
