@@ -51,19 +51,24 @@
             align-items: center;
         }
         .video-thumbnail {
-            width: 427px; /* Larger thumbnail width */
-            height: 240px; /* Larger thumbnail height */
-            object-fit: cover; /* Crop the black bars */
+            width: 427px;
+            height: 240px;
+            object-fit: cover;
             margin-right: 1em;
             border-radius: 4px;
+            flex-shrink: 0; /* Prevents resizing of the thumbnail */
         }
         .video-details {
             text-align: left;
+            flex-grow: 1; /* Ensures details take the remaining space */
         }
         .video-title {
             font-size: 1.8em;
             margin-bottom: 0.2em;
-            color: #FF0000; /* YouTube red */
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+            text-decoration: none;
         }
         .video-title:hover {
             text-decoration: underline;
