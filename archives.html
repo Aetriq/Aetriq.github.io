@@ -77,18 +77,18 @@
             margin-bottom: 0.5em;
         }
         .language-bar {
-            height: 8px;
-            width: 25%; /* Shortened width */
-            background-color: #555;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
+            display: flex; /* Ensures spans are laid out in a row */
+            height: 20px; /* Set a visible height for the bar */
+            width: 100%; /* Make sure the bar takes the intended width */
+            border-radius: 5px; /* Optional: make the bar corners rounded */
+            overflow: hidden; /* Ensures content doesn’t spill outside the bar */
         }
+        
         .language-bar span {
-            display: block;
-            height: 100%;
-            position: absolute;
+            display: inline-block; /* Ensures spans are properly displayed */
+            height: 100%; /* Makes spans take the full height of the bar */
         }
+
         .language-bar .python {
             width: 100%;
             background-color: #306998; /* Python Blue */
