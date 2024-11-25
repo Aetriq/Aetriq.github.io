@@ -23,7 +23,7 @@
             min-height: 100vh;
         }
 
-        /* Blurred Background Using ::before */
+        /* Blurred and Darkened Background Using ::before */
         body::before {
             content: "";
             position: absolute;
@@ -31,7 +31,9 @@
             left: 0;
             width: 110%;
             height: 110%;
-            background-image: url(https://github.com/v-tw0/v-tw0.github.io/blob/main/banner1.gif?raw=true); /* Background GIF */
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://github.com/v-tw0/v-tw0.github.io/blob/main/banner1.gif?raw=true); /* Background GIF */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: calc(50% - 80px) center; /* Shift background 50px to the left */
@@ -43,7 +45,14 @@
         .navbar {
             background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background for contrast */
             padding: 1em;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Crop to a circle */
         }
         .navbar a {
             color: white;
@@ -51,68 +60,6 @@
             text-decoration: none;
             font-size: 1.2em;
         }
-
-        /* Main Content */
-        .content {
-            text-align: center;
-            margin: auto;
-            padding: 2em;
-        }
-        .content h1 {
-            font-size: 3em;
-            text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
-        }
-        .content p {
-            font-size: 1.5em;
-            text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 1em 0;
-        }
-        .footer a {
-            margin: 0 0.5em;
-        }
-        .footer img {
-            width: 30px;
-            height: 30px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="archives.html">Archives</a>
-        <a href="projects.html">Some Projects</a>
-        <a href="https://linktr.ee/veetwo">Linktree</a>
-    </div>
-
-    <!-- Main Content -->
-    <div class="content">
-        <h1>Work in Progress.</h1>
-        <p>Greatness awaits...</p>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <a href="https://github.com/v-tw0" target="_blank">
-            <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
-        </a>
-        <a href="https://www.youtube.com/@Veetwo_" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-        </a>
-        <a href="https://x.com/Veetwo__" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
-        </a>
-        <a href="https://www.instagram.com/veetwo__/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-        </a>
-        <a href="https://veetwomusic.carrd.co/" target="_blank">
-            <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
-        </a>
-    </div>
-</body>
-</html>
+        .navbar .links {
+            margin-left: auto;
+            text-align: right
