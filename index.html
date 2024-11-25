@@ -42,27 +42,31 @@
             z-index: -1; /* Place it behind all content */
         }
 
-        /* Navigation Bar */
-        .navbar {
+       .navbar {
             background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background for contrast */
             padding: 1em;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        /* Dropdown container */
-        .dropdown {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Vertically center items */
+            justify-content: space-between; /* Space out items: left image and right links */
             position: relative;
-            display: inline-block;
+            z-index: 1; /* Ensure it appears above the background */
         }
         
+        /* Adjust dropdown position inside the navbar */
+        .dropdown {
+            margin-left: 1em; /* Add spacing to the left of the dropdown if needed */
+        }
+        
+        /* Dropdown container inherits navbar flex alignment */
+        .navbar .dropdown {
+            position: relative; /* Ensure the dropdown aligns within the navbar */
+        }
         /* Dropdown content (hidden by default) */
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 60px; /* Slightly below the image */
-            left: 0;
+            top: 100%; /* Place the menu directly below the image */
+            left: 0; /* Align with the left of the image */
             background-color: rgba(30, 30, 30, 0.9); /* Dark background */
             min-width: 150px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -143,19 +147,30 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <div class="navbar">
-        <!-- Left Image -->
-        <img src="https://yt3.googleusercontent.com/AgMBzaoMPFQaNE9s8sc4ZNR4c0jh3mMp9tR_0bIPqRJZfHbvBxgvDgqSncmbQkPlocfELnpq=s160-c-k-c0x00ffffff-no-rj" alt="Logo">
-        
-        <!-- Links -->
-        <div class="links">
+    <!-- Left Dropdown Icon -->
+    <div class="dropdown">
+        <img src="https://yt3.googleusercontent.com/AgMBzaoMPFQaNE9s8sc4ZNR4c0jh3mMp9tR_0bIPqRJZfHbvBxgvDgqSncmbQkPlocfELnpq=s160-c-k-c0x00ffffff-no-rj" 
+             alt="Logo" 
+             width="50" 
+             height="50" 
+             style="border-radius: 50%;">
+        <div class="dropdown-content">
             <a href="index.html">Home</a>
-            <a href="archives.html">Archives</a>
-            <a href="projects.html">Some Projects</a>
-            <a href="https://linktr.ee/veetwo">Linktree</a>
+            <a href="https://www.youtube.com/@Veetwo_">YouTube Channel 1</a>
+            <a href="https://www.youtube.com/@AnotherChannel">YouTube Channel 2</a>
         </div>
     </div>
+    
+    <!-- Navigation Links -->
+    <div class="links">
+        <a href="index.html">Home</a>
+        <a href="archives.html">Archives</a>
+        <a href="projects.html">Some Projects</a>
+        <a href="https://linktr.ee/veetwo">Linktree</a>
+    </div>
+</div>
+
 
     <!-- Main Content -->
     <div class="content">
