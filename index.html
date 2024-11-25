@@ -50,6 +50,47 @@
             align-items: center;
             justify-content: space-between;
         }
+        
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 60px; /* Slightly below the image */
+            left: 0;
+            background-color: rgba(30, 30, 30, 0.9); /* Dark background */
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 2; /* Ensure it appears above other elements */
+            text-align: left;
+            border-radius: 5px;
+        }
+        
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1em;
+        }
+        
+        /* Add hover effect to links */
+        .dropdown-content a:hover {
+            background-color: rgba(50, 50, 50, 1);
+        }
+        
+        /* Show the dropdown content on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        
         .navbar img {
             width: 50px;
             height: 50px;
@@ -122,6 +163,19 @@
         <img src="https://github.com/v-tw0/v-tw0.github.io/blob/main/img/logo.png?raw=true" alt="Logo">
         <h1>Work in Progress.</h1>
         <p>Greatness awaits...</p>
+    </div>
+
+    <div class="dropdown">
+        <img src="https://yt3.googleusercontent.com/AgMBzaoMPFQaNE9s8sc4ZNR4c0jh3mMp9tR_0bIPqRJZfHbvBxgvDgqSncmbQkPlocfELnpq=s160-c-k-c0x00ffffff-no-rj" 
+             alt="Logo" 
+             width="50" 
+             height="50" 
+             style="border-radius: 50%;">
+        <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
+            <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
+        </div>
     </div>
 
     <!-- Footer -->
