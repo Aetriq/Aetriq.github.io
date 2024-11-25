@@ -72,10 +72,11 @@
             padding: 2em;
         }
         .content img {
-            width: 200px;
-            object-fit: contain; /* Crop transparent areas */
+            width: 400px; /* Double the original width of 200px */
+            object-fit: contain; /* Maintain aspect ratio and crop transparent areas */
             margin-bottom: 1em;
         }
+
         .content h1 {
             font-size: 3em;
             text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
