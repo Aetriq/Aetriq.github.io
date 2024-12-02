@@ -50,23 +50,22 @@
             justify-content: space-between; /* Space out items: left image and right links */
             position: relative;
             z-index: 1; /* Ensure it appears above the background */
+            box-shadow: none; /* Ensure no opaque box shadow */
         }
         
-        /* Adjust dropdown position inside the navbar */
         .dropdown {
             margin-left: 1em; /* Add spacing to the left of the dropdown if needed */
         }
         
-        /* Dropdown container inherits navbar flex alignment */
         .navbar .dropdown {
             position: relative; /* Ensure the dropdown aligns within the navbar */
         }
-        /* Dropdown content (hidden by default) */
+
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 100%; /* Place the menu directly below the image */
-            left: 0; /* Align with the left of the image */
+            top: 100%;
+            left: 0;
             background-color: rgba(30, 30, 30, 0.9); /* Dark background */
             min-width: 150px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -74,8 +73,7 @@
             text-align: left;
             border-radius: 5px;
         }
-        
-        /* Links inside the dropdown */
+
         .dropdown-content a {
             color: white;
             text-decoration: none;
@@ -83,13 +81,11 @@
             padding: 10px;
             font-size: 1em;
         }
-        
-        /* Add hover effect to links */
+
         .dropdown-content a:hover {
             background-color: rgba(50, 50, 50, 1);
         }
-        
-        /* Show the dropdown content on hover */
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -99,23 +95,25 @@
             height: 50px;
             border-radius: 50%; /* Crop to a circle */
         }
+
         .navbar a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
         }
+
         .navbar .links {
             margin-left: auto;
             text-align: right; /* Right-align the links */
         }
 
-        /* Main Content */
         .content {
             text-align: center;
             margin: auto;
             padding: 2em;
         }
+
         .content img {
             width: 400px; /* Double the original width of 200px */
             object-fit: contain; /* Maintain aspect ratio and crop transparent areas */
@@ -126,6 +124,7 @@
             font-size: 3em;
             text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
         }
+
         .content p {
             font-size: 1.5em;
             text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
@@ -136,9 +135,11 @@
             text-align: center;
             padding: 1em 0;
         }
+
         .footer a {
             margin: 0 0.5em;
         }
+
         .footer img {
             width: 30px;
             height: 30px;
@@ -161,8 +162,8 @@
             </div>
         </div>
         
-        <!-- Navigation Bar -->
-        <div class="navbar">
+        <!-- Navigation Bar Links -->
+        <div class="links">
             <a href="index.html">Home</a>
             <a href="projects.html">Current Projects</a>
             <a href="archives.html">Programming Archives</a>
