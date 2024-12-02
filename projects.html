@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Projects</title>
+    <style>
+        @font-face {
+            font-family: 'Latin Modern Roman';
+            src: url('lmroman-regular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Latin Modern Roman', serif;
+            background-color: #121212; /* Very dark grey */
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #1e1e1e; /* Darker grey for the nav bar */
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: auto;
+            padding: 2em;
+        }
+
+        .content h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
+        }
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            align-items: center;
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            padding: 1.5em;
+        }
+
+        .project-details {
+            text-align: left;
+            max-width: 70%;
+        }
+
+        .project-title {
+            font-size: 1.8em;
+            color: #306998; /* Link blue color */
+            margin-bottom: 0.5em;
+        }
+
+        .project-description {
+            font-size: 1.2em;
+            color: #aaaaaa;
+        }
+
+        .project-thumbnail img {
+            max-width: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1em 0;
+            margin-top: auto;
+        }
+
+        .footer a {
+            margin: 0 0.5em;
+        }
+
+        .footer img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Current Projects</a>
+        <a href="archives.html">Programming Archives</a>
+        <a href="aeprojects.html">AE Projects</a>
+        <a href="https://linktr.ee/veetwo">Linktree</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Current Projects</h1>
+        <p>Explore my ongoing projects and creative endeavors below.</p>
+
+        <!-- Project List -->
+        <div class="project-list">
+            <!-- Project 1 -->
+            <div class="project-item">
+                <div class="project-details">
+                    <h2 class="project-title">Project Name 1</h2>
+                    <p class="project-description">
+                        A brief description of the project goes here. This could include details about its goals, 
+                        tools used, and progress made so far.
+                    </p>
+                </div>
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/200" alt="Project 1 Thumbnail">
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-item">
+                <div class="project-details">
+                    <h2 class="project-title">Project Name 2</h2>
+                    <p class="project-description">
+                        A brief description of the project goes here. This could include details about its goals, 
+                        tools used, and progress made so far.
+                    </p>
+                </div>
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/200" alt="Project 2 Thumbnail">
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-item">
+                <div class="project-details">
+                    <h2 class="project-title">Project Name 3</h2>
+                    <p class="project-description">
+                        A brief description of the project goes here. This could include details about its goals, 
+                        tools used, and progress made so far.
+                    </p>
+                </div>
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/200" alt="Project 3 Thumbnail">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="https://github.com/v-tw0" target="_blank">
+            <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
+        </a>
+        <a href="https://www.youtube.com/@Veetwo_" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+        </a>
+        <a href="https://x.com/Veetwo__" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/veetwo__/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+        </a>
+        <a href="https://veetwomusic.carrd.co/" target="_blank">
+            <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
+        </a>
+    </div>
+</body>
+</html>
