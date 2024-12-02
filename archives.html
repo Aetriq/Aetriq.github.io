@@ -23,15 +23,71 @@
             min-height: 100vh;
         }
         .navbar {
-            background-color: #1e1e1e; /* Darker grey for the nav bar */
+            background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background for contrast */
             padding: 1em;
-            text-align: center;
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Vertically center items */
+            justify-content: space-between; /* Space out items: left image and right links */
+            position: relative;
+            z-index: 1; /* Ensure it appears above the background */
+        }
+        
+        /* Adjust dropdown position inside the navbar */
+        .dropdown {
+            margin-left: 1em; /* Add spacing to the left of the dropdown if needed */
+        }
+        
+        /* Dropdown container inherits navbar flex alignment */
+        .navbar .dropdown {
+            position: relative; /* Ensure the dropdown aligns within the navbar */
+        }
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; /* Place the menu directly below the image */
+            left: 0; /* Align with the left of the image */
+            background-color: rgba(30, 30, 30, 0.9); /* Dark background */
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 2; /* Ensure it appears above other elements */
+            text-align: left;
+            border-radius: 5px;
+        }
+        
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1em;
+        }
+        
+        /* Add hover effect to links */
+        .dropdown-content a:hover {
+            background-color: rgba(50, 50, 50, 1);
+        }
+        
+        /* Show the dropdown content on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Crop to a circle */
         }
         .navbar a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
+        }
+        .navbar .links {
+            margin-left: auto;
+            text-align: right; /* Right-align the links */
         }
         .content {
             text-align: center;
