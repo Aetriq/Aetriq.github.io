@@ -22,85 +22,111 @@
             justify-content: space-between;
             min-height: 100vh;
         }
-
         .navbar {
-            background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background for contrast */
+            background-color: #1e1e1e; /* Darker grey for the nav bar */
             padding: 1em;
-            display: flex; /* Use flexbox for alignment */
-            align-items: center; /* Vertically center items */
-            justify-content: space-between; /* Space out items: left image and right links */
-            position: relative;
-            z-index: 1; /* Ensure it appears above the background */
+            text-align: center;
         }
-
-        /* Dropdown container inherits navbar flex alignment */
-        .dropdown {
-            position: relative; /* Ensure the dropdown aligns within the navbar */
-        }
-
-        /* Dropdown content (hidden by default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%; /* Place the menu directly below the image */
-            left: 0; /* Align with the left of the image */
-            background-color: rgba(30, 30, 30, 0.9); /* Dark background */
-            min-width: 150px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Ensure it appears above other elements */
-            text-align: left;
-            border-radius: 5px;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            font-size: 1em;
-        }
-
-        /* Add hover effect to links */
-        .dropdown-content a:hover {
-            background-color: rgba(50, 50, 50, 1);
-        }
-
-        /* Show the dropdown content on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .navbar img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%; /* Crop to a circle */
-        }
-
         .navbar a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
         }
-
-        .navbar .links {
-            margin-left: auto;
-            text-align: right; /* Right-align the links */
-        }
-
         .content {
             text-align: center;
             margin-top: auto;
             padding: 2em;
         }
-
         .content h1 {
             font-size: 3em;
         }
-
         .content p {
             font-size: 1.2em;
+        }
+        .repo-list {
+            margin-top: 2em;
+        }
+        .repo-item {
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            width: 66%; /* 2/3 of the page width */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .repo-title {
+            font-size: 1.8em;
+            margin-bottom: 0.2em;
+            color: #306998; /* Link blue color */
+            display: flex;
+            align-items: center;
+        }
+        .repo-title:hover {
+            text-decoration: underline;
+        }
+        .repo-description {
+            font-size: 1.2em;
+            color: #aaaaaa;
+            margin-bottom: 1em;
+        }
+        .language-label {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        .language-bar {
+            display: flex; /* Ensures spans are laid out in a row */
+            height: 20px; /* Set a visible height for the bar */
+            width: 25%; /* Make sure the bar takes the intended width */
+            border-radius: 5px; /* Optional: make the bar corners rounded */
+            overflow: hidden; /* Ensures content doesn’t spill outside the bar */
+        }
+        
+        .language-bar span {
+            display: inline-block; /* Ensures spans are properly displayed */
+            height: 100%; /* Makes spans take the full height of the bar */
+        }
+
+        .language-bar .python {
+            width: 100%;
+            background-color: #306998; /* Python Blue */
+        }
+        .language-bar .java {
+            width: 100%;
+            background-color: #b07219; /* Java Brown */
+        }
+        .language-bar .kotlin {
+            width: 100%;
+            background-color: #d087fa; 
+        }
+        .language-bar .xml {
+            width: 100%;
+            background-color: #0060ac; 
+        }
+        .compiler-icon {
+            margin-left: 10px;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        /* Specific scaling for each icon */
+        .compiler-icon.eclipse {
+            transform: scale(1.2, 1); /* Eclipse IDE stretched vertically by 1.15 */
+        }
+
+        .compiler-icon.colabs {
+            transform: scale(1.40, 1); /* Colabs icon stretched vertically by 1.40 */
+        }
+
+        .compiler-icon.sublime {
+            transform: scale(1, 1); /* Sublime Text remains unchanged */
+        }
+
+        .compiler-icon:hover {
+            opacity: 0.8;
         }
 
         .footer {
@@ -108,11 +134,9 @@
             padding: 1em 0;
             margin-top: auto;
         }
-
         .footer a {
             margin: 0 0.5em;
         }
-
         .footer img {
             width: 30px;
             height: 30px;
@@ -123,27 +147,10 @@
 <body>
     <!-- Navigation Bar -->
     <div class="navbar">
-        <!-- Left Dropdown Icon -->
-        <div class="dropdown">
-            <img src="https://yt3.googleusercontent.com/AgMBzaoMPFQaNE9s8sc4ZNR4c0jh3mMp9tR_0bIPqRJZfHbvBxgvDgqSncmbQkPlocfELnpq=s160-c-k-c0x00ffffff-no-rj" 
-                 alt="Logo" 
-                 width="50" 
-                 height="50" 
-                 style="border-radius: 50%;">
-            <div class="dropdown-content">
-                <a href="index.html">Home</a>
-                <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
-                <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
-            </div>
-        </div>
-
-        <!-- Navigation Links -->
-        <div class="links">
-            <a href="index.html">Home</a>
-            <a href="archives.html">Archives</a>
-            <a href="projects.html">Some Projects</a>
-            <a href="https://linktr.ee/veetwo">Linktree</a>
-        </div>
+        <a href="index.html">Home</a>
+        <a href="archives.html">Archives</a>
+        <a href="projects.html">Some Projects</a>
+        <a href="https://linktr.ee/veetwo">Linktree</a>
     </div>
 
     <!-- Main Content -->
