@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Archives</title>
     <style>
-
-            /* Global styles for all images to ensure they don't expand unnecessarily */
-            img {
-                max-width: 100%; /* Prevents images from exceeding their container */
-                height: auto;    /* Maintains aspect ratio */
-            }
         @font-face {
             font-family: 'Latin Modern Roman';
             src: url('lmroman-regular-webfont.woff') format('woff');
@@ -28,31 +22,38 @@
             justify-content: space-between;
             min-height: 100vh;
         }
+
         .navbar {
             background-color: #1e1e1e; /* Darker grey for the nav bar */
             padding: 1em;
             text-align: center;
         }
+
         .navbar a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
         }
+
         .content {
             text-align: center;
             margin-top: auto;
             padding: 2em;
         }
+
         .content h1 {
             font-size: 3em;
         }
+
         .content p {
             font-size: 1.2em;
         }
+
         .repo-list {
             margin-top: 2em;
         }
+
         .repo-item {
             margin: 2em auto;
             padding: 1em;
@@ -62,6 +63,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             text-align: left;
         }
+
         .repo-title {
             font-size: 1.8em;
             margin-bottom: 0.2em;
@@ -69,61 +71,76 @@
             display: flex;
             align-items: center;
         }
+
         .repo-title:hover {
             text-decoration: underline;
         }
+
         .repo-description {
             font-size: 1.2em;
             color: #aaaaaa;
             margin-bottom: 1em;
         }
+
         .language-label {
             font-size: 1em;
             font-weight: bold;
             margin-bottom: 0.5em;
         }
+
         .language-bar {
-            display: flex; /* Ensures spans are laid out in a row */
-            height: 20px; /* Set a visible height for the bar */
-            width: 25%; /* Make sure the bar takes the intended width */
-            border-radius: 5px; /* Optional: make the bar corners rounded */
-            overflow: hidden; /* Ensures content doesn’t spill outside the bar */
+            display: flex;
+            height: 20px;
+            width: 25%;
+            border-radius: 5px;
+            overflow: hidden;
         }
-        
+
         .language-bar span {
-            display: inline-block; /* Ensures spans are properly displayed */
-            height: 100%; /* Makes spans take the full height of the bar */
+            display: inline-block;
+            height: 100%;
         }
 
         .language-bar .python {
             width: 100%;
-            background-color: #306998; /* Python Blue */
+            background-color: #306998;
         }
+
         .language-bar .java {
             width: 100%;
-            background-color: #b07219; /* Java Brown */
+            background-color: #b07219;
         }
+
         .language-bar .kotlin {
             width: 100%;
-            background-color: #d087fa; 
+            background-color: #d087fa;
         }
+
         .language-bar .xml {
             width: 100%;
-            background-color: #0060ac; 
+            background-color: #0060ac;
         }
+
         .language-bar .cpp {
             width: 100%;
-            background-color: #f34b7d; 
-        ]
+            background-color: #f34b7d;
+        }
+
         .language-bar .matlab {
             width: 100%;
-            background-color: #bb92ac; 
-        ]
+            background-color: #bb92ac;
+        }
+
         .language-bar .assembly {
             width: 100%;
-            background-color: #6E4C13; 
-        ]
-        
+            background-color: #6E4C13;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         .compiler-icon {
             margin-left: 10px;
             width: 24px;
@@ -131,17 +148,16 @@
             vertical-align: middle;
         }
 
-        /* Specific scaling for each icon */
         .compiler-icon.eclipse {
-            transform: scale(1.2, 1); /* Eclipse IDE stretched vertically by 1.15 */
+            transform: scale(1.2, 1);
         }
 
         .compiler-icon.colabs {
-            transform: scale(1.40, 1); /* Colabs icon stretched vertically by 1.40 */
+            transform: scale(1.4, 1);
         }
 
         .compiler-icon.sublime {
-            transform: scale(1, 1); /* Sublime Text remains unchanged */
+            transform: scale(1, 1);
         }
 
         .compiler-icon:hover {
@@ -153,9 +169,11 @@
             padding: 1em 0;
             margin-top: auto;
         }
+
         .footer a {
             margin: 0 0.5em;
         }
+
         .footer img {
             width: 30px;
             height: 30px;
@@ -164,7 +182,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="projects.html">Current Projects</a>
@@ -173,7 +190,6 @@
         <a href="https://linktr.ee/veetwo">Linktree</a>
     </div>
 
-    <!-- Main Content -->
     <div class="content">
         <h1>Programming Archives</h1>
         <p>List of links to repos of programming I've done circa ~2019.</p>
@@ -379,17 +395,9 @@
                 </div>
             </div>
 
-            
-           
-            
-
-           
-           
-            
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
         <a href="https://github.com/v-tw0" target="_blank">
             <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
