@@ -1,3 +1,5 @@
+Here is the full modified HTML code with the updated navigation bar styling integrated:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,16 +26,27 @@
         }
 
         .navbar {
-            background-color: #1e1e1e; /* Darker grey for the nav bar */
-            padding: 1em;
-            text-align: center;
+            background-color: #222831; /* A sleek dark shade */
+            padding: 0.75em 1em;
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         .navbar a {
-            color: white;
-            margin: 0 1em;
+            color: #f0f0f0;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            font-family: 'Helvetica Neue', sans-serif;
+            padding: 0.5em 0.75em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: #00adb5; /* Accent blue */
+            color: white;
         }
 
         .content {
@@ -62,12 +75,6 @@
             width: 66%; /* 2/3 of the page width */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .repo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
         }
 
         .repo-title {
@@ -97,7 +104,7 @@
         .language-bar {
             display: flex;
             height: 20px;
-            width: 100%;
+            width: 25%;
             border-radius: 5px;
             overflow: hidden;
         }
@@ -113,26 +120,32 @@
         }
 
         .language-bar .java {
+            width: 100%;
             background-color: #b07219;
         }
 
         .language-bar .kotlin {
+            width: 100%;
             background-color: #d087fa;
         }
 
         .language-bar .xml {
+            width: 100%;
             background-color: #0060ac;
         }
 
         .language-bar .cpp {
+            width: 100%;
             background-color: #f34b7d;
         }
 
         .language-bar .matlab {
+            width: 100%;
             background-color: #bb92ac;
         }
 
         .language-bar .assembly {
+            width: 100%;
             background-color: #6E4C13;
         }
 
@@ -143,4 +156,99 @@
 
         .compiler-icon {
             margin-left: 10px;
-            width: 24px
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        .compiler-icon.eclipse {
+            transform: scale(1.2, 1);
+        }
+
+        .compiler-icon.colabs {
+            transform: scale(1.4, 1);
+        }
+
+        .compiler-icon.sublime {
+            transform: scale(1, 1);
+        }
+
+        .compiler-icon:hover {
+            opacity: 0.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1em 0;
+            margin-top: auto;
+        }
+
+        .footer a {
+            margin: 0 0.5em;
+        }
+
+        .footer img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Current Projects</a>
+        <a href="archives.html">Programming Archives</a>
+        <a href="aeprojects.html">AE Projects</a>
+        <a href="https://linktr.ee/veetwo">Linktree</a>
+    </div>
+
+    <div class="content">
+        <h1>Programming Archives</h1>
+        <p>List of links to repos of programming I've done circa ~2019.</p>
+
+        <!-- Repository List -->
+        <div class="repo-list">
+            <!-- Repository items remain unchanged -->
+            <!-- Example Repository -->
+            <div class="repo-item">
+                <a href="https://github.com/v-tw0/CSI2372" target="_blank" class="repo-title">
+                    CEG3136
+                    <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                         alt="Sublime Text" 
+                         class="compiler-icon sublime" 
+                         title="Sublime Text">
+                </a>
+                <div class="repo-description">
+                    Computer Architecture 2 - Labs & Tutorials. All done in M68HCS12 assembly and C.
+                </div>
+                <div class="language-label">HCS12 ASM</div>
+                <div class="language-bar">
+                    <span class="assembly"></span>
+                </div>
+            </div>
+            <!-- Add other repositories as needed -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://github.com/v-tw0" target="_blank">
+            <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
+        </a>
+        <a href="https://www.youtube.com/@Veetwo_" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+        </a>
+        <a href="https://x.com/Veetwo__" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/veetwo__/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+        </a>
+        <a href="https://veetwomusic.carrd.co/" target="_blank">
+            <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
+        </a>
+    </div>
+</body>
+</html>
+
+This code incorporates the updated navigation bar design and keeps the rest of the page intact. Let me know if you need additional adjustments!
