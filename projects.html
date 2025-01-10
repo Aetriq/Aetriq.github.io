@@ -23,13 +23,56 @@
             min-height: 100vh;
         }
 
+        /* Navbar */
         .navbar {
-            background-color: #1e1e1e; /* Darker grey for the nav bar */
+            background-color: rgba(30, 30, 30, 0.8);
             padding: 1em;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
         }
+
+        .navbar img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .navbar .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(30, 30, 30, 0.9);
+            min-width: 300px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(50, 50, 50, 1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .navbar a {
             color: white;
             margin: 0 1em;
@@ -37,6 +80,12 @@
             font-size: 1.2em;
         }
 
+        .navbar .links {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        /* Content */
         .content {
             text-align: center;
             margin-top: auto;
@@ -47,6 +96,7 @@
             font-size: 3em;
             text-shadow: 2px 2px 0 black; /* Drop shadow with no blur */
         }
+
         .content p {
             font-size: 1.2em;
             margin-bottom: 2em;
@@ -93,6 +143,7 @@
             object-fit: cover;
         }
 
+        /* Footer */
         .footer {
             text-align: center;
             padding: 1em 0;
@@ -113,17 +164,29 @@
 <body>
     <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Current Projects</a>
-        <a href="archives.html">Programming Archives</a>
-        <a href="aeprojects.html">AE Projects</a>
-        <a href="https://linktr.ee/veetwo">Linktree</a>
+        <div class="dropdown">
+            <img src="https://yt3.googleusercontent.com/AgMBzaoMPFQaNE9s8sc4ZNR4c0jh3mMp9tR_0bIPqRJZfHbvBxgvDgqSncmbQkPlocfELnpq=s160-c-k-c0x00ffffff-no-rj" 
+                 alt="Logo">
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
+                <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
+                <a href="mailto:v21640@gmail.com">Contact</a>
+            </div>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Current Projects</a>
+            <a href="archives.html">Programming Archives</a>
+            <a href="aeprojects.html">AE Projects</a>
+            <a href="https://linktr.ee/veetwo">Linktree</a>
+        </div>
     </div>
 
     <!-- Main Content -->
     <div class="content">
         <h1>Current Projects</h1>
-        <p>Various projects i'm currently working on.</p>
+        <p>Various projects I'm currently working on.</p>
 
         <!-- Project List -->
         <div class="project-list">
@@ -132,7 +195,7 @@
                 <div class="project-details">
                     <h2 class="project-title">SignalSculpt (PROTOTYPE - DEMO IN THE WORKS)</h2>
                     <p class="project-description">
-                        Audio reacting engine for after effects. React any waveform freqeuncy with a layer property in one click. Designed to be EXTREMELY fast and efficient for real-time processing and preview.
+                        Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click. Designed to be EXTREMELY fast and efficient for real-time processing and preview.
                     </p>
                 </div>
                 <div class="project-thumbnail">
@@ -143,9 +206,9 @@
             <!-- Project 2 -->
             <div class="project-item">
                 <div class="project-details">
-                    <h2 class="project-title">UART - Universial Asynchrnous Reciever Transmitter (PRIVATE)</h2>
+                    <h2 class="project-title">UART - Universal Asynchronous Receiver Transmitter (PRIVATE)</h2>
                     <p class="project-description">
-                       Designed entirely only using RTL-based VHDL & designed for the MAX232 chip on the DE2-115. User selectable baudrate for easy serial communication. Designed specifically for a related traffic light controller, but can be connected to any circuit using an 8-bit wide data bus.
+                       Designed entirely using RTL-based VHDL & designed for the MAX232 chip on the DE2-115. User-selectable baud rate for easy serial communication. Designed specifically for a related traffic light controller but can be connected to any circuit using an 8-bit wide data bus.
                     </p>
                 </div>
                 <div class="project-thumbnail">
