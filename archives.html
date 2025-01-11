@@ -4,7 +4,7 @@
     <link rel="shortcut icon" type="image/png" href="https://avatars.githubusercontent.com/u/93527958?v=4">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updated Page</title>
+    <title>Programming Archives</title>
     <style>
         @font-face {
             font-family: 'Helvetica Neue';
@@ -56,6 +56,12 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
+        }
+        .compiler-icon {
+            width: 24px; /* Set the desired width */
+            height: auto; /* Maintain aspect ratio */
+            margin-left: 8px; /* Optional: Add spacing between icons */
+            vertical-align: middle; /* Align icons nicely with text */
         }
 
         .dropdown {
@@ -118,6 +124,38 @@
         .content p {
             font-size: 1.5em;
             text-shadow: 2px 2px 0 black;
+        }
+
+        .repo-list {
+            margin-top: 2em;
+        }
+
+        .repo-item {
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            width: 66%; /* 2/3 of the page width */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        .repo-title {
+            font-size: 1.8em;
+            margin-bottom: 0.2em;
+            color: #306998; /* Link blue color */
+            display: flex;
+            align-items: center;
+        }
+
+        .repo-title:hover {
+            text-decoration: underline;
+        }
+
+        .repo-description {
+            font-size: 1.2em;
+            color: #aaaaaa;
+            margin-bottom: 1em;
         }
 
         .footer {
