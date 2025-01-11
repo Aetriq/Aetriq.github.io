@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" type="image/png" href="https://avatars.githubusercontent.com/u/93527958?v=4">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphic Design Projects</title>
+    <title>Updated Page</title>
     <style>
         @font-face {
             font-family: 'Helvetica Neue';
@@ -14,7 +15,7 @@
 
         body {
             font-family: 'Helvetica Neue', serif;
-            background-color: #121212; /* Very dark grey */
+            background-color: #121212;
             color: white;
             margin: 0;
             display: flex;
@@ -23,51 +24,111 @@
             min-height: 100vh;
         }
 
-        /* Navigation Bar */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #121212; /* Matches page background */
-            padding: 1em 0;
-            border-bottom: 1px solid #1e1e1e; /* Subtle border for separation */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 110%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://holdplease.com/wp-content/uploads/2016/08/black-grey-gradient-background-for-web.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: calc(50% - 80px) center;
+            filter: blur(8px);
+            z-index: -1;
         }
+
+        .navbar {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            box-shadow: none;
+        }
+
+        .navbar img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .dropdown {
+            margin-left: 1em;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(30, 30, 30, 0.9);
+            min-width: 300px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(50, 50, 50, 1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .links {
+            margin-left: auto;
+            text-align: right;
+        }
+
         .navbar a {
             color: white;
-            margin: 0 1.5em;
+            margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .navbar a:hover {
-            color: #00acee; /* Light blue hover effect */
-        }
-        .navbar a.active {
-            font-weight: bold;
-            text-decoration: underline;
         }
 
         .content {
             text-align: center;
-            margin-top: auto;
+            margin: auto;
             padding: 2em;
         }
+
         .content h1 {
             font-size: 3em;
-        }
-        .content p {
-            font-size: 1.2em;
+            text-shadow: 2px 2px 0 black;
         }
 
-        /* Footer Section */
+        .content p {
+            font-size: 1.5em;
+            text-shadow: 2px 2px 0 black;
+        }
+
         .footer {
             text-align: center;
             padding: 1em 0;
-            margin-top: auto;
         }
+
         .footer a {
             margin: 0 0.5em;
         }
+
         .footer img {
             width: 30px;
             height: 30px;
@@ -75,14 +136,25 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Current Projects</a>
-        <a href="archives.html">Programming Archives</a>
-        <a href="aeprojects.html">AE Projects</a>
-        <a href="#" class="active">Graphic Design Projects</a>
-        <a href="https://linktr.ee/veetwo">Linktree</a>
+        <div class="dropdown">
+            <img src="https://yt3.googleusercontent.com/AgMBzaoMPFQaNE9s8sc4ZNR4c0jh3mMp9tR_0bIPqRJZfHbvBxgvDgqSncmbQkPlocfELnpq=s160-c-k-c0x00ffffff-no-rj" 
+                 alt="Logo" 
+                 style="border-radius: 50%;">
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
+                <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
+                <a href="mailto:v21640@gmail.com">Contact</a>
+            </div>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Current Projects</a>
+            <a href="archives.html">Programming Archives</a>
+            <a href="aeprojects.html">AE Projects</a>
+            <a href="https://linktr.ee/veetwo">Linktree</a>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -298,7 +370,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
         <a href="https://github.com/v-tw0" target="_blank">
             <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
