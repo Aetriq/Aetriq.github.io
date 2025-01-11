@@ -26,12 +26,19 @@
             background-color: #1e1e1e; /* Darker grey for the nav bar */
             padding: 1em;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .navbar a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #f39c12; /* Highlight color */
         }
         .content {
             text-align: center;
@@ -52,7 +59,7 @@
             padding: 1em;
             background-color: #1e1e1e;
             border-radius: 8px;
-            width: 66%; /* 2/3 of the page width */
+            width: 66%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
@@ -63,11 +70,11 @@
             object-fit: cover;
             margin-right: 1em;
             border-radius: 4px;
-            flex-shrink: 0; /* Prevents resizing of the thumbnail */
+            flex-shrink: 0;
         }
         .video-details {
             text-align: left;
-            flex-grow: 1; /* Ensures details take the remaining space */
+            flex-grow: 1;
         }
         .video-title {
             font-size: 1.8em;
@@ -76,9 +83,10 @@
             font-style: italic;
             color: white;
             text-decoration: none;
+            transition: color 0.3s;
         }
         .video-title:hover {
-            text-decoration: underline;
+            color: #f39c12;
         }
         .video-description {
             font-size: 1.2em;
@@ -89,6 +97,7 @@
             text-align: center;
             padding: 1em 0;
             margin-top: auto;
+            background-color: #1e1e1e;
         }
         .footer a {
             margin: 0 0.5em;
@@ -96,6 +105,10 @@
         .footer img {
             width: 30px;
             height: 30px;
+            transition: opacity 0.3s;
+        }
+        .footer img:hover {
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -318,7 +331,6 @@
                     <div class="video-description">4/27/16<br></div>
                 </div>
             </div>
-            
             
         </div>
     </div>
