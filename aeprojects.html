@@ -22,24 +22,31 @@
             justify-content: space-between;
             min-height: 100vh;
         }
+
+        /* Navigation Bar */
         .navbar {
-            background-color: #1e1e1e; /* Darker grey for the nav bar */
-            padding: 1em;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            background-color: #121212; /* Matches page background */
+            padding: 1em 0;
+            border-bottom: 1px solid #1e1e1e; /* Subtle border for separation */
         }
         .navbar a {
             color: white;
-            margin: 0 1em;
+            margin: 0 1.5em;
             text-decoration: none;
             font-size: 1.2em;
-            transition: color 0.3s;
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
         .navbar a:hover {
-            color: #f39c12; /* Highlight color */
+            color: #00acee; /* Light blue hover effect */
         }
+        .navbar a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
         .content {
             text-align: center;
             margin-top: auto;
@@ -51,53 +58,12 @@
         .content p {
             font-size: 1.2em;
         }
-        .video-list {
-            margin-top: 2em;
-        }
-        .video-item {
-            margin: 2em auto;
-            padding: 1em;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            width: 66%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-        }
-        .video-thumbnail {
-            width: 427px;
-            height: 240px;
-            object-fit: cover;
-            margin-right: 1em;
-            border-radius: 4px;
-            flex-shrink: 0;
-        }
-        .video-details {
-            text-align: left;
-            flex-grow: 1;
-        }
-        .video-title {
-            font-size: 1.8em;
-            margin-bottom: 0.2em;
-            font-weight: bold;
-            font-style: italic;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .video-title:hover {
-            color: #f39c12;
-        }
-        .video-description {
-            font-size: 1.2em;
-            color: #aaaaaa;
-            margin-top: 0.5em;
-        }
+
+        /* Footer Section */
         .footer {
             text-align: center;
             padding: 1em 0;
             margin-top: auto;
-            background-color: #1e1e1e;
         }
         .footer a {
             margin: 0 0.5em;
@@ -105,10 +71,6 @@
         .footer img {
             width: 30px;
             height: 30px;
-            transition: opacity 0.3s;
-        }
-        .footer img:hover {
-            opacity: 0.7;
         }
     </style>
 </head>
@@ -119,6 +81,7 @@
         <a href="projects.html">Current Projects</a>
         <a href="archives.html">Programming Archives</a>
         <a href="aeprojects.html">AE Projects</a>
+        <a href="#" class="active">Graphic Design Projects</a>
         <a href="https://linktr.ee/veetwo">Linktree</a>
     </div>
 
