@@ -23,6 +23,24 @@
             min-height: 100vh;
         }
 
+        body::before {
+            content: "";
+            position: fixed; /* Change from absolute to fixed */
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 110%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://indieground.net/wp-content/uploads/2023/03/Freebie-GradientTextures-Preview-02.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: calc(50% - 80px) center;
+            background-attachment: scroll; /* Ensure it moves with the content */
+            filter: blur(8px);
+            z-index: -1;
+        }
+
         /* Navbar */
         .navbar {
             background-color: rgba(30, 30, 30, 0.8);
@@ -153,6 +171,13 @@
         .footer a {
             margin: 0 0.5em;
         }
+        .footer-text {
+            margin-top: 1em; /* Add spacing from the logos */
+            font-size: 1em; /* Adjust font size */
+            color: #aaaaaa; /* Light gray for subtlety */
+            text-align: center; /* Center-align the text */
+            line-height: 1.5; /* Adjust line height for readability */
+        }
 
         .footer img {
             width: 30px;
@@ -193,9 +218,13 @@
             <!-- Project 1 -->
             <div class="project-item">
                 <div class="project-details">
-                    <h2 class="project-title">SignalSculpt (PROTOTYPE - DEMO IN THE WORKS)</h2>
+                    <h2 class="project-title">SignalSculpt</h2>
                     <p class="project-description">
-                        Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click. Designed to be EXTREMELY fast and efficient for real-time processing and preview.
+                        Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click. Fourier-Based and designed to be EXTREMELY fast and efficient for real-time processing and preview.
+                    </p>
+                    <p class="subdescription"></p>
+                        Current Status: PROTOTYPE IN THE WORKS
+                        <br> Last Updated 1.24.25
                     </p>
                 </div>
                 <div class="project-thumbnail">
@@ -206,26 +235,34 @@
             <!-- Project 2 -->
             <div class="project-item">
                 <div class="project-details">
-                    <h2 class="project-title">UART - Universal Asynchronous Receiver Transmitter (PRIVATE)</h2>
+                    <h2 class="project-title">Universal Asynchronous Receiver Transmitter (UART)</h2>
                     <p class="project-description">
-                       Designed entirely using RTL-based VHDL & designed for the MAX232 chip on the DE2-115. User-selectable baud rate for easy serial communication. Designed specifically for a related traffic light controller but can be connected to any circuit using an 8-bit wide data bus.
+                       Designed entirely using RTL-based VHDL & designed for the MAX232 chip on the DE2-115. Dynamic baud rate for easy serial communication. Designed specifically for a related traffic light controller but can be connected to any circuit using an 8-bit wide data bus.
+                    </p>
+                    <p class="subdescription"></p>
+                        Current Status: COMPLETE
+                        <br> Last Updated 12.3.24
                     </p>
                 </div>
                 <div class="project-thumbnail">
-                    <img src="https://tienda.ityt.com.ar/12622-thickbox_default/max232n-max232-dip-rs232-ttl-driver-original-itytarg.jpg">
+                    <img src="https://github.com/v-tw0/v-tw0.github.io/blob/main/img/uart.png?raw=true">
                 </div>
             </div>
 
             <!-- Project 3 -->
             <div class="project-item">
                 <div class="project-details">
-                    <h2 class="project-title">---</h2>
+                    <h2 class="project-title">GCC Cycling App</h2>
                     <p class="project-description">
-                        ---.
+                        Kotlin-based app that supports administrators (event management), cycling clubs (event creation), and participants (event registration). Built in Java with Android Studio.
+                    </p>
+                    <p class="subdescription"></p>
+                        Current Status: COMPLETE
+                        <br> Last Updated 12.7.23
                     </p>
                 </div>
                 <div class="project-thumbnail">
-                    <img src="https://via.placeholder.com/200" alt="Project 3 Thumbnail">
+                    <img src="https://github.com/v-tw0/v-tw0.github.io/blob/main/img/gcc.png?raw=true" alt="Project 3 Thumbnail">
                 </div>
             </div>
         </div>
@@ -248,6 +285,11 @@
         <a href="https://veetwomusic.carrd.co/" target="_blank">
             <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
         </a>
+
+        <p class="footer-text">© 2025 Veetwo. All rights reserved. <br> 
+            Work licensed under the CC BY-SA 4.0 license. <br>
+            Website last updated: 1.24.25</p>
+
     </div>
 </body>
 </html>
