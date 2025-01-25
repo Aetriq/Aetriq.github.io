@@ -22,7 +22,7 @@
 
         body::before {
             content: "";
-            position: fixed; /* Change from absolute to fixed */
+            position: fixed;
             top: 0;
             left: 0;
             width: 110%;
@@ -33,7 +33,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: calc(50% - 80px) center;
-            background-attachment: scroll; /* Ensure it moves with the content */
+            background-attachment: scroll;
             filter: blur(8px);
             z-index: -1;
         }
@@ -115,41 +115,30 @@
         }
 
         .video-list {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5em;
         }
 
-        .video-thumbnail {
-            width: 480px; /* Width of the image */
-            height: 270px; /* Height for 16:9 aspect ratio (320 * 9/16) */
-            border-radius: 5px;
-            object-fit: cover; /* Ensures proper scaling */
-            flex-shrink: 0;
-        }
-
-        
-        .video-details {
-            flex: 1;
-            margin-right: 1.5em; /* Adds space between text and image */
-            padding-left: 10px; /* Extra padding on the left for better alignment */
-        }
-        
         .video-item {
             background-color: #1e1e1e;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5em;
             border-radius: 10px;
+            padding: 1em;
+            text-align: center;
         }
 
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+        }
 
         .video-title {
             font-size: 1.3em;
             color: #f1f1f1;
             text-decoration: none;
-            margin-bottom: 0.5em;
+            margin: 1em 0 0.5em 0;
             display: block;
         }
 
@@ -165,12 +154,13 @@
         .footer a {
             margin: 0 0.5em;
         }
+
         .footer-text {
-            margin-top: 1em; /* Add spacing from the logos */
-            font-size: 1em; /* Adjust font size */
-            color: #aaaaaa; /* Light gray for subtlety */
-            text-align: center; /* Center-align the text */
-            line-height: 1.5; /* Adjust line height for readability */
+            margin-top: 1em;
+            font-size: 1em;
+            color: #aaaaaa;
+            text-align: center;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -257,7 +247,7 @@
                 <img class="video-thumbnail" src="https://img.youtube.com/vi/HpL1dqX7VfI/hqdefault.jpg" alt="Video Thumbnail">
                 <div class="video-details">
                     <a href="https://www.youtube.com/watch?v=HpL1dqX7VfI" target="_blank" class="video-title">NUEKI x TOLCHONOV x glichery - TIRED OF PROBLEMS // REMASTERED</a>
-                    <div class="video-description">11/20/23<br>>Same as previous visual-wise; instead, the primary focus was on the mastering of tracks. Audacity & Bandlab were the starting point.</div>
+                    <div class="video-description">11/20/23<br>Same as previous visual-wise; instead, the primary focus was on the mastering of tracks. Audacity & Bandlab were the starting point.</div>
                 </div>
             </div>
 
