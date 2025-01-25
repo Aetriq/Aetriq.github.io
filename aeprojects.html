@@ -22,7 +22,7 @@
 
         body::before {
             content: "";
-            position: fixed;
+            position: fixed; /* Change from absolute to fixed */
             top: 0;
             left: 0;
             width: 110%;
@@ -33,7 +33,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: calc(50% - 80px) center;
-            background-attachment: scroll;
+            background-attachment: scroll; /* Ensure it moves with the content */
             filter: blur(8px);
             z-index: -1;
         }
@@ -115,30 +115,41 @@
         }
 
         .video-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 1.5em;
         }
 
-        .video-item {
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            padding: 1em;
-            text-align: center;
+        .video-thumbnail {
+            width: 480px; /* Width of the image */
+            height: 270px; /* Height for 16:9 aspect ratio (320 * 9/16) */
+            border-radius: 5px;
+            object-fit: cover; /* Ensures proper scaling */
+            flex-shrink: 0;
         }
 
-        .video-thumbnail {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            object-fit: cover;
+        
+        .video-details {
+            flex: 1;
+            margin-right: 1.5em; /* Adds space between text and image */
+            padding-left: 10px; /* Extra padding on the left for better alignment */
         }
+        
+        .video-item {
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5em;
+            border-radius: 10px;
+        }
+
 
         .video-title {
             font-size: 1.3em;
             color: #f1f1f1;
             text-decoration: none;
-            margin: 1em 0 0.5em 0;
+            margin-bottom: 0.5em;
             display: block;
         }
 
@@ -151,16 +162,26 @@
             color: #cccccc;
         }
 
+        .footer {
+            text-align: center;
+            padding: 1em 0;
+        }
+
         .footer a {
             margin: 0 0.5em;
         }
 
+        .footer img {
+            width: 30px;
+            height: 30px;
+        }
+
         .footer-text {
-            margin-top: 1em;
-            font-size: 1em;
-            color: #aaaaaa;
-            text-align: center;
-            line-height: 1.5;
+            margin-top: 1em; /* Add spacing from the logos */
+            font-size: 1em; /* Adjust font size */
+            color: #aaaaaa; /* Light gray for subtlety */
+            text-align: center; /* Center-align the text */
+            line-height: 1.5; /* Adjust line height for readability */
         }
     </style>
 </head>
@@ -247,7 +268,7 @@
                 <img class="video-thumbnail" src="https://img.youtube.com/vi/HpL1dqX7VfI/hqdefault.jpg" alt="Video Thumbnail">
                 <div class="video-details">
                     <a href="https://www.youtube.com/watch?v=HpL1dqX7VfI" target="_blank" class="video-title">NUEKI x TOLCHONOV x glichery - TIRED OF PROBLEMS // REMASTERED</a>
-                    <div class="video-description">11/20/23<br>Same as previous visual-wise; instead, the primary focus was on the mastering of tracks. Audacity & Bandlab were the starting point.</div>
+                    <div class="video-description">11/20/23<br>>Same as previous visual-wise; instead, the primary focus was on the mastering of tracks. Audacity & Bandlab were the starting point.</div>
                 </div>
             </div>
 
@@ -394,14 +415,16 @@
                     <div class="video-description">4/27/16<br></div>
                 </div>
             </div>
-
-            
-
-            <p class="footer-text">© 2025 Veetwo. All rights reserved. <br> 
-                Work licensed under the CC BY-SA 4.0 license. <br>
-                Website last updated: 1.24.25</p>
-            
         </div>
+        
+    </div>
+
+    <div class="footer"></div>
+
+
+        <p class="footer-text">© 2025 Veetwo. All rights reserved. <br> 
+            Work licensed under the CC BY-SA 4.0 license. <br>
+            Website last updated: 1.24.25</p>
     </div>
 </body>
 </html>
