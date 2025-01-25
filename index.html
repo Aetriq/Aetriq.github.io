@@ -54,6 +54,8 @@
         
         .dropdown {
             margin-left: 1em;
+            display: flex;
+            align-items: center;
         }
 
         .navbar .dropdown {
@@ -93,6 +95,31 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
+        }
+
+        .status-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 1em;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3em;
+        }
+
+        .status-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: green;
+            margin-right: 0.5em;
+        }
+
+        .status-label {
+            font-size: 0.9em;
+            color: white;
         }
 
         .navbar a {
@@ -172,6 +199,16 @@
                 <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
                 <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
                 <a href="mailto:v21640@gmail.com">Contact</a>
+            </div>
+        </div>
+        <div class="status-container">
+            <div class="status">
+                <div class="status-circle"></div>
+                <span class="status-label">CLOUDFLARE SITE ONLINE</span>
+            </div>
+            <div class="status">
+                <div class="status-circle"></div>
+                <span class="status-label">GITHUB SITE ONLINE</span>
             </div>
         </div>
         <div class="links">
