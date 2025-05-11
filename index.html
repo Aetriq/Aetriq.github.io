@@ -14,44 +14,49 @@
         }
 
         body {
-            font-family: 'Frutiger LT Std', serif;
-            background-color: #121212;
+            font-family: 'Frutiger LT Std', sans-serif;
+            background-color: #1e1e1e;
             color: white;
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             min-height: 100vh;
         }
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url(https://github.com/v-tw0/v-tw0.github.io/blob/main/banner%20optimized.gif?raw=true);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: calc(50% - 80px) center;
-            filter: blur(8px);
-            z-index: -1;
+        .fade-in-logo {
+            width: 600px;
+            max-width: 80%;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 0.5s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 200px;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+
         .navbar {
-            background-color: rgba(30, 30, 30, 0.8);
+            background-color: #0d0d0d;
             padding: 1em;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
             z-index: 1;
-            box-shadow: none;
         }
-        
+
         .dropdown {
             margin-left: 1em;
             display: flex;
@@ -137,37 +142,34 @@
         .content {
             text-align: center;
             margin: auto;
-            padding: 2em;
-        }
-
-        .content a img {
-            width: 450px;
-            object-fit: contain;
-            margin-bottom: 1em;
+            padding: 3em 1em;
         }
 
         .content h1 {
-            font-size: 3em;
-            text-shadow: 2px 2px 0 black;
+            font-size: 4em;
+            margin-bottom: 1em;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
         }
 
-        .content p {
-            font-size: 1.5em;
-            text-shadow: 2px 2px 0 black;
+        .bottom-texts {
+            text-align: center;
+            margin-top: 4em;
+            font-size: 1em;
+            color: #bbbbbb;
+            opacity: 0;
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 1s;
         }
 
-        .soundcloud {
-            margin-top: 2em;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 1em;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
+        .bottom-texts p {
+            margin: 0.5em 0;
         }
 
         .footer {
             text-align: center;
             padding: 1em 0;
+            margin-top: auto;
         }
 
         .footer a {
@@ -175,25 +177,34 @@
         }
 
         .footer-text {
-            margin-top: 1em; /* Add spacing from the logos */
-            font-size: 1em; /* Adjust font size */
-            color: #aaaaaa; /* Light gray for subtlety */
-            text-align: center; /* Center-align the text */
-            line-height: 1.5; /* Adjust line height for readability */
+            margin-top: 1em;
+            font-size: 1em;
+            color: #aaaaaa;
+            text-align: center;
+            line-height: 1.5;
         }
 
         .footer img {
             width: 30px;
             height: 30px;
         }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="dropdown">
-            <img src="https://lh3.googleusercontent.com/a/ACg8ocJc4GtMeDdv7mLRePVqyxwSF1vstYAmMAVHcEjYzgSemX39Pio=s288-c-no" 
-                 alt="Logo" 
-                 style="border-radius: 50%;">
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocJc4GtMeDdv7mLRePVqyxwSF1vstYAmMAVHcEjYzgSemX39Pio=s288-c-no" alt="Logo">
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
                 <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
@@ -220,16 +231,19 @@
         </div>
     </div>
 
-    <div class="content">
-        <a href="https://veetwomusic.carrd.co/" target="_blank">
-            <img src="https://github.com/v-tw0/v-tw0.github.io/blob/main/img/logo.png?raw=true" alt="Logo">
-        </a>
+    <div class="logo-container">
+        <img src="https://github.com/v-tw0/v-tw0.github.io/blob/main/img/logo.png?raw=true" alt="Veetwo Logo" class="fade-in-logo">
+    </div>
+    
 
-        <div class="soundcloud">
-            <iframe width="800" height="166" scrolling="no" frameborder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/veetwomusic/wrld-by-design-veetwo-concept-remix&color=%23222222&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-            </iframe>
+    <div class="content">
+        <h1>Welcome to my page.</h1>
+        <div class="bottom-texts">
+            <p>Alex G - BASc Computer Engineering @ uOttawa</p>
+            <br>
+            <br>
+            <p></p>
+            <p>Click a link at the top to get started.</p>
         </div>
     </div>
 
