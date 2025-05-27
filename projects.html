@@ -126,7 +126,6 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            background-color: #1b1b1b;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
             width: 85%;
@@ -134,17 +133,58 @@
             position: relative;
             animation: fadeIn 1s ease-in;
             border-bottom: 1px solid white;
+            overflow: hidden;
+
+            /* Background image will be set via JS using a data-bg attribute */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .project-details {
+        .project-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
+            backdrop-filter: blur(8px);
+            z-index: 0;
+        }
+
+        .project-details,
+        .project-thumbnail {
             text-align: left;
             max-width: 65%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-thumbnail img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
         }
 
         .project-title {
             font-size: 2em;
             color: #62a9ff;
             margin-bottom: 0.5em;
+        }
+
+        .project-title a {
+            color: #ff6262;
+            text-decoration: none;
+            display: inline-block;
+            transform: scale(1); /* baseline scale */
+            transition: transform 0.2s ease-out, color 0.2s ease-out;
+        }
+
+
+        .project-title a:hover {
+            color: #ffffff; /* lighter blue on hover */
+            transform: scale(1.05); /* slight zoom-in */
         }
 
         .project-description {
@@ -204,7 +244,13 @@
             .project-thumbnail img {
                 max-width: 90%;
             }
+
+            .project-details,
+            .project-thumbnail {
+                z-index: 1;
+            }
         }
+
     </style>
 </head>
 <body>
@@ -213,29 +259,29 @@
             <img src="img/goeshard.png" alt="Logo">
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
-                <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
-                <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
+                <a href="https://www.youtube.com/@Veetwo_">Youtube</a>
+                <a href="aeprojects.html">(Legacy) AE Projects</a>
                 <a href="mailto:v21640@gmail.com">Contact</a>
             </div>
         </div>
         <div class="links">
             <a href="index.html">Home</a>
+            <a href="chimera.html">Project Chimera iXY</a>
             <a href="projects.html">Current Projects</a>
             <a href="archives.html">Programming Archives</a>
-            <a href="aeprojects.html">AE Projects</a>
             <a href="https://linktr.ee/veetwo">Linktree</a>
         </div>
     </div>
 
     <div class="content">
         <h1 class="fade-in">Current Projects</h1>
-        <p class="fade-in">Various projects I'm currently working on.</p>
+        <p class="fade-in">Various projects I've worked on in the past, as well as ones I'm currently working on.</p>
         
         <div class="project-list">
 
-            <div class="project-item fade-in">
+            <div class="project-item fade-in" data-bg="img/mips.png">
                 <div class="project-details">
-                    <h2 class="project-title">MIPS Pipelined Processor</h2>
+                    <h2 class="project-title"><a href="https://github.com/v-tw0/CEG3156/tree/main/Lab%203" target="_blank">MIPS Pipelined Processor</a></h2>
                     <p class="project-description">
                        Designed entirely using RTL-based VHDL & programmmed on the FPGA DE2-115. Contains instruction/data memory units. Implemented forwarding and stall logic to maximize instructions executed while minimizing error.
                 </div>
@@ -244,9 +290,9 @@
                 </div>
             </div>
 
-            <div class="project-item fade-in">
+            <div class="project-item fade-in" data-bg="img/SignalSculpt.png">
                 <div class="project-details">
-                    <h2 class="project-title">SignalSculpt</h2>
+                    <h2 class="project-title"><a href="https://github.com/v-tw0/SignalSculpt" target="_blank">SignalSculpt</a></h2>
                     <p class="project-description">
                         Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click. Fourier-Based and designed to be EXTREMELY fast and efficient for real-time processing and preview.
                 </div>
@@ -255,9 +301,9 @@
                 </div>
             </div>
 
-            <div class="project-item fade-in">
+            <div class="project-item fade-in" data-bg="img/uart.png">
                 <div class="project-details">
-                    <h2 class="project-title">Universal Asynchronous Receiver Transmitter (UART)</h2>
+                    <h2 class="project-title"><a href="https://github.com/v-tw0/CEG3155/tree/main/Final%20Project" target="_blank">Universal Asynchronous Receiver Transmitter (UART)</a></h2>
                     <p class="project-description">
                        Designed entirely using RTL-based VHDL & designed for the MAX232 chip on the DE2-115. Dynamic baud rate for easy serial communication. Designed specifically for a related traffic light controller but can be connected to any circuit using an 8-bit wide data bus.
                 </div>
@@ -266,20 +312,24 @@
                 </div>
             </div>
 
-            <div class="project-item fade-in">
+            <div class="project-item fade-in" data-bg="img/flsun.png">
                 <div class="project-details">
-                    <h2 class="project-title">Flsun i3 2017 - Speed Mod</h2>
+                    <h2 class="project-title"><a href="https://github.com/v-tw0/SignalSculpt" target="_blank">Flsun i3 2017 - Speed Mod (Old)</a></h2>
                     <p class="project-description">
                     Restored cartesian 3d printer to demonstrate the ability of old hardware to print quality and speed just as good as modern printers. Upgraded with TMC2208s, bilinear bed leveling, and more. 
+                    
+                    <hr>
+
+                    This project was archived; Refer to Project Chimera iXY.
                 </div>
                 <div class="project-thumbnail">
                     <img src="img/flsun.png" alt="SignalSculpt">
                 </div>
             </div>
 
-            <div class="project-item fade-in">
+            <div class="project-item fade-in" data-bg="img/gcc.png">
                 <div class="project-details">
-                    <h2 class="project-title">GCC Cycling App</h2>
+                    <h2 class="project-title"><a href="https://github.com/SEG2105BC-uOttawa/seg2105f23-project-project_grp_75" target="_blank">GCC Cycling App</a></h2>
                     <p class="project-description">
                         Kotlin-based app that supports administrators (event management), cycling clubs (event creation), and participants (event registration). Built in Java with Android Studio.
                 </div>
@@ -296,7 +346,20 @@
         <a href="https://x.com/Veetwo__" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
         <a href="https://www.instagram.com/veetwo__/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
         <a href="https://veetwomusic.carrd.co/" target="_blank"><img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd"></a>
-        <p class="footer-text">© 2025 Veetwo. All rights reserved.<br>Work licensed under the CC BY-SA 4.0 license.<br>Website last updated: 5.10.25</p>
+        <p class="footer-text">© 2025 Veetwo. All rights reserved.<br>Work licensed under the CC BY-SA 4.0 license.<br>Website last updated: 5.27.25</p>
+
     </div>
+
+    <script>
+        document.querySelectorAll('.project-item').forEach(item => {
+            const bg = item.getAttribute('data-bg');
+            if (bg) {
+                item.style.backgroundImage = `url(${bg})`;
+            }
+        });
+    </script>    
+
 </body>
 </html>
+
+

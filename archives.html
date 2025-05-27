@@ -26,23 +26,36 @@
 
         body::before {
             content: "";
-            position: fixed; /* Change from absolute to fixed */
+            position: fixed;
             top: 0;
             left: 0;
             width: 110%;
             height: 110%;
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url(https://indieground.net/wp-content/uploads/2023/03/Freebie-GradientTextures-Preview-02.jpg);
+                url(img/bkgdgrad.png);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: calc(50% - 80px) center;
-            background-attachment: scroll; /* Ensure it moves with the content */
+            background-attachment: scroll;
             filter: blur(8px);
             z-index: -1;
         }
 
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        .fade-in {
+            animation: fadeIn 1.5s ease-in forwards;
+        }
 
         .navbar {
             background-color: rgba(30, 30, 30, 0.8);
@@ -52,7 +65,6 @@
             justify-content: space-between;
             position: relative;
             z-index: 1;
-            box-shadow: none;
         }
 
         .navbar img {
@@ -60,11 +72,12 @@
             height: 60px;
             border-radius: 50%;
         }
+
         .compiler-icon {
-            width: 24px; /* Set the desired width */
-            height: auto; /* Maintain aspect ratio */
-            margin-left: 8px; /* Optional: Add spacing between icons */
-            vertical-align: middle; /* Align icons nicely with text */
+            width: 24px;
+            height: auto;
+            margin-left: 8px;
+            vertical-align: middle;
         }
 
         .dropdown {
@@ -138,22 +151,34 @@
             padding: 1em;
             background-color: #1e1e1e;
             border-radius: 8px;
-            width: 66%; /* 2/3 of the page width */
+            width: 66%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             text-align: left;
+            position: relative;
         }
 
-        .repo-title {
-            font-size: 1.8em;
-            margin-bottom: 0.2em;
-            color: #306998; /* Link blue color */
-            display: flex;
+        .repo-title a {
+            display: inline-flex;
             align-items: center;
+            gap: 0.5em; /* space between text and icon */
+            color: #ff6262;
+            text-decoration: none;
+            transform: scale(1);
+            transition: transform 0.2s ease-out, color 0.2s ease-out;
         }
 
-        .repo-title:hover {
-            text-decoration: underline;
+        .repo-title a:hover {
+            color: #ffffff;
+            transform: scale(1.05);
         }
+
+        .compiler-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+
 
         .repo-description {
             font-size: 1.2em;
@@ -176,53 +201,48 @@
         }
 
         .footer-text {
-            margin-top: 1em; /* Add spacing from the logos */
-            font-size: 1em; /* Adjust font size */
-            color: #aaaaaa; /* Light gray for subtlety */
-            text-align: center; /* Center-align the text */
-            line-height: 1.5; /* Adjust line height for readability */
+            margin-top: 1em;
+            font-size: 1em;
+            color: #aaaaaa;
+            text-align: center;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="dropdown">
-            <img src="https://lh3.googleusercontent.com/a/ACg8ocJc4GtMeDdv7mLRePVqyxwSF1vstYAmMAVHcEjYzgSemX39Pio=s288-c-no" 
-                 alt="Logo" 
-                 style="border-radius: 50%;">
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocJc4GtMeDdv7mLRePVqyxwSF1vstYAmMAVHcEjYzgSemX39Pio=s288-c-no" alt="Logo">
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
-                <a href="https://www.youtube.com/@Veetwo_">Main YT Channel</a>
-                <a href="https://www.youtube.com/@VeetwoMusic">Second YT Channel</a>
+                <a href="https://www.youtube.com/@Veetwo_">Youtube</a>
+                <a href="aeprojects.html">(Legacy) AE Projects</a>
                 <a href="mailto:v21640@gmail.com">Contact</a>
             </div>
         </div>
         <div class="links">
             <a href="index.html">Home</a>
+            <a href="chimera.html">Project Chimera iXY</a>
             <a href="projects.html">Current Projects</a>
             <a href="archives.html">Programming Archives</a>
-            <a href="aeprojects.html">AE Projects</a>
             <a href="https://linktr.ee/veetwo">Linktree</a>
         </div>
     </div>
 
-    <div class="content">
+    <div class="content fade-in">
         <h1>Programming Archives</h1>
         <p>List of links to repos of programming I've done circa ~2019.</p>
 
-        <!-- Repository List -->
         <div class="repo-list">
-
             <!-- CEG3136 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/CSI2372" target="_blank" class="repo-title">
-                    CEG3136
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/CEG3136" target="_blank">CEG3136</a>
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
                          alt="Sublime Text" 
                          class="compiler-icon sublime" 
                          title="Sublime Text">
-                   
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Computer Architecture 2 - Labs & Tutorials. All done in M68HCS12 assembly and C.
                 </div>
@@ -231,17 +251,16 @@
                     <span class="assembly"></span>
                 </div>
             </div>
-            
-             <!-- ELG3125 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ELG3125" target="_blank" class="repo-title">
-                    ELG3125
+
+            <!-- ELG3125 -->
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/ELG3125" target="_blank">ELG3125</a>
                     <img src="https://seeklogo.com/images/M/matlab-logo-CDDF5BFA92-seeklogo.com.png" 
                          alt="MATLAB" 
                          class="compiler-icon matlab" 
                          title="MATLAB">
-                   
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Signals and Systems. All code done in MATLAB.
                 </div>
@@ -250,17 +269,16 @@
                     <span class="matlab"></span>
                 </div>
             </div>
-            
+
             <!-- CSI2372 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/CSI2372" target="_blank" class="repo-title">
-                    CSI2372
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/CSI2372" target="_blank">CSI2372</a>
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
-                         alt="Sublime Text" 
+                         alt="MATLAB" 
                          class="compiler-icon sublime" 
                          title="Sublime Text">
-                   
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Advanced Programming Concepts in C++. Pointers, STL, Templates, Hardware Interfacing.
                 </div>
@@ -269,22 +287,16 @@
                     <span class="cpp"></span>
                 </div>
             </div>
-            
-             <!-- SEG2106 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/SEG2106" target="_blank" class="repo-title">
-                    SEG2106
-                    <!-- First Icon -->
+
+            <!-- SEG2106 -->
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/SEG2106" target="_blank">SEG2106</a>
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
-                         alt="Sublime Text" 
+                         alt="MATLAB" 
                          class="compiler-icon sublime" 
                          title="Sublime Text">
-                    <!-- Second Icon -->
-                    <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
-                         alt="Eclipse IDE" 
-                         class="compiler-icon eclipse" 
-                         title="Eclipse IDE">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Software construction.
                 </div>
@@ -293,42 +305,35 @@
                     <span class="java"></span>
                 </div>
             </div>
-            
-             <!-- SEG2105 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/SEG2105" target="_blank" class="repo-title">
-                    SEG2105
-                    <!-- First Icon -->
+
+            <!-- SEG2105 -->
+            <div class="repo-item fade-in">
+
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/SEG2105" target="_blank">SEG2105</a>
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
-                         alt="Sublime Text" 
+                         alt="MATLAB" 
                          class="compiler-icon sublime" 
                          title="Sublime Text">
-                    <!-- Second Icon -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1200px-Kotlin_Icon.png" 
                          alt="Kotlin" 
                          class="compiler-icon kotlin" 
                          title="Kotlin">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Intro to Software Engineering. Threads, netstat servers, xml designs, and Kotlin-based android apps.
                 </div>
-                <div class="language-label">Java, Kotlin & XML</div>
-                <div class="language-bar">
-                    <span class="java" style="width: 40%; background-color: #b07219;"></span>
-                    <span class="kotlin" style="width: 40%; background-color: #d087fa;"></span>
-                    <span class="xml" style="width: 20%; background-color: #0060ac;"></span>
-                </div>
             </div>
-            
-             <!-- CSI2110 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/CSI2110" target="_blank" class="repo-title">
-                    CSI2110
+
+            <!-- CSI2110 -->
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/CSI2110" target="_blank">CSI2110</a>
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
-                         alt="Sublime Text" 
+                         alt="MATLAB" 
                          class="compiler-icon sublime" 
                          title="Sublime Text">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Data Structures and Algorithms<br>Advanced data structures, sorting algorithms, and containers. Implementations of the k-nearest neighbors and dijkstra's algorithm.
                 </div>
@@ -339,14 +344,14 @@
             </div>
 
             <!-- ITI1121 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ITI1121" target="_blank" class="repo-title">
-                    ITI1121
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/ITI1121" target="_blank">ITI1121</a>
                     <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
-                         alt="Sublime Text" 
+                         alt="MATLAB" 
                          class="compiler-icon sublime" 
                          title="Sublime Text">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Intro to comp sci.<br>Concepts of data structures, algorithms, and various containers.
                 </div>
@@ -355,16 +360,17 @@
                     <span class="java"></span>
                 </div>
             </div>
-            
-             <!-- ITI1120 -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ITI1120" target="_blank" class="repo-title">
-                    ITI1120
+
+            <!-- ITI1120 -->
+            <div class="repo-item fade-in">
+
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/ITI1121" target="_blank">ITI1121</a>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1200px-Google_Colaboratory_SVG_Logo.svg.png" 
                          alt="Google Colabs" 
                          class="compiler-icon colabs" 
                          title="Google Colabs">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Intro to comp sci.<br>Base concepts, simple matrix computations, eigenvectors, etc.
                 </div>
@@ -374,16 +380,15 @@
                 </div>
             </div>
 
-            
             <!-- ICS4U -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ICS4U" target="_blank" class="repo-title">
-                    ICS4U
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/ICS4U" target="_blank">ICS4U</a>
                     <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
                          alt="Eclipse IDE" 
                          class="compiler-icon eclipse" 
                          title="Eclipse IDE">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Intro to comp sci. 2 - Project<br>Final project using the Swing GUI package.
                 </div>
@@ -394,14 +399,14 @@
             </div>
 
             <!-- ICS3U -->
-            <div class="repo-item">
-                <a href="https://github.com/v-tw0/ICS3U" target="_blank" class="repo-title">
-                    ICS3U
+            <div class="repo-item fade-in">
+                <h2 class="repo-title">
+                    <a href="https://github.com/v-tw0/ICS3U" target="_blank">ICS3U</a>
                     <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
                          alt="Eclipse IDE" 
                          class="compiler-icon eclipse" 
                          title="Eclipse IDE">
-                </a>
+                  </h2>
                 <div class="repo-description">
                     Intro to comp sci. 1<br>Base concepts, OOP, simple arithmetic operations with libraries.
                 </div>
@@ -415,25 +420,42 @@
     </div>
 
     <div class="footer">
-        <a href="https://github.com/v-tw0" target="_blank">
-            <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
-        </a>
-        <a href="https://www.youtube.com/@Veetwo_" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-        </a>
-        <a href="https://x.com/Veetwo__" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
-        </a>
-        <a href="https://www.instagram.com/veetwo__/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
-        </a>
-        <a href="https://veetwomusic.carrd.co/" target="_blank">
-            <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
-        </a>
-
-        <p class="footer-text">© 2025 Veetwo. All rights reserved. <br> 
-            Work licensed under the CC BY-SA 4.0 license. <br>
-            Website last updated: 1.24.25</p>
+        <a href="https://github.com/v-tw0" target="_blank"><img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub"></a>
+        <a href="https://www.youtube.com/@Veetwo_" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+        <a href="https://x.com/Veetwo__" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        <a href="https://www.instagram.com/veetwo__/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
+        <a href="https://veetwomusic.carrd.co/" target="_blank"><img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd"></a>
+        <p class="footer-text">© 2025 Veetwo. All rights reserved. <br>
+        Work licensed under the CC BY-SA 4.0 license. <br>
+        Website last updated: 5.27.25</p>
     </div>
+
+    <script>
+        document.querySelectorAll('.repo-item').forEach(item => {
+            const bg = item.getAttribute('data-bg');
+            if (bg) {
+                item.style.backgroundImage = `url(${bg})`;
+                item.style.backgroundSize = 'cover';
+                item.style.backgroundPosition = 'center';
+                item.style.backgroundRepeat = 'no-repeat';
+                item.style.position = 'relative';
+
+                const overlay = document.createElement('div');
+                overlay.style.position = 'absolute';
+                overlay.style.inset = '0';
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                overlay.style.zIndex = '0';
+                overlay.style.backdropFilter = 'blur(4px)';
+                item.prepend(overlay);
+
+                Array.from(item.children).forEach(child => {
+                    if (child !== overlay) {
+                        child.style.position = 'relative';
+                        child.style.zIndex = '1';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

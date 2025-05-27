@@ -23,6 +23,23 @@
             min-height: 100vh;
         }
 
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 110%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(img/bkgdchimera.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: calc(50% - 80px) center;
+            background-attachment: scroll;
+            z-index: -1;
+        }
+
         .fade-in-logo {
             width: 600px;
             max-width: 80%;
@@ -151,6 +168,20 @@
             opacity: 0;
             animation: fadeIn 2s ease forwards;
         }
+        .content h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .content h3 {
+            font-size: 1em;
+            margin-bottom: 1em;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+
 
         .bottom-texts {
             text-align: center;
@@ -212,16 +243,6 @@
                 <a href="mailto:v21640@gmail.com">Contact</a>
             </div>
         </div>
-        <div class="status-container">
-            <div class="status">
-                <div class="status-circle"></div>
-                <span class="status-label">CLOUDFLARE SITE ONLINE</span>
-            </div>
-            <div class="status">
-                <div class="status-circle"></div>
-                <span class="status-label">GITHUB SITE ONLINE</span>
-            </div>
-        </div>
         <div class="links">
             <a href="index.html">Home</a>
             <a href="chimera.html">Project Chimera iXY</a>
@@ -231,19 +252,10 @@
         </div>
     </div>
 
-    <div class="logo-container">
-        <img src="img/logo.png" alt="Veetwo Logo" class="fade-in-logo">
-    </div>
-    
-
     <div class="content">
-        <h1>Welcome to my page.</h1>
-        <div class="bottom-texts">
-            <p>Alex G - BASc Computer Engineering @ uOttawa</p>
-            <br>
-            <br>
-            <p></p>
-            <p>Click a link at the top to get started.</p>
+        <h1>Chimera iXY</h1>
+        <h2>Work in progress...</h2>
+        <h3>Still printing. Still free. Still RepRap.</h3>
         </div>
     </div>
 
