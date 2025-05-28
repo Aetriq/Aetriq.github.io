@@ -15,7 +15,11 @@
 
         body {
             font-family: 'Frutiger LT Std', sans-serif;
-            background-color: #1e1e1e;
+            background-color: #1e1e1e; /* Fallback color if image fails to load */
+            background-image: url('img/bkgdmain.png'); /* Path to your background image */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents the image from tiling */
+            background-attachment: fixed; /* Optional: keeps the background fixed during scrolling */
             color: white;
             margin: 0;
             display: flex;
@@ -32,7 +36,21 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 200px;
+            margin-top: 75px;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); /* Adds a drop shadow */
+        }
+
+        /* Define the hover animation */
+        @keyframes hover {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); } /* Moves up 10px */
+            100% { transform: translateY(0); }
+        }
+
+        /* Apply hover animation after fadeIn */
+        .fade-in-logo.hover-animation {
+            animation: fadeIn 2s ease-in forwards, hover 2.5s ease-in-out infinite;
+            animation-delay: 0.5s, 2.5s; /* fadeIn finishes at 2.5s (0.5s delay + 2s duration), then hover starts */
         }
 
         @keyframes fadeIn {
@@ -147,7 +165,7 @@
 
         .content h1 {
             font-size: 4em;
-            margin-bottom: 1em;
+            margin-bottom: 1.5em;
             opacity: 0;
             animation: fadeIn 2s ease forwards;
         }
@@ -169,7 +187,7 @@
         .footer {
             text-align: center;
             padding: 1em 0;
-            margin-top: auto;
+            margin-top: 300px;
         }
 
         .footer a {
@@ -189,16 +207,7 @@
             height: 30px;
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: none;
-            }
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-        }
+        /* The original fadeIn and hover keyframes are already defined above, so no need to repeat them here. */
     </style>
 </head>
 <body>
@@ -232,16 +241,16 @@
     </div>
 
     <div class="logo-container">
-        <img src="img/logo.png" alt="Veetwo Logo" class="fade-in-logo">
+        <img src="img/logoanim.gif" alt="Veetwo Logo" class="fade-in-logo" id="main-logo">
     </div>
-    
+
 
     <div class="content">
         <h1>Welcome to my page.</h1>
         <div class="bottom-texts">
             <p>Alex G - BASc Computer Engineering @ uOttawa</p>
             <br>
-            <br>
+
             <p></p>
             <p>Click a link at the top to get started.</p>
         </div>
@@ -263,10 +272,24 @@
         <a href="https://veetwomusic.carrd.co/" target="_blank">
             <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
         </a>
-
-        <p class="footer-text">© 2025 Veetwo. All rights reserved. <br> 
+        
+        <p class="footer-text">
+            
+            © 2025 Veetwo. All rights reserved. <br>
             Work licensed under the CC BY-SA 4.0 license. <br>
             Website last updated: 5.27.25</p>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.getElementById("main-logo");
+            // Add the hover-animation class after the fadeIn animation completes
+            logo.addEventListener("animationend", function(event) {
+                if (event.animationName === "fadeIn") {
+                    logo.classList.add("hover-animation");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
