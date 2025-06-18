@@ -220,6 +220,29 @@
             height: 30px;
         }
 
+        .link-group {
+            display: flex;
+            gap: 20px; /* space between links and separators */
+            align-items: center;
+        }
+
+        .link-group .separator {
+            margin: 0 10px;
+            color: #ffffff; /* optional: style the ~ */
+        }
+
+        .link-group a {
+            color: rgb(112, 191, 255); /* Standard bright blue */
+            text-decoration: none; /* Optional: remove underline */
+            font-weight: bold;     /* Optional: make text bolder */
+        }
+
+        .link-group a:hover {
+            text-decoration: underline; /* Optional: underline on hover for better UX */
+        }
+
+
+
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -248,16 +271,26 @@
             <a href="chimera.html">Project Chimera iXY</a>
             <a href="projects.html">Current Projects</a>
             <a href="archives.html">Programming Archives</a>
-            <a href="https://linktr.ee/veetwo">Linktree</a>
         </div>
     </div>
 
     <div class="content">
-        <h1>Chimera iXY</h1>
-        <h2>Work in progress...</h2>
-        <h3>Still printing. Still free. Still RepRap.</h3>
-        </div>
-    </div>
+    <h1>Chimera iXY</h1>
+    <h2>Work in progress...</h2>
+    <h3>Still printing. Still free. Still RepRap.</h3>
+    </br></br>
+
+    <h3 class="link-title">
+        <span class="link-group">
+            <a href="chimeradoc.html">Documentation</a>
+            <span class="separator">~</span>
+            <a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?usp=sharing">BOM</a>
+            <span class="separator">~</span>
+            <a href="https://github.com/v-tw0/ChimeraiXY">Github</a>
+        </span>
+    </h3>
+</div>
+
 
     <div class="footer">
         <a href="https://github.com/v-tw0" target="_blank">

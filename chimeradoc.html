@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chimera iXY - Documentation</title>
+  <style>
+    @font-face {
+      font-family: 'Frutiger LT Std';
+      src: url('FrutigerLTStd55Roman.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Frutiger LT Std', sans-serif;
+      background-color: #303030;
+      color: white;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .header-image {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1e1e1e;
+    }
+
+    .header-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+
+    .title-section {
+      text-align: center;
+      padding: 10px 10px 10px;
+      background-color: #1e1e1e;
+    }
+
+    .title-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .title-section p {
+      font-size: 1.2rem;
+      color: #bbbbbb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2, h3 {
+      font-weight: normal;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      border-bottom: 2px solid #ffffff22;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: #aaaaaa;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #dddddd;
+    }
+
+    a {
+      color: #70bfff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #444;
+      margin: 40px 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2em 0;
+      color: #aaaaaa;
+      font-size: 0.9em;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-image">
+    <img src="img/bkgdchimera2.png" alt="Banner" />
+  </div>
+
+  <div class="title-section">
+    <h1>Chimera iXY - Documentation</h1>
+    <p>A modular CoreXY printer built from the Flsun i3 (2017) and Mingda Magician X components.</p>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2>Overview</h2>
+      <p>This document outlines the design, component sourcing, mechanical integration, electronics, and firmware of the Chimera iXY project.</p>
+      <br>
+      <p> NOTE: This page is largely unfinished. Lots of details are to be added later...</p>
+    </div>
+
+    <div class="section">
+      <h2>Printer Origins</h2>
+      <h3>Flsun i3 2017 (Working but very finicky)</h3>
+      <p>Reused components: 
+        <br>&nbsp;&nbsp;&nbsp;  - Stepper motors (E0, Z axis)
+        <br>&nbsp;&nbsp;&nbsp;  - 2020 Aluminum extrusions
+        <br>&nbsp;&nbsp;&nbsp;  - V6 Hotend.
+        <br>&nbsp;&nbsp;&nbsp;  - Roller Bearings
+        <br>&nbsp;&nbsp;&nbsp;  - Toothless Idler Pulleys
+        <br>&nbsp;&nbsp;&nbsp;  - Stepper Leadscrew Collet
+        <br>&nbsp;&nbsp;&nbsp;  - Mainboard MKS Gen L v1.0
+        <br>&nbsp;&nbsp;&nbsp;  - Reprap Discount Smart Graphics Controller
+        <br>&nbsp;&nbsp;&nbsp;  - Bolts: M3-M6
+        <br>&nbsp;&nbsp;&nbsp;  - Nuts: M3-M6
+        <br>&nbsp;&nbsp;&nbsp;  - 8mm Linear Rods (Not rails)
+        <br>&nbsp;&nbsp;&nbsp;  - 8mm Linear Rod Bearings
+        <br>&nbsp;&nbsp;&nbsp;  - GT2 6mm Belts (Used Temporarily for measurments and testing)
+        <br>&nbsp;&nbsp;&nbsp;  - Cables (Stepper, Display, Power, etc.)
+        <br>&nbsp;&nbsp;&nbsp;  - PTFE Bowden Tube
+        <br>&nbsp;&nbsp;&nbsp;  - Bowden Extruder
+        <br>&nbsp;&nbsp;&nbsp;  - PTFE Couplings
+      
+      </p>
+
+      <h3>Mingda Magician X (Broken Mainboard & X Gantry daughterboard)</h3>
+      <p>Reused components: 
+        <br>&nbsp;&nbsp;&nbsp;  - Stepper motors (α, β axis)
+        <br>&nbsp;&nbsp;&nbsp;  - 24V 15A Powersupply
+        <br>&nbsp;&nbsp;&nbsp;  - Bolts: M3-M6
+        <br>&nbsp;&nbsp;&nbsp;  - Leadscrews + Collars 
+        <br>&nbsp;&nbsp;&nbsp;  - Toothed Idler Pulleys
+        <br>&nbsp;&nbsp;&nbsp;  - Heated Bed
+        <br>&nbsp;&nbsp;&nbsp;  - 30mm axial fan
+        <br>&nbsp;&nbsp;&nbsp;  - 4010 blower fan
+
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Mechanical Design</h2>
+      <p>Built around a 2020 & 2040 aluminum frame with 8mm linear rods. Fairly Simple; no extrusions were cut in the first revision.</p>
+    <div style="text-align: center; margin-top: 40px;">
+
+          <div style="
+            background-color: #444444;  /* Slightly lighter grey than #303030 */
+            padding: 20px;              /* Space around the image */
+            display: inline-block;      /* Shrinks to fit the image */
+            border-radius: 8px;         /* Optional: rounded corners */
+          ">
+      <img src="img/chimeradocframe.png" alt="Frame" style="width:600px;height:600px;">
+    </div>
+    </div>
+
+    </div>
+
+    <div class="section">
+      <h2>Electronics</h2>
+      <p>Controller: MKS Gen L v2.1 (v1.0 will work as well)<br>
+      Auxillary Control: Miniton Beaglecam v1<br>
+      Drivers: TMC2209, TMC2208, A4988<br>
+      Wiring: Fully sleeved harness with JST-XH connectors. High current wires are crimped with a plated connector.<br>
+      Power: 24V 15A generic PSU (From MMX, unbranded)</p>
+    </div>
+
+    <div class="section">
+      <h2>Firmware</h2>
+      <p>Firmware used: <strong>Marlin 2.1.2.5</strong> for now. May upgrade to Klipper later. Config files are versioned in the GitHub repo.</p>
+    </div>
+
+    <div class="section">
+      <h2>Resources</h2>
+      <p><a href="https://github.com/v-tw0/ChimeraiXY" target="_blank">GitHub Repository</a></p>
+      <p><a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?usp=sharing" target="_blank">Bill of Materials (BOM)</a></p>
+    </div>
+
+    <div class="section">
+      <h2>Future Plans - Rev.2.0</h2>
+      <p>Enclosure + Ventilation, speedy power motors compatibility, and triple-z upgrades are on the roadmap.</p>
+    </div>
+
+    <hr />
+
+    <div class="footer">
+      <p>© 2025 Veetwo. Built with the RepRap community.</p>
+      <p>Page last updated: June 18, 2025</p>
+    </div>
+  </div>
+</body>
+</html>
