@@ -481,14 +481,27 @@
         </div>
 
         <div class="status-container">
-            <div class="status">
-                <div class="status-circle-red"></div>
-                <span class="status-label">CLOUDFLARE</span>
+            <div class="dropdown">
+                <div class="status">
+                    <div class="status-circle-red"></div>
+                    <span class="status-label">CLOUDFLARE</span>
+                </div>
+
+                <div class="dropdown-content">
+                    <a href="#home">Currently under rework. No ETA.</a>
+                </div>
             </div>
-            <div class="status">
-                <div class="status-circle-green"></div>
-                <span class="status-label">GITHUB</span>
-            </div>
+            <div class="dropdown">
+                <div class="status">
+                        <div class="status-circle-green"></div>
+                        <span class="status-label">GITHUB</span>
+                    </div>
+                </div>
+
+                <div class="dropdown-content">
+                    <a href="#home">Working.</a>
+                </div>
+            
         </div>
 
         <div class="links">
@@ -539,7 +552,7 @@
         </h3>
         </br></br>
 
-        <h2>Current Status: v0.9 to be release soon...</h2>
+        <h3>Current Status: v0.9 to be released soon...</h3>
     </section>
 
     <!-- CURRENT PROJECTS -->
@@ -548,6 +561,56 @@
         <h1>Current Projects</h1>
         <div class="project-list">
 
+
+            <div class="project-item fade-in" data-bg="img/chimerathumb.png">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/Aetriq/ChimeraiXY" target="_blank">The Chimera iXY - Custom CoreXY 3D Printer</a></h2>
+                    <p class="project-description">
+                       An extremely fast 3D Printer using CoreXY kinematics, built off two different bedslingers.
+                    <br><br>
+                    Specifications:
+                    <br>
+                    <ul>
+                        <li>Minimum 200mm/s printhead speed with quality.</li>
+                        <li>Demonstrates the usability of Reprap in modern printers.</li>
+                        <li>350W power consumption.</li>
+                        <li>230mm^3 build surface. V6 hotend with 4010 part cooling fans.</li>
+                        <li>MKS Robin Nano v3.1 using Marlin (LVGL UI), Klipper supported.</li>
+                    </ul>
+
+                    <h2 class="project-title"><a href="Old site (v3.5)/chimeradocfull.html" target="_blank">Offical Documentation Link</a></h2>                        
+                </h3>
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/chimerathumb.png" alt="mcats">
+                </div>
+            </div>
+
+            <div class="project-item fade-in" data-bg="img/mcats.jpg">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/Aetriq/GNG2101" target="_blank">MCATS - Piano Assist Device (PAD)</a></h2>
+                    <p class="project-description">
+                       A comfortable, responsive, and customizable assistive device that supports playing piano notes and chords with precision and minimal delay for a client with a non-standard left hand.
+                    <br><br>
+                    Highlighted Features:
+                    <br>
+                    <ul>
+                        <li>A prosthetic device worn on the user's hand</li>
+                        <li>Provides the client with three additional fingers.</li>
+                        <li>Consists of a "glove" (mounting) to hold all the components with adjustable Velcro strap to secure on wrist, as well as clip-on straps on the forearm.</li>
+                        <li>A high power metal gear servo motor-driven finger that is controlled by a left foot pedal.</li>
+                        <li>A fixed rigid thumb that allows the user to hit a piano key by slightly rotate his wrist.</li>
+                        <li>Extremely low power, uses technologies such as the RP2040 and 433MHz transceiver.</li>
+                    </ul>
+
+                    <h2 class="project-title"><a href="https://makerepo.com/ctourangeau/2544.gng2101z13piano-assist-device" target="_blank">Offical Repository Link</a></h2>                        
+                </h3>
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/mcats.jpg" alt="mcats">
+                </div>
+            </div>
+
             <div class="project-item fade-in" data-bg="img/mips.png">
                 <div class="project-details">
                     <h2 class="project-title"><a href="https://github.com/aetriq/CEG3156/tree/main/Lab%203" target="_blank">MIPS Pipelined Processor</a></h2>
@@ -555,7 +618,7 @@
                        Designed entirely using RTL-based VHDL & programmmed on the FPGA DE2-115. Contains instruction/data memory units. Implemented forwarding and stall logic to maximize instructions executed while minimizing error.
                 </div>
                 <div class="project-thumbnail">
-                    <img src="img/mips.png" alt="UART">
+                    <img src="img/mips.png" alt="mips">
                 </div>
             </div>
 
@@ -616,6 +679,7 @@
         <p>List of links to repos of programming I've done circa ~2019.</p>
 
         <div class="repo-list">
+            
             <!-- CEG3136 -->
             <div class="repo-item fade-in">
                 <div class="repo-left">
