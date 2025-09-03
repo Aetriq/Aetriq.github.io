@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="img/logo.png" href="https://avatars.githubusercontent.com/u/93527958?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veetwo's Website</title>
+    <style>
+        @font-face {
+            font-family: 'Frutiger LT Std';
+            src: url('FrutigerLTStd55Roman.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Frutiger LT Std', sans-serif;
+            background-color: #1e1e1e; /* Fallback color if image fails to load */
+            background-image: url('img/bkgdmain.png'); /* Path to your background image */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents the image from tiling */
+            background-attachment: fixed; /* Optional: keeps the background fixed during scrolling */
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .fade-in-logo {
+            width: 600px;
+            max-width: 80%;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 0.5s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 75px;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); /* Adds a drop shadow */
+        }
+
+        /* Define the hover animation */
+        @keyframes hover {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); } /* Moves up 10px */
+            100% { transform: translateY(0); }
+        }
+
+        /* Apply hover animation after fadeIn */
+        .fade-in-logo.hover-animation {
+            animation: fadeIn 2s ease-in forwards, hover 2.5s ease-in-out infinite;
+            animation-delay: 0.5s, 2.5s; /* fadeIn finishes at 2.5s (0.5s delay + 2s duration), then hover starts */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+
+        .navbar {
+            background-color: #0d0d0d;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dropdown {
+            margin-left: 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(30, 30, 30, 0.9);
+            min-width: 300px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(50, 50, 50, 1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .status-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 1em;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3em;
+        }
+
+        .status-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: green;
+            margin-right: 0.5em;
+        }
+
+        .status-label {
+            font-size: 0.9em;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .navbar .links {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .content {
+            text-align: center;
+            margin: auto;
+            padding: 3em 1em;
+        }
+
+        .content h1 {
+            font-size: 4em;
+            margin-bottom: 1.5em;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .bottom-texts {
+            text-align: center;
+            margin-top: 4em;
+            font-size: 1em;
+            color: #bbbbbb;
+            opacity: 0;
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .bottom-texts p {
+            margin: 0.5em 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 300px;
+        }
+
+        .footer a {
+            margin: 0 0.5em;
+        }
+
+        .footer-text {
+            margin-top: 1em;
+            font-size: 1em;
+            color: #aaaaaa;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* The original fadeIn and hover keyframes are already defined above, so no need to repeat them here. */
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="dropdown">
+            <img src="img/goeshard.png" alt="Logo">
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="https://www.youtube.com/@Veetwo_">Youtube</a>
+                <a href="aeprojects.html">(Legacy) AE Projects</a>
+                <a href="mailto:v21640@gmail.com">Contact</a>
+            </div>
+        </div>
+        <div class="status-container">
+            <div class="status">
+                <div class="status-circle"></div>
+                <span class="status-label">CLOUDFLARE SITE ONLINE</span>
+            </div>
+            <div class="status">
+                <div class="status-circle"></div>
+                <span class="status-label">GITHUB SITE ONLINE</span>
+            </div>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="chimera.html">Project Chimera iXY</a>
+            <a href="projects.html">Current Projects</a>
+            <a href="archives.html">Programming Archives</a>
+            <a href="https://linktr.ee/veetwo">Linktree</a>
+        </div>
+    </div>
+
+    <div class="logo-container">
+        <img src="img/logoanim.gif" alt="Veetwo Logo" class="fade-in-logo" id="main-logo">
+    </div>
+
+
+    <div class="content">
+        <h1>Welcome to my page.</h1>
+        <div class="bottom-texts">
+            <p>Alex G - BASc Computer Engineering @ uOttawa</p>
+            <br>
+
+            <p></p>
+            <p>Click a link at the top to get started.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://github.com/v-tw0" target="_blank">
+            <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
+        </a>
+        <a href="https://www.youtube.com/@Veetwo_" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+        </a>
+        <a href="https://x.com/Veetwo__" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/veetwo__/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+        </a>
+        <a href="https://veetwomusic.carrd.co/" target="_blank">
+            <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
+        </a>
+        
+        <p class="footer-text">
+            
+            © 2025 Veetwo. All rights reserved. <br>
+            Work licensed under the CC BY-SA 4.0 license. <br>
+            Website last updated: 5.27.25</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.getElementById("main-logo");
+            // Add the hover-animation class after the fadeIn animation completes
+            logo.addEventListener("animationend", function(event) {
+                if (event.animationName === "fadeIn") {
+                    logo.classList.add("hover-animation");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

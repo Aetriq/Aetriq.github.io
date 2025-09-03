@@ -1,0 +1,12 @@
+body {
+    font-family: 'Frutiger LT Std', sans-serif;
+    margin: 0;
+    color: white;
+    background-color: #121212;
+}
+.page-section { display: none; min-height: 100vh; padding: 2em; }
+.home-bg { background: url('img/bkgdmain.png') no-repeat center center/cover; }
+.chimera-bg { background: url('img/bkgdchimera3.png') no-repeat center center/cover; }
+.projects-bg { background: #121212; }
+.archives-bg { background: url('img/bkgdgrad.png') no-repeat center center/cover; }
+.aeprojects-bg { background: url('https://indieground.net/wp-content/uploads/2023/03/Freebie-GradientTextures-Preview-02.jpg') no-repeat center center/cover; }

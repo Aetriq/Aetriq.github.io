@@ -4,8 +4,10 @@
     <link rel="shortcut icon" type="img/logo.png" href="https://avatars.githubusercontent.com/u/93527958?v=4">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veetwo's Website</title>
+    <title>Aetriq's Website</title>
+
     <style>
+        /* ---------- Fonts ---------- */
         @font-face {
             font-family: 'Frutiger LT Std';
             src: url('FrutigerLTStd55Roman.woff') format('woff');
@@ -13,105 +15,34 @@
             font-style: normal;
         }
 
+        /* ---------- Base ---------- */
+        :root { --navbar-h: 76px; } /* visual height of your navbar */
+        * { box-sizing: border-box; }
+
         body {
             font-family: 'Frutiger LT Std', sans-serif;
-            background-color: #1e1e1e; /* Fallback color if image fails to load */
-            background-image: url('img/bkgdmain.png'); /* Path to your background image */
-            background-size: cover; /* Ensures the image covers the entire background */
-            background-repeat: no-repeat; /* Prevents the image from tiling */
-            background-attachment: fixed; /* Optional: keeps the background fixed during scrolling */
+            background-color: #1e1e1e; /* fallback */
+            background-image: url('img/bkgdmain.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: white;
             margin: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        .fade-in-logo {
-            width: 600px;
-            max-width: 80%;
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards;
-            animation-delay: 0.5s;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 75px;
-            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); /* Adds a drop shadow */
-        }
-
-        /* Define the hover animation */
-        @keyframes hover {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-30px); } /* Moves up 10px */
-            100% { transform: translateY(0); }
-        }
-
-        /* Apply hover animation after fadeIn */
-        .fade-in-logo.hover-animation {
-            animation: fadeIn 2s ease-in forwards, hover 2.5s ease-in-out infinite;
-            animation-delay: 0.5s, 2.5s; /* fadeIn finishes at 2.5s (0.5s delay + 2s duration), then hover starts */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-
+        /* ---------- Navbar ---------- */
         .navbar {
             background-color: #0d0d0d;
             padding: 1em;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            z-index: 1;
-        }
-
-        .dropdown {
-            margin-left: 1em;
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(30, 30, 30, 0.9);
-            min-width: 300px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-            text-align: left;
-            border-radius: 5px;
-        }
-
-        .dropdown-content a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            font-size: 1em;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(50, 50, 50, 1);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .navbar img {
@@ -120,56 +51,114 @@
             border-radius: 50%;
         }
 
-        .status-container {
-            display: flex;
-            flex-direction: column;
-            margin-left: 1em;
-        }
-
-        .status {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.3em;
-        }
-
-        .status-circle {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: green;
-            margin-right: 0.5em;
-        }
-
-        .status-label {
-            font-size: 0.9em;
-            color: white;
-        }
-
-        .navbar a {
+        .links a,
+        .dropdown-content a {
             color: white;
             margin: 0 1em;
             text-decoration: none;
             font-size: 1.2em;
+            line-height: 1;
         }
 
-        .navbar .links {
-            margin-left: auto;
-            text-align: right;
+        .links a:hover,
+        .dropdown-content a:hover {
+            text-decoration: underline;
         }
 
-        .content {
-            text-align: center;
-            margin: auto;
-            padding: 3em 1em;
+        /* active nav highlight */
+        .links a.active { text-decoration: underline; }
+
+        /* Dropdown button container */
+        .dropdown {
+            margin-left: 1em;
+            display: flex;
+            align-items: center;
+            position: relative;
+        } 
+
+        
+        /* Dropdown content */
+        .dropdown-content {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(20, 20, 20, 0.9); /* dark glass */
+            backdrop-filter: blur(8px) saturate(120%);
+            min-width: 220px;
+            border-radius: 12px;
+            padding: 0.5em 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateY(-15px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 20;
         }
 
+        /* Dropdown links */
+        .dropdown-content a {
+            padding: 0.5em 1em;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s ease, color 0.2s ease;
+            border-radius: 8px;
+        }
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #70bfff;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Optional: arrow indicator on logo */
+        .dropdown::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 0.7em;
+            color: #70bfff;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover::after {
+            transform: rotate(180deg);
+        }
+        /* status pills */
+        .status-container { display: flex; flex-direction: column; margin-left: 1em; }
+        .status { display: flex; align-items: center; margin-bottom: .3em; }
+        .status-circle-red { width: 10px; height: 10px; border-radius: 50%; background-color: rgb(255, 0, 0); margin-right: .5em; }
+        .status-circle-green { width: 10px; height: 10px; border-radius: 50%; background-color: green; margin-right: .5em; }
+        .status-label { font-size: .9em; color: white; }
+
+        .navbar .links { margin-left: auto; text-align: right; display: flex; align-items: center; }
+
+        /* ---------- Pages (sections) ---------- */
+        /* hide all pages by default */
+        .page { display: none; padding: 80px 20px; min-height: calc(100vh - var(--navbar-h)); }
+        /* show only the active one */
+        .page.active { display: block; }
+
+        /* backgrounds per "page" like before */
+        #home { background: transparent; }
+        #chimera { background: transparent; }
+        #projects { background: transparent; }
+        #archives { background: transparent; }
+
+        /* ---------- Content & Typography (kept from your original) ---------- */
+        .content { text-align: center; margin: auto; padding: 3em 1em; max-width: 1000px; }
         .content h1 {
             font-size: 4em;
             margin-bottom: 1.5em;
             opacity: 0;
             animation: fadeIn 2s ease forwards;
         }
-
         .bottom-texts {
             text-align: center;
             margin-top: 4em;
@@ -179,85 +168,655 @@
             animation: fadeIn 3s ease forwards;
             animation-delay: 1s;
         }
+        .bottom-texts p { margin: .5em 0; }
 
-        .bottom-texts p {
-            margin: 0.5em 0;
+        /* ---------- Logo animations (unchanged) ---------- */
+        .logo-container { display: flex; justify-content: center; }
+
+        .fade-in-logo {
+            width: 600px;
+            max-width: 80%;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 0.5s;
+            display: block;
+            margin-top: 75px;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+        }
+        @keyframes hover {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+        .fade-in-logo.hover-animation {
+            animation: fadeIn 2s ease-in forwards, hover 2.5s ease-in-out infinite;
+            animation-delay: 0.5s, 2.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: none; }
         }
 
-        .footer {
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 300px;
+        /* ---------- UNIVERSAL LIQUID GLASS CARDS ---------- */
+
+        /* Container for both sections */
+        .repo-list, .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 2em;
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 0 1em;
         }
 
-        .footer a {
-            margin: 0 0.5em;
+        /* ---------- PROJECT / REPO CARD FLEX LAYOUT ---------- */
+        .project-item {
+            position: relative;
+            display: flex;
+            flex-direction: row; /* text left, image right */
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.08); /* frosted glass */
+            backdrop-filter: blur(10px) saturate(150%) contrast(120%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px / 20px;
+            padding: 1.5em;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+            align-items: flex-start;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-radius 0.25s ease;
         }
 
-        .footer-text {
-            margin-top: 1em;
-            font-size: 1em;
-            color: #aaaaaa;
-            text-align: center;
+        .repo-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px) saturate(150%) contrast(120%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px / 20px;
+            padding: 1.5em;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+            position: relative;
+            min-height: 120px; /* ensure space for bottom-right label */
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-radius 0.25s ease;
+        }
+
+        /* Ensure left column stacks title and description properly */
+        .repo-left {
+            flex: 1 1 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* LEFT align all content */
+            text-align: left;        /* important for multi-line descriptions */
+        }
+
+        /* Repo title */
+        .repo-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            font-size: 1.4em;
+        }
+
+        /* Compiler icons inside title */
+        .repo-title .compiler-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            display: inline-block;
+        }
+
+        .repo-title a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .repo-title a:hover {
+            text-decoration: underline;
+        }
+
+        /* Repo description on its own row */
+        .repo-description {
+            font-size: 1.05em;
+            color: #eee;
             line-height: 1.5;
+            margin-top: 0.5em;
         }
 
-        .footer img {
-            width: 30px;
-            height: 30px;
+        /* Right column: language label aligned bottom */
+        .repo-right {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start; /* remove space-between */
         }
 
-        /* The original fadeIn and hover keyframes are already defined above, so no need to repeat them here. */
+        .repo-right .compiler-icons {
+            display: flex;
+            gap: 0.4em;
+        }
+
+        .compiler-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .language-label {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: auto;
+        }
+
+        /* Hover “liquid” effect */
+        .repo-item:hover, .project-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+            border-radius: 18px / 22px;
+        }
+        /* Text details on left */
+        .project-details, .repo-details {
+            flex: 1 1 60%;
+            margin-right: 1.5em;
+            text-align: left;        /* important for multi-line descriptions */
+        }
+
+
+        /* Titles */
+        .project-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            font-size: 1.4em;
+        }
+
+        .project-title a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .repo-title a:hover, .project-title a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- ARCHIVES ICONS ---------- */
+        .repo-title .compiler-icon {
+            width: 28px;      /* fixed width */
+            height: 28px;     /* fixed height */
+            object-fit: contain; /* keep aspect ratio */
+            display: inline-block;
+        }
+
+        /* Descriptions */
+        .project-description {
+            font-size: 1.05em;
+            line-height: 1.5;
+            color: #eee;
+            margin-top: 0.5em;
+        }
+
+        .language-bar span {
+            display: block;
+            height: 100%;
+        }
+
+        /* Image thumbnail on right */
+        .project-thumbnail, .repo-thumbnail {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        
+        /* Thumbnail images */
+        .project-thumbnail img, .repo-thumbnail img {
+            max-width: 180px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .link-title {
+            display: flex;              /* make it a flex container */
+            justify-content: center;    /* center child horizontally */
+            width: 100%;                /* take full width of parent */
+            margin: 1em 0;              /* optional spacing */
+        }
+
+
+        .link-group {
+            display: flex;
+            gap: 20px; /* space between links and separators */
+            align-items: center;
+        }
+
+        .link-group .separator {
+            margin: 0 10px;
+            color: #ffffff; /* optional: style the ~ */
+        }
+
+        .link-group a {
+            color: rgb(112, 191, 255); /* Standard bright blue */
+            text-decoration: none; /* Optional: remove underline */
+            font-weight: bold;     /* Optional: make text bolder */
+        }
+
+        .link-group a:hover {
+            text-decoration: underline; /* Optional: underline on hover for better UX */
+        }
+        
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .repo-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .repo-right {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 0.8em;
+                width: 100%;
+            }
+            .compiler-icon {
+                width: 24px;
+                height: 24px;
+            }
+            .language-label {
+                margin-left: 0.5em;
+            }
+        }
+
+        #chimera {
+            position: relative;  /* needed for pseudo-element */
+            background: url('img/bkgdchimera3.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden; /* ensures overlay stays within the section */
+        }
+
+        /* overlay for blur + darken */
+        #chimera::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            background: rgba(0, 0, 0, 0.4); /* semi-transparent black for darkening */
+            backdrop-filter: blur(6px);     /* blur effect */
+            
+            z-index: 0; /* behind the text */
+        }
+
+        /* make sure content appears above overlay */
+        #chimera .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer { text-align: center; padding: 1em 0; margin-top: 100px; }
+        .footer a { margin: 0 .5em; }
+        .footer img { width: 30px; height: 30px; }
+        .footer-text { margin-top: 1em; font-size: 1em; color: #aaaaaa; text-align: center; line-height: 1.5; }
     </style>
 </head>
 <body>
+    <!-- NAVBAR -->
     <div class="navbar">
         <div class="dropdown">
             <img src="img/goeshard.png" alt="Logo">
             <div class="dropdown-content">
-                <a href="index.html">Home</a>
+                <a href="#home">Home</a>
                 <a href="https://www.youtube.com/@Veetwo_">Youtube</a>
-                <a href="aeprojects.html">(Legacy) AE Projects</a>
+                <a href="Old site (v3.5)/aeprojects.html">(Legacy) AE Projects</a>
                 <a href="mailto:v21640@gmail.com">Contact</a>
             </div>
         </div>
+
         <div class="status-container">
             <div class="status">
-                <div class="status-circle"></div>
-                <span class="status-label">CLOUDFLARE SITE ONLINE</span>
+                <div class="status-circle-red"></div>
+                <span class="status-label">CLOUDFLARE</span>
             </div>
             <div class="status">
-                <div class="status-circle"></div>
-                <span class="status-label">GITHUB SITE ONLINE</span>
+                <div class="status-circle-green"></div>
+                <span class="status-label">GITHUB</span>
             </div>
         </div>
+
         <div class="links">
-            <a href="index.html">Home</a>
-            <a href="chimera.html">Project Chimera iXY</a>
-            <a href="projects.html">Current Projects</a>
-            <a href="archives.html">Programming Archives</a>
-            <a href="https://linktr.ee/veetwo">Linktree</a>
+            <a href="#home" data-page="home">Home</a>
+            <a href="#chimera" data-page="chimera">Project Chimera iXY</a>
+            <a href="#projects" data-page="projects">Current Projects</a>
+            <a href="#archives" data-page="archives">Programming Archives</a>
+            <a href="https://linktr.ee/Aetriq">Linktree</a>
         </div>
     </div>
 
-    <div class="logo-container">
-        <img src="img/logoanim.gif" alt="Veetwo Logo" class="fade-in-logo" id="main-logo">
-    </div>
-
-
-    <div class="content">
-        <h1>Welcome to my page.</h1>
-        <div class="bottom-texts">
-            <p>Alex G - BASc Computer Engineering @ uOttawa</p>
-            <br>
-
-            <p></p>
-            <p>Click a link at the top to get started.</p>
+    <!-- HOME (visible by default via JS when hash is empty) -->
+    <section id="home" class="page">
+        <div class="logo-container">
+            <!-- data-reanimate is used by JS to restart the animation on page switch -->
+            <img src="img/logoanim.gif" alt="Aetriq Logo" class="fade-in-logo" id="main-logo" data-reanimate>
         </div>
-    </div>
+        <div class="content">
+            <h1 data-reanimate>Welcome to my page.</h1>
+            <div class="bottom-texts" data-reanimate>
+                <p>Alex G - BASc Computer Engineering @ uOttawa</p>
+                <br>
+                <p>Click a link at the top to get started.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- PROJECT CHIMERA -->
+    <section id="chimera" class="page">
+        <div class="content fade-in">
+        <h1>Chimera iXY</h1>
+        <div class="bottom-texts" data-reanimate>
+        
+        <h2>Work in progress...</h2>
+        <h3>Still printing. Still free. Still RepRap.</h3>
+        </br></br>
+
+        <h3 class="link-title">
+            <span class="link-group">
+                <a href="chimeradoc.html">Documentation (Short)</a>
+                <span class="separator">~</span>
+                <a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?usp=sharing">BOM</a>
+                <span class="separator">~</span>
+                <a href="https://github.com/aetriq/ChimeraiXY">Github</a>
+                <span class="separator">~</span>
+                <a href="chimeradocfull.html">Documentation (Full)</a>
+            </span>
+        </h3>
+        </br></br>
+
+        <h2>Current Status: v0.9 to be release soon...</h2>
+    </section>
+
+    <!-- CURRENT PROJECTS -->
+    <section id="projects" class="page">
+        <div class="content fade-in">
+        <h1>Current Projects</h1>
+        <div class="project-list">
+
+            <div class="project-item fade-in" data-bg="img/mips.png">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/aetriq/CEG3156/tree/main/Lab%203" target="_blank">MIPS Pipelined Processor</a></h2>
+                    <p class="project-description">
+                       Designed entirely using RTL-based VHDL & programmmed on the FPGA DE2-115. Contains instruction/data memory units. Implemented forwarding and stall logic to maximize instructions executed while minimizing error.
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/mips.png" alt="UART">
+                </div>
+            </div>
+
+            <div class="project-item fade-in" data-bg="img/SignalSculpt.png">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/aetriq/SignalSculpt" target="_blank">SignalSculpt</a></h2>
+                    <p class="project-description">
+                        Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click. Fourier-Based and designed to be EXTREMELY fast and efficient for real-time processing and preview.
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/SignalSculpt.png" alt="SignalSculpt">
+                </div>
+            </div>
+
+            <div class="project-item fade-in" data-bg="img/uart.png">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/aetriq/CEG3155/tree/main/Final%20Project" target="_blank">Universal Asynchronous Receiver Transmitter (UART)</a></h2>
+                    <p class="project-description">
+                       Designed entirely using RTL-based VHDL & designed for the MAX232 chip on the DE2-115. Dynamic baud rate for easy serial communication. Designed specifically for a related traffic light controller but can be connected to any circuit using an 8-bit wide data bus.
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/uart.png" alt="UART">
+                </div>
+            </div>
+
+            <div class="project-item fade-in" data-bg="img/flsun.png">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/aetriq/SignalSculpt" target="_blank">Flsun i3 2017 - Speed Mod (Old)</a></h2>
+                    <p class="project-description">
+                    Restored cartesian 3d printer to demonstrate the ability of old hardware to print quality and speed just as good as modern printers. Upgraded with TMC2208s, bilinear bed leveling, and more. 
+                    
+                    <hr>
+
+                    This project was archived; Refer to Project Chimera iXY.
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/flsun.png" alt="SignalSculpt">
+                </div>
+            </div>
+
+            <div class="project-item fade-in" data-bg="img/gcc.png">
+                <div class="project-details">
+                    <h2 class="project-title"><a href="https://github.com/SEG2105BC-uOttawa/seg2105f23-project-project_grp_75" target="_blank">GCC Cycling App</a></h2>
+                    <p class="project-description">
+                        Kotlin-based app that supports administrators (event management), cycling clubs (event creation), and participants (event registration). Built in Java with Android Studio.
+                </div>
+                <div class="project-thumbnail">
+                    <img src="img/gcc.png" alt="GCC Cycling App">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMMING ARCHIVES -->
+    <section id="archives" class="page">
+        <div class="content fade-in">
+        <h1>Programming Archives</h1>
+        <p>List of links to repos of programming I've done circa ~2019.</p>
+
+        <div class="repo-list">
+            <!-- CEG3136 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/CEG3136" target="_blank">CEG3136</a>
+                        <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                            alt="Sublime Text" 
+                            class="compiler-icon sublime" 
+                            title="Sublime Text">
+                    </h2>
+                <div class="repo-description">
+                    Computer Architecture 2 - Labs & Tutorials. All done in assembly and C. The majority of work done consisted of programs that used the fundamental components of the M68HCS12 Motorola Processor, such as the Timers, PWM ADC converters, etc. to create basic applications.
+                </div>
+            </div>
+
+            <div class="repo-right">
+                <div class="language-label">ASM, C</div>
+            </div>
+        </div>
+
+        <!-- ELG3125 -->
+        <div class="repo-item fade-in">
+            <div class="repo-left">
+                <h2 class="repo-title">
+                    <a href="https://github.com/aetriq/ELG3125" target="_blank">ELG3125</a>
+                    <img src="https://seeklogo.com/images/M/matlab-logo-CDDF5BFA92-seeklogo.com.png" 
+                        alt="MATLAB" 
+                        class="compiler-icon matlab" 
+                        title="MATLAB">
+                </h2>
+            <div class="repo-description">
+                Signals and Systems. Includes LaPlace, Fourier, and Z transform domain. All code done in MATLAB.
+            </div>
+        </div>
+        <div class="repo-right">
+            <div class="language-label">MATLAB</div>
+        </div>
+
+        </div>
+
+            <!-- CSI2372 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/CSI2372" target="_blank">CSI2372</a>
+                        <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                            alt="MATLAB" 
+                            class="compiler-icon sublime" 
+                            title="Sublime Text">
+                    </h2>
+                    <div class="repo-description">
+                        Advanced Programming Concepts in C++. Includes concepts such as Pointers, STL library, Templates, Hardware Interfacing, sorting algorithms, etc. 
+                    </div>
+            </div>
+            <div class="repo-right">
+                    <div class="language-label">C++</div>
+            </div> 
+            </div>
+
+            <!-- SEG2106 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/SEG2106" target="_blank">SEG2106</a>
+                        <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                            alt="Sublime Text" 
+                            class="compiler-icon sublime" 
+                            title="Sublime Text">
+                    </h2>
+                    <div class="repo-description">
+                        Software construction.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Java</div>
+                </div>
+            </div>
+
+            <!-- SEG2105 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/SEG2105" target="_blank">SEG2105</a>
+                        <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                            alt="Sublime Text" 
+                            class="compiler-icon sublime" 
+                            title="Sublime Text">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1200px-Kotlin_Icon.png" 
+                            alt="Kotlin" 
+                            class="compiler-icon kotlin" 
+                            title="Kotlin">
+                    </h2>
+                    <div class="repo-description">
+                        Intro to Software Engineering. Threads, netstat servers, xml designs, and Kotlin-based android apps.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Java, Kotlin</div>
+                </div>
+            </div>
+
+            <!-- CSI2110 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/CSI2110" target="_blank">CSI2110</a>
+                        <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                            alt="Sublime Text" 
+                            class="compiler-icon sublime" 
+                            title="Sublime Text">
+                    </h2>
+                    <div class="repo-description">
+                        Data Structures and Algorithms<br>Advanced data structures, sorting algorithms, and containers. Implementations of the k-nearest neighbors and Dijkstra's algorithm.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Java</div>
+                </div>
+            </div>
+
+            <!-- ITI1121 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/ITI1121" target="_blank">ITI1121</a>
+                        <img src="https://www.cdnlogo.com/logos/s/43/sublime-text.svg" 
+                            alt="Sublime Text" 
+                            class="compiler-icon sublime" 
+                            title="Sublime Text">
+                    </h2>
+                    <div class="repo-description">
+                        Intro to comp sci.<br>Involves the full potential of early Java, including all concepts of data structures, algorithms, and various containers.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Java</div>
+                </div>
+            </div>
+
+            <!-- ITI1120 -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/ITI1120" target="_blank">ITI1120</a>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1200px-Google_Colaboratory_SVG_Logo.svg.png" 
+                            alt="Google Colabs" 
+                            class="compiler-icon colabs" 
+                            title="Google Colabs">
+                    </h2>
+                    <div class="repo-description">
+                        Intro to comp sci.<br>Base concepts, simple matrix computations, eigenvectors, etc.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Python</div>
+                </div>
+            </div>
+
+            <!-- ICS4U -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/ICS4U" target="_blank">ICS4U</a>
+                        <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
+                            alt="Eclipse IDE" 
+                            class="compiler-icon eclipse" 
+                            title="Eclipse IDE">
+                    </h2>
+                    <div class="repo-description">
+                        Intro to comp sci. 2 - Project<br>Final project using the Swing GUI package.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Java</div>
+                </div>
+            </div>
+
+            <!-- ICS3U -->
+            <div class="repo-item fade-in">
+                <div class="repo-left">
+                    <h2 class="repo-title">
+                        <a href="https://github.com/aetriq/ICS3U" target="_blank">ICS3U</a>
+                        <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/eclipse-11-logo.png" 
+                            alt="Eclipse IDE" 
+                            class="compiler-icon eclipse" 
+                            title="Eclipse IDE">
+                    </h2>
+                    <div class="repo-description">
+                        Intro to comp sci. 1<br>Base concepts, OOP, simple arithmetic operations with libraries.
+                    </div>
+                </div>
+                <div class="repo-right">
+                    <div class="language-label">Java</div>
+                </div>
+            </div>
+
+
+    <!-- FOOTER -->
     <div class="footer">
-        <a href="https://github.com/v-tw0" target="_blank">
+        <a href="https://github.com/aetriq" target="_blank">
             <img src="https://img.icons8.com/ios11/512/FFFFFF/github.png" alt="GitHub">
         </a>
         <a href="https://www.youtube.com/@Veetwo_" target="_blank">
@@ -272,24 +831,66 @@
         <a href="https://veetwomusic.carrd.co/" target="_blank">
             <img src="https://carrd.co/assets/docs/images/brand/png/icon-dark.png" alt="Carrd">
         </a>
-        
+
         <p class="footer-text">
-            
-            © 2025 Veetwo. All rights reserved. <br>
+            © 2025 Aetriq. All rights reserved. <br>
             Work licensed under the CC BY-SA 4.0 license. <br>
-            Website last updated: 5.27.25</p>
+            Website last updated: 5.27.25
+        </p>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const logo = document.getElementById("main-logo");
-            // Add the hover-animation class after the fadeIn animation completes
-            logo.addEventListener("animationend", function(event) {
-                if (event.animationName === "fadeIn") {
-                    logo.classList.add("hover-animation");
-                }
+        // Show only one "page" (section) at a time, based on URL hash.
+        function showPage(id) {
+            const sections = document.querySelectorAll('.page');
+            sections.forEach(s => s.classList.remove('active'));
+
+            const target = document.getElementById(id) || document.getElementById('home');
+            target.classList.add('active');
+
+            // highlight active nav link
+            document.querySelectorAll('.links a[data-page]').forEach(a => {
+                a.classList.toggle('active', a.dataset.page === id);
             });
-        });
+
+            // restart any CSS animations inside the target section
+            restartAnimations(target);
+
+            // scroll to top for a clean "page" change
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+
+        // Restart animations by temporarily removing them (works for fade-ins, etc.)
+        function restartAnimations(scope) {
+            scope.querySelectorAll('[data-reanimate]').forEach(el => {
+                // Preserve original animation by toggling it off/on
+                el.style.animation = 'none';
+                // force reflow
+                void el.offsetWidth;
+                // remove inline override so CSS animations apply again
+                el.style.animation = '';
+            });
+
+            // Special case: your main logo hover combo
+            const logo = scope.querySelector('#main-logo');
+            if (logo) {
+                logo.classList.remove('hover-animation');
+                // Wait a frame then re-add to retrigger the sequence cleanly
+                requestAnimationFrame(() => {
+                    logo.classList.add('hover-animation');
+                });
+            }
+        }
+
+        // Handle hash navigation (supports direct links like /#projects)
+        function handleHashChange() {
+            const id = (location.hash || '#home').slice(1);
+            showPage(id);
+        }
+
+        // Init on load + react to hash changes
+        window.addEventListener('hashchange', handleHashChange);
+        document.addEventListener('DOMContentLoaded', handleHashChange);
     </script>
 </body>
 </html>
