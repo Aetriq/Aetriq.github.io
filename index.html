@@ -163,7 +163,7 @@
             text-align: center;
             margin-top: 4em;
             font-size: 1em;
-            color: #bbbbbb;
+            color: #ffffff;
             opacity: 0;
             animation: fadeIn 3s ease forwards;
             animation-delay: 1s;
@@ -460,6 +460,19 @@
             z-index: 1;
         }
 
+        .image-row {
+            display: flex;              /* Arrange images in a row */
+            justify-content: center;    /* Center the row horizontally */
+            gap: 50px;                  /* Space between images */
+            margin-top: 20px;           /* Space above the row */
+        }
+
+        .small-img {
+            width: 100px;                /* Adjust the size of the images */
+            height: auto;               /* Keep aspect ratio */
+            object-fit: contain;        /* Ensure images scale properly */
+        }
+
         /* ---------- Footer ---------- */
         .footer { text-align: center; padding: 1em 0; margin-top: 100px; }
         .footer a { margin: 0 .5em; }
@@ -506,7 +519,7 @@
 
         <div class="links">
             <a href="#home" data-page="home">Home</a>
-            <a href="#chimera" data-page="chimera">Project Chimera iXY</a>
+            <a href="chimera.html" data-page="chimera">Project Chimera iXY</a>
             <a href="#projects" data-page="projects">Current Projects</a>
             <a href="#archives" data-page="archives">Programming Archives</a>
             <a href="https://linktr.ee/Aetriq">Linktree</a>
@@ -514,45 +527,29 @@
     </div>
 
     <!-- HOME (visible by default via JS when hash is empty) -->
-    <section id="home" class="page">
-        <div class="logo-container">
-            <!-- data-reanimate is used by JS to restart the animation on page switch -->
-            <img src="img/logoanim.gif" alt="Aetriq Logo" class="fade-in-logo" id="main-logo" data-reanimate>
-        </div>
+    <section id="home" class="page">    
+        <!--        <div class="logo-container">    -->
+        <!--            <!-- data-reanimate is used by JS to restart the animation on page switch -->   
+        <!--            <img src="img/logoanim.gif" alt="Aetriq Logo" class="fade-in-logo" id="main-logo" data-reanimate>   -->
+        <!--        </div>  -->
         <div class="content">
             <h1 data-reanimate>Welcome to my page.</h1>
             <div class="bottom-texts" data-reanimate>
-                <p>Alex G - BASc Computer Engineering @ uOttawa</p>
+                <p>Alex Gordon - BASc Computer Engineering @ uOttawa</p>
                 <br>
                 <p>Click a link at the top to get started.</p>
+                <p>(This homepage is still a work in progress...)</p>
             </div>
+            
+            <br><br><br><br><br><br><br><br><br><br>
+            
+            <div class="image-row">
+            <img src="img/veetwocc.png" alt="Image 1" class="small-img">
+            <img src="https://reprap.org/mediawiki/images/4/4b/RepRap_Logo.png" alt="Image 2" class="small-img">
+
         </div>
-    </section>
-
-    <!-- PROJECT CHIMERA -->
-    <section id="chimera" class="page">
-        <div class="content fade-in">
-        <h1>Chimera iXY</h1>
-        <div class="bottom-texts" data-reanimate>
-        
-        <h2>Work in progress...</h2>
-        <h3>Still printing. Still free. Still RepRap.</h3>
-        </br></br>
-
-        <h3 class="link-title">
-            <span class="link-group">
-                <a href="chimeradoc.html">Documentation (Short)</a>
-                <span class="separator">~</span>
-                <a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?usp=sharing">BOM</a>
-                <span class="separator">~</span>
-                <a href="https://github.com/aetriq/ChimeraiXY">Github</a>
-                <span class="separator">~</span>
-                <a href="chimeradocfull.html">Documentation (Full)</a>
-            </span>
-        </h3>
-        </br></br>
-
-        <h3>Current Status: v0.9 to be released soon...</h3>
+                    
+        </div>
     </section>
 
     <!-- CURRENT PROJECTS -->
@@ -898,8 +895,8 @@
 
         <p class="footer-text">
             © 2025 Aetriq. All rights reserved. <br>
-            Work licensed under the CC BY-SA 4.0 license. <br>
-            Website last updated: 5.27.25
+            Work licensed under the CC BY-SA 4.0 license unless otherwise stated. <br>
+            Website last updated: 9.14.25
         </p>
     </div>
 
