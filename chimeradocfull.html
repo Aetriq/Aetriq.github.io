@@ -156,7 +156,7 @@
       <img src="img/goeshard.png" alt="Aetriq logo">
       <div>
         <h1>Chimera iXY - Official Documentation</h1>
-        <div class="muted">Alex Gordon - Last updated September 24, 2025</div>
+        <div class="muted">Alex Gordon - Last updated October 11th, 2025</div>
       </div>
     </div>
 
@@ -178,11 +178,11 @@
         <li><a href="#background">2.0 Background</a></li>
         <li><a href="#design">3.0 Design Overview</a></li>
         <li><a href="#bom">4.0 Bill of Materials</a></li>
-        <li><a href="#assembly-mech">5.0 Assembly — Mechanical</a></li>
+        <li><a href="#assembly-mech">5.0 Assembly - Mechanical</a></li>
         <li style="margin-left:10px;"><a href="#frame">5.1 Frame</a></li>
         <li style="margin-left:10px;"><a href="#mounting">5.2 Mounting Brackets</a></li>
         <li style="margin-left:10px;"><a href="#corexy">5.3 CoreXY Kinematics</a></li>
-        <li><a href="#assembly-elec">6.0 Assembly — Electrical</a></li>
+        <li><a href="#assembly-elec">6.0 Assembly - Electrical</a></li>
         <li style="margin-left:10px;"><a href="#mainboard">6.1 Mainboard Choices</a></li>
         <li style="margin-left:10px;"><a href="#drivers">6.2 Drivers</a></li>
         <li style="margin-left:10px;"><a href="#motors">6.3 Motor Choices</a></li>
@@ -204,8 +204,8 @@
     <main class="doc" id="top">
 
       <article class="doc-header">
-        <h2>Chimera iXY — Rev. 1.0</h2>
-        <div class="meta">Official documentation for the Chimera iXY — a DIY CoreXY build combining parts from two broken 3D printers.</div>
+        <h2>Chimera iXY - Rev. 1.0</h2>
+        <div class="meta">Official documentation for the Chimera iXY - a DIY CoreXY build combining parts from two broken 3D printers.</div>
       </article>
 
       <article class="doc-header" class="section-card">
@@ -245,7 +245,7 @@
         </p>
         <figure class="figure">
             <img src="img/chimeradocfull/1.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-            <figcaption>Fig 2.0-1 — Mingda Magician X (Released in 2021)</figcaption>
+            <figcaption>Fig 2.0-1 - Mingda Magician X (Released in 2021)</figcaption>
         </figure>
 
         <p>
@@ -253,7 +253,7 @@
         </p>
         <figure class="figure">
             <img src="img/chimeradocfull/2.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-            <figcaption>Fig 2.0-2 — Modified Flsun i3 C (Released in 2017)</figcaption>
+            <figcaption>Fig 2.0-2 - Modified Flsun i3 C (Released in 2017)</figcaption>
         </figure>
       </section>
 
@@ -344,7 +344,7 @@
 
       <!-- 5.0 Mechanical Assembly -->
       <section id="assembly-mech" class="section-card">
-        <h3>5.0 Assembly — Mechanical</h3>
+        <h3>5.0 Assembly - Mechanical</h3>
 
         <section id="frame" style="margin-top:12px;">
           <h4 style="margin:8px 0 6px 0;">5.1 Frame</h4>
@@ -355,9 +355,8 @@
 
             <figure class="figure">
                 <img src="img/chimeradocframe.png" alt="img" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 5.0-1 — Frame Dimensions</figcaption>
+                <figcaption>Fig 5.0-1 - Frame Dimensions</figcaption>
             </figure>
-
 
             <h5 style="margin:6px 0;">5.1.2 Reinforcements</h5>
             <p>Please refer to the github repository for all models used. All kinematics and bracket mounts are final for the first revision as of now; there are some issues I need to fix with the toolhead.</p>
@@ -366,17 +365,33 @@
 
         <section id="mounting" style="margin-top:12px;">
           <h4 style="margin:8px 0 6px 0;">5.2 Mounting Brackets</h4>
-          <p>Mounting brackets (CAD/STL files) are available in the GitHub repository — all kinematics and bracket mounts are final for Rev.1, though a hotend mount redesign is planned.</p>
+          <p>Mounting brackets (CAD/STL files) are available in the GitHub repository - all kinematics and bracket mounts are final for Rev.1, though a hotend mount redesign is planned.</p>
+          <p>Part diagram:</p>
+
+
         </section>
 
+        <section id="mounting" style="margin-top:12px;">
+          <h4 style="margin:8px 0 6px 0;">5.3 Gantry</h4>
+          <p>Mounting brackets (CAD/STL files) are available in the GitHub repository - all kinematics and bracket mounts are final for Rev.1, though a hotend mount redesign is planned.</p>
+          <p>The gantry plate and hotend fan mounting bracket went through the most iteration, and as a result is the most optimized. See the below diagram for an assembly guide.</p>
+
+
+
+          <p>Part diagram:</p>
+
+
+        </section>
+
+
         <section id="corexy" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">5.3 CoreXY Kinematics</h4>
+          <h4 style="margin:8px 0 6px 0;">5.4 CoreXY Kinematics</h4>
           <p>
             For the X-Y axis, the idlers are vertically stacked and follows the below configuration:
           </p>
             <figure class="figure">
                 <img src="img/chimeradocfull/4.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 5.3-1 — CoreXY Belt configuration</figcaption>
+                <figcaption>Fig 5.3-1 - CoreXY Belt configuration</figcaption>
             </figure>
           <p>
             In order to tension the belts, idlers P1 and P2 on the front should be moved ~1 inch towards the extruder. The belts can now be installed with a fair amount of tension, then moved outwards back to their original position to apply ~10-15N of tension. It is very important to note that these belts should follow a square geometric shape.
@@ -387,7 +402,7 @@
 
       <!-- 6.0 Electrical Assembly -->
       <section id="assembly-elec" class="section-card">
-        <h3>6.0 Assembly — Electrical</h3>
+        <h3>6.0 Assembly - Electrical</h3>
         <p>NOTE: This is entirely subjective. You can go with your own board as you want as long as it supports the necessary hardware/firmware.
         <br><br>
         After installing a defective TMC2208 driver into my MKS Gen L v1.0, I decided to look for a more modern board. The following options were ones I looked at and experimented with physically:
@@ -399,15 +414,15 @@
             The choice of mainboard is subjective; boards tried included:
           </p>
           <ul>
-            <li><strong>MKS Gen L v2.1</strong> — Overall excellent choice and it would’ve been the board I went with. After obtaining one it died shortly after due to unknown reasons (likely defective), thus I had to return it and find another board. There were no more in stock so I decided to look for something more powerful then 8-bit AVR. Having UART mode work with the drivers natively on this board is a plus.</li>
+            <li><strong>MKS Gen L v2.1</strong> - Overall excellent choice and it would’ve been the board I went with. After obtaining one it died shortly after due to unknown reasons (likely defective), thus I had to return it and find another board. There were no more in stock so I decided to look for something more powerful then 8-bit AVR. Having UART mode work with the drivers natively on this board is a plus.</li>
             <figure class="figure">
                 <img src="img/chimeradocfull/5.png" alt="img" style="max-width:100%;border-radius:8px;">
             </figure>
-            <li><strong>MKS TinyBee v1.0</strong> — Upon initial inspection, this board seemed to be the best 32-bit board for this build. Uses an ESP32 and has it’s own web server. I ended up not choosing this as I wasn’t able to get UART mode to work with these drivers. This board doesn’t support it natively and even after soldering wires from each drivers’ UART to the shared TX2/RX2 serial connection I still couldn’t get it to work (Even with a 220 ohm pull up resistor). </li>
+            <li><strong>MKS TinyBee v1.0</strong> - Upon initial inspection, this board seemed to be the best 32-bit board for this build. Uses an ESP32 and has it’s own web server. I ended up not choosing this as I wasn’t able to get UART mode to work with these drivers. This board doesn’t support it natively and even after soldering wires from each drivers’ UART to the shared TX2/RX2 serial connection I still couldn’t get it to work (Even with a 220 ohm pull up resistor). </li>
             <figure class="figure">
                 <img src="img/chimeradocfull/6.png" alt="img" style="max-width:100%;border-radius:8px;">
             </figure>
-            <li><strong>MKS Robin Nano v3.1</strong> — I ended up going with this board as I got a good deal on Amazon for it with a MKS TFT35 v2.0 display. Supports UART mode natively, plenty of expansion and a web server.</li>
+            <li><strong>MKS Robin Nano v3.1</strong> - I ended up going with this board as I got a good deal on Amazon for it with a MKS TFT35 v2.0 display. Supports UART mode natively, plenty of expansion and a web server.</li>
             <figure class="figure">
                 <img src="img/chimeradocfull/7.png" alt="img" style="max-width:100%;border-radius:8px;">
             </figure>
@@ -433,18 +448,18 @@
           </p>
           <figure class="figure">
                 <img src="img/chimeradocfull/9.jpg" alt="img" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 6.3-1 — 42BYGH439-B-20D</figcaption>
+                <figcaption>Fig 6.3-1 - 42BYGH439-B-20D</figcaption>
 
             </figure>
             <figure class="figure">
                 <img src="img/chimeradocfull/10.jpg" alt="img" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 6.3-2 — 42SHDC4023Z-23B</figcaption>
+                <figcaption>Fig 6.3-2 - 42SHDC4023Z-23B</figcaption>
 
             </figure>
           <p>As expected, the MMX motors showed a slight advantage over the Flsun ones. The motors are configured as follows:</p>
           <ul>
-            <li>Flsun i3 motors (42SHDC4023Z-23B) — α, β (X/Y)</li>
-            <li>MMX motors (42BYGH439-B-20D) — Z, E0</li>
+            <li>Flsun i3 motors (42SHDC4023Z-23B) - α, β (X/Y)</li>
+            <li>MMX motors (42BYGH439-B-20D) - Z, E0</li>
           </ul>
         </section>
 
@@ -517,7 +532,7 @@
 
       <!-- 9.0 Conclusion -->
       <section id="conclusion" class="section-card">
-        <h3>9.0 Conclusion — Chimera iXY Rev.2.0</h3>
+        <h3>9.0 Conclusion - Chimera iXY Rev.2.0</h3>
         <p>
             In conclusion, I was able to get a working rig by the first revision, but there are many issues to be addressed, which also significantly affected the print quality. I am working on v1.1 as we speak, but this is the general timeline that I would like to fix these issues:
         </p>
@@ -550,7 +565,7 @@
 
       <!-- FOOTER -->
       <div class="page-footer">
-        <div>© 2025 Aetriq — Chimera iXY Documentation</div>
+        <div>© 2025 Aetriq - Chimera iXY Documentation</div>
         <div style="margin-top:6px; font-size:0.9rem; color:#9aa8b2;">
           Document source: Chimera iXY Official Documentation (DOCX). Last updated July 11, 2025. 
         </div>
