@@ -184,7 +184,7 @@
 
         /* ---------- Homepage ---------- */
         #home {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            background: url("img/bkgdchimera4.png") no-repeat center center fixed;
             color: var(--light-text);
             min-height: 100vh;
             display: flex;
@@ -192,6 +192,20 @@
             position: relative;
             overflow: hidden;
         }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7); /* darken overlay */
+            z-index: 0;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+        }
+
 
         .hero {
             text-align: center;
@@ -800,10 +814,10 @@
         <div class="container">
             <div class="hero">
                 <h1>Alex Gordon</h1>
-                <div class="hero-subtitle">Computer Engineering Student @ uOttawa</div>
+                <div class="hero-subtitle">CEG @ uOttawa</div>
                 <div class="hero-description">
-                    Researching RF communication, ultra-low power ICs and control systems. <br><br>
-                    Currently focusing on 3D printing technology and electronics power systems. <br><br>
+                    RF communication, ultra-low power ICs and control systems. <br><br>
+                    Currently working on 3D printing technology and electronics power systems. <br><br>
                     While you're here, check out my 
                     <a href="chimera.html" class="card-link" target="_blank">
                             Latest Project →
