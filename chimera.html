@@ -588,7 +588,11 @@
                         <div class="timeline-content">
                             <div class="timeline-date">1-12-2026</div>
                             <h3>RELEASE - v2.0</h3>
-                            <p>Second official 'bugfix' of the project finally released.</p>
+                            <p>Second official revision release. Improvements to both software and hardware. 
+                                <br><br> Issues encountered in v1.5 fixed (refer to documentation for all resolved issues)
+                                <br><br> "Upgraded" to Klipper firmware for addition of input shaping and vibration compensation, which is crucial for speed/quality prints.
+                                <br><br> More improvements to kinematics and extrusion system to match higher print speeds.
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-item reveal-element">
@@ -596,7 +600,10 @@
                         <div class="timeline-content">
                             <div class="timeline-date">10-18-25</div>
                             <h3>RELEASE - v1.5</h3>
-                            <p>First official 'bugfix' of the project finally released. Alot of fixed parts to improve speed and print quality. Addition of input shaping and vibration compensation.</p>
+                            <p>First official 'bugfix' of the project finally released. 
+                                <br><br>Includes fixed 3d models to improve speed and print quality.
+                                <br><br>Marlin firmware addition of MKS WIFI ESP8266 v1.0 Module and BeePrint Wifi interface.
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-item reveal-element">
@@ -604,7 +611,9 @@
                         <div class="timeline-content">
                             <div class="timeline-date">9-15-25</div>
                             <h3>RELEASE - v1.0</h3>
-                            <p>First official revision of the project finally released. Documentation and design files uploaded on same day.</p>
+                            <p>First official revision of the project finally released. Documentation and design files uploaded on same day.
+                                <br><br>Refer to Github for full firmware/CAD Design Files.
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-item reveal-element">
@@ -653,35 +662,38 @@
 
         <section class="section">
             <div class="container">
-                <h2 class="section-title reveal-element">Technical Specifications</h2>
+                <h2 class="section-title reveal-element">Technical Specifications of v2.0</h2>
                 <div class="specs-grid">
                     <div class="spec-card reveal-element">
                         <div class="spec-title">Print Speed</div>
                         <div class="spec-value">200mm/s+</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">Minimum required printhead speed with quality results.</p>
+                        <div class="spec-value">At least 5000mm/s^2 acceleration</div>
                     </div>
                     <div class="spec-card reveal-element reveal-delay-100">
                         <div class="spec-title">Build Volume</div>
                         <div class="spec-value">230mm³</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">Cubic build surface area. 110C bed with magnetic PEI or glass surface.</p>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">NOTE: Magnetic PEI or glass surface.</p>
                     </div>
                     <div class="spec-card reveal-element reveal-delay-200">
                         <div class="spec-title">Power Consumption</div>
-                        <div class="spec-value">24V 15A - 350W</div>
+                        <div class="spec-value">24V-15A PK</div>
+                        <div class="spec-value">5V-5A PK</div>
                     </div>
                     <div class="spec-card reveal-element">
                         <div class="spec-title">Hotend</div>
-                        <div class="spec-value">V6</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">4010x2 part cooling<br>30mm hotend cooling<br>275C Max Temp</p>
+                        <div class="spec-value">V6 Volcano</div>
+                        <div class="spec-value">MAX 50mm/s^3 flow</div>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">4010x2 part cooling<br>30mm hotend cooling<br>350C Max Temp</p>
                     </div>
                     <div class="spec-card reveal-element reveal-delay-100">
                         <div class="spec-title">Controller</div>
                         <div class="spec-value">MKS Robin Nano</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">v3.1 running Marlin with LVGL UI. Future Klipper support.</p>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">v3.1 w/ Klipper firmware on a RPi Zero 2W. Uses MK TS35 v2.0.</p>
                     </div>
                     <div class="spec-card reveal-element reveal-delay-200">
                         <div class="spec-title">Kinematics</div>
                         <div class="spec-value">CoreXY</div>
+                        <div class="spec-value">Quad linear rod Z-axis</div>
                     </div>
                     <div class="spec-card reveal-element">
                         <div class="spec-title">Cost</div>

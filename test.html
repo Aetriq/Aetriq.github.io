@@ -1,0 +1,506 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chimera iXY - Official Documentation</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/93527958?v=4" type="image/png">
+
+    <style>
+        /* ---------- Fonts ---------- */
+        @font-face {
+            font-family: 'Frutiger LT Std';
+            src: url('FrutigerLTStd55Roman.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* ---------- Variables (Dark Grey & Red Theme) ---------- */
+        :root {
+            --sidebar-w: 300px;
+            
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-secondary: #181818;
+            
+            --primary-text: #e0e0e0;
+            --body-text: #b0b0b0;
+            
+            --accent-color: #d32f2f;
+            --accent-glow: #ff5252;
+            --border-color: #333333;
+            
+            --transition: all 0.2s ease;
+        }
+
+        * { box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Frutiger LT Std', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), url('img/bkgdchimera2.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--body-text);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ---------- Typography ---------- */
+        h1, h2, h3, h4, h5 {
+            color: var(--primary-text);
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-glow); }
+        h4 { font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; }
+        
+        p { margin-bottom: 1rem; line-height: 1.7; }
+        
+        a { color: var(--accent-glow); text-decoration: none; transition: var(--transition); }
+        a:hover { color: #fff; text-decoration: underline; }
+        
+        ul, ol { margin-bottom: 1rem; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+
+        /* ---------- Sidebar (Table of Contents) ---------- */
+        .sidebar {
+            width: var(--sidebar-w);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border-color);
+            padding: 30px 20px;
+            overflow-y: auto;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--body-text);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            width: fit-content;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-glow);
+            text-decoration: none;
+            background: rgba(211, 47, 47, 0.1);
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 0;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 6px 0;
+            color: var(--body-text);
+            font-size: 0.9rem;
+            border-left: 2px solid transparent;
+            padding-left: 15px;
+            transition: var(--transition);
+        }
+
+        .toc-link:hover, .toc-link.active {
+            color: var(--accent-glow);
+            border-left-color: var(--accent-color);
+            background: linear-gradient(90deg, rgba(211, 47, 47, 0.05) 0%, transparent 100%);
+        }
+
+        .table-section-header td {
+            background-color: rgba(211, 47, 47, 0.2); /* Red tint */
+            color: #ff8a80; /* Lighter red text */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Sub-items indentation */
+        .toc-sub {
+            padding-left: 15px !important;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* ---------- Main Content ---------- */
+        .main-content {
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            padding: 60px 80px;
+            max-width: 1200px;
+        }
+
+        /* Documentation Cards */
+        .doc-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .doc-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Images / Figures */
+        .figure {
+            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        td, th {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            color: var(--body-text);
+        }
+
+        th {
+            background: rgba(255,255,255,0.05);
+            color: var(--primary-text);
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* Utilities */
+        .note {
+            background: rgba(211, 47, 47, 0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 4px;
+            color: #ddd;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .footer-mini {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #666;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                max-height: 300px; /* Scrollable if too long on mobile */
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .back-btn { margin-bottom: 15px; }
+            .toc-list { display: flex; flex-wrap: wrap; gap: 10px; }
+            .toc-link { border-left: none; border-bottom: 2px solid transparent; padding: 5px 10px; background: rgba(255,255,255,0.05); border-radius: 4px; }
+            .toc-link.active { border-left: none; border-bottom-color: var(--accent-color); }
+        }
+    </style>
+</head>
+
+<div id="bom" class="doc-section">
+            <h3>4.0 Bill of Materials</h3>
+            <p>
+              The following is a complete list of the primary components required for the Chimera iXY build. This list is a work in progress. Note that exact materials sourced from the 'INITIAL PARTS' section are the components I've had for a long time and as a result are not included in the cost of this.
+            </p>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Component</th>
+                            <th style="width: 35%;">Description</th>
+                            <th style="width: 10%;">Qty</th>
+                            <th style="width: 15%;">Cost</th>
+                            <th style="width: 15%;">Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-section-header">
+                        <td colspan="5">Initial Parts</td>
+                    </tr>                        <tr>
+                        <tr>
+                            <td><strong>FlSun i3 (C) 2017</strong></td>
+                            <td>3D Printer</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/4fUUtnw"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mingda Magician X v1</strong></td>
+                            <td>3D Printer</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/4k6Xrig"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Miniton Beaglecam v1</strong></td>
+                            <td>Monitoring IP Camera</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://www.mintion.net/products/mintion-beagle-camera"></a>Miniton</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Twotrees PEI</strong></td>
+                            <td>230x230mm Build Plate</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/39011VG"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                    </tbody>
+
+                    <tr class="table-section-header">
+                        <td colspan="5">Electrical System</td>
+                    </tr>
+                        <tr>
+                            <td><strong>Mainboard</strong></td>
+                            <td>MKS Robin Nano v3.1 (RIP MKS Gen L v1.0) & MKS TS35 v2.0</td>
+                            <td>1</td>
+                            <td>$49.99</td>
+                            <td><a href="https://www.amazon.ca/dp/B0B5VQFWZ9?ref=ppx_yo2ov_dt_b_fed_asin_title">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power Supply</strong></td>
+                            <td>ZL-360-24 Generic</td>
+                            <td>4</td>
+                            <td>$===</td>
+                            <td><a href="https://www.amazon.ca/Redrex-Universal-Regulated-Switching-Temperature-Controlled/dp/B0816LK4H2?crid=11PZ8MQI870ZP&dib=eyJ2IjoiMSJ9.bwJfIKwLD5Ab4vibBrl_IG3F0FHGZLvNBaKaX9J7Bd1bv1FDh86bfakGpU4doBKfipKOM3P1yuGZggOtirVzpBU6pTq2mz3UOO2GgoDbZxpoSp7xD-KNjIVgcW0I38BU2fM0C2bdq052SWTZ-7Sci3gmFws8erY6G8JcbpIHV33x1WjuaPAriywaPriSFIthZSfrse6E-Cw6Tagf_pSMO-U2fVLgCunrjI_be2jndV7ShoQkkyB9xEpzpWIU9VsvHxVX1k4YbeQOmiWqJbcp9pUKg59C-QUGto4PJXEaHA4.FQ77rR3wHYI-r75Ys-mHK9z0qjY6wDLvfBRNgQvEvt0&dib_tag=se&keywords=24v%2B15a%2Bpower%2Bsupply&qid=1750260533&sprefix=24v%2B15A%2Bp%2Caps%2C106&sr=8-5&th=1">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TMC2209 UART</strong></td>
+                            <td>X-Y Axis</td>
+                            <td>2</td>
+                            <td>$8.18</td>
+                            <td><a href="https://www.aliexpress.com/item/1005008232792866.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TMC2209 Standalone</strong></td>
+                            <td>Z-E Axis</td>
+                            <td>2</td>
+                            <td>$6.59</td>
+                            <td><a href="https://www.aliexpress.com/item/1005006196489026.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1M Heater Heating Tube + Thermistor</strong></td>
+                            <td>(3Pcs) 24V 40W & 100K 3950</td>
+                            <td>1</td>
+                            <td>$6.25</td>
+                            <td><a href="https://a.co/d/fsNQgWf">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mellow 3D Printer Parts Klipper ADXL345 Accelerometer Board</strong></td>
+                            <td>Input Shaping Accelerometer w/ RP2040 for secondary MCU</td>
+                            <td>1</td>
+                            <td>$5.49</td>
+                            <td><a href="https://www.aliexpress.com/item/1005007507421853.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dupont Line Jumper Wire</strong></td>
+                            <td>20CM Male to Female for screen connection</td>
+                            <td>1</td>
+                            <td>$3.72</td>
+                            <td><a href="https://www.aliexpress.com/item/1005003641187997.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raspberry Pi SC0721</strong></td>
+                            <td>RPi Zero 2W for Klipper</td>
+                            <td>1</td>
+                            <td>$26.83</td>
+                            <td><a href="https://www.digikey.ca/en/products/detail/raspberry-pi/SC0721/24627135">Digikey</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                    <tr class="table-section-header">
+                        <td colspan="5">Mechanical System</td>
+                    </tr>                        <tr>
+                            <td><strong>Linear Motion Rods</strong></td>
+                            <td>8mm x 331mm for Y & Z axis</td>
+                            <td>6</td>
+                            <td>$38.07</td>
+                            <td><a href="https://a.co/d/bksZgwi">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>45x8mm Linear Bearings</strong></td>
+                            <td>For Z-axis bed</td>
+                            <td>4</td>
+                            <td>$6.98</td>
+                            <td><a href="https://a.co/d/fN8HqCQ">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>300mm 6063 Aluminum Square Tube</strong></td>
+                            <td>15x15mm Outer Width</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/ecK5TnY">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JAYO PETG 1KG</strong></td>
+                            <td>Primary Color (RED)</td>
+                            <td>2</td>
+                            <td>~$12.50</td>
+                            <td><a href="https://a.co/d/9D6VQgp">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JAYO PETG 1KG</strong></td>
+                            <td>Secondary Color (BLACK)</td>
+                            <td>1</td>
+                            <td>~$12.50</td>
+                            <td><a href="https://a.co/d/9D6VQgp">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NEMA17-42 Stepper Heatsink</strong></td>
+                            <td>For X-Y axis</td>
+                            <td>2</td>
+                            <td>$3.72</td>
+                            <td><a href="https://www.aliexpress.com/item/1005006723089908.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>M3, M4, M5, M6 Bolt Kit</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$16.99</td>
+                            <td><a href="https://a.co/d/bK2BZC4">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>M2, M3, M4, M5, M6 Bolt Kit</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$18.88</td>
+                            <td><a href="https://a.co/d/i6cB5dC">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2PCS GT2 20T Gear Aluminum Belt Pulley for 3D Printer</strong></td>
+                            <td>2mm Pitch 5mm Inner Hole 6mm Wide</td>
+                            <td>2</td>
+                            <td>$6.20</td>
+                            <td><a href="https://a.co/d/evq40VM">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5 M GT2 Timing Belt</strong></td>
+                            <td>2mm Pitch 6mm Width</td>
+                            <td>1</td>
+                            <td>$5.90</td>
+                            <td><a href="https://a.co/d/gDiZFV8">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brass Threaded Inserts for 3D Printing, M2 M3 M4 M5</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$11.92</td>
+                            <td><a href="https://a.co/d/47oZYLn">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>GYVRM-K240505 Converter 12V/24V to 5V 5A DC-DC</strong></td>
+                            <td>For 5V peripherals</td>
+                            <td>1</td>
+                            <td>$6.07</td>
+                            <td><a href="https://a.co/d/fJjdTEV">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+           
+        </div>

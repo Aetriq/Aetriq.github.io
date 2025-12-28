@@ -193,7 +193,7 @@ a:hover {
 
 /* ---------- Home Banner Section ---------- */
 #home {
-    background: url("img/bkgdchimera3.png") no-repeat center center;
+    background: url("img/bkgdmain.png") no-repeat center center;
     background-size: cover;
     color: var(--primary-text);
     height: 400px; /* Compact Banner Height */
@@ -207,7 +207,7 @@ a:hover {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(18, 18, 18, 0.9); /* Heavy overlay for text readability */
+    background: rgba(18, 18, 18, 0.65); /* Heavy overlay for text readability */
     z-index: 0;
 }
 
@@ -311,7 +311,90 @@ a:hover {
     border-radius: 4px;
     font-size: 0.8rem;
 }
+/* ---------- Highlighted Project (Chimera) Section ---------- */
+.chimera-hero {
+    /* Custom Dark Gradient with Red Tint */
+    background: linear-gradient(135deg, #2c0e0e 0%, #000000 100%);
+    color: #e0e0e0;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    /* Borders to separate from other sections */
+    border-top: 1px solid #332a2a;
+    border-bottom: 1px solid #332a2a;
+}
 
+.chimera-hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.chimera-hero h1 {
+    font-size: 3.5rem;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+}
+
+.chimera-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff5252; /* Red accent glow */
+    font-weight: 500;
+}
+
+.chimera-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #b0b0b0;
+}
+
+.chimera-tagline {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: #888;
+    border-left: 3px solid #d32f2f;
+    padding-left: 15px;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.chimera-hero-image img {
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid #332a2a;
+}
+
+/* Specific buttons for this section to match the Red Chimera Theme */
+.chimera-hero .btn-primary {
+    background: #d32f2f;
+    border-color: #d32f2f;
+    color: #fff;
+}
+
+.chimera-hero .btn-primary:hover {
+    background: transparent;
+    color: #ff5252;
+    border-color: #ff5252;
+}
+
+/* Responsive adjustment for the highlighted section */
+@media (max-width: 992px) {
+    .chimera-hero .container {
+        grid-template-columns: 1fr;
+    }
+    .chimera-hero-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}
 /* ---------- Projects ---------- */
 .project-list {
     display: grid;
