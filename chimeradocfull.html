@@ -1,706 +1,872 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chimera iXY - Official Documentation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chimera iXY - Official Documentation</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/93527958?v=4" type="image/png">
 
-  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/93527958?v=4" type="image/png">
+    <style>
+        /* ---------- Fonts ---------- */
+        @font-face {
+            font-family: 'Frutiger LT Std';
+            src: url('FrutigerLTStd55Roman.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-  <style>
-    /* --------- Fonts & Base --------- */
-    @font-face {
-      font-family: 'Frutiger LT Std';
-      src: url('FrutigerLTStd55Roman.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    :root {
-      --page-pad: 24px;
-      --glass-bg: rgba(255,255,255,0.06);
-      --accent: #70bfff;
-      --max-width: 1100px;
-    }
-    * { box-sizing: border-box; }
-    html,body { height: 100%; margin:0; padding:0; }
-    body {
-      font-family: 'Frutiger LT Std', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background-color: #121212;
-      color: #eaeaea;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      background-image: url('img/bkgdchimera2.png');
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-    }
+        /* ---------- Variables (Dark Grey & Red Theme) ---------- */
+        :root {
+            --sidebar-w: 300px;
+            
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-secondary: #181818;
+            
+            --primary-text: #e0e0e0;
+            --body-text: #b0b0b0;
+            
+            --accent-color: #d32f2f;
+            --accent-glow: #ff5252;
+            --border-color: #333333;
+            
+            --transition: all 0.2s ease;
+        }
 
-    /* --------- Top Navbar --------- */
-    .site-nav {
-      height: 76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 0 20px;
-      background: rgba(8,8,8,0.75);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(6px) saturate(120%);
-    }
-    .site-brand { display:flex; align-items:center; gap:12px; }
-    .site-brand img { width:52px; height:52px; border-radius:10px; object-fit:cover; }
-    .site-brand h1 { font-size:1.15rem; margin:0; color: #fff; letter-spacing:0.6px; }
-    .nav-links a { color:#dfeefe; text-decoration:none; margin-left:1rem; font-weight:600; }
-    .nav-links a:hover { color: var(--accent); text-decoration:underline; }
+        * { box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Frutiger LT Std', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), url('img/bkgdchimera2.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--body-text);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
 
-    /* --------- Page Layout --------- */
-    .wrapper { display:flex; gap:28px; width:100%; padding: 28px; max-width:1400px; margin: 0 auto; flex:1; }
-    /* Sidebar (TOC) */
-    .toc {
-      width: 300px;
-      max-height: calc(100vh - 140px);
-      position: sticky;
-      top: 100px;
-      align-self:flex-start;
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(18,18,18,0.55);
-      backdrop-filter: blur(8px) saturate(120%);
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      overflow:auto;
-    }
-    .toc h3 { margin:0 0 8px 0; color: #fff; font-size:1.05rem; }
-    .toc ul { list-style:none; padding:0; margin:0; }
-    .toc li { margin: 8px 0; }
-    .toc a { color:#cfeeff; text-decoration:none; font-weight:500; font-size:0.95rem; }
-    .toc a:hover { color:var(--accent); text-decoration:underline; }
+        /* ---------- Typography ---------- */
+        h1, h2, h3, h4, h5 {
+            color: var(--primary-text);
+            margin-top: 0;
+            font-weight: 600;
+        }
 
-    /* Content column */
-    .doc {
-      flex:1;
-      max-width: var(--max-width);
-      min-width: 0;
-    }
+        h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-glow); }
+        h4 { font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; }
+        
+        p { margin-bottom: 1rem; line-height: 1.7; }
+        
+        a { color: var(--accent-glow); text-decoration: none; transition: var(--transition); }
+        a:hover { color: #fff; text-decoration: underline; }
+        
+        ul, ol { margin-bottom: 1rem; padding-left: 20px; }
+        li { margin-bottom: 5px; }
 
-    /* Document header card */
-    .doc-header {
-      padding: 22px;
-      border-radius: 16px;
-      background: var(--glass-bg);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px) saturate(150%);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-      margin-bottom: 20px;
-    }
-    .doc-header h2 { margin:0 0 6px 0; font-size:1.6rem; color:#fff; }
-    .meta { color:#bfcbd6; font-size:0.92rem; margin-top:6px; }
+        /* ---------- Sidebar (Table of Contents) ---------- */
+        .sidebar {
+            width: var(--sidebar-w);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border-color);
+            padding: 30px 20px;
+            overflow-y: auto;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Section card (liquid glass) */
-    .section-card {
-      margin: 18px 0;
-      padding: 18px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(8px) saturate(140%);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
-    .section-card h3 { margin:0 0 8px 0; color:#fff; font-size:1.15rem; }
-    .section-card p { color:#e8eef6; line-height:1.54; margin:10px 0; }
-    .section-card ul { margin:10px 0 10px 20px; color:#dbeefc; }
-    .section-card li { margin:6px 0; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--body-text);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            width: fit-content;
+            transition: var(--transition);
+        }
 
-    /* figure placeholder styling */
-    .figure {
-      margin: 12px 0;
-      padding: 10px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.02);
-      border: 1px dashed rgba(255,255,255,0.04);
-      color: #bfcbd6;
-      text-align: center;
-      font-size:0.95rem;
-    }
+        .back-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-glow);
+            text-decoration: none;
+            background: rgba(211, 47, 47, 0.1);
+        }
 
-    /* footer */
-    .page-footer {
-      padding: 28px;
-      text-align:center;
-      color:#9aa8b2;
-      font-size:0.95rem;
-    }
+        .toc-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
-    /* small utilities */
-    .muted { color:#9aa8b2; font-size:0.95rem; }
-    .note { background: rgba(112,191,255,0.06); border-left: 3px solid var(--accent); padding:10px 12px; border-radius:6px; color:#dff3ff; }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    /* Responsive */
-    @media (max-width: 980px) {
-      .wrapper { flex-direction:column; padding: 20px; }
-      .toc { width:100%; position:relative; top:0; max-height:none; }
-      .doc { width:100%; }
-    }
-  </style>
+        .toc-list li {
+            margin-bottom: 0;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 6px 0;
+            color: var(--body-text);
+            font-size: 0.9rem;
+            border-left: 2px solid transparent;
+            padding-left: 15px;
+            transition: var(--transition);
+        }
+
+        .toc-link:hover, .toc-link.active {
+            color: var(--accent-glow);
+            border-left-color: var(--accent-color);
+            background: linear-gradient(90deg, rgba(211, 47, 47, 0.05) 0%, transparent 100%);
+        }
+
+        /* Sub-items indentation */
+        .toc-sub {
+            padding-left: 15px !important;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* ---------- Main Content ---------- */
+        .main-content {
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            padding: 60px 80px;
+            max-width: 1200px;
+        }
+
+        .table-section-header td {
+            background-color: rgba(211, 47, 47, 0.2); /* Red tint */
+            color: #ff8a80; /* Lighter red text */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Documentation Cards */
+        .doc-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .doc-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Images / Figures */
+        .figure {
+            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        td, th {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            color: var(--body-text);
+        }
+
+        th {
+            background: rgba(255,255,255,0.05);
+            color: var(--primary-text);
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* Utilities */
+        .note {
+            background: rgba(211, 47, 47, 0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 4px;
+            color: #ddd;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .footer-mini {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #666;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                max-height: 300px; /* Scrollable if too long on mobile */
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .back-btn { margin-bottom: 15px; }
+            .toc-list { display: flex; flex-wrap: wrap; gap: 10px; }
+            .toc-link { border-left: none; border-bottom: 2px solid transparent; padding: 5px 10px; background: rgba(255,255,255,0.05); border-radius: 4px; }
+            .toc-link.active { border-left: none; border-bottom-color: var(--accent-color); }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <div class="site-nav">
-    <div class="site-brand">
-      <img src="img/goeshard.png" alt="Aetriq logo">
-      <div>
-        <h1>Chimera iXY - Official Documentation</h1>
-        <div class="muted">Alex Gordon - Last updated October 17th, 2025</div>
-      </div>
-    </div>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="chimera.html">Project Chimera</a>
-      <a href="https://github.com/Aetriq/ChimeraiXY" target="_blank">GitHub</a>
-    </div>
-  </div>
-
-  <!-- MAIN WRAPPER -->
-  <div class="wrapper">
-
-    <!-- TABLE OF CONTENTS -->
-    <aside class="toc" aria-label="Table of contents">
-      <h3>Contents</h3>
-      <ul>
-        <li><a href="#preamble">0.0 Preamble</a></li>
-        <li style="margin-left:10px;"><a href="#newchanges">0.5 Changes to Rev.1.5</a></li>
-        <li><a href="#intro">1.0 Introduction</a></li>
-        <li><a href="#background">2.0 Background</a></li>
-        <li><a href="#design">3.0 Design Overview</a></li>
-        <li><a href="#bom">4.0 Bill of Materials</a></li>
-        <li><a href="#assembly-mech">5.0 Assembly - Mechanical</a></li>
-        <li style="margin-left:10px;"><a href="#frame">5.1 Frame</a></li>
-        <li style="margin-left:10px;"><a href="#mounting">5.2 Mounting Brackets</a></li>
-        <li style="margin-left:10px;"><a href="#corexy">5.3 CoreXY Kinematics</a></li>
-        <li><a href="#assembly-elec">6.0 Assembly - Electrical</a></li>
-        <li style="margin-left:10px;"><a href="#mainboard">6.1 Mainboard Choices</a></li>
-        <li style="margin-left:10px;"><a href="#drivers">6.2 Drivers</a></li>
-        <li style="margin-left:10px;"><a href="#motors">6.3 Motor Choices</a></li>
-        <li style="margin-left:10px;"><a href="#psu">6.4 Power Supply</a></li>
-        <li><a href="#firmware">7.0 Firmware</a></li>
-        <li><a href="#issues">8.0 Known Issues</a></li>
-        <li style="margin-left:10px;"><a href="#octoprint">8.1 OrangePi + MKS Gen L integration</a></li>
-        <li style="margin-left:10px;"><a href="#mount-issue">8.2 V6 Extrusion Mount</a></li>
-        <li style="margin-left:10px;"><a href="#thermal">8.3 Thermal Runaway</a></li>
-        <li><a href="#conclusion">9.0 Conclusion & Roadmap</a></li>
-        <li><a href="#appendix">10.0 Appendix</a></li>
-      </ul>
-      <div style="margin-top:12px;">
-        <a href="#top" style="color:#cfeeff;text-decoration:none;">↑ Back to top</a>
-      </div>
-    </aside>
-
-    <!-- DOCUMENT CONTENT -->
-    <main class="doc" id="top">
-
-      <article class="doc-header">
-        <h2>Chimera iXY - Revision 1.5</h2>
-      </article>
-
-      <section id="preamble" class="section-card">
-        <h3>0.0 Preamble</h3>
-        <p>
-            This page is not optimized for mobile devices. Please view it on a desktop for ideal viewing.
-            Check out the 
-            <a href="chimeradocpdf.html" target="_blank" style="color:var(--accent);">PDF version</a>
-            if this website doesn't work for you.
-        </p>
-        <p>
-            This project, including it's design files and documentation, are recognized under the CC BY-NC-SA 4.0 license. 
-        </p>
-      </section>
-
-      <section id="newchanges" class="section-card">
-        <h3>0.5 Changes to Rev.1.5</h3>
-        <p>
-            The documentation and images are partially updated, but all the files have been updated and added. Below is a list of all changed files:
-        </p>
-        <ul>
-          <li>Anti-Vibration Feet Rev1.1</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Minor changes to the anti-slip/vibration feet. Should be printed in two parts; tpu for the lower section and petg for higher section.</li>
-            </ul>
-          </li>
-          <li>Drag chain - Auxillary Rear Spine Mount</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Two piece optional set to replace 15mm tube for cable routing at rear.</li>
-            </ul>
-          </li>
-          <li>Drag chain - Primary Hotend Frame Mount</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>The concept of retaining the original cable design from the Flsun i3 has been scrapped and replaced with a drag chain, which has also been proven to be more effective and in my opinion better looking. This file is the mount to the frame at the rear right on the front side of the extrusion.</li>
-            </ul>
-          </li>
-          <li>Drag chain - Primary Hotend Gantry Mount</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Other side of primary drag chain. Connects to top of gantry front plate via two m3 bolts.</li>
-            </ul>
-          </li>
-          <li>V6 Hotend Retainer Bracket - Rev.1.5</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Modification relative to front gantry plate changes. Uses 2x m2 bolts.</li>
-            </ul>
-          </li>
-          <li>Z axis linear bearing mount - Rev.2.0</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Strengthened and modified based off testing results of Rev.1.0.</li>
-            </ul>
-          </li>
-          <li>X axis endstop switch mount & Micro drag chain front mount</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Self-explanatory; houses the x axis endstop switch taken from Flsun i3 but will house various other micro switches. Also is responsible for the micro drag chain (Same as primary chain but scaled to 50%) routing the respective cable.</li>
-            </ul>
-          </li>
-          <li>Micro drag chain rear frame mount</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Other side of micro drag chain for x axis mounted to the frame.</li>
-            </ul>
-          </li>
-          <li>Y axis endstop switch Frame Mount/li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Addition of frame mount; houses the y axis endstop switch taken from the mingda magician x but will hosue various othe rmicro switches.</li>
-            </ul>
-          </li>
-          <li>Gantry Front Plate Rev.1.5</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Complete redesign based on testing results of Rev.1.0. Uses 3 22m bearings instead of 4 to form a triangle. To eliminate the lateral and twisting play, two M5 eccentric nuts with 7mm diameter taken from MMX were used on bottom bearing for form rigid triange. Other small changes also made to improve overall cable routing and strength.</li>
-            </ul>
-          </li>
-          <li>Gantry Back Plate Rev.1.5</li>
-          <li style="list-style-type:none">
-            <ul>
-              <li>Rear plate for gantry. Also mounts SN08 inductive probe.</li>
-            </ul>
-          </li>
+    <nav class="sidebar">
+        <a href="chimera.html" class="back-btn">← Back to Project</a>
+        
+        <div class="toc-title">Table of Contents</div>
+        <ul class="toc-list">
+            <li><a href="#preamble" class="toc-link">0.0 Preamble</a></li>
+            <li><a href="#newchanges" class="toc-link toc-sub">0.5 Changelog</a></li>
+            <li><a href="#intro" class="toc-link">1.0 Introduction</a></li>
+            <li><a href="#background" class="toc-link">2.0 Background</a></li>
+            <li><a href="#design" class="toc-link">3.0 Design Overview</a></li>
+            <li><a href="#bom" class="toc-link">4.0 Bill of Materials</a></li>
+            <li><a href="#assembly-mech" class="toc-link">5.0 Assembly - Mechanical</a></li>
+            <li><a href="#frame" class="toc-link toc-sub">5.1 Frame</a></li>
+            <li><a href="#mounting" class="toc-link toc-sub">5.2 Mounting Brackets</a></li>
+            <li><a href="#corexy" class="toc-link toc-sub">5.3 CoreXY Kinematics</a></li>
+            <li><a href="#assembly-elec" class="toc-link">6.0 Assembly - Electrical</a></li>
+            <li><a href="#mainboard" class="toc-link toc-sub">6.1 Mainboard Choices</a></li>
+            <li><a href="#drivers" class="toc-link toc-sub">6.2 Drivers</a></li>
+            <li><a href="#motors" class="toc-link toc-sub">6.3 Motor Choices</a></li>
+            <li><a href="#psu" class="toc-link toc-sub">6.4 Power Supply</a></li>
+            <li><a href="#firmware" class="toc-link">7.0 Firmware</a></li>
+            <li><a href="#issues" class="toc-link">8.0 Known Issues</a></li>
+            <li><a href="#octoprint" class="toc-link toc-sub">8.1 OrangePi Integration</a></li>
+            <li><a href="#mount-issue" class="toc-link toc-sub">8.2 V6 Extrusion Mount</a></li>
+            <li><a href="#thermal" class="toc-link toc-sub">8.3 Thermal Runaway</a></li>
+            <li><a href="#conclusion" class="toc-link">9.0 Conclusion & Roadmap</a></li>
+            <li><a href="#appendix" class="toc-link">10.0 Appendix</a></li>
         </ul>
+    </nav>
 
-        <h4>Other Additions and Changes</h2>
-          <ul>
-            <li><a href="https://github.com/vincios/Mks-Wifi/tree/master/BeePrint/BeePrint%20%20F1.2_B1.5" target="_blank" style="color:var(--accent);">BeePrint by Renzo</a> added to onboard ESP8266 module for wifi printing and control.</li>
-            <li>Removed miniton beaglecam v1 (which will be eventually be replaced by esp32 cam)</li>
-            <li>Added PrusaSlicer print profile.</li>
-            <li>Input shaping and vibration calibration code also added.</li>
-          </ul>
-
-      </section>
-
-      <!-- 1.0 Introduction -->
-      <section id="intro" class="section-card">
-        <h3>1.0 Introduction</h3>
-        <p>
-          This document covers the detailed documentation of my DIY CoreXY build from two broken 3D printers, named ‘Chimera iXY’. The primary objective of this document is the keep track of everything as the printer was being built; this includes design choices, assemblies, etc. as well as to demonstrate that Reprap printers can still be built with modern printers that contain OEM and proprietary parts.
-        </p>  
-        <p>
-          It is important to note that this document is semi-formal, as it doesn’t follow any standard documentation formatting; I frequently update various sections and subsections as I went along. The majority of this document isn’t graphically focused, e.g. it doesn’t fully contain diagrams for each section that requires one; instead, an entire (summarized) diagram will be provided for each major section.
-        </p>
-
-        <figure class="figure">
-            <img src="img/chimera1.5.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-            <figcaption></figcaption>
-        </figure>
-
-      </section>
-
-      <!-- 2.0 Background -->
-      <section id="background" class="section-card">
-        <h3>2.0 Background</h3>
-        <p>
-          This project started when received a broken Mingda Magician X (Version 1, not 2). The mainboard and X-carriage daughterboard has shorted out due to a cheaply designed 20-pin ribbon cable; after further evaluation I found out that this was due to a poorly crimped cable that shorted out, most likely between two high current wires since it has burn marks. The only wires that drew enough current were the heater cartridge wire; after inspecting the traces, MOSFETs and fuses on the mainboard, they all were intact, thus the issue is likely to be caused by one of the TMC2208s constantly shorting out, preventing the board from booting at all. Alot of additional parts seemed to have been damaged by this short, including the filament runout sensor, strain gauge sensor (for auto bed leveling) and some other insignificant sensors that I will most likely not be using since they are shape and wiring are very proprietary. This printer remained as the ‘modern half’ of this build.
-        </p>
-        <figure class="figure">
-            <img src="img/chimeradocfull/1.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-            <figcaption>Fig 2.0-1 - Mingda Magician X (Released in 2021)</figcaption>
-        </figure>
-
-        <p>
-          The second 3D printer used for this was the Flsun i3 2017, or Flsun i3 C. This was an older 3D printer I’ve been using for quite some time, and when it did it’s job, it did it pretty well. A lot of it was stock, it uses a MKS Gen L v1.0 which supports TMC2208s only in standalone mode. However, it was a very finicky machine, it would frequently run into ‘ghost’ thermal runaway errors even after tuning the firmware. There are also some other modern features I wanted that unfortunately this printer couldn’t take advantage of, such as Octoprint (I could never get UART to work, it would just cutoff before finishing the preamble regardless of baudrate), TMC2208 UART mode without custom wiring, etc. In the end, I did get a fair amount of use out of this printer and I wanted to make it into something better, thus this printer became the ‘older’ part of this build.
-        </p>
-        <figure class="figure">
-            <img src="img/chimeradocfull/2.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-            <figcaption>Fig 2.0-2 - Modified Flsun i3 C (Released in 2017)</figcaption>
-        </figure>
-      </section>
-
-      <!-- 3.0 Design Overview -->
-      <section id="design" class="section-card">
-        <h3>3.0 Design Overview</h3>
-
-        <p>The following components and subsystems were incorporated into Chimera iXY:</p>
-        <table style="border-collapse: collapse; border: 1px solid white;" cellspacing="0" cellpadding="5">
-            <tr>
-                <td style="border: 1px solid white;">Flsun i3 2017</td>
-                <td style="border: 1px solid white;">Mingda Magician X</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Stepper motors (E0, Z axis)</td>
-                <td style="border: 1px solid white;">Stepper motors (α, β axis)</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">2020 Aluminum extrusions</td>
-                <td style="border: 1px solid white;">24V 15A Powersupply</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">V6 Hotend</td>
-                <td style="border: 1px solid white;">Bolts: M3-M6</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Roller Bearings</td>
-                <td style="border: 1px solid white;">Leadscrews + Collars</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Toothless Idler Pulleys</td>
-                <td style="border: 1px solid white;">Toothed Idler Pulleys</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Stepper Leadscrew Collet</td>
-                <td style="border: 1px solid white;">Heated Bed</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Mainboard MKS Gen L v1.0</td>
-                <td style="border: 1px solid white;">30mm axial fan</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Reprap Discount Smart Graphics Controller</td>
-                <td style="border: 1px solid white;">4010 blower fan</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Bolts: M3-M6</td>
-                <td style="border: 1px solid white;">625 bearings</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">Nuts: M3-M6</td>
-                <td style="border: 1px solid white;">24V 60W heater cartridge</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">8mm Linear Rods (Not rails)</td>
-                <td style="border: 1px solid white;">8mm Linear Rod Bearings</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">GT2 6mm Belts (Used Temporarily for measurements and testing)</td>
-                <td style="border: 1px solid white;">Cables (Stepper, Display, Power, etc.)</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">PTFE Bowden Tube</td>
-                <td style="border: 1px solid white;">Bowden Extruder Assembly</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid white;">PTFE Couplings</td>
-                <td style="border: 1px solid white;">NTC 100k thermistor</td>
-            </tr>
-        </table>
-
-
-
-        <p class="note">* All fans from the Flsun i3 were not used since I moved from a 12V to a 24V system. <br>** Refer to BOM for additional required parts.</p>
-
-      </section>
-
-      <!-- 4.0 BOM -->
-      <section id="bom" class="section-card">
-        <h3>4.0 Bill of Materials</h3>
-        <p>
-          Please refer to the repository BOM sheet for the latest Bill of Materials (Check appendix). 
-        </p>
-        <p>
-          All 3D printed brackets can be done so with at most ~1.5kg of the rigid filament of your choice. With the electronic enclosures and other accessories, it will come up to <2kg of filament. I would recommend PETG for this due to it’s overall better thermal resistance, impact resistance, and slightly less stiffness over PLA. 
-        </p>
-      </section>
-
-      <!-- 5.0 Mechanical Assembly -->
-      <section id="assembly-mech" class="section-card">
-        <h3>5.0 Assembly - Mechanical</h3>
-
-        <section id="frame" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">5.1 Frame</h4>
-
-          <div style="margin-left:10px;">
-            <h5 style="margin:6px 0;">5.1.1 Metal Extrusion</h5>
-            <p>Fairly Simple; no extrusions were cut in the first revision. The only extrusion not used in this was the 2060 from the Magician X.</p>
-
-            <figure class="figure">
-                <img src="img/chimeradocframe.png" alt="img" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 5.0-1 - Frame Dimensions</figcaption>
-            </figure>
-
-            <h5 style="margin:6px 0;">5.1.2 Reinforcements</h5>
-            <p>Please refer to the github repository for all models used. All kinematics and bracket mounts are final for the first revision as of now; there are some issues I need to fix with the toolhead.</p>
-          </div>
-        </section>
-
-        <section id="mounting" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">5.2 Mounting Brackets</h4>
-          <p>Mounting brackets (CAD/STL files) are available in the GitHub repository - all kinematics and bracket mounts are final for Rev.1, though a hotend mount redesign is planned.</p>
-          <p>Part diagram:</p>
-          </p>
-            <figure class="figure">
-                <img src="img/chimeradocfull/chimeradoccad.png" alt="Documentation" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 5.2-1 - General CAD Overview Diagram (v1.0)</figcaption>
-            </figure>
-          <p>
-
-        </section>
-
-        <section id="mounting" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">5.3 Gantry</h4>
-          <p>Mounting brackets (CAD/STL files) are available in the GitHub repository - all kinematics and bracket mounts are final for Rev.1, though a hotend mount redesign is planned.</p>
-          <p>The gantry plate and hotend fan mounting bracket went through the most iteration, and as a result is the most optimized. See the below diagram for an assembly guide.</p>
-
-
-
-          <p>Part diagram:</p>
-          </p>
-            <figure class="figure">
-                <img src="img/chimeradocfull/chimeradocgantryv1.png" alt="Documentation" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 5.2-2 - Gantry Mount Technical Diagram (v1.3)</figcaption>
-            </figure>
-          <p>
-
-        </section>
-
-
-        <section id="corexy" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">5.4 CoreXY Kinematics</h4>
-          <p>
-            For the X-Y axis, the idlers are vertically stacked and follows the below configuration:
-          </p>
-            <figure class="figure">
-                <img src="img/chimeradocfull/4.png" alt="Mingda Magician X" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 5.3-1 - CoreXY Belt configuration</figcaption>
-            </figure>
-          <p>
-            In order to tension the belts, idlers P1 and P2 on the front should be moved ~1 inch towards the extruder. The belts can now be installed with a fair amount of tension, then moved outwards back to their original position to apply ~10-15N of tension. It is very important to note that these belts should follow a square geometric shape.
-          </p>        
-        </section>
-
-      </section>
-
-      <!-- 6.0 Electrical Assembly -->
-      <section id="assembly-elec" class="section-card">
-        <h3>6.0 Assembly - Electrical</h3>
-        <p>NOTE: This is entirely subjective. You can go with your own board as you want as long as it supports the necessary hardware/firmware.
-        <br><br>
-        After installing a defective TMC2208 driver into my MKS Gen L v1.0, I decided to look for a more modern board. The following options were ones I looked at and experimented with physically:
-        </p>
-
-        <section id="mainboard" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">6.1 Mainboard Choices</h4>
-          <p>
-            The choice of mainboard is subjective; boards tried included:
-          </p>
-          <ul>
-            <li><strong>MKS Gen L v2.1</strong> - Overall excellent choice and it would’ve been the board I went with. After obtaining one it died shortly after due to unknown reasons (likely defective), thus I had to return it and find another board. There were no more in stock so I decided to look for something more powerful then 8-bit AVR. Having UART mode work with the drivers natively on this board is a plus.</li>
-            <figure class="figure">
-                <img src="img/chimeradocfull/5.png" alt="img" style="max-width:100%;border-radius:8px;">
-            </figure>
-            <li><strong>MKS TinyBee v1.0</strong> - Upon initial inspection, this board seemed to be the best 32-bit board for this build. Uses an ESP32 and has it’s own web server. I ended up not choosing this as I wasn’t able to get UART mode to work with these drivers. This board doesn’t support it natively and even after soldering wires from each drivers’ UART to the shared TX2/RX2 serial connection I still couldn’t get it to work (Even with a 220 ohm pull up resistor). </li>
-            <figure class="figure">
-                <img src="img/chimeradocfull/6.png" alt="img" style="max-width:100%;border-radius:8px;">
-            </figure>
-            <li><strong>MKS Robin Nano v3.1</strong> - I ended up going with this board as I got a good deal on Amazon for it with a MKS TFT35 v2.0 display. Supports UART mode natively, plenty of expansion and a web server.</li>
-            <figure class="figure">
-                <img src="img/chimeradocfull/7.png" alt="img" style="max-width:100%;border-radius:8px;">
-            </figure>
-          </ul>
-        </section>
-
-        <section id="drivers" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">6.2 Drivers</h4>
-          <p>
-            TMC2209s were my preferred option for this. No brand, just generic Aliexpress ones. I initially ordered 2 just for CoreXY kinematics, but I ended up ordering 2 more for the z axis and extruder.
-	        <br><br>
-            TMC2208s are also a valid option (even standalone), but I plan to implement sensorless homing so the 2209s were best fit for this project.
-          </p>
-          <figure class="figure">
-                <img src="img/chimeradocfull/8.png" alt="img" style="max-width:100%;border-radius:8px;">
-            </figure>
-        </section>
-
-        <section id="motors" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">6.3 Motor Choices</h4>
-          <p>
-            Choosing which motor best fitted for speed was a matter of ripping specs from online to see which speed torque curve was the best. My testing results from simulations and physical measurements is as follows:
-          </p>
-          <figure class="figure">
-                <img src="img/chimeradocfull/9.jpg" alt="img" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 6.3-1 - 42BYGH439-B-20D</figcaption>
-
-            </figure>
-            <figure class="figure">
-                <img src="img/chimeradocfull/10.jpg" alt="img" style="max-width:100%;border-radius:8px;">
-                <figcaption>Fig 6.3-2 - 42SHDC4023Z-23B</figcaption>
-
-            </figure>
-          <p>As expected, the MMX motors showed a slight advantage over the Flsun ones. The motors are configured as follows:</p>
-          <ul>
-            <li>Flsun i3 motors (42SHDC4023Z-23B) - α, β (X/Y)</li>
-            <li>MMX motors (42BYGH439-B-20D) - Z, E0</li>
-          </ul>
-        </section>
-
-        <section id="psu" style="margin-top:12px;">
-          <h4 style="margin:8px 0 6px 0;">6.4 Power Supply</h4>
-          <p>
-            Out of the two PSU options, I opted for the 24V PSU from the MMX since the Flsun one was borderline about to explode and frequently ran into thermal overheating issues.
-          </p>
-          <figure class="figure">
-                <img src="img/chimeradocfull/11.png" alt="img" style="max-width:100%;border-radius:8px;">
-            </figure>
-
-          <p>Further testing concluded that it just seems to be a generic powersupply. The cooling fan claims to be ‘automatically’ controlled but it is extremely loud at all times, leading me to believe that it is fixed at full speed. I will either swap this fan for a noctua branded one or cut the cover to fit a 120mm fan.</p>
-        </section>
-
-      </section>
-
-      <!-- 7.0 Firmware -->
-      <section id="firmware" class="section-card">
-        <h3>7.0 Firmware</h3>
-        <p>
-          The repo contains Marlin 2.1.2.5, which is currently used for this printer and is updated in parallel (as soon as changes are final). I might switch to Klipper in later iterations, but issues with the Orange Pi 2 W I wanted to use pushed this back.
-        </p>
-        <p>
-          A Beaglecam v1 is also used for monitoring the prints. This is obviously not required since the Robin Nano has a built in ESP32 wifi module which I also have to set up, but I had it on hand for now. This camera has many features, including printing over serial and color night vision, so it is a valuable addition to remotely control the 3d printer.
-        </p>
-      </section>
-
-      <!-- 8.0 Known Issues -->
-      <section id="issues" class="section-card">
-        <h3>8.0 Known Issues</h3>
-
-        <section id="octoprint" style="margin-top:12px;">
-          <h4 style="margin:6px 0;">8.1 OrangePi + MKS Gen L v1.0 OctoPrint Integration</h4>
-          <p>
-            The following is a brief log of issues I encounters while setting up octoprint on an Orange Pi 2 W and MKS Gen L v1.0. It is important to note I was not able to get this working.
-          </p>
-          <ol>
-            <li><strong>Initial USB Serial Connection Fails</strong>: OctoPrint hangs at "Connecting"; malformed or partial boot responses observed.</li>
-            <li><strong>Corrupt Serial Text</strong>: Partial, cut-off strings in the serial log.</li>
-            <li><strong>No Communication Timeout Retry</strong>: OctoPrint 1.9+ removed retry behavior used previously; required firmware-level adjustments.</li>
-            <li><strong>Pronterface Works, OctoPrint Doesn’t</strong>: manual terminal connections succeed while OctoPrint fails due to handshake differences.</li>
-            <li><strong>Port Conflicts</strong>: Wyze/Docker integration caused occupied ports (5000, 8888); resolved by removing conflicting services.</li>
-            <li><strong>OctoPrint Requires Pronterface 'Priming'</strong>: observed need to prime the printer via terminal before OctoPrint can connect reliably.</li>
-            <li><strong>Fake Acknowledgement Needed</strong>: constant need to send fake ack to proceed; firmware tweaks (#define NO_TIMEOUTS 1000, disable automatic temp reports) used as workarounds.</li>
-            <li><strong>Serial Buffer Underrun</strong>: pauses mid-print; increasing baud rates (to 500000) improved reliability.</li>
-          </ol>
-        </section>
-
-        <section id="mount-issue" style="margin-top:12px;">
-          <h4 style="margin:6px 0;">8.2 V6 Extrusion Mount Front &amp; Backplate</h4>
-          <p>
-            Despite the plates used to mount the V6 hotend to the extrusion being designed with mm precision, there is still a slight 1mm wobble.
-            <br><br>
-            Temporary solution: Add 2 M5 eccentric nuts to the top bolts holding the bearings. After adjustment, this significantly reduces the wobble to around 0.1mm.
-            <br><br>
-            There is still a very small wobble that does affect prints.
-            I will be completely redesigning the hotend mount based off these issues, using the extrusion brackets from the Mingda Magician X since they are made of metal and already milled to precision. 
-          </p>
-        </section>
-
-        <section id="thermal" style="margin-top:12px;">
-          <h4 style="margin:6px 0;">8.3 Thermal Runaway</h4>
-          <p>
-            Due to the cheap heater cartridge used, I frequently get into thermal runaways, which is no suprise considering the 3D printer it was from. For some reason it cannot regulate itself and aggressively oscillates at 20C differences. Even after a PID tune and increasing the Derivate constant significantly it continues to do this, usually mid print. This is not safe and will be replaced.
-          </p>
-        </section>
-
-      </section>
-
-      <!-- 9.0 Conclusion -->
-      <section id="conclusion" class="section-card">
-        <h3>9.0 Conclusion - Chimera iXY Rev.2.0</h3>
-        <p>
-            In conclusion, I was able to get a working rig by the first revision, but there are many issues to be addressed, which also significantly affected the print quality. I am working on v1.1 as we speak, but this is the general timeline that I would like to fix these issues:
-        </p>
-        <ul>
-          <li><strong>v1.1</strong>: Firmware bugfixes, hotend heater/thermistor replacement, frame rigidity improvements.</li>
-          <li><strong>v1.2</strong>: Full extrusion front plate redesign, new high-flow hotend, 100 mm/s quality print speed.</li>
-          <li><strong>v1.3</strong>: Bilinear bed leveling, 150 mm/s quality print speed.</li>
-        <li><strong>v1.4</strong>: 200 mm/s quality print speed.</li>
-
-        </ul>
-      </section>
-
-      <!-- 10.0 Appendix -->
-      <section id="appendix" class="section-card">
-        <h3>10.0 Appendix</h3>
-        <p>
-          Supporting links and references:
-        </p>
-        <ul>
-          <li><a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?gid=0#gid=0" target="_blank" style="color:var(--accent);">Bill of Materials table</a></li>
-          <li><a href="https://github.com/Aetriq/ChimeraiXY/tree/main" target="_blank" style="color:var(--accent);">Github Repository</a></li>
-          <li><a href="http://aetriq.xyz/chimera.html" target="_blank" style="color:var(--accent);">Website</a></li>
-          <li><a href="https://github.com/JustLeader69420/mmx-marlin-custom" target="_blank" style="color:var(--accent);">Justleader69420 - MMX Firmware</a></li>
-          <li><a href="https://github.com/MarlinFirmware/Marlin" target="_blank" style="color:var(--accent);">Marlin Firmware</a></li>
-          <li><a href="https://github.com/makerbase-mks/MKS-Robin-Nano-V3.X" target="_blank" style="color:var(--accent);">Robin Nano v3.1 by Makerbase</a></li>
-          <li><a href="https://www.mintion.net/products/mintion-beagle-camera" target="_blank" style="color:var(--accent);">Beaglecam v1</a></li>
-
-        </ul>
-      </section>
-
-      <!-- FOOTER -->
-      <div class="page-footer">
-        <div>© 2025 Aetriq - Chimera iXY Documentation</div>
-        <div style="margin-top:6px; font-size:0.9rem; color:#9aa8b2;">
-          Document source: Chimera iXY Official Documentation (DOCX). Last updated July 11, 2025. 
+    <main class="main-content">
+        
+        <div class="doc-header">
+            <h1>Chimera iXY - Official Documentation</h1>
+            <div class="meta">Alex Gordon | Published July 21st, 2025 | Last updated December 20th, 2025</div>
         </div>
-      </div>
 
+        <div id="preamble" class="doc-section">
+            <h3>0.0 Preamble</h3>
+            <p>
+                This page is optimized for desktop viewing. This involves information about the latest revision, Chimera iXY v2.0. <br> <br>
+                Although the majority of the parts were made myself, a number of them involve models already created, measured and tested. Please check out the credits in section 10.0 - Appendix for all the originally created models.
+            </p>
+            <p>
+                This project, including its design files and documentation, are under the CC BY-NC-SA 4.0 license. 
+            </p>
+        </div>
+
+        <div id="newchanges" class="doc-section">
+            <h3>0.5 Changelog</h3>
+            <h4>Major Revision v2.0</h4>
+            <p>
+                The documentation and images are fully updated. Documentation overhaul and complete addition and details about all invidivual components, as well as the BOM.
+            </p>
+
+            <b>Software Changes:</b>
+            <ul>
+                <li><strong>Klipper Firmware Support:</strong> .</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+
+            </ul>
+            <b>Hardware Changes:</b>
+            <ul>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+
+            </ul>
+            <b>Other Changes:</b>
+            <ul>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Title:</strong>Description.</li>
+
+            </ul>
+            <br>
+            <h4>Major Revision v1.5</h4>
+            <p>
+                The documentation and images are partially updated, but all the files have been updated and added. Below is a list of all changed files:
+            </p>
+            <ul>
+                <li><strong>Anti-Vibration Feet Rev1.1:</strong> Minor changes to the anti-slip/vibration feet. Should be printed in two parts; tpu for the lower section and petg for higher section.</li>
+                <li><strong>Drag chain - Auxillary Rear Spine Mount:</strong> Two piece optional set to replace 15mm tube for cable routing at rear.</li>
+                <li><strong>Drag chain - Primary Hotend Frame Mount:</strong> The concept of retaining the original cable design from the Flsun i3 has been scrapped and replaced with a drag chain.</li>
+                <li><strong>Drag chain - Primary Hotend Gantry Mount:</strong> Connects to top of gantry front plate via two m3 bolts.</li>
+                <li><strong>V6 Hotend Retainer Bracket - Rev.1.5:</strong> Modification relative to front gantry plate changes. Uses 2x m2 bolts.</li>
+                <li><strong>Z axis linear bearing mount - Rev.2.0:</strong> Strengthened and modified based off testing results of Rev.1.0.</li>
+                <li><strong>X axis endstop switch mount:</strong> Houses the x axis endstop switch taken from Flsun i3.</li>
+                <li><strong>Gantry Front Plate Rev.1.5:</strong> Complete redesign based on testing results of Rev.1.0. Uses 3 22m bearings instead of 4 to form a triangle.</li>
+                <li><strong>Gantry Back Plate Rev.1.5:</strong> Rear plate for gantry. Also mounts SN08 inductive probe.</li>
+            </ul>
+            <br>
+            <b>Other Additions and Changes</b>
+            <ul>
+                <li><a href="https://github.com/vincios/Mks-Wifi/tree/master/BeePrint/BeePrint%20%20F1.2_B1.5" target="_blank">BeePrint by Renzo</a> added to onboard ESP8266 module for wifi printing and control.</li>
+                <li>Removed miniton beaglecam v1.</li>
+                <li>Added PrusaSlicer print profile.</li>
+                <li>Input shaping and vibration calibration code also added.</li>
+            </ul>
+        </div>
+
+        <div id="intro" class="doc-section">
+            <h3>1.0 Introduction</h3>
+            <p>
+              This document covers the detailed documentation of my DIY CoreXY build from two broken 3D printers, named ‘Chimera iXY’. The primary objective of this document is to keep track of everything as the printer was being built.
+            </p>  
+            <p>
+              It is important to note that this document is semi-formal, as it doesn’t follow any standard documentation formatting.
+            </p>
+            <div class="figure">
+                <img src="img/chimera1.5.png" alt="Chimera iXY">
+                <figcaption>Fig 1.0 - Chimera iXY Rev 1.5</figcaption>
+            </div>
+        </div>
+
+        <div id="background" class="doc-section">
+            <h3>2.0 Background</h3>
+            <p>
+              This project started when I received a broken Mingda Magician X (Version 1). The mainboard and X-carriage daughterboard had shorted out due to a cheaply designed 20-pin ribbon cable. This printer remained as the ‘modern half’ of this build.
+            </p>
+            <div class="figure">
+                <img src="img/chimeradocfull/1.png" alt="Mingda Magician X">
+                <figcaption>Fig 2.0-1 - Mingda Magician X (Released in 2021)</figcaption>
+            </div>
+
+            <p>
+              The second 3D printer used for this was the Flsun i3 2017. It was a very finicky machine that frequently ran into ‘ghost’ thermal runaway errors. I wanted to make it into something better, thus this printer became the ‘older’ part of this build.
+            </p>
+            <div class="figure">
+                <img src="img/chimeradocfull/2.png" alt="Flsun i3">
+                <figcaption>Fig 2.0-2 - Modified Flsun i3 C (Released in 2017)</figcaption>
+            </div>
+        </div>
+
+        <div id="design" class="doc-section">
+            <h3>3.0 Design Overview</h3>
+            <p>The following components and subsystems were incorporated into Chimera iXY:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flsun i3 2017</th>
+                        <th>Mingda Magician X</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Stepper motors (E0, Z axis)</td><td>Stepper motors (α, β axis)</td></tr>
+                    <tr><td>2020 Aluminum extrusions</td><td>24V 15A Powersupply</td></tr>
+                    <tr><td>V6 Hotend</td><td>Bolts: M3-M6</td></tr>
+                    <tr><td>Roller Bearings</td><td>Leadscrews + Collars</td></tr>
+                    <tr><td>Toothless Idler Pulleys</td><td>Toothed Idler Pulleys</td></tr>
+                    <tr><td>Stepper Leadscrew Collet</td><td>Heated Bed</td></tr>
+                    <tr><td>Mainboard MKS Gen L v1.0</td><td>30mm axial fan</td></tr>
+                    <tr><td>Reprap Discount Controller</td><td>4010 blower fan</td></tr>
+                    <tr><td>Bolts: M3-M6</td><td>625 bearings</td></tr>
+                    <tr><td>Nuts: M3-M6</td><td>24V 60W heater cartridge</td></tr>
+                    <tr><td>8mm Linear Rods (Not rails)</td><td>8mm Linear Rod Bearings</td></tr>
+                    <tr><td>GT2 6mm Belts</td><td>Cables (Stepper, Display, etc.)</td></tr>
+                    <tr><td>PTFE Bowden Tube</td><td>Bowden Extruder Assembly</td></tr>
+                    <tr><td>PTFE Couplings</td><td>NTC 100k thermistor</td></tr>
+                </tbody>
+            </table>
+            <p class="note">* All fans from the Flsun i3 were not used since I moved from a 12V to a 24V system.<br>** Refer to BOM for additional required parts.</p>
+        </div>
+
+        <div id="bom" class="doc-section">
+            <h3>4.0 Bill of Materials</h3>
+            <p>
+              The following is a complete list of the primary components required for the Chimera iXY build. This list is a work in progress. Note that exact materials sourced from the 'INITIAL PARTS' section are the components I've had for a long time and as a result are not included in the cost of this.
+            </p>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Component</th>
+                            <th style="width: 35%;">Description</th>
+                            <th style="width: 10%;">Qty</th>
+                            <th style="width: 15%;">Cost</th>
+                            <th style="width: 15%;">Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-section-header">
+                        <td colspan="5">Initial Parts</td>
+                    </tr>                        <tr>
+                        <tr>
+                            <td><strong>FlSun i3 (C) 2017</strong></td>
+                            <td>3D Printer</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/4fUUtnw"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mingda Magician X v1</strong></td>
+                            <td>3D Printer</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/4k6Xrig"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Miniton Beaglecam v1</strong></td>
+                            <td>Monitoring IP Camera</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://www.mintion.net/products/mintion-beagle-camera"></a>Miniton</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Twotrees PEI</strong></td>
+                            <td>230x230mm Build Plate</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/39011VG"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                    </tbody>
+
+                    <tr class="table-section-header">
+                        <td colspan="5">Electrical System</td>
+                    </tr>
+                        <tr>
+                            <td><strong>Mainboard</strong></td>
+                            <td>MKS Robin Nano v3.1 (RIP MKS Gen L v1.0) & MKS TS35 v2.0</td>
+                            <td>1</td>
+                            <td>$49.99</td>
+                            <td><a href="https://www.amazon.ca/dp/B0B5VQFWZ9?ref=ppx_yo2ov_dt_b_fed_asin_title">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power Supply</strong></td>
+                            <td>ZL-360-24 Generic</td>
+                            <td>4</td>
+                            <td>$===</td>
+                            <td><a href="https://www.amazon.ca/Redrex-Universal-Regulated-Switching-Temperature-Controlled/dp/B0816LK4H2?crid=11PZ8MQI870ZP&dib=eyJ2IjoiMSJ9.bwJfIKwLD5Ab4vibBrl_IG3F0FHGZLvNBaKaX9J7Bd1bv1FDh86bfakGpU4doBKfipKOM3P1yuGZggOtirVzpBU6pTq2mz3UOO2GgoDbZxpoSp7xD-KNjIVgcW0I38BU2fM0C2bdq052SWTZ-7Sci3gmFws8erY6G8JcbpIHV33x1WjuaPAriywaPriSFIthZSfrse6E-Cw6Tagf_pSMO-U2fVLgCunrjI_be2jndV7ShoQkkyB9xEpzpWIU9VsvHxVX1k4YbeQOmiWqJbcp9pUKg59C-QUGto4PJXEaHA4.FQ77rR3wHYI-r75Ys-mHK9z0qjY6wDLvfBRNgQvEvt0&dib_tag=se&keywords=24v%2B15a%2Bpower%2Bsupply&qid=1750260533&sprefix=24v%2B15A%2Bp%2Caps%2C106&sr=8-5&th=1">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TMC2209 UART</strong></td>
+                            <td>X-Y Axis</td>
+                            <td>2</td>
+                            <td>$8.18</td>
+                            <td><a href="https://www.aliexpress.com/item/1005008232792866.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TMC2209 Standalone</strong></td>
+                            <td>Z-E Axis</td>
+                            <td>2</td>
+                            <td>$6.59</td>
+                            <td><a href="https://www.aliexpress.com/item/1005006196489026.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1M Heater Heating Tube + Thermistor</strong></td>
+                            <td>(3Pcs) 24V 40W & 100K 3950</td>
+                            <td>1</td>
+                            <td>$6.25</td>
+                            <td><a href="https://a.co/d/fsNQgWf">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mellow 3D Printer Parts Klipper ADXL345 Accelerometer Board</strong></td>
+                            <td>Input Shaping Accelerometer w/ RP2040 for secondary MCU</td>
+                            <td>1</td>
+                            <td>$5.49</td>
+                            <td><a href="https://www.aliexpress.com/item/1005007507421853.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dupont Line Jumper Wire</strong></td>
+                            <td>20CM Male to Female for screen connection</td>
+                            <td>1</td>
+                            <td>$3.72</td>
+                            <td><a href="https://www.aliexpress.com/item/1005003641187997.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raspberry Pi SC0721</strong></td>
+                            <td>RPi Zero 2W for Klipper</td>
+                            <td>1</td>
+                            <td>$26.83</td>
+                            <td><a href="https://www.digikey.ca/en/products/detail/raspberry-pi/SC0721/24627135">Digikey</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                    <tr class="table-section-header">
+                        <td colspan="5">Mechanical System</td>
+                    </tr>                        <tr>
+                            <td><strong>Linear Motion Rods</strong></td>
+                            <td>8mm x 331mm for Y & Z axis</td>
+                            <td>6</td>
+                            <td>$38.07</td>
+                            <td><a href="https://a.co/d/bksZgwi">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>45x8mm Linear Bearings</strong></td>
+                            <td>For Z-axis bed</td>
+                            <td>4</td>
+                            <td>$6.98</td>
+                            <td><a href="https://a.co/d/fN8HqCQ">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>300mm 6063 Aluminum Square Tube</strong></td>
+                            <td>15x15mm Outer Width</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/ecK5TnY">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JAYO PETG 1KG</strong></td>
+                            <td>Primary Color (RED)</td>
+                            <td>2</td>
+                            <td>~$12.50</td>
+                            <td><a href="https://a.co/d/9D6VQgp">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JAYO PETG 1KG</strong></td>
+                            <td>Secondary Color (BLACK)</td>
+                            <td>1</td>
+                            <td>~$12.50</td>
+                            <td><a href="https://a.co/d/9D6VQgp">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NEMA17-42 Stepper Heatsink</strong></td>
+                            <td>For X-Y axis</td>
+                            <td>2</td>
+                            <td>$3.72</td>
+                            <td><a href="https://www.aliexpress.com/item/1005006723089908.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>M3, M4, M5, M6 Bolt Kit</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$16.99</td>
+                            <td><a href="https://a.co/d/bK2BZC4">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>M2, M3, M4, M5, M6 Bolt Kit</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$18.88</td>
+                            <td><a href="https://a.co/d/i6cB5dC">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2PCS GT2 20T Gear Aluminum Belt Pulley for 3D Printer</strong></td>
+                            <td>2mm Pitch 5mm Inner Hole 6mm Wide</td>
+                            <td>2</td>
+                            <td>$6.20</td>
+                            <td><a href="https://a.co/d/evq40VM">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5 M GT2 Timing Belt</strong></td>
+                            <td>2mm Pitch 6mm Width</td>
+                            <td>1</td>
+                            <td>$5.90</td>
+                            <td><a href="https://a.co/d/gDiZFV8">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brass Threaded Inserts for 3D Printing, M2 M3 M4 M5</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$11.92</td>
+                            <td><a href="https://a.co/d/47oZYLn">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>GYVRM-K240505 Converter 12V/24V to 5V 5A DC-DC</strong></td>
+                            <td>For 5V peripherals</td>
+                            <td>1</td>
+                            <td>$6.07</td>
+                            <td><a href="https://a.co/d/fJjdTEV">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>E3D Titan Extruder</strong></td>
+                            <td>Direct drive extruder</td>
+                            <td>1</td>
+                            <td>$18.07</td>
+                            <td><a href="https://a.co/d/8vnXAXo">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#"></a></td>
+                        </tr>
+                        <td colspan="5">TOTAL - $258.96</td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="assembly-mech" class="doc-section">
+            <h3>5.0 Assembly - Mechanical</h3>
+
+            <h4 id="frame">5.1 Frame</h4>
+            <p>5.1.1 Metal Extrusion: Fairly Simple; no extrusions were cut in the first revision.</p>
+            <div class="figure">
+                <img src="img/chimeradocframe.png" alt="Frame Dimensions">
+                <figcaption>Fig 5.0-1 - Frame Dimensions</figcaption>
+            </div>
+            
+            <p>5.1.2 Reinforcements: Please refer to the github repository for all models used.</p>
+
+            <h4 id="mounting">5.2 Mounting Brackets</h4>
+            <p>Mounting brackets (CAD/STL files) are available in the GitHub repository.</p>
+            <div class="figure">
+                <img src="img/chimeradocfull/chimeradoccad.png" alt="CAD Diagram">
+                <figcaption>Fig 5.2-1 - General CAD Overview Diagram (v1.0)</figcaption>
+            </div>
+
+            <h4>5.3 Gantry</h4>
+            <p>The gantry plate and hotend fan mounting bracket went through the most iteration. See the below diagram for an assembly guide.</p>
+            <div class="figure">
+                <img src="img/chimeradocfull/chimeradocgantryv1.png" alt="Gantry Diagram">
+                <figcaption>Fig 5.2-2 - Gantry Mount Technical Diagram (v1.3)</figcaption>
+            </div>
+
+            <h4 id="corexy">5.4 CoreXY Kinematics</h4>
+            <p>For the X-Y axis, the idlers are vertically stacked and follows the below configuration:</p>
+            <div class="figure">
+                <img src="img/chimeradocfull/4.png" alt="CoreXY Config">
+                <figcaption>Fig 5.3-1 - CoreXY Belt configuration</figcaption>
+            </div>
+            <p>
+              In order to tension the belts, idlers P1 and P2 on the front should be moved ~1 inch towards the extruder. The belts can now be installed with a fair amount of tension.
+            </p>        
+        </div>
+
+        <div id="assembly-elec" class="doc-section">
+            <h3>6.0 Assembly - Electrical</h3>
+            <p>NOTE: This is entirely subjective. You can go with your own board as you want as long as it supports the necessary hardware/firmware.</p>
+
+            <h4 id="mainboard">6.1 Mainboard Choices</h4>
+            <ul>
+                <li><strong>MKS Gen L v2.1:</strong> Overall excellent choice but mine died shortly after.</li>
+                <li><strong>MKS TinyBee v1.0:</strong> Uses an ESP32. I ended up not choosing this as I wasn’t able to get UART mode to work with TMC2208s.</li>
+                <li><strong>MKS Robin Nano v3.1:</strong> I ended up going with this board. Supports UART mode natively, plenty of expansion and a web server.</li>
+            </ul>
+            <div class="figure">
+                 <img src="img/chimeradocfull/7.png" alt="MKS Robin Nano">
+                 <figcaption>MKS Robin Nano v3.1</figcaption>
+            </div>
+
+            <h4 id="drivers">6.2 Drivers</h4>
+            <p>
+              TMC2209s were my preferred option for this. TMC2208s are also a valid option (even standalone), but I plan to implement sensorless homing so the 2209s were best fit.
+            </p>
+            <div class="figure">
+                <img src="img/chimeradocfull/8.png" alt="Drivers">
+            </div>
+
+            <h4 id="motors">6.3 Motor Choices</h4>
+            <p>Choosing which motor best fitted for speed was a matter of ripping specs from online to see which speed torque curve was the best.</p>
+            <ul>
+              <li>Flsun i3 motors (42SHDC4023Z-23B) - α, β (X/Y)</li>
+              <li>MMX motors (42BYGH439-B-20D) - Z, E0</li>
+            </ul>
+
+            <h4 id="psu">6.4 Power Supply</h4>
+            <p>
+              I opted for the 24V PSU from the MMX since the Flsun one was borderline about to explode.
+            </p>
+            <div class="figure">
+                <img src="img/chimeradocfull/11.png" alt="PSU">
+            </div>
+        </div>
+
+        <div id="firmware" class="doc-section">
+            <h3>7.0 Firmware</h3>
+            <p>
+              The repo contains Marlin 2.1.2.5. I might switch to Klipper in later iterations, but issues with the Orange Pi 2 W I wanted to use pushed this back.
+            </p>
+        </div>
+
+        <div id="issues" class="doc-section">
+            <h3>8.0 Known Issues</h3>
+            
+            <h4 id="octoprint">8.1 OrangePi + MKS Gen L v1.0 OctoPrint Integration</h4>
+            <p>Issues encountered while setting up octoprint on an Orange Pi 2 W and MKS Gen L v1.0:</p>
+            <ol>
+              <li>Initial USB Serial Connection Fails.</li>
+              <li>Corrupt Serial Text.</li>
+              <li>No Communication Timeout Retry.</li>
+              <li>Port Conflicts with Wyze/Docker.</li>
+              <li>Serial Buffer Underrun at high baud rates.</li>
+            </ol>
+
+            <h4 id="mount-issue">8.2 V6 Extrusion Mount Front &amp; Backplate</h4>
+            <p>
+              Despite the plates used to mount the V6 hotend being designed with precision, there is still a slight 1mm wobble.
+              Temporary solution: Add 2 M5 eccentric nuts to the top bolts holding the bearings.
+            </p>
+
+            <h4 id="thermal">8.3 Thermal Runaway</h4>
+            <p>
+              Due to the cheap heater cartridge used, I frequently get into thermal runaways. It aggressively oscillates at 20C differences.
+            </p>
+        </div>
+
+        <div id="conclusion" class="doc-section">
+            <h3>9.0 Conclusion - Chimera iXY Rev.2.0</h3>
+            <p>
+                In conclusion, I was able to get a working rig by the first revision, but there are many issues to be addressed.
+            </p>
+            <ul>
+                <li><strong>v1.1</strong>: Firmware bugfixes, hotend heater/thermistor replacement.</li>
+                <li><strong>v1.2</strong>: Full extrusion front plate redesign, new high-flow hotend.</li>
+                <li><strong>v1.3</strong>: Bilinear bed leveling.</li>
+                <li><strong>v1.4</strong>: 200 mm/s quality print speed.</li>
+            </ul>
+        </div>
+
+        <div id="appendix" class="doc-section">
+            <h3>10.0 Appendix</h3>
+            <ul>
+                <li><a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?gid=0#gid=0" target="_blank">Bill of Materials table</a></li>
+                <li><a href="https://github.com/Aetriq/ChimeraiXY/tree/main" target="_blank">Github Repository</a></li>
+                <li><a href="http://aetriq.xyz/chimera.html" target="_blank">Website</a></li>
+                <li><a href="https://github.com/JustLeader69420/mmx-marlin-custom" target="_blank">Justleader69420 - MMX Firmware</a></li>
+                <li><a href="https://github.com/MarlinFirmware/Marlin" target="_blank">Marlin Firmware</a></li>
+                <li><a href="https://github.com/makerbase-mks/MKS-Robin-Nano-V3.X" target="_blank">Robin Nano v3.1 by Makerbase</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-mini">
+            © 2025 Aetriq - Chimera iXY Documentation<br>
+            Document source: Chimera iXY Official Documentation (DOCX). Last updated July 11, 2025.
+        </div>
     </main>
-  </div>
 
-  <script>
-    // Smooth scrolling for TOC links
-    document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(!target) return;
-        const top = target.getBoundingClientRect().top + window.scrollY - 90; // offset for navbar
-        window.scrollTo({ top: top, behavior: 'smooth' });
-        // update URL hash without jumping
-        history.replaceState(null, '', this.getAttribute('href'));
-      });
-    });
+    <script>
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('.sidebar a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        // Offset for top padding
+                        top: targetElement.offsetTop - 30,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-    // Highlight active TOC item on scroll
-    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-    const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        // Highlight active link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.doc-section');
+            const navLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-    function onScroll() {
-      const offset = 120;
-      const Y = window.scrollY;
-      let current = null;
-      for (let s of sections) {
-        if (s.offsetTop - offset <= Y) current = s;
-      }
-      if (current) {
-        tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    document.addEventListener('DOMContentLoaded', onScroll);
-  </script>
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
