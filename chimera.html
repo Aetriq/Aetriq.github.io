@@ -62,14 +62,16 @@
             color: var(--primary-text);
             margin-bottom: 1rem;
             font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
+        h1 { font-size: 3rem; line-height: 1.1; }
+        h2 { font-size: 2.2rem; }
 
         p {
             margin-bottom: 1rem;
             color: var(--body-text);
+            font-size: 1.05rem;
         }
 
         a {
@@ -80,9 +82,10 @@
 
         a:hover {
             color: #fff;
+            text-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
         }
 
-        /* ---------- Sidebar Navigation ---------- */
+        /* ---------- Sidebar Navigation (UNCHANGED) ---------- */
         .navbar {
             background-color: var(--bg-card);
             width: var(--sidebar-w);
@@ -150,6 +153,7 @@
             color: var(--accent-glow);
             padding-left: 10px;
             border-left: 2px solid var(--accent-color);
+            text-shadow: none;
         }
 
         .mobile-menu-btn { display: none; }
@@ -164,181 +168,526 @@
 
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px; /* Slightly wider for modern feel */
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 60px;
         }
 
         .section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 100px 0;
+            position: relative;
         }
 
         .section-title {
             text-align: left;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
             color: var(--primary-text);
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 40px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 15px 0 0 0;
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            opacity: 0.5;
+            margin: 0;
         }
 
-        /* ---------- Chimera Hero (Banner Style) ---------- */
+        /* ---------- Chimera Hero (Modernized) ---------- */
         .chimera-hero {
-            /* Dark Gradient with Red Tint */
-            background: linear-gradient(135deg, #2c0e0e 0%, #000000 100%);
-            color: var(--primary-text);
-            padding: 100px 0;
+            /* Deeper gradient for depth */
+            background: radial-gradient(circle at top right, #2c0e0e 0%, var(--bg-body) 60%);
+            min-height: 90vh; /* Full screen feel */
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid var(--border-color);
         }
 
         .chimera-hero .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1.2fr 1fr; /* Text takes slightly more space */
+            gap: 60px;
             align-items: center;
+            z-index: 2;
+        }
+
+        .chimera-hero::before {
+            /* Subtle texture overlay */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d32f2f' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .chimera-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
             color: var(--accent-glow);
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            background: rgba(211, 47, 47, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .chimera-description {
+            font-size: 1.1rem;
+            max-width: 90%;
+            margin-bottom: 2rem;
         }
 
         .chimera-tagline {
             font-size: 1.1rem;
             font-style: italic;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: #888;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 15px;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 20px;
+        }
+
+        .chimera-hero-image {
+            position: relative;
         }
 
         .chimera-hero-image img {
-            max-width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid var(--border-color);
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            /* Tilt effect */
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .chimera-hero-image:hover img {
+            transform: perspective(1000px) rotateY(0deg);
         }
 
         .project-links {
             display: flex;
-            gap: 15px;
-            margin-bottom: 1.5rem;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        /* Buttons */
+        /* Buttons (Modernized) */
         .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 4px;
-            font-weight: 500;
-            text-align: center;
-            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
             cursor: pointer;
-            font-size: 0.9rem;
+            transition: var(--transition-fast);
         }
 
         .btn-primary {
             background: var(--accent-color);
             color: #fff;
             border: 1px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
         }
 
         .btn-primary:hover {
-            background: transparent;
-            color: var(--accent-glow);
+            background: var(--accent-glow);
+            color: #121212;
             border-color: var(--accent-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5);
+            text-shadow: none;
         }
 
         .btn-outline {
             background: transparent;
             color: var(--primary-text);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .btn-outline:hover {
             border-color: var(--primary-text);
             background: rgba(255,255,255,0.05);
             color: #fff;
+            text-shadow: none;
         }
 
-        /* ---------- Timeline ---------- */
+        /* ---------- Feature Highlight (NEW SECTION) ---------- */
+        .feature-showcase {
+            background-color: #000;
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* The container for text needs to be on top */
+        .feature-showcase .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-text-block {
+            max-width: 450px;
+        }
+
+        .feature-text-block h2 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .feature-text-block p {
+            font-size: 1.2rem;
+            color: var(--accent-glow);
+        }
+
+        /* The background image with gradient fade */
+        .feature-bg-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 70%; /* Covers right side */
+            background-image: url('img/boat.png'); /* Placeholder Link */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Mask to fade into background */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%);
+            mask-image: linear-gradient(to right, transparent 0%, black 50%);
+        }
+
+        /* ---------- Motion System Highlight (NEW SECTION) ---------- */
+        .motion-section {
+            background: var(--bg-secondary);
+        }
+
+        .motion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .motion-image img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(40%) contrast(1.1);
+            transition: var(--transition-fast);
+        }
+        
+        .motion-image img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* ---------- Comparison Chart ---------- */
+        .comparison-section {
+            background: var(--bg-secondary);
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            justify-content: flex-start;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--primary-text);
+        }
+
+        .legend-item .dot {
+            width: 12px; height: 12px;
+            border-radius: 2px;
+        }
+
+        .chart-container {
+            display: grid;
+            /* Flexible grid that wraps on mobile but stays inline on desktop */
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            align-items: end;
+            height: 350px; /* Fixed height for the chart area */
+            padding-bottom: 20px;
+            overflow-x: auto; /* Scroll horizontally on very small screens */
+        }
+
+        .chart-group {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .bars-area {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 6px; /* Spacing between bars in a group */
+            height: 100%;
+            width: 100%;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .bar {
+            width: 14px; /* Width of individual bars */
+            border-radius: 2px 2px 0 0;
+            height: 0; /* Start at 0 for animation */
+            transition: height 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            position: relative;
+        }
+
+        /* Colors */
+        .bar.flsun { background-color: #4caf50; }
+        .bar.mingda { background-color: #2196f3; }
+        .bar.chimera { background-color: var(--accent-color); box-shadow: 0 0 10px rgba(211, 47, 47, 0.4); }
+
+        /* Animation Trigger: When the container has 'visible' class */
+        .chart-container.visible .bar {
+            height: var(--pct);
+        }
+
+        /* Tooltip/Value on Hover */
+        .bar::before {
+            content: attr(data-val);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: #fff;
+            opacity: 0;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .bar:hover::before {
+            opacity: 1;
+            top: -30px;
+        }
+
+        .chart-label {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #aaa;
+            line-height: 1.2;
+        }
+
+        .chart-label .unit {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* Responsive fix for chart */
+        @media (max-width: 768px) {
+            .chart-container {
+                grid-template-columns: repeat(6, 120px); /* Force horizontal scroll */
+                justify-content: start;
+            }
+        }
+
+        /* ---------- Specifications (Minimalist Grid) ---------- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1px; /* Gap for border effect */
+            background: rgba(255,255,255,0.05); /* Container bg for borders */
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .spec-card {
+            background: var(--bg-body); /* Restore body bg for card */
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .spec-card:hover {
+            background: var(--bg-card);
+            z-index: 2;
+        }
+
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 3px; height: 0;
+            background: var(--accent-color);
+            transition: 0.3s;
+        }
+
+        .spec-card:hover::before {
+            height: 100%;
+        }
+
+        .spec-icon {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-glow);
+            opacity: 0.8;
+        }
+
+        .spec-title {
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--primary-text);
+            letter-spacing: -0.5px;
+        }
+
+        /* ---------- Timeline (Sleek) ---------- */
         .timeline-section {
             background: var(--bg-body);
         }
 
         .timeline {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto 0 0; /* Left align slightly */
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 20px; /* Adjusted for left alignment aesthetics or keep centered */
+            left: 50%;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-        }
-        
-        /* Desktop: Standard Center Line */
-        @media(min-width: 993px) {
-            .timeline::before { left: 50%; transform: translateX(-50%); }
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--border-color) 10%, var(--border-color) 90%, transparent);
+            transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             width: 100%;
         }
 
+        /* ---------- Hero Partners Bar (Credits) ---------- */
+        .hero-partners {
+            /* Span the full width of the grid (both text and image columns) */
+            grid-column: 1 / -1;
+            
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .partners-label {
+            font-size: 0.8rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+        }
+
+        .partners-logos {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .partners-logos a {
+            display: block;
+            opacity: 0.4;
+            transition: all 0.3s ease;
+            /* Force logos to be white/greyish by default */
+            filter: grayscale(100%) brightness(1.5); 
+        }
+
+        .partners-logos img {
+            height: 40px; /* Uniform height for all logos */
+            width: auto;
+            display: block;
+        }
+
+        /* Hover Effect: Restore color and opacity */
+        .partners-logos a:hover {
+            opacity: 1;
+            filter: grayscale(0%) brightness(1);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsiveness for the bar */
+        @media (max-width: 992px) {
+            .hero-partners {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .partners-logos {
+                gap: 25px;
+            }
+        }
+
         .timeline-content {
-            padding: 25px;
+            padding: 30px;
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 2px;
             position: relative;
             transition: var(--transition-fast);
         }
 
         .timeline-content:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
+            background: #221d1d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .timeline-date {
-            font-weight: bold;
+            font-family: monospace;
             color: var(--accent-glow);
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
         .timeline-dot {
             position: absolute;
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             background: var(--bg-body);
             border: 2px solid var(--accent-color);
             border-radius: 50%;
-            z-index: 1;
+            z-index: 2;
+            box-shadow: 0 0 10px var(--accent-color);
         }
 
-        /* Timeline Responsive Logic */
-        @media (min-width: 993px) {
+        @media(min-width: 993px) {
             .timeline-item:nth-child(odd) .timeline-content {
                 width: 45%;
                 margin-left: auto;
@@ -349,101 +698,49 @@
             }
             .timeline-dot {
                 left: 50%;
-                top: 25px;
+                top: 40px;
                 transform: translateX(-50%);
             }
         }
-
+        
         @media (max-width: 992px) {
             .timeline::before { left: 20px; }
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 60px;
-            }
-            .timeline-dot {
-                left: 20px;
-                top: 25px;
-                transform: translateX(-50%);
-            }
+            .timeline-content { width: calc(100% - 50px); margin-left: 50px; }
+            .timeline-dot { left: 20px; top: 40px; transform: translateX(-50%); }
         }
 
-        /* ---------- Specifications ---------- */
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .spec-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: var(--transition-fast);
-        }
-
-        .spec-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .spec-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--accent-glow);
-        }
-
-        .spec-title {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .spec-value {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary-text);
-        }
-
-        /* ---------- Gallery ---------- */
+        /* ---------- Gallery (Masonry style) ---------- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
 
         .gallery-item {
-            border-radius: 4px;
+            position: relative;
             overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-fast);
+            border-radius: 2px;
+            aspect-ratio: 16/9;
             background: #000;
-        }
-
-        .gallery-item:hover {
-            border-color: var(--accent-color);
-            transform: scale(1.02);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
-            opacity: 0.8;
-            transition: var(--transition-fast);
+            opacity: 0.7;
+            transition: all 0.5s ease;
         }
 
         .gallery-item:hover img {
             opacity: 1;
+            transform: scale(1.05);
         }
 
         /* ---------- Footer ---------- */
         .footer {
-            background: var(--bg-body);
-            padding: 40px 0;
+            background: #0a0a0a; /* Darker than body */
+            padding: 80px 0 40px;
             border-top: 1px solid var(--border-color);
             margin-top: auto;
         }
@@ -452,54 +749,50 @@
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 50px;
         }
 
         .footer-logo img {
-            width: 50px;       /* Reduced size */
-            height: 50px;      /* Reduced size */
+            width: 50px; height: 50px;
             border-radius: 50%;
-            object-fit: cover; /* Ensures the image doesn't stretch */
-            filter: grayscale(20%);
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.3s;
         }
-
-        .footer-logo-text { font-size: 1rem; color: var(--primary-text); }
-        .footer-heading { font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-glow); }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 8px; }
-        .footer-links a { color: var(--body-text); font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--accent-glow); padding-left: 5px; }
         
-        .social-links { display: flex; gap: 10px; }
+        .footer-logo:hover img { filter: grayscale(0%); }
+
+        .footer-logo-text { font-size: 1.2rem; margin-top: 10px; color: var(--primary-text); font-weight: 600; }
+        .footer-heading { font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; color: #555; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--body-text); font-size: 0.95rem; }
+        
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
         .social-links a {
             display: flex; justify-content: center; align-items: center;
-            width: 32px; height: 32px;
-            background: var(--bg-card); border: 1px solid var(--border-color);
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.05);
             border-radius: 50%; color: var(--primary-text); font-size: 0.8rem;
-            font-style: normal;
+            transition: 0.3s;
         }
-        .social-links a:hover { border-color: var(--accent-glow); color: var(--accent-glow); }
+        .social-links a:hover { background: var(--accent-color); color: #fff; text-shadow: none; transform: translateY(-3px); }
 
         .footer-bottom {
             text-align: left;
             padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid #1a1a1a;
             font-size: 0.8rem;
-            color: #555;
+            color: #444;
+            display: flex;
+            justify-content: space-between;
         }
 
         /* ---------- Scroll Reveal ---------- */
         .reveal-element {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal-element.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-100 { transition-delay: 100ms; }
@@ -513,7 +806,7 @@
                 flex-direction: row; justify-content: space-between; align-items: center;
                 padding: 15px 20px; border-right: none; border-bottom: 1px solid var(--border-color);
             }
-            .navbar .container { flex-direction: row; justify-content: space-between; width: 100%; }
+            .navbar .container { flex-direction: row; justify-content: space-between; width: 100%; gap: 0; }
             .main-content { margin-left: 0; width: 100%; }
             .nav-links {
                 display: none; position: absolute; top: 100%; left: 0;
@@ -523,10 +816,18 @@
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; background: none; border: none; color: var(--primary-text); font-size: 1.5rem; }
             
-            .chimera-hero .container { grid-template-columns: 1fr; }
-            .chimera-hero-image { order: -1; margin-bottom: 30px; }
+            .chimera-hero .container { grid-template-columns: 1fr; gap: 30px; }
+            .chimera-hero-image { order: -1; margin-bottom: 20px; }
+            
+            .feature-showcase { height: auto; padding: 60px 0; }
+            .feature-bg-image { width: 100%; opacity: 0.2; -webkit-mask-image: none; mask-image: none; background-color: #000; z-index: 0; }
+            
+            .motion-grid { grid-template-columns: 1fr; }
+            
             .footer-content { grid-template-columns: 1fr; }
             .container { padding: 0 20px; }
+            
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -554,34 +855,227 @@
     <div class="main-content">
 
         <section class="chimera-hero">
+    <div class="container">
+        
+        <div class="chimera-hero-content">
+            <div class="chimera-subtitle reveal-element">Project Chimera iXY</div>
+            <h1 class="reveal-element reveal-delay-100">RepRap Speed.<br>Zero Compromise.</h1>
+            
+            <div class="chimera-description reveal-element reveal-delay-200">
+                <p>A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X. Demonstrating the usability of RepRap in modern printers.</p>
+            </div>
+            
+            <div class="chimera-tagline reveal-element reveal-delay-200">
+                Still printing. Still free. Still RepRap.
+            </div>
+            
+            <div class="project-links reveal-element reveal-delay-200">
+                <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-primary" target="_blank">View on GitHub</a>
+                <a href="chimeradocfull.html" class="btn btn-outline">Full Documentation</a>
+            </div>
+            
+            <div class="project-status reveal-element reveal-delay-200">
+                <p style="font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 10px;">
+                    <span style="width: 8px; height: 8px; background: #0f0; border-radius: 50%; box-shadow: 0 0 5px #0f0;"></span>
+                    <strong>Status:</strong> Version 2.0 Released. Check Github for firmware and models!
+                </p>
+            </div>
+        </div>
+
+        <div class="chimera-hero-image reveal-element reveal-delay-100">
+            <img src="img/chimera1.5.png" alt="Chimera iXY 3D Printer">
+        </div>
+
+        <div class="hero-partners reveal-element reveal-delay-200">
+            <span class="partners-label"></span>
+            <div class="partners-logos">
+                <a href="https://reprap.org/" target="_blank" title="RepRap Project">
+                    <img src="https://reprap.org/mediawiki/images/reprap_logo.png?06a32" alt="RepRap">
+                </a>
+                <a href="https://e3d-online.com/" target="_blank" title="E3D Online">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorseek.com%2Fwp-content%2Fuploads%2F2023%2F12%2FE3D-Online-Logo-Vector.svg-.png&f=1&nofb=1&ipt=b34028798436c83d472fdf96098e7ce15c0c9c3e000faafdf0e0a843bb649793" alt="E3D" style="filter: invert(1);">
+                </a>
+                <a href="https://github.com/makerbase-mks" target="_blank" title="Makerbase MKS">
+                    <img src="img/mks.png" alt="Makerbase">
+                </a>
+                <a href="https://www.klipper3d.org/" target="_blank" title="Klipper Firmware">
+                    <img src="https://www.klipper3d.org/img/klipper-logo.png" alt="Klipper">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <section class="feature-showcase">
+            <div class="feature-bg-image"></div> <div class="container">
+                <div class="feature-text-block reveal-element">
+                    <h2>Quality Benchy in<br>30 minutes.</h2>
+                    <p>Tuned for maximum reliablity & speed without sacrificing print integrity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section comparison-section">
             <div class="container">
-                <div class="chimera-hero-content">
-                    <h1 class="reveal-element">Chimera iXY</h1>
-                    <div class="chimera-subtitle reveal-element reveal-delay-100">Custom CoreXY 3D Printer</div>
-                    <div class="chimera-description reveal-element reveal-delay-200">
-                        A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X. 
-                        Demonstrating the usability of RepRap in modern printers.
+                <h2 class="section-title reveal-element">Performance Comparison</h2>
+                
+                <div class="chart-legend reveal-element">
+                    <div class="legend-item">
+                        <span class="dot" style="background-color: #4caf50;"></span> Flsun i3
                     </div>
-                    <div class="chimera-tagline reveal-element reveal-delay-200">
-                        Still printing. Still free. Still RepRap.
+                    <div class="legend-item">
+                        <span class="dot" style="background-color: #2196f3;"></span> Mingda Magician
                     </div>
-                    <div class="project-links reveal-element reveal-delay-200">
-                        <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-primary" target="_blank">View on GitHub</a>
-                        <a href="chimeradocfull.html" class="btn btn-outline">Full Documentation</a>
-                    </div>
-                    <div class="project-status reveal-element reveal-delay-200">
-                        <p style="font-size: 0.9rem; color: #888;"><strong>Current Status:</strong> v1.5 Released! Check out the repository for more details. v2.0 IS IN THE MAKING!!!</p>
+                    <div class="legend-item">
+                        <span class="dot" style="background-color: var(--accent-color);"></span> Chimera iXY
                     </div>
                 </div>
-                <div class="chimera-hero-image reveal-element reveal-delay-100">
-                    <img src="img/chimera1.5.png" alt="Chimera iXY 3D Printer">
+
+                <div class="chart-container reveal-element reveal-delay-200">
+                    
+                    <div class="chart-group">
+                        <div class="bars-area">
+                            <div class="bar flsun" style="--pct: 27%;" data-val="120"></div>
+                            <div class="bar mingda" style="--pct: 44%;" data-val="200"></div>
+                            <div class="bar chimera" style="--pct: 100%;" data-val="450"></div>
+                        </div>
+                        <div class="chart-label">Max Speed<br><span class="unit">(mm/s)</span></div>
+                    </div>
+
+                    <div class="chart-group">
+                        <div class="bars-area">
+                            <div class="bar flsun" style="--pct: 21%;" data-val="75"></div>
+                            <div class="bar mingda" style="--pct: 34%;" data-val="120"></div>
+                            <div class="bar chimera" style="--pct: 100%;" data-val="350"></div>
+                        </div>
+                        <div class="chart-label">Quality Speed<br><span class="unit">(mm/s)</span></div>
+                    </div>
+
+                    <div class="chart-group">
+                        <div class="bars-area">
+                            <div class="bar flsun" style="--pct: 30%;" data-val="15"></div>
+                            <div class="bar mingda" style="--pct: 30%;" data-val="15"></div>
+                            <div class="bar chimera" style="--pct: 100%;" data-val="50"></div>
+                        </div>
+                        <div class="chart-label">Peak Flow<br><span class="unit">(mm³/s)</span></div>
+                    </div>
+
+                    <div class="chart-group">
+                        <div class="bars-area">
+                            <div class="bar flsun" style="--pct: 37%;" data-val="80m"></div>
+                            <div class="bar mingda" style="--pct: 69%;" data-val="55m"></div>
+                            <div class="bar chimera" style="--pct: 100%;" data-val="30m"></div>
+                        </div>
+                        <div class="chart-label">Benchy Time<br><span class="unit">(Minutes)</span></div>
+                    </div>
+
+                    <div class="chart-group">
+                        <div class="bars-area">
+                            <div class="bar flsun" style="--pct: 76%;" data-val="265"></div>
+                            <div class="bar mingda" style="--pct: 76%;" data-val="265"></div>
+                            <div class="bar chimera" style="--pct: 100%;" data-val="350"></div>
+                        </div>
+                        <div class="chart-label">Max Temp<br><span class="unit">(°C)</span></div>
+                    </div>
+
+                    <div class="chart-group">
+                        <div class="bars-area">
+                            <div class="bar flsun" style="--pct: 96%;" data-val="220"></div>
+                            <div class="bar mingda" style="--pct: 100%;" data-val="230"></div>
+                            <div class="bar chimera" style="--pct: 100%;" data-val="230"></div>
+                        </div>
+                        <div class="chart-label">Volume<br><span class="unit">(mm³)</span></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title reveal-element">Technical Specifications</h2>
+                <div class="specs-grid">
+                    <div class="spec-card reveal-element">
+                        <div class="spec-title">Speed</div>
+                        <div class="spec-value">450mm/s</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">32700mm/s² Accel</p>
+                    </div>
+                    <div class="spec-card reveal-element reveal-delay-100">
+                        <div class="spec-title">Build Volume</div>
+                        <div class="spec-value">230mm³</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Magnetic PEI/Glass</p>
+                    </div>
+                    <div class="spec-card reveal-element reveal-delay-200">
+                        <div class="spec-title">Power</div>
+                        <div class="spec-value">24V / 15A</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Separate 5V Logic Rail</p>
+                    </div>
+                    <div class="spec-card reveal-element">
+                        <div class="spec-title">Hotend</div>
+                        <div class="spec-value">E3D V6 Volcano 0.4mm</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">350°C Max Temp, supports up to 550°C</p>
+                    </div>
+                    <div class="spec-card reveal-element reveal-delay-100">
+                        <div class="spec-title">Firmware</div>
+                        <div class="spec-value">Klipper or Marlin</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">MKS Robin Nano + RPi Zero 2W</p>
+                    </div>
+                    <div class="spec-card reveal-element reveal-delay-200">
+                        <div class="spec-title">Kinematics</div>
+                        <div class="spec-value">CoreXY</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Verstaile linear rail/rod system</p>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Quad linear rod Z-Axis</p>
+                    </div>
+                    <div class="spec-card reveal-element">
+                        <div class="spec-title">Extruder</div>
+                        <div class="spec-value">50mm/s³</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">E3D Titan Direct Drive Dual Gear</p>
+                    </div>
+                    <div class="spec-card reveal-element">
+                        <div class="spec-title">Materials</div>
+                        <div class="spec-value">PLA, PETG, ABS, ASA, PC, PA, PEEK</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Includes CF and GF variants</p>
+                    </div>
+                    <div class="spec-card reveal-element reveal-delay-100">
+                        <div class="spec-title">Slicer</div>
+                        <div class="spec-value">SuperSlicer</div>
+                    </div>
+                    <div class="spec-card reveal-element reveal-delay-200">
+                        <div class="spec-title">Input Shaping</div>
+                        <div class="spec-value">Mellow ADXL345</div>
+                    </div>
+                    <div class="spec-card reveal-element">
+                        <div class="spec-title">Camera</div>
+                        <div class="spec-value">Miniton Beaglecam v1</div>
+                    </div>
+                    <div class="spec-card reveal-element">
+                        <div class="spec-title">Total Cost</div>
+                        <div class="spec-value">< $300</div>
+                        <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Includes iteration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section motion-section">
+            <div class="container">
+                <div class="motion-grid">
+                    <div class="motion-text reveal-element">
+                        <div class="chimera-subtitle">Hardware Focus</div>
+                        <h2 style="margin-top: 20px;">Robust Motion System</h2>
+                        <p>The gantry system utilizes a rigid frame derived completely from salvaged extrusions, optimized for the CoreXY belt path. This ensures minimal flex and vibrationsduring high-speed movements.</p>
+                        <p>To reduce effects of VFA and ringing at higher speeds, a hybrid linear rod/rail XY system has been implemented.</p>
+                    </div>
+                    <div class="motion-image reveal-element reveal-delay-100">
+                        <img src="img/nozzle.png" alt="CoreXY Gantry Detail"> </div>
                 </div>
             </div>
         </section>
 
         <section class="section timeline-section">
             <div class="container">
-                <h2 class="section-title reveal-element">Project Timeline</h2>
+                <h2 class="section-title reveal-element" style="justify-content: center;">Development Log</h2>
                 <div class="timeline">
                     <div class="timeline-item reveal-element">
                         <div class="timeline-dot"></div>
@@ -590,8 +1084,7 @@
                             <h3>RELEASE - v2.0</h3>
                             <p>Second official revision release. Improvements to both software and hardware. 
                                 <br><br> Issues encountered in v1.5 fixed (refer to documentation for all resolved issues)
-                                <br><br> "Upgraded" to Klipper firmware for addition of input shaping and vibration compensation, which is crucial for speed/quality prints.
-                                <br><br> More improvements to kinematics and extrusion system to match higher print speeds.
+                                <br><br> "Upgraded" to Klipper firmware for addition of input shaping and vibration compensation.
                             </p>
                         </div>
                     </div>
@@ -600,10 +1093,7 @@
                         <div class="timeline-content">
                             <div class="timeline-date">10-18-25</div>
                             <h3>RELEASE - v1.5</h3>
-                            <p>First official 'bugfix' of the project finally released. 
-                                <br><br>Includes fixed 3d models to improve speed and print quality.
-                                <br><br>Marlin firmware addition of MKS WIFI ESP8266 v1.0 Module and BeePrint Wifi interface.
-                            </p>
+                            <p>First official 'bugfix' of the project released.<br>Includes fixed 3d models to improve speed and print quality.<br>Marlin firmware addition of MKS WIFI ESP8266.</p>
                         </div>
                     </div>
                     <div class="timeline-item reveal-element">
@@ -611,25 +1101,15 @@
                         <div class="timeline-content">
                             <div class="timeline-date">9-15-25</div>
                             <h3>RELEASE - v1.0</h3>
-                            <p>First official revision of the project finally released. Documentation and design files uploaded on same day.
-                                <br><br>Refer to Github for full firmware/CAD Design Files.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item reveal-element">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">9-14-25</div>
-                            <h3>TESTING (v0.7-0.9)</h3>
-                            <p>Iterative design was done to fix the majority of parts. At this point in time, most frame parts are complete.</p>
+                            <p>First official revision released. Documentation and design files uploaded.</p>
                         </div>
                     </div>
                     <div class="timeline-item reveal-element">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-date">7-6-25</div>
-                            <h3>ASSEMBLY</h3>
-                            <p>General assembly of components complete.</p>
+                            <h3>RELEASE - v0.5</h3>
+                            <p>General assembly of components and basic prototype concept complete.</p>
                         </div>
                     </div>
                     <div class="timeline-item reveal-element">
@@ -660,60 +1140,9 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" style="background: #111;">
             <div class="container">
-                <h2 class="section-title reveal-element">Technical Specifications of v2.0</h2>
-                <div class="specs-grid">
-                    <div class="spec-card reveal-element">
-                        <div class="spec-title">Print Speed</div>
-                        <div class="spec-value">200mm/s+</div>
-                        <div class="spec-value">At least 5000mm/s^2 acceleration</div>
-                    </div>
-                    <div class="spec-card reveal-element reveal-delay-100">
-                        <div class="spec-title">Build Volume</div>
-                        <div class="spec-value">230mm³</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">NOTE: Magnetic PEI or glass surface.</p>
-                    </div>
-                    <div class="spec-card reveal-element reveal-delay-200">
-                        <div class="spec-title">Power Consumption</div>
-                        <div class="spec-value">24V-15A PK</div>
-                        <div class="spec-value">5V-5A PK</div>
-                    </div>
-                    <div class="spec-card reveal-element">
-                        <div class="spec-title">Hotend</div>
-                        <div class="spec-value">V6 Volcano</div>
-                        <div class="spec-value">MAX 50mm/s^3 flow</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">4010x2 part cooling<br>30mm hotend cooling<br>350C Max Temp</p>
-                    </div>
-                    <div class="spec-card reveal-element reveal-delay-100">
-                        <div class="spec-title">Controller</div>
-                        <div class="spec-value">MKS Robin Nano</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">v3.1 w/ Klipper firmware on a RPi Zero 2W. Uses MK TS35 v2.0.</p>
-                    </div>
-                    <div class="spec-card reveal-element reveal-delay-200">
-                        <div class="spec-title">Kinematics</div>
-                        <div class="spec-value">CoreXY</div>
-                        <div class="spec-value">Quad linear rod Z-axis</div>
-                    </div>
-                    <div class="spec-card reveal-element reveal-delay-200">
-                        <div class="spec-title">Extruder</div>
-                        <div class="spec-value">Dual gear direct drive E3D Titan Extruder</div>
-                    </div>
-                    <div class="spec-card reveal-element">
-                        <div class="spec-title">Cost</div>
-                        <div class="spec-value"><300$</div>
-                        <p style="font-size: 0.85rem; margin-top: 10px;">Excluding donor printers</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background: var(--bg-secondary);">
-            <div class="container">
-                <h2 class="section-title reveal-element">Project Gallery</h2>
-                <h3 style="text-align: left; font-size: 1rem; color: #888; margin-bottom: 30px;" class="reveal-element">
-                    The following gallery is incomplete. More photos coming soon!
-                </h3>
+                <h2 class="section-title reveal-element">Gallery</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item reveal-element">
                         <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/Banner1.png?raw=true" alt="Chimera iXY Banner 1">
@@ -730,25 +1159,25 @@
 
         <section class="section">
             <div class="container">
-                <h2 class="section-title reveal-element">Project Resources</h2>
+                <h2 class="section-title reveal-element">Downloads & Docs</h2>
                 <div class="specs-grid">
                     <div class="spec-card reveal-element">
-                        <div class="spec-icon">📋</div>
-                        <div class="spec-title">Bill of Materials</div>
-                        <p style="font-size: 0.9rem;">Complete list of components and suppliers (Google drive)</p>
-                        <a href="https://docs.google.com/spreadsheets/d/141LB089onZRFYBLwHDZm7xMRdjYpGHt4JvQGmjNZiB8/edit?usp=sharing" class="btn btn-primary" style="margin-top: 15px;" target="_blank">View</a>
+                        <div class="spec-title">Resource</div>
+                        <div class="spec-value" style="font-size: 1.2rem; font-weight: 600;">Bill of Materials</div>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">View Page</p>
+                        <a href="chimeradocfull.html#bom" class="btn btn-outline" style="margin-top: 15px;" target="_blank">Access Sheet</a>
                     </div>
                     <div class="spec-card reveal-element reveal-delay-100">
-                        <div class="spec-icon">📚</div>
-                        <div class="spec-title">Documentation</div>
-                        <p style="font-size: 0.9rem;">Complete page for build guide and technical documentation</p>
-                        <a href="chimeradocfull.html" class="btn btn-primary" style="margin-top: 15px;">View</a>
+                        <div class="spec-title">Resource</div>
+                        <div class="spec-value" style="font-size: 1.2rem; font-weight: 600;">Documentation</div>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Build guide & tech docs.</p>
+                        <a href="chimeradocfull.html" class="btn btn-outline" style="margin-top: 15px;">View Page</a>
                     </div>
                     <div class="spec-card reveal-element reveal-delay-200">
-                        <div class="spec-icon">💻</div>
-                        <div class="spec-title">Source Code</div>
-                        <p style="font-size: 0.9rem;">Firmware (Marlin), config files, and CAD design files.</p>
-                        <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-primary" style="margin-top: 15px;" target="_blank">View</a>
+                        <div class="spec-title">Resource</div>
+                        <div class="spec-value" style="font-size: 1.2rem; font-weight: 600;">Source Code</div>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Firmware & CAD files.</p>
+                        <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-primary" style="margin-top: 15px;" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -771,7 +1200,7 @@
                     </div>
                     
                     <div class="footer-links-container">
-                        <h3 class="footer-heading">Quick Links</h3>
+                        <h3 class="footer-heading">Navigate</h3>
                         <ul class="footer-links">
                             <li><a href="index.html#home">Home</a></li>
                             <li><a href="index.html#projects">Projects</a></li>
@@ -781,7 +1210,7 @@
                     </div>
                     
                     <div class="footer-links-container">
-                        <h3 class="footer-heading">Resources</h3>
+                        <h3 class="footer-heading">Links</h3>
                         <ul class="footer-links">
                             <li><a href="https://github.com/aetriq" target="_blank">GitHub</a></li>
                             <li><a href="https://linktr.ee/Aetriq" target="_blank">Linktree</a></li>
@@ -790,8 +1219,8 @@
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>© 2025 Veetwo Music Ltd. All rights reserved.</p>
-                    <p>This project is licensed under the MIT license.</p>
+                    <p>© 2025 Veetwo Music Ltd.</p>
+                    <p>This project is under the GNU v3 License unless otherwise specified.</p>
                 </div>
             </div>
         </footer>
