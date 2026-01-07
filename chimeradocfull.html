@@ -40,7 +40,6 @@
         body {
             font-family: 'Frutiger LT Std', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-body);
-            background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), url('img/bkgdchimera2.png');
             background-size: cover;
             background-attachment: fixed;
             color: var(--body-text);
@@ -141,8 +140,8 @@
 
         /* Sub-items indentation */
         .toc-sub {
-            padding-left: 15px !important;
-            font-size: 0.85rem;
+            padding-left: 35px !important;
+            font-size: 0.80rem;
             color: #888;
         }
 
@@ -180,7 +179,7 @@
         .doc-section {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 1px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
@@ -310,23 +309,30 @@
             <li><a href="#conclusion" class="toc-link">9.0 Conclusion & Roadmap</a></li>
             <li><a href="#appendix" class="toc-link">10.0 Appendix</a></li>
         </ul>
+        <br><br>
+        <ul class="toc-list">
+            <li><a href="https://github.com/Aetriq/ChimeraiXY" class="toc-link">Github</a></li>
+            <li><a href="https://www.youtube.com/watch?v=vK_YMo2CPiA" class="toc-link">11-2-25: v1.5 Benchy Video</a></li>
+            <li><a href=#preamble" class="toc-link">TBD: v2.0 Log Video</a></li>
+        </ul>
     </nav>
 
     <main class="main-content">
         
         <div class="doc-header">
-            <h1>Chimera iXY - Official Documentation</h1>
-            <div class="meta">Alex Gordon | Published July 21st, 2025 | Last updated December 20th, 2025</div>
+            <h1>Welcome to the Chimera iXY Project!</h1>
+            <div class="meta">By Alex Gordon | Published July 21st, 2025 | Last updated December 20th, 2025</div>
+            <div class="meta">This project is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a> license. </div>
         </div>
 
         <div id="preamble" class="doc-section">
             <h3>0.0 Preamble</h3>
             <p>
-                This page is optimized for desktop viewing. This involves information about the latest revision, Chimera iXY v2.0. <br> <br>
-                Although the majority of the parts were made myself, a number of them involve models already created, measured and tested. Please check out the credits in section 10.0 - Appendix for all the originally created models.
+                Chimera iXY is a DIY 3D printer with the primary goal of upcycling older Reprap-style FDM printers into a modern equivalent at a low cost. The top three design priorities from highest to lowest are reliablity, quality and speed.
             </p>
             <p>
-                This project, including its design files and documentation, are under the CC BY-NC-SA 4.0 license. 
+                This page is optimized for desktop viewing. This involves information about the latest revision, Chimera iXY v2.0. <br> <br>
+                Although the majority of the parts were made myself, a number of them involve models already created, measured and tested. Please check out the credits in Section 10.0 - Appendix for all the originally created models.
             </p>
         </div>
 
@@ -339,33 +345,28 @@
 
             <b>Software Changes:</b>
             <ul>
-                <li><strong>Klipper Firmware Support:</strong> .</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-
+                <li><strong>Klipper Firmware Support:</strong> Transition to klipper for more higher print speeds and more advanced features. Marlin continues to be supported.</li>
+                <li><strong>Raspberry Pi Zero 2W:</strong> Primary SBC for klipper. Fortunately compatible with MKS TS35 v2.0.</li>
+                <li><strong>Input shaping:</strong>ADXL345 based vibration resonance cancellation.</li>
             </ul>
             <b>Hardware Changes:</b>
             <ul>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Primary Enclosure Redesign:</strong> Expanded to house relevant klipper components.</li>
+                <li><strong>PSU Cooling:</strong> Changed 60mm > 120mm fan for silent profile.</li>
+                <li><strong>Frame Rigidity:</strong>Addition of final braces to frame to minimize vibration.</li>
+                <li><strong>Camera:</strong>Changed Frame Bracket to front.</li>
+                <li><strong>Filament routing:</strong>Optimized for general QoL when loading/unloading filament.</li>
+                <li><strong>E3D V6 Volcano:</strong> Due to a permanent clog, I was forced to switch to a new V6 sized nozzle.</li>
 
             </ul>
-            <b>Other Changes:</b>
+            <b>Mechanical Changes:</b>
             <ul>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
-                <li><strong>Title:</strong>Description.</li>
+                <li><strong>Direct drive:</strong> Switch from bowden direct drive extrusion system for non-rigid material printing and higher quality/flow rates.</li>
+                <li><strong>Gantry plate & Toolhead bracket redesigns:</strong> Optimized new gantry designs.</li>
+                <li><strong>Linear rail X-axis:</strong> Changed kinematics from T-slot > Linear rod. Issues with old system discussed below.</li>
+                <li><strong>Linear rod Z-axis:</strong> Finalized bed with remaining 2 linear rods to eliminate z-wobble.</li>
+                <li><strong>(Temporary) Purge Bucket:</strong>Used as an idling position for the nozzle.</li>
+                <li><strong>Spool holder v2.0:</strong>Optimized spool holder to accomodate heavier variants.</li>
 
             </ul>
             <br>
@@ -400,7 +401,7 @@
               This document covers the detailed documentation of my DIY CoreXY build from two broken 3D printers, named ‘Chimera iXY’. The primary objective of this document is to keep track of everything as the printer was being built.
             </p>  
             <p>
-              It is important to note that this document is semi-formal, as it doesn’t follow any standard documentation formatting.
+              It is important to note that this document is semi-formal.
             </p>
             <div class="figure">
                 <img src="img/chimera1.5.png" alt="Chimera iXY">
@@ -798,15 +799,24 @@
         </div>
 
         <div id="conclusion" class="doc-section">
-            <h3>9.0 Conclusion - Chimera iXY Rev.2.0</h3>
+            <h3>9.0 Conclusion</h3>
             <p>
-                In conclusion, I was able to get a working rig by the first revision, but there are many issues to be addressed.
+                In conclusion, I was able to get a working rig by the first revision, but there were many issues to be addressed. The second revision represents a machine that increases the quality and speed significantly while matching the same reliablity.
+                <br><br>
+                Below is a brief list of all the revisions I've made so far for log purposes.
             </p>
             <ul>
+                <li><strong>v0.5</strong>: Basic concept. Very simple kinematics with essential components, MKS Gen L v1.0 w/ Marlin.</li>
+                <li><strong>v0.6</strong>: Gantry toolhead w/ fan brackets. MKS Tinybee used temporaily.</li>
+                <li><strong>v0.9</strong>: Z gantry stablization. MKS Robin Nano v3.1 w/ Marlin.</li>
+                <li><strong>v1.0</strong>: Finalized basic extrusion system and general firmware.</li>
+                
                 <li><strong>v1.1</strong>: Firmware bugfixes, hotend heater/thermistor replacement.</li>
-                <li><strong>v1.2</strong>: Full extrusion front plate redesign, new high-flow hotend.</li>
-                <li><strong>v1.3</strong>: Bilinear bed leveling.</li>
-                <li><strong>v1.4</strong>: 200 mm/s quality print speed.</li>
+                <li><strong>v1.2</strong>: Full gantry toolhead redesign, extrusion fixes. </li>
+                <li><strong>v1.3</strong>: Bilinear bed leveling. More gantry toolhead optimization. Frame rigidity improvements.</li>
+                <li><strong>v1.5</strong>: Cable management. Final z-gantry stablizations. </li>
+
+                <li><strong>v1.5</strong>: Switch to Klipper firmware. Direct Drive Extruder. Linear rail x-axis.</li>
             </ul>
         </div>
 
