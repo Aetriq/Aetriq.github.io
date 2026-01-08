@@ -196,7 +196,7 @@
         }
 
         .figure img {
-            max-width: 100%;
+            max-width: 50%;
             border-radius: 4px;
             display: block;
             margin: 0 auto;
@@ -290,7 +290,7 @@
             <li><a href="#newchanges" class="toc-link toc-sub">0.5 Changelog</a></li>
             <li><a href="#intro" class="toc-link">1.0 Introduction</a></li>
             <li><a href="#background" class="toc-link">2.0 Background</a></li>
-            <li><a href="#design" class="toc-link">3.0 Design Overview</a></li>
+            <li><a href="#design" class="toc-link">3.0 Design</a></li>
             <li><a href="#bom" class="toc-link">4.0 Bill of Materials</a></li>
             <li><a href="#assembly-mech" class="toc-link">5.0 Assembly - Mechanical</a></li>
             <li><a href="#frame" class="toc-link toc-sub">5.1 Frame</a></li>
@@ -302,7 +302,7 @@
             <li><a href="#motors" class="toc-link toc-sub">6.3 Motor Choices</a></li>
             <li><a href="#psu" class="toc-link toc-sub">6.4 Power Supply</a></li>
             <li><a href="#firmware" class="toc-link">7.0 Firmware</a></li>
-            <li><a href="#issues" class="toc-link">8.0 Known Issues</a></li>
+            <li><a href="#issues" class="toc-link">8.0 Resolved Issues</a></li>
             <li><a href="#octoprint" class="toc-link toc-sub">8.1 OrangePi Integration</a></li>
             <li><a href="#mount-issue" class="toc-link toc-sub">8.2 V6 Extrusion Mount</a></li>
             <li><a href="#thermal" class="toc-link toc-sub">8.3 Thermal Runaway</a></li>
@@ -401,18 +401,18 @@
               This document covers the detailed documentation of my DIY CoreXY build from two broken 3D printers, named ‘Chimera iXY’. The primary objective of this document is to keep track of everything as the printer was being built.
             </p>  
             <div class="figure">
-                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/chimera1.5.png" alt="Chimera iXY">
-                <figcaption>Fig 1.0 - Chimera iXY Rev 1.5</figcaption>
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.0.jpg?raw=true" alt="Chimera iXY">
+                <figcaption>Fig 1.0 - Chimera iXY Rev 2.0</figcaption>
             </div>
         </div>
 
         <div id="background" class="doc-section">
             <h3>2.0 Background</h3>
             <p>
-              This project started when I received a broken Mingda Magician X (Version 1). The mainboard and X-carriage daughterboard had shorted out due to a cheaply designed 20-pin ribbon cable. This printer remained as the ‘modern half’ of this build.
+              This project started when I received a broken Mingda Magician X (Version 1). The mainboard and X-carriage daughterboard had shorted out due to a cheaply designed 20-pin ribbon cable. This printer remained as the ‘modern half’ of this build considering it used alot of standard parts seen today (v-slot extrusions, 625 bearings, 42BYGH family of steppers, etc.).
             </p>
             <div class="figure">
-                <img src="img/chimeradocfull/1.png" alt="Mingda Magician X">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/mmx.png?raw=true" alt="Mingda Magician X">
                 <figcaption>Fig 2.0-1 - Mingda Magician X (Released in 2021)</figcaption>
             </div>
 
@@ -420,13 +420,13 @@
               The second 3D printer used for this was the Flsun i3 2017. It was a very finicky machine that frequently ran into ‘ghost’ thermal runaway errors. I wanted to make it into something better, thus this printer became the ‘older’ part of this build.
             </p>
             <div class="figure">
-                <img src="img/chimeradocfull/flsun.png" alt="Flsun i3">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/flsun.jpg?raw=true" alt="Flsun i3">
                 <figcaption>Fig 2.0-2 - Modified Flsun i3 C (Released in 2017)</figcaption>
             </div>
         </div>
 
         <div id="design" class="doc-section">
-            <h3>3.0 Design Overview</h3>
+            <h3>3.0 Design</h3>
             <p>The following components and subsystems were incorporated into Chimera iXY:</p>
             <table>
                 <thead>
@@ -453,6 +453,77 @@
                 </tbody>
             </table>
             <p class="note">* All fans from the Flsun i3 were not used since I moved from a 12V to a 24V system.<br>** Refer to BOM for additional required parts.</p>
+
+            <p>In addition, any parts not listed here have been purchased and is referenced in the BOM.</p>
+            <p>The table below shows the minimum specification requirements set at the beginning of this project, and have now been updated with experimental results:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="2" style="background-color: #3b3b3b; text-align: left;">
+                            Physical Specifications
+                        </th>
+                    </tr>
+                    <tr><td>Physical Dimensions (Rigid)</td><td> 510 x 426 x 565 mm</td></tr>
+                    <tr><td>Physical Dimensions (Flexible) </td><td> 550 x 506 x 565 mm </td></tr>
+                    <tr><td>Primary Chassis Material</td><td>Aluminum, Steel</td></tr>
+                    <tr><td>Bracket Material</td><td>PET-G</td></tr>
+                    <tr><td>Print Dimensions</td><td>230 x 230 x 230mm</td></tr>
+                    <tr><td>Movable Dimensions</td><td>230 x 260 x 230mm</td></tr>
+
+                    <tr>
+                        <th colspan="2" style="background-color: #3b3b3b; text-align: left;">
+                            Mechanical Specifications
+                        </th>
+                    </tr>
+                    <tr><td>Gantry Kinematics</td><td>Linear Rail 300mm (X), Linear Rod 8x410mm (Y)</td></tr>
+                    <tr><td>Heatbed Kinematics</td><td>T8 Leadscrew, 4 8x331mm linear rods</td></tr>
+                    <tr><td>Leveling</td><td>SN08 Induction Probe, Bilinear bed mesh</td></tr>
+                    <tr><td>Motion</td><td>GT2 Belts & Idlers</td></tr>
+                    <tr><td>Z Motors</td><td>NEMA 17 40, 42SHDC4023Z-23B</td></tr>
+                    <tr><td>XY Motors</td><td>NEMA 17 40, 42BYGH439-B-20D</td></tr>
+                    <tr><td>E Motor</td><td>NEMA 17 22, 42BYGH2303-B-22DP</td></tr>
+                    <tr><td>Extruder System</td><td>E3D V6 Volcano (all-metal heatbreak) & Titan Extruder</td></tr>
+
+                    <tr>
+                        <th colspan="2" style="background-color: #3b3b3b; text-align: left;">
+                            Electrical Specifications
+                        </th>
+                    </tr>
+
+                    <tr><td>Mainboard </td><td>MKS Robin Nano v3.1, Gen L vX.X and Tinybee compatible</td></tr>
+                    <tr><td>Interface </td><td>MKS TS35 v2.0 480x320px LCD, MainsailOS via Wifi </td></tr>
+                    <tr><td>Klipper SBC </td><td>Raspberry Pi Zero 2W</td></tr>
+                    <tr><td>Camera </td><td>Miniton Beaglecam v1.0 </td></tr>
+                    <tr><td>Secondary MCU </td><td>Mellow ADXL345 RP2040 </td></tr>
+                    <tr><td>Maximum Power</td><td>ZL-260-24, 24V 15A</td></tr>
+                    <tr><td>Peripheral Power</td><td>Hilitand GYVRM-K240505, 5V 5A</td></tr>
+                    <tr><td>Drivers</td><td>TMC2209</td></tr>
+                    <tr><td>Cooling</td><td>2x120mm axial for MCU and PSU</td></tr>
+
+
+                    <tr>
+                        <th colspan="2" style="background-color: #3b3b3b; text-align: left;">
+                            Print Specifications
+                        </th>
+                    </tr>
+                    <tr><td>Max Toolhead Speed</td><td>800mm/s</td></tr>
+                    <tr><td>Max Toolhead Acceleration</td><td>~32700mm/s^2</td></tr>
+                    <tr><td>Max Hotend Flow</td><td>~50mm/s^3</td></tr>
+                    <tr><td>Optimal Quality Print Speed</td><td>200-450mm/s</td></tr>
+                    <tr><td>Cooling</td><td>3010 Axial for hotend, 2x4010 Blower for part cooling</td></tr>
+                    <tr><td>Nozzle Diameter</td><td>0.4mm, support for 0.2-1.2mm</td></tr>
+                    <tr><td>Slicer used</td><td>Superslicer, Prusaslicer</td></tr>
+                    <tr><td>Filaments supported</td><td>PLA, PETG, ABS, ASA, TPU, PA-CF, PC, PEEK</td></tr>
+                    <tr><td>Max Temperatures</td><td>350C hotend (dependent on nozzle), 125C bed</td></tr>
+
+                </tbody>
+            </table>
         </div>
 
         <div id="bom" class="doc-section">
@@ -761,6 +832,10 @@
             <div class="figure">
                 <img src="img/chimeradocfull/11.png" alt="PSU">
             </div>
+            <p>I have also used </p>
+            <div class="figure">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/psu.JPG?raw=true" alt="PSU">
+            </div>
         </div>
 
         <div id="firmware" class="doc-section">
@@ -771,7 +846,7 @@
         </div>
 
         <div id="issues" class="doc-section">
-            <h3>8.0 Known Issues</h3>
+            <h3>8.0 Resolved Issues</h3>
             
             <h4 id="octoprint">8.1 OrangePi + MKS Gen L v1.0 OctoPrint Integration</h4>
             <p>Issues encountered while setting up octoprint on an Orange Pi 2 W and MKS Gen L v1.0:</p>
@@ -783,15 +858,26 @@
               <li>Serial Buffer Underrun at high baud rates.</li>
             </ol>
 
+            <p>Switching to the MKS Robin Nano v3.1 improved this slightly. I could not get the screen to work with this pi however (for some reason the ili9341 driver was no longer supported), even on older linux builds it would never work. This forced me to switch to the raspberry pi zero 2w.</p>
+
+
             <h4 id="mount-issue">8.2 V6 Extrusion Mount Front &amp; Backplate</h4>
             <p>
               Despite the plates used to mount the V6 hotend being designed with precision, there is still a slight 1mm wobble.
               Temporary solution: Add 2 M5 eccentric nuts to the top bolts holding the bearings.
             </p>
+            <p> 
+                It was kept like this for a while, when I got to printing there were insane vfas caused by the effects of using bearings with t-slot. I have switched to an MGN12 300mm linear rail, while I got it at a low cost and expected it to be built as such, it has eliminated this issue entirely.
+            </p>
+
+            <div class="figure">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/t-slot%20vfa.webp?raw=true" alt="vfa">
+            </div>
+
 
             <h4 id="thermal">8.3 Thermal Runaway</h4>
             <p>
-              Due to the cheap heater cartridge used, I frequently get into thermal runaways. It aggressively oscillates at 20C differences.
+              Due to the cheap heater cartridge used from the MMX, I frequently get into thermal runaways. It aggressively oscillates at 20C differences. I had to purchase a new one since my others used 12V.,
             </p>
         </div>
 
@@ -813,7 +899,7 @@
                 <li><strong>v1.3</strong>: Bilinear bed leveling. More gantry toolhead optimization. Frame rigidity improvements.</li>
                 <li><strong>v1.5</strong>: Cable management. Final z-gantry stablizations. </li>
 
-                <li><strong>v1.5</strong>: Switch to Klipper firmware. Direct Drive Extruder. Linear rail x-axis.</li>
+                <li><strong>v2.0</strong>: Switch to Klipper firmware. Direct Drive Extruder. Linear rail x-axis.</li>
             </ul>
         </div>
 
