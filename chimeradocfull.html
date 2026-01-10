@@ -196,7 +196,7 @@
         }
 
         .figure img {
-            max-width: 50%;
+            max-width: 75%;
             border-radius: 4px;
             display: block;
             margin: 0 auto;
@@ -252,6 +252,19 @@
             font-size: 0.85rem;
             text-align: center;
         }
+        
+        pre {
+            background-color: #303030; /* Light grey background */
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow-x: auto; /* Adds scrollbar if lines are too long */
+            }
+
+            code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffffff; /* Example code color */
+            }
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -295,13 +308,18 @@
             <li><a href="#assembly-mech" class="toc-link">5.0 Assembly - Mechanical</a></li>
             <li><a href="#frame" class="toc-link toc-sub">5.1 Frame</a></li>
             <li><a href="#mounting" class="toc-link toc-sub">5.2 Mounting Brackets</a></li>
-            <li><a href="#corexy" class="toc-link toc-sub">5.3 CoreXY Kinematics</a></li>
+            <li><a href="#gantry" class="toc-link toc-sub">5.3 Gantry</a></li>
+            <li><a href="#corexy" class="toc-link toc-sub">5.4 CoreXY Kinematics & Endstops</a></li>
+            <li><a href="#bed" class="toc-link toc-sub">5.5 Bed Leveling</a></li>
             <li><a href="#assembly-elec" class="toc-link">6.0 Assembly - Electrical</a></li>
             <li><a href="#mainboard" class="toc-link toc-sub">6.1 Mainboard Choices</a></li>
             <li><a href="#drivers" class="toc-link toc-sub">6.2 Drivers</a></li>
             <li><a href="#motors" class="toc-link toc-sub">6.3 Motor Choices</a></li>
             <li><a href="#psu" class="toc-link toc-sub">6.4 Power Supply</a></li>
+            <li><a href="#circuit" class="toc-link toc-sub">6.5 Hardware Diagram</a></li>
             <li><a href="#firmware" class="toc-link">7.0 Firmware</a></li>
+            <li><a href="#klipper" class="toc-link toc-sub">7.1 Klipper Configuration</a></li>
+            <li><a href="#inputshaping" class="toc-link toc-sub">7.2 Input Shaping Results</a></li>
             <li><a href="#issues" class="toc-link">8.0 Resolved Issues</a></li>
             <li><a href="#octoprint" class="toc-link toc-sub">8.1 OrangePi Integration</a></li>
             <li><a href="#mount-issue" class="toc-link toc-sub">8.2 V6 Extrusion Mount</a></li>
@@ -321,7 +339,7 @@
         
         <div class="doc-header">
             <h1>Welcome to the Chimera iXY Project!</h1>
-            <div class="meta">By Alex Gordon | Published July 21st, 2025 | Last updated December 20th, 2025</div>
+            <div class="meta">By Alex Gordon | Published July 21st, 2025 | Last updated Janurary 12th, 2025</div>
             <div class="meta">This project is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a> license. </div>
         </div>
 
@@ -401,7 +419,7 @@
               This document covers the detailed documentation of my DIY CoreXY build from two broken 3D printers, named ‘Chimera iXY’. The primary objective of this document is to keep track of everything as the printer was being built.
             </p>  
             <div class="figure">
-                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.0.jpg?raw=true" alt="Chimera iXY">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/Banner2.png?raw=true" alt="Chimera iXY">
                 <figcaption>Fig 1.0 - Chimera iXY Rev 2.0</figcaption>
             </div>
         </div>
@@ -529,7 +547,7 @@
         <div id="bom" class="doc-section">
             <h3>4.0 Bill of Materials</h3>
             <p>
-              The following is a complete list of the primary components required for the Chimera iXY build. This list is a work in progress. Note that exact materials sourced from the 'INITIAL PARTS' section are the components I've had for a long time and as a result are not included in the cost of this.
+              The following is a complete list of the primary components required for the Chimera iXY build. Note that exact materials sourced from the 'INITIAL PARTS' section are the components I've had for a long time and as a result are not included in the cost of this.
             </p>
             
             <div style="overflow-x: auto;">
@@ -598,7 +616,7 @@
                             <td><strong>Power Supply</strong></td>
                             <td>ZL-360-24 Generic</td>
                             <td>4</td>
-                            <td>$===</td>
+                            <td>===</td>
                             <td><a href="https://www.amazon.ca/Redrex-Universal-Regulated-Switching-Temperature-Controlled/dp/B0816LK4H2?crid=11PZ8MQI870ZP&dib=eyJ2IjoiMSJ9.bwJfIKwLD5Ab4vibBrl_IG3F0FHGZLvNBaKaX9J7Bd1bv1FDh86bfakGpU4doBKfipKOM3P1yuGZggOtirVzpBU6pTq2mz3UOO2GgoDbZxpoSp7xD-KNjIVgcW0I38BU2fM0C2bdq052SWTZ-7Sci3gmFws8erY6G8JcbpIHV33x1WjuaPAriywaPriSFIthZSfrse6E-Cw6Tagf_pSMO-U2fVLgCunrjI_be2jndV7ShoQkkyB9xEpzpWIU9VsvHxVX1k4YbeQOmiWqJbcp9pUKg59C-QUGto4PJXEaHA4.FQ77rR3wHYI-r75Ys-mHK9z0qjY6wDLvfBRNgQvEvt0&dib_tag=se&keywords=24v%2B15a%2Bpower%2Bsupply&qid=1750260533&sprefix=24v%2B15A%2Bp%2Caps%2C106&sr=8-5&th=1">Amazon</a></td>
                         </tr>
                         <tr>
@@ -746,53 +764,349 @@
                             <td><a href="https://a.co/d/8vnXAXo">Amazon</a></td>
                         </tr>
                         <tr>
+                            <td><strong>E3D V6 Volcano</strong></td>
+                            <td>Replaces the permanently clogged original V6</td>
+                            <td>1</td>
+                            <td>$33.98</td>
+                            <td><a href="https://a.co/d/0KohxYF"></a>Amazon</td>
+                        </tr>
+                        <td colspan="5">TOTAL - $292.94</td>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+              The above table also accomodates additional development costs that were made, e.g. iteration (so more filament) and the result of my mistakes, which include the permanently damaged V6 hotend and original Mainboard. The below table shows the total cost assuming no parts were damaged during assembly while keeping all essentials to run the same firmware/general specs.
+            </p>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Component</th>
+                            <th style="width: 35%;">Description</th>
+                            <th style="width: 10%;">Qty</th>
+                            <th style="width: 15%;">Cost</th>
+                            <th style="width: 15%;">Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-section-header">
+                        <td colspan="5">Initial Parts</td>
+                    </tr>                        <tr>
+                        <tr>
+                            <td><strong>FlSun i3 (C) 2017</strong></td>
+                            <td>3D Printer</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/4fUUtnw"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mingda Magician X v1</strong></td>
+                            <td>3D Printer</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/4k6Xrig"></a>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Miniton Beaglecam v1</strong></td>
+                            <td>Monitoring IP Camera</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://www.mintion.net/products/mintion-beagle-camera"></a>Miniton</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Twotrees PEI</strong></td>
+                            <td>230x230mm Build Plate</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/39011VG"></a>Amazon</td>
+                        </tr>
+                        <tr>
                             <td><strong></strong></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><a href="#"></a></td>
                         </tr>
-                        <td colspan="5">TOTAL - $258.96</td>
+                    </tbody>
+
+                    <tr class="table-section-header">
+                        <td colspan="5">Electrical System</td>
+                    </tr>
+                        <tr>
+                            <td><strong>Mainboard</strong></td>
+                            <td>MKS Gen L v1.0/td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href=""></a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power Supply</strong></td>
+                            <td>ZL-360-24 Generic</td>
+                            <td>4</td>
+                            <td>===</td>
+                            <td><a href="https://www.amazon.ca/Redrex-Universal-Regulated-Switching-Temperature-Controlled/dp/B0816LK4H2?crid=11PZ8MQI870ZP&dib=eyJ2IjoiMSJ9.bwJfIKwLD5Ab4vibBrl_IG3F0FHGZLvNBaKaX9J7Bd1bv1FDh86bfakGpU4doBKfipKOM3P1yuGZggOtirVzpBU6pTq2mz3UOO2GgoDbZxpoSp7xD-KNjIVgcW0I38BU2fM0C2bdq052SWTZ-7Sci3gmFws8erY6G8JcbpIHV33x1WjuaPAriywaPriSFIthZSfrse6E-Cw6Tagf_pSMO-U2fVLgCunrjI_be2jndV7ShoQkkyB9xEpzpWIU9VsvHxVX1k4YbeQOmiWqJbcp9pUKg59C-QUGto4PJXEaHA4.FQ77rR3wHYI-r75Ys-mHK9z0qjY6wDLvfBRNgQvEvt0&dib_tag=se&keywords=24v%2B15a%2Bpower%2Bsupply&qid=1750260533&sprefix=24v%2B15A%2Bp%2Caps%2C106&sr=8-5&th=1">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TMC2209 UART</strong></td>
+                            <td>X-Y Axis</td>
+                            <td>2</td>
+                            <td>$8.18</td>
+                            <td><a href="https://www.aliexpress.com/item/1005008232792866.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TMC2209 Standalone</strong></td>
+                            <td>Z-E Axis</td>
+                            <td>2</td>
+                            <td>$6.59</td>
+                            <td><a href="https://www.aliexpress.com/item/1005006196489026.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mellow 3D Printer Parts Klipper ADXL345 Accelerometer Board</strong></td>
+                            <td>Input Shaping Accelerometer w/ RP2040 for secondary MCU</td>
+                            <td>1</td>
+                            <td>$5.49</td>
+                            <td><a href="https://www.aliexpress.com/item/1005007507421853.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dupont Line Jumper Wire</strong></td>
+                            <td>20CM Male to Female for screen connection</td>
+                            <td>1</td>
+                            <td>$3.72</td>
+                            <td><a href="https://www.aliexpress.com/item/1005003641187997.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raspberry Pi SC0721</strong></td>
+                            <td>RPi Zero 2W for Klipper</td>
+                            <td>1</td>
+                            <td>$26.83</td>
+                            <td><a href="https://www.digikey.ca/en/products/detail/raspberry-pi/SC0721/24627135">Digikey</a></td>
+                        </tr>
+                        
+                    </tbody>
+                    <tbody>
+                    <tr class="table-section-header">
+                        <td colspan="5">Mechanical System</td>
+                    </tr>                        <tr>
+                            <td><strong>Linear Motion Rods</strong></td>
+                            <td>8mm x 331mm for Y & Z axis</td>
+                            <td>6</td>
+                            <td>$38.07</td>
+                            <td><a href="https://a.co/d/bksZgwi">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>45x8mm Linear Bearings</strong></td>
+                            <td>For Z-axis bed</td>
+                            <td>4</td>
+                            <td>$6.98</td>
+                            <td><a href="https://a.co/d/fN8HqCQ">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>300mm 6063 Aluminum Square Tube</strong></td>
+                            <td>15x15mm Outer Width</td>
+                            <td>1</td>
+                            <td>===</td>
+                            <td><a href="https://a.co/d/ecK5TnY">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JAYO PETG 1KG</strong></td>
+                            <td>Primary Color (RED)</td>
+                            <td>2</td>
+                            <td>~$12.50</td>
+                            <td><a href="https://a.co/d/9D6VQgp">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JAYO PETG 1KG</strong></td>
+                            <td>Secondary Color (BLACK)</td>
+                            <td>1</td>
+                            <td>~$12.50</td>
+                            <td><a href="https://a.co/d/9D6VQgp">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NEMA17-42 Stepper Heatsink</strong></td>
+                            <td>For X-Y axis</td>
+                            <td>2</td>
+                            <td>$3.72</td>
+                            <td><a href="https://www.aliexpress.com/item/1005006723089908.html">Aliexpress</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>M3, M4, M5, M6 Bolt Kit</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$16.99</td>
+                            <td><a href="https://a.co/d/bK2BZC4">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>M2, M3, M4, M5, M6 Bolt Kit</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$18.88</td>
+                            <td><a href="https://a.co/d/i6cB5dC">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2PCS GT2 20T Gear Aluminum Belt Pulley for 3D Printer</strong></td>
+                            <td>2mm Pitch 5mm Inner Hole 6mm Wide</td>
+                            <td>2</td>
+                            <td>$6.20</td>
+                            <td><a href="https://a.co/d/evq40VM">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5 M GT2 Timing Belt</strong></td>
+                            <td>2mm Pitch 6mm Width</td>
+                            <td>1</td>
+                            <td>$5.90</td>
+                            <td><a href="https://a.co/d/gDiZFV8">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brass Threaded Inserts for 3D Printing, M2 M3 M4 M5</strong></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>$11.92</td>
+                            <td><a href="https://a.co/d/47oZYLn">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>GYVRM-K240505 Converter 12V/24V to 5V 5A DC-DC</strong></td>
+                            <td>For 5V peripherals</td>
+                            <td>1</td>
+                            <td>$6.07</td>
+                            <td><a href="https://a.co/d/fJjdTEV">Amazon</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>E3D Titan Extruder</strong></td>
+                            <td>Direct drive extruder</td>
+                            <td>1</td>
+                            <td>$18.07</td>
+                            <td><a href="https://a.co/d/8vnXAXo">Amazon</a></td>
+                        </tr>
+                        <td colspan="5">TOTAL - $202.72</td>
                     </tbody>
                 </table>
             </div>
+
         </div>
 
         <div id="assembly-mech" class="doc-section">
             <h3>5.0 Assembly - Mechanical</h3>
 
             <h4 id="frame">5.1 Frame</h4>
-            <p>5.1.1 Metal Extrusion: Fairly Simple; no extrusions were cut in the first revision.</p>
+            <p>5.1.1 Metal Extrusion: </p>
+            <p>The partial 2060 from the x-axis of the MMX was split vertically using a manual hacksaw to make a 2040 and 2020; the 2040 was used in the front top portion. Various ends were tapped with an M5 thread but no holes were drilled into any extrusions. Many of the ones from the MMX came with holes, but only the front top uses them so they must be aligned accordingly.</p>
             <div class="figure">
-                <img src="img/chimeradocframe.png" alt="Frame Dimensions">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/chimeradocframe.png?raw=true" alt="Frame Dimensions">
                 <figcaption>Fig 5.0-1 - Frame Dimensions</figcaption>
             </div>
-            
-            <p>5.1.2 Reinforcements: Please refer to the github repository for all models used.</p>
+
+            <p>5.1.2 Reinforcements: Please refer to the github repository for all models used. All 3 variants are used, as well as the ones that came with the Flsun and MMX.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">Index #</th>
+                        <th style="width: 20%;">Filename</th>
+                        <th style="width: 47%;">Description</th>
+                        <th style="width: 25%;">Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-section-header">
+                        <td colspan="4">Reinfocement brackets</td>
+                    </tr>
+
+                    <tr>
+                        <td>001</td>
+                        <td><strong>Extrusion Brace External</strong></td>
+                        <td>
+                            Externally protruding reinforcement bracket.
+                        </td>
+                        <td style="text-align: center;">
+                            <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/thumb/Extrusion%20Brace%20External.png?raw=true" alt="Model Preview" style="width: 100%; max-width: 150px; border-radius: 4px; border: 1px solid #333;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>002</td>
+                        <td><strong>Extrusion Brace Internal v2.0</strong></td>
+                        <td>
+                            No protrusion reinforcement bracket.
+                        </td>
+                        <td style="text-align: center;">
+                            <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/thumb/Extrusion%20Brace%20Internal%20v2.0.png?raw=true" alt="Model Preview" style="width: 100%; max-width: 150px; border-radius: 4px; border: 1px solid #333;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>003</td>
+                        <td><strong>Extrusion Brace Internal</strong></td>
+                        <td>
+                            No protrusion reinforcement bracket.
+                            Credits to <a href="https://www.printables.com/model/541255-ender-3-v2-s1-s1-pro-alu-extrusion-reinforcement-b">Zuff</a> for original.
+
+                        </td>
+                        <td style="text-align: center;">
+                            <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/thumb/Extrusion%20Brace%20Internal.png?raw=true" alt="Model Preview" style="width: 100%; max-width: 150px; border-radius: 4px; border: 1px solid #333;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>004</td>
+                        <td><strong>Extrusion Brace Internal Long</strong></td>
+                        <td>
+                            Longer no protrusion reinforcement bracket.
+                        </td>
+                        <td style="text-align: center;">
+                            <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/thumb/Extrusion%20Brace%20Internal%20Long.png?raw=true" alt="Model Preview" style="width: 100%; max-width: 150px; border-radius: 4px; border: 1px solid #333;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h4 id="mounting">5.2 Mounting Brackets</h4>
             <p>Mounting brackets (CAD/STL files) are available in the GitHub repository.</p>
             <div class="figure">
-                <img src="img/chimeradocfull/chimeradoccad.png" alt="CAD Diagram">
-                <figcaption>Fig 5.2-1 - General CAD Overview Diagram (v1.0)</figcaption>
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/Overview%20v2.0.png?raw=true" alt="CAD Diagram">
+                <figcaption>Fig 5.3-1 - General CAD Overview Diagram (v2.0)</figcaption>
             </div>
 
-            <h4>5.3 Gantry</h4>
-            <p>The gantry plate and hotend fan mounting bracket went through the most iteration. See the below diagram for an assembly guide.</p>
+            <h4 id="gantry"></h4><h4>5.3 Gantry</h4>
+            <p>The X-gantry plate and hotend fan mounting bracket went through the most iteration. See the below diagram for assembly.</p>
             <div class="figure">
-                <img src="img/chimeradocfull/chimeradocgantryv1.png" alt="Gantry Diagram">
-                <figcaption>Fig 5.2-2 - Gantry Mount Technical Diagram (v1.3)</figcaption>
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/X%20Gantry%20v2.0.png?raw=true" alt="Gantry Diagram">
+                <figcaption>Fig 5.3-2 - X-Gantry Mount Technical Diagram (v2.0)</figcaption>
+            </div>
+
+            <p>The Y-gantry is also configured as follows.</p>
+            <div class="figure">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/Y%20Gantry%20v2.0.png?raw=true" alt="Gantry Diagram">
+                <figcaption>Fig 5.3-3 - Y-Gantry Mount Technical Diagram (v2.0)</figcaption>
             </div>
 
             <h4 id="corexy">5.4 CoreXY Kinematics</h4>
             <p>For the X-Y axis, the idlers are vertically stacked and follows the below configuration:</p>
             <div class="figure">
                 <img src="img/chimeradocfull/4.png" alt="CoreXY Config">
-                <figcaption>Fig 5.3-1 - CoreXY Belt configuration</figcaption>
+                <figcaption>Fig 5.4-1 - CoreXY Belt configuration</figcaption>
             </div>
             <p>
               In order to tension the belts, idlers P1 and P2 on the front should be moved ~1 inch towards the extruder. The belts can now be installed with a fair amount of tension.
-            </p>        
+            </p>
+            <p>
+              I realized during testing that all my prints came out inverted in both axes (e.g. text), since the origin was back left instead of front left like most other corexy configs. Setting the y endstop to POSITION_MAX and making klipper home to the max direction fixed this issue.
+            </p>
+            
+            <h4 id="bed">5.5 Bed Leveling</h4>
+            <p>The SN08 inductive probe is used to level. Standard bicubic is used. After installing the 4 linear rods for the z-axis, the bed remained fairly level with a maximum absolute variance of 0.25mm. Below shows both the old t-slot leveling mesh and linear rail meshes; note how the variance for the t-slot gantry had a lot more deviation, which also shows that using the original bearings also had artifacts not just limited to VFAs, but also in the z-axis. I noticed this was well when performing the initial bed leveling test prints.</p>
+            <div class="figure">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/bedmeshtslot.png?raw=true" alt="CoreXY Config">
+                <figcaption>Fig 5.5-1 - Mesh using t-slot gantry (v1.5)</figcaption>
+            </div>
+
+            Replacing the x-axis carriage with an MGN12H 300m linear rail (relatively low cost, found one on Amazon for <$10) essentially eliminates the deviation. The mesh's variance went from |0.6mm| to around |0.25mm|, which is pretty good for a 230x230 bed and thus no tramming is required.
+
+            <div class="figure">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/bedmeshrail.png?raw=true" alt="CoreXY Config">
+                <figcaption>Fig 5.5-2 - Mesh using linear rail (v2.0)</figcaption>
+            </div>
         </div>
 
         <div id="assembly-elec" class="doc-section">
@@ -803,7 +1117,7 @@
             <ul>
                 <li><strong>MKS Gen L v2.1:</strong> Overall excellent choice but mine died shortly after.</li>
                 <li><strong>MKS TinyBee v1.0:</strong> Uses an ESP32. I ended up not choosing this as I wasn’t able to get UART mode to work with TMC2208s.</li>
-                <li><strong>MKS Robin Nano v3.1:</strong> I ended up going with this board. Supports UART mode natively, plenty of expansion and a web server.</li>
+                <li><strong>MKS Robin Nano v3.1:</strong> I ended up going with this board. Supports UART mode natively, plenty of expansion and a built-in web server.</li>
             </ul>
             <div class="figure">
                  <img src="img/chimeradocfull/7.png" alt="MKS Robin Nano">
@@ -819,11 +1133,29 @@
             </div>
 
             <h4 id="motors">6.3 Motor Choices</h4>
-            <p>Choosing which motor best fitted for speed was a matter of ripping specs from online to see which speed torque curve was the best.</p>
+            <p>Choosing which motor best fitted for speed was a matter of ripping specs from online to see which speed torque curve was the best. I could not find too much information regarding the MMX, but measuring the coil inductance and comparing it to motors of similar length in the 42BYGH family, I was able to create a couple torque speed curves.
+                <br>
+                <br>
+               Credit goes to <a href="https://github.com/rcarlyle/StepperSim" target="_blank">StepperSim by rcarlyle</a> for the calculator. As expected, since both motors are equivalent in size but the 42BYGH is a few years newer, which most likely uses higher-grade neodymium versus older standard ferrite magnets in the 42SHDCs (despite MMX cheaping out on alot of parts, the motor typically comes from an external supplier and is advertised as a 'high torque motor' while the older ones are usually general purpose) the 42BYGH has a bit more torque at slightly higher speeds.
+                <br>
+                <br>
+                I'm currently running them at 1.2A RMS, which seems to provide a decent amount of torque at high speeds. I know these motors are thermally tolerant as they used to run at ~70-80C in the MMX without any sort of passive or active cooling (since the bed was unessecarily heavy), so it should run fine without issues.
+                <br>
+                <br>
+                Bowden based systems will use the 42SHDC4023Z-23B (flsun) for the extruder, or direct drive systems will use the 42BYGH2303-B-22DP (mmx) for the extruder.
+            </p>
             <ul>
               <li>Flsun i3 motors (42SHDC4023Z-23B) - α, β (X/Y)</li>
               <li>MMX motors (42BYGH439-B-20D) - Z, E0</li>
             </ul>
+            <div class="figure">
+                 <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/42SHDC4023Z-23B.png?raw=true" alt="fig">
+                 <figcaption>Fig 6.3-1 - 42SHDC4023Z-23B</figcaption>
+            </div>
+            <div class="figure">
+                 <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/42BYGH439-B-20D.png?raw=true" alt="fig">
+                 <figcaption>Fig 6.3-2 - 42BYGH439-B-20D</figcaption>
+            </div>
 
             <h4 id="psu">6.4 Power Supply</h4>
             <p>
@@ -832,17 +1164,408 @@
             <div class="figure">
                 <img src="img/chimeradocfull/11.png" alt="PSU">
             </div>
-            <p>I have also used </p>
+            <p>I have also used <a href="https://www.printables.com/model/541255-ender-3-v2-s1-s1-pro-alu-extrusion-reinforcement-b">ZCH3's KP3S PSU 120mm fan adapter (ZL-360-24)</a> since the original fan was pinned at 100% at all times and unnessecarily loud. Interesting that the manufacturer put a sticker on the psu, claiming this fan is 'temperature controlled'.</p>
             <div class="figure">
                 <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/psu.JPG?raw=true" alt="PSU">
+            </div>
+
+            <h4 id="circuit">6.5 Hardware Diagram</h4>
+            <p>See below for a high level hardware diagram with the appropriate wiring.</p>
+            <div class="figure">
+                <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/Simplified%20Hardware%20Diagram.png?raw=true" alt="fig">
+                <figcaption>Fig 6.5 - Simplified High Level Hardware Diagram</figcaption>
             </div>
         </div>
 
         <div id="firmware" class="doc-section">
             <h3>7.0 Firmware</h3>
+            <h4 id="klipper">7.1 Klipper Configuration</h4>
             <p>
-              The repo contains Marlin 2.1.2.5. I might switch to Klipper in later iterations, but issues with the Orange Pi 2 W I wanted to use pushed this back.
+              The repo contains configurations for Klipper and Marlin 2.1.2.5. Klipper continues to be prioritized and updated frequently, and Marlin also will continue to be supported.
             </p>
+            <p>Klipper printer.cfg: 
+                <pre>
+                    <code>
+# Chimera iXY v2.0 - Klipper Configuration Revision 1.0
+# General Setup: 
+# CoreXY Kinematics
+# MKS Robin Nano V3.1 + MKS TS35 v2.0
+# RPi Zero 2W + Mellow Fly RP2040
+# TMC2209 Drivers (UART X/Y, STANDALONE E/Z)
+# Titan Extruder + V6 Volcano
+# Last updated: 12-30-25
+
+[include mainsail.cfg]
+[include accelerometer.cfg]
+
+[mcu]
+serial: /dev/ttyAMA0
+restart_method: command
+
+[printer]
+kinematics: corexy
+max_velocity: 450
+max_accel: 6400
+max_z_velocity: 8
+max_z_accel: 50
+
+[virtual_sdcard]
+path: /home/chimera/printer_data/gcodes
+on_error_gcode: CANCEL_PRINT
+
+
+#####################################################################
+#      X/Y Stepper Settings
+#####################################################################
+
+#####################################################################
+#      X/Y Stepper Settings
+#####################################################################
+
+[stepper_x]
+step_pin: PE0
+dir_pin: PB9           
+enable_pin: !PE1
+rotation_distance: 32  
+microsteps: 16
+full_steps_per_rotation: 200
+endstop_pin: ^PA15     
+position_endstop: 0
+position_max: 230
+homing_speed: 65
+
+[tmc2209 stepper_x]
+uart_pin: PD7          
+run_current: 1.200
+stealthchop_threshold: 5
+
+[stepper_y]
+step_pin: PE3
+dir_pin: PE2           
+enable_pin: !PE4
+rotation_distance: 32  
+microsteps: 16
+full_steps_per_rotation: 200
+endstop_pin: ^!PD2    
+position_endstop: 230 
+position_max: 230
+position_min: -20    
+homing_speed: 65
+
+[tmc2209 stepper_y]
+uart_pin: PD5       
+run_current: 1.200
+stealthchop_threshold: 5
+
+[input_shaper]
+shaper_freq_x: 114.6
+shaper_type_x: mzv
+shaper_freq_y: 45.0
+shaper_type_y: ei
+
+
+#####################################################################
+#      Z Stepper Settings
+#####################################################################
+
+[stepper_z]
+step_pin: PB5
+dir_pin: !PB4
+enable_pin: !PB8
+rotation_distance: 0.5
+microsteps: 16
+endstop_pin: probe:z_virtual_endstop
+position_min: -5.0
+position_max: 230
+homing_speed: 7
+second_homing_speed: 2
+
+#####################################################################
+#      Extruder
+#####################################################################
+
+[extruder]
+step_pin: PD6
+dir_pin: PD3
+enable_pin: !PB3
+rotation_distance: 1
+microsteps: 16
+nozzle_diameter: 0.400
+filament_diameter: 1.750
+heater_pin: PE5
+sensor_type: Generic 3950
+sensor_pin: PC1
+min_temp: 0
+max_temp: 300
+max_extrude_only_distance: 200.0
+max_extrude_cross_section: 4.0
+pressure_advance: 0.035
+
+
+#####################################################################
+#      Bed Heater
+#####################################################################
+
+[heater_bed]
+heater_pin: PA0
+sensor_type: Generic 3950 
+sensor_pin: PC0
+min_temp: 0
+max_temp: 150
+
+#####################################################################
+#      Probe & Mesh
+#####################################################################
+
+[probe]
+pin: ^!PC8
+x_offset: 4
+y_offset: 40
+speed: 3.0              
+lift_speed: 8.0         
+samples: 3             
+samples_result: median   
+sample_retract_dist: 2.0 
+samples_tolerance: 0.02 
+samples_tolerance_retries: 3
+
+[safe_z_home]
+home_xy_position: 115, 75 
+speed: 50
+z_hop: 10
+z_hop_speed: 5
+
+[bed_mesh]
+speed: 200
+horizontal_move_z: 5
+mesh_min: 20, 20     
+mesh_max: 210, 190   
+probe_count: 6, 6
+algorithm: bicubic
+
+#####################################################################
+#      Fans
+#####################################################################
+
+[fan]
+pin: PC14
+
+[heater_fan hotend_fan]
+pin: PB1
+heater: extruder
+heater_temp: 50.0
+
+#####################################################################
+#      Macros
+#####################################################################
+
+[gcode_macro START_PRINT]
+description: Custom start macro
+gcode:
+    {% set BED_TEMP = params.BED_TEMP|default(60)|float %}
+    {% set EXTRUDER_TEMP = params.EXTRUDER_TEMP|default(190)|float %}
+    {% set LAYER_HEIGHT = params.LAYER_HEIGHT|default(0.2)|float %}
+
+    G28                          
+    PARK_PURGE                    
+    
+    M140 S{BED_TEMP}              
+    M104 S{EXTRUDER_TEMP}       
+    
+    M190 S{BED_TEMP}             
+    M109 S{EXTRUDER_TEMP}         
+    
+    BED_MESH_PROFILE LOAD=mesh1   
+    
+    G92 E0.0                      
+    G1 Z2.5 F3000                  
+    
+    G1 X5.0 Y5.0 Z{LAYER_HEIGHT} F5000.0  
+    G1 X5.0 Y55.0 Z{LAYER_HEIGHT} F1500.0 E10 
+    G1 X5.3 Y55.0 Z{LAYER_HEIGHT} F5000.0   
+    G1 X5.3 Y5.0 Z{LAYER_HEIGHT} F1500.0 E20 
+    
+    G92 E0 
+    G1 E-1 F300                  
+    G1 Z2.0 F3000
+
+[gcode_macro END_PRINT]
+gcode:
+    G91                          
+    G1 E-3 F300                  
+    G1 Z10 F3000                  
+    G90                           
+    PARK_PURGE                   
+    TURN_OFF_HEATERS
+    M106 S0                      
+
+#####################################################################
+#      Filament Handling Macros
+#####################################################################
+
+[gcode_macro LOAD_FILAMENT]
+gcode:
+    {% set speed = params.SPEED|default(300) %}
+    {% set max_velocity = printer.configfile.settings['extruder'].max_extrude_only_velocity %}
+    G91
+    G92 E0
+    G1 E50 F{speed} 
+    G1 E50 F{speed} 
+    G92 E0
+    G90
+
+[gcode_macro UNLOAD_FILAMENT]
+gcode:
+    {% set speed = params.SPEED|default(300) %}
+    {% set max_velocity = printer.configfile.settings['extruder'].max_extrude_only_velocity %}
+    G91
+    G92 E0
+    G1 E25 F{speed}
+    G1 E-100 F{speed}
+    G92 E0
+    G90
+
+#####################################################################
+#       Print State Management (Required for Pause/Resume)
+#####################################################################
+
+[pause_resume]
+
+[display_status]
+
+[gcode_macro PAUSE]
+description: Pause the current print and store position
+gcode:
+    {% set velocity = printer.configfile.settings.printer.max_velocity %}
+    G91 
+    G1 Z10 F600 
+    G90 
+    M83 
+    SAVE_GCODE_STATE NAME=PAUSE_STATE
+    M117 Print Paused
+
+[gcode_macro RESUME]
+description: Resume the paused print
+gcode:
+    M117 Resuming Print
+    RESTORE_GCODE_STATE NAME=PAUSE_STATE MOVE=1
+    {% set hotend_temp = printer.lookup_object('extruder').target_temp %}
+    {% set bed_temp = printer.lookup_object('heater_bed').target_temp %}
+    M109 S{hotend_temp}
+    M190 S{bed_temp}
+    M82
+    G90 
+    M117 Printing...
+
+[gcode_macro CANCEL_PRINT]
+description: Cancel the current print
+rename_existing: BASE_CANCEL_PRINT
+gcode:
+    M117 Print Cancelled
+    G91                          
+    G1 E-3 F300                   
+    G1 Z10 F3000                  
+    G90                        
+    PARK_PURGE                  
+    TURN_OFF_HEATERS
+    M106 S0 
+    CLEAR_PAUSE
+    SDCARD_RESET_FILE
+    BASE_CANCEL_PRINT
+    M117 Ready
+
+[gcode_macro PARK_PURGE]
+description: Move the head to the purge bucket
+gcode:
+    {% if "xyz" not in printer.toolhead.homed_axes %}
+        G28                          
+    {% endif %}
+    G90                              
+    {% if printer.toolhead.position.z < 15 %}
+        G1 Z15 F900
+    {% endif %}
+    G1 X20 Y-20 F6000                     
+
+[adxl345]
+axes_map: y, -x, z
+
+[force_move]
+enable_force_move: True
+
+#*# <---------------------- SAVE_CONFIG ---------------------->
+#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+#*#
+#*# [extruder]
+#*# control = pid
+#*# pid_kp = 30.535
+#*# pid_ki = 1.655
+#*# pid_kd = 140.845
+#*#
+#*# [heater_bed]
+#*# control = pid
+#*# pid_kp = 72.044
+#*# pid_ki = 1.195
+#*# pid_kd = 1086.058
+#*#
+#*# [probe]
+#*# z_offset = 4.400
+#*#
+#*# [bed_mesh default]
+#*# version = 1
+#*# points =
+#*# 	-0.146719, -0.216016, -0.187188, -0.220313, -0.106953, -0.062031, -0.274141
+#*# 	-0.127344, -0.220078, -0.109609, -0.102344, -0.006875, 0.052656, 0.015547
+#*# 	-0.067422, -0.111328, -0.028438, -0.016719, 0.095078, 0.180469, 0.203516
+#*# 	0.016797, -0.023672, 0.087891, 0.106484, 0.226719, 0.343594, 0.464219
+#*# 	0.020703, 0.107031, 0.208125, 0.181953, 0.327187, 0.464219, 0.619609
+#*# 	0.045937, 0.063281, 0.204609, 0.305234, 0.460781, 0.606719, 0.685234
+#*# 	-0.014063, 0.087734, 0.227344, 0.305859, 0.453203, 0.642031, 0.655391
+#*# x_count = 7
+#*# y_count = 7
+#*# mesh_x_pps = 2
+#*# mesh_y_pps = 2
+#*# algo = bicubic
+#*# tension = 0.2
+#*# min_x = 20.0
+#*# max_x = 209.96
+#*# min_y = 20.0
+#*# max_y = 170.0
+#*#
+#*# [bed_mesh mesh1]
+#*# version = 1
+#*# points =
+#*# 	  0.139844, 0.090156, 0.038125, 0.006719, -0.033438, -0.084219
+#*# 	  0.088281, 0.057344, 0.026406, 0.007187, 0.020000, 0.014375
+#*# 	  0.036562, 0.035625, 0.018125, 0.017344, 0.058750, 0.092344
+#*# 	  -0.060313, -0.070313, -0.067813, -0.030781, 0.030312, 0.093906
+#*# 	  -0.177344, -0.154375, -0.144531, -0.095313, 0.005625, 0.080312
+#*# 	  -0.346719, -0.294688, -0.248594, -0.172188, -0.073750, 0.030469
+#*# x_count = 6
+#*# y_count = 6
+#*# mesh_x_pps = 2
+#*# mesh_y_pps = 2
+#*# algo = bicubic
+#*# tension = 0.2
+#*# min_x = 20.0
+#*# max_x = 210.0
+#*# min_y = 50.0
+#*# max_y = 190.0
+
+                    </code>
+                    </pre>
+            </p>
+            <h4 id="inputshaping">7.2 Input Shaping Results</h4>
+            <p> For input shaping, the Mellow FLY-ADXL345-USB was used. Refer to the X-Gantry for mounting, and this <a href="https://mellow-3d.github.io/fly_adxl345_usb_general.html" target="_blank">Guide</a> for setup.</p>
+            <br>
+            <p> In general, the frame is moderately rigid with a peak at one frequency in the x-axis, or approximately 170mm/s in SpreadCycle. The Y-axis has two peaks for some reason (possibly belts unevenly tensioned?), which is my primary limiting factor in acceleration with input shaper at <6400mm/s^2. I will make minor adjustments to this to hopefully get the acceleration up to at least 10k.</p>
+            <div class="figure">
+                 <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/shaper_calibrate_x.png?raw=true" alt="MKS Robin Nano">
+                 <figcaption>Fig 7.2-1 - X axis vibration resonance results</figcaption>
+            </div>
+            <div class="figure">
+                 <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Doc/shaper_calibrate_y.png?raw=true" alt="MKS Robin Nano">
+                 <figcaption>Fig 7.2-2 - Y axis vibration resonance results</figcaption>
+            </div>
         </div>
 
         <div id="issues" class="doc-section">
@@ -912,12 +1635,14 @@
                 <li><a href="https://github.com/JustLeader69420/mmx-marlin-custom" target="_blank">Justleader69420 - MMX Firmware</a></li>
                 <li><a href="https://github.com/MarlinFirmware/Marlin" target="_blank">Marlin Firmware</a></li>
                 <li><a href="https://github.com/makerbase-mks/MKS-Robin-Nano-V3.X" target="_blank">Robin Nano v3.1 by Makerbase</a></li>
+                <li><a href="https://github.com/rcarlyle/StepperSim" target="_blank">StepperSim</a></li>
+                <li><a href="https://mellow-3d.github.io/fly_adxl345_usb_general.html" target="_blank">Mellow ADXL345 FLY by Trangle Labs</a></li>
             </ul>
         </div>
 
         <div class="footer-mini">
             © 2025 Aetriq - Chimera iXY Documentation<br>
-            Document source: Chimera iXY Official Documentation (DOCX). Last updated July 11, 2025.
+            Document source: Chimera iXY Official Documentation (DOCX). Last updated Janurary 12th, 2025.
         </div>
     </main>
 
