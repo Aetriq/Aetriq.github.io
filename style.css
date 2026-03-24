@@ -194,13 +194,18 @@ a:hover {
     background: url("img/banner.JPG") no-repeat center center;
     background-size: cover;
     color: var(--primary-text);
-    height: 450px; 
+    
+    /* CHANGE 1: Swap fixed height for min-height */
+    min-height: 450px; 
+    
+    /* CHANGE 2: Add padding so the text doesn't hug the top/bottom edges when it expands */
+    padding: 100px 0; 
+
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
 }
-
 #home::before {
     content: "";
     position: absolute;
