@@ -191,7 +191,7 @@ a:hover {
 /* ---------- Home Banner Section ---------- */
 #home {
     /* HERE IS YOUR BANNER IMAGE REPLACEMENT */
-    background: url("img/banner.JPG") no-repeat center center;
+    background: url("img/intrastice.png") no-repeat center center;
     background-size: cover;
     color: var(--primary-text);
     

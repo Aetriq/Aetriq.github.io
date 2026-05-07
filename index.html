@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/png" href="img/AetriqDynamics v0.0.png">
+    <link rel="shortcut icon" type="image/png" href="img/AetriqDynamics 1.0.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq's Personal Site</title>
@@ -16,7 +16,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="img/AetriqDynamics v0.0.png" alt="Logo">
+                <img src="img/AetriqDynamics 1.0.png" alt="Logo">
             </div>
             
             <button class="mobile-menu-btn">☰</button>
@@ -38,23 +38,27 @@
             <div class="container">
                 <div class="hero">
                     <h1 class="reveal-element">Aetriq's Personal Site</h1>
-                    <div class="hero-subtitle reveal-element reveal-delay-100">CEG @ uOttawa</div>
                     <div class="hero-description reveal-element reveal-delay-200">
-                        Welcome! My name is Alex and I go by either Aetriq or Veetwo online with the latter being my formal label; you also may find me in older websites/forums under the name v21633. 
+                        Welcome!  
                         <br><br>
-                        I do stuff including RF comms, microsoldering, ultra-low power ICs and real-time control systems. 
-                        Currently working on 3D printing technology, ESP-IDF based RTOS and electronics power systems.
+                        I'm Alex and I go by Veetwo in some instances online (also my copyright label). Aetriq is my newer label seen on my PCB designs and hardware projects.
                         <br><br>
-                        Since 2019, I've repaired and restored electronics (mobile phones, laptops, servers, computers) at component and PCB levels.
-                        I provide services for hardware, from general diagnostics to board-level soldering (capacitors, bios SMD chips, wires), as well as specialized PC building. Please contact me by email for quotes.
+                        I've been repairing/restoring electronics at component and PCB levels since 2019 and provide these services for hardware, from general diagnostics to board-level soldering, as well as specialized PC building. 
                     </div>
-                    <div class="hero-buttons reveal-element reveal-delay-200">
-                        <a href="#projects" class="btn btn-primary">Current Projects</a>
-                        <a href="#contact" class="btn btn-outline">Contact</a>
                     </div>
+            </div>
+        </section>
+
+        <section id="navigation" class="section" style="padding: 30px 0; border-bottom: none;">
+            <div class="container">
+                <div class="hero-buttons reveal-element reveal-delay-200">
+                    <a href="store.html" class="btn btn-primary">Storefront</a>
+                    <a href="#projects" class="btn btn-outline">Current Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact</a>
                 </div>
             </div>
         </section>
+
         
         <section class="chimera-hero" id="highlight">
             <div class="container">
@@ -103,9 +107,57 @@
         </section>
 
         <section id="projects" class="section">
+
             <div class="container">
                 <h2 class="section-title reveal-element">Current Projects</h2>
                 <div class="project-list">
+                    <div class="project-card reveal-element">
+                        <div class="card-image">
+                            <img src="img/omv.jpeg" alt="SC Temp">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">OMV Status Screen add-on</h3>
+                            <p class="card-description">
+                                Very low cost basic status screen add-on for OpenMediaVault NAS servers. 
+                                <br><br>
+                                Based on the ESP32-C3 MCU, error detection and graphics recovery with 3 status LEDs.
+                                <br><br>
+                                Uses ESP-IDF, very modular for different full color tfts (supporting LVGL UI).
+                            </p>
+                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
+                            <div class="card-tech">
+                                <span class="tech-tag">ESP32-C3</span>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://github.com" class="btn btn-outline" target="_blank">Releasing soon...</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card reveal-element">
+                        <div class="card-image">
+                            <img src="img/heltec.jpeg" alt="SC Temp">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Heltec IOT Tracker PEN testing tool</h3>
+                            <p class="card-description">
+                                A basic security pentesting tool using the Heltec IOT Wireless Tracker v1.1 with a 2.0" tft and 5 navigation buttons.
+                                <br><br>
+                                Beyond basic wifi/ble functions, it also features usage of the built-in sx1262 lora and uc6550 gnss modules.
+                            </p>
+                            <p style="color:rgb(255, 217, 0);">IN PROGRESS...</p>
+                            <div class="card-tech">
+                                <span class="tech-tag">Heltec IOT Tracker v1.1</span>
+                                <span class="tech-tag">WIFI/BLE</span>
+                                <span class="tech-tag">GNSS</span>
+                                <span class="tech-tag">LoRa</span>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://github.com" class="btn btn-outline" target="_blank">TBD...</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="project-card reveal-element">
                         <div class="card-image">
                             <img src="https://cdn.prod.website-files.com/62a0a0168756b795debc65bc/686323bdd813a2cd39a65f20_cb215493af6c0a8a4d53f27157cf5265_03-tertiary-stacked-white.png" alt="SC Temp">
@@ -135,9 +187,15 @@
                             <p class="card-description">
                                 Lightweight ESP32-CAM Klipper Add-on for 3D printer nozzle clumping detection.
                                 <br><br>
-                                Entirely local inferencing model capable of catching nozzle blobbing occurring in real time, during prints. FSM-based resolution for automated fixing without human intervention.
+                                Entirely local inferencing model capable of catching nozzle blobbing occurring in real time, during prints. FSM-based 'resolution' for automated fixing without human intervention.
+                                <br>
+                                <br>
+                                Will be ported/installed on Project Intrastice.
+                                <br>
+                                <br>
+                                Jan. 26 - Apr. 26
                             </p>
-                            <p style="color:rgb(255, 217, 0);">IN PROGRESS...</p>
+                            <p style="color:rgb(109, 255, 165);">COMPLETE (See Intrastice)</p>
                             <div class="card-tech">
                                 <span class="tech-tag">Edge ML</span>
                                 <span class="tech-tag">Embedded Systems</span>
@@ -159,6 +217,9 @@
                                 <br><br>
                                 A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch.
                                 This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.
+                                <br>
+                                <br>
+                                Feb. 26 - ???
                             </p>
                             <p style="color:rgb(255, 109, 109);">INCOMPLETE</p>
                             <div class="card-tech">
@@ -180,7 +241,7 @@
                             <p class="card-description">
                                 Fully custom designed and built high-speed 3D printer from two bedslingers using ‘CoreXY’ kinematics.
                                 <br><br>
-                                My official '1st generation' of my CoreXY 3D printer series. Hosts the ML based nozzle clumping detection.
+                                Apr. 24 - Feb. 26
                             </p>
                             <p style="color:rgb(109, 255, 165);">COMPLETE</p>
                             <div class="card-tech">
@@ -202,6 +263,9 @@
                             <h3 class="card-title">CrunchLAN</h3>
                             <p class="card-description">
                                 TCP-Based realtime LAN game based on the Client-Server network model. Custom java protocols using the raw socket library.
+                                <br>
+                                <br>
+                                Sept. 25 - Dec. 25
                             </p>
                             <p style="color:rgb(109, 255, 165);">COMPLETE</p>
                             <div class="card-tech">
@@ -220,6 +284,9 @@
                             <h3 class="card-title">MCATS</h3>
                             <p class="card-description">
                                 A comfortable, responsive assistive device for playing piano with minimal delay.
+                                <br>
+                                <br>
+                                May. 25 - July. 25
                             </p>
                             <p style="color:rgb(109, 255, 165);">COMPLETE</p>
                             <div class="card-tech">
@@ -241,6 +308,9 @@
                             <h3 class="card-title">MIPS Processor</h3>
                             <p class="card-description">
                                 Designed entirely using RTL-based VHDL & programmed on the FPGA DE2-115.
+                                <br>
+                                <br>
+                                Jan. 25 - Apr. 25
                             </p>
                             <p style="color:rgb(109, 255, 165);">COMPLETE</p>
                             <div class="card-tech">
@@ -259,8 +329,11 @@
                             <h3 class="card-title">Flsun i3 Speed Mod</h3>
                             <p class="card-description">
                                 A set of hardware/software modifications to increase speed/quality of the Flsun i3 C from 2017. Merged to Chimera iXY project.
+                                <br>
+                                <br>
+                                Aug. 24 - Jan. 25
                             </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
+                            <p style="color:rgb(109, 255, 165);">COMPLETE (See Chimera iXY)</p>
                             <div class="card-tech">
                                 <span class="tech-tag">FDM (3D) Printing</span>
                             </div>
@@ -276,6 +349,9 @@
                             <h3 class="card-title">MAX232 UART</h3>
                             <p class="card-description">
                                 Design of a low power Universal Asynchronous Receiver Transmitter with adaptive baudrate.
+                                <br>
+                                <br>
+                                Sept. 24 - Dec. 24
                             </p>
                             <p style="color:rgb(109, 255, 165);">COMPLETE</p>
                             <div class="card-tech">
@@ -293,7 +369,10 @@
                         <div class="card-content">
                             <h3 class="card-title">Real-time Cycling Tracking APP</h3>
                             <p class="card-description">
-                                A cycling mobile app designed for tracking of data & events. Features a real-time cloud data-base.
+                                A cycling mobile app designed for tracking of data & events. Features a real-time cloud (google firebase) database.
+                                <br>
+                                <br>
+                                Sept. 23 - Dec. 23
                             </p>
                             <p style="color:rgb(109, 255, 165);">COMPLETE</p>
                             <div class="card-tech">
@@ -313,6 +392,9 @@
                             <h3 class="card-title">SignalSculpt</h3>
                             <p class="card-description">
                                 Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click.
+                                <br>
+                                <br>
+                                Oct. 23 - Present (Ongoing)
                             </p>
                             <p style="color:rgb(255, 192, 109);">IN PROGRESS</p>
                             <div class="card-tech">
@@ -330,7 +412,7 @@
             <div class="container">
                 <h2 class="section-title reveal-element">Tech Stack</h2>
                 <div class="stack-intro reveal-element">
-                    <p>A high-level overview of the tools, languages, and hardware I work with on a day-to-day basis.</p>
+                    <p>I know the following stuff. Not limited to this though, I don't update it frequently.</p>
                 </div>
                 
                 <div class="stack-grid">
