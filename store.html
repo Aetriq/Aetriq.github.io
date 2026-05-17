@@ -6,349 +6,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq's Store</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Space+Mono&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Overrides to remove the left sidebar layout */
-        body {
-            flex-direction: column;
-            display: block;
+        /* Store specific layout overrides */
+        .product-footer { 
+            margin-top: 15px; display: flex; justify-content: space-between; align-items: center; 
         }
-
-        /* Top Navigation Bar */
-        .topbar {
-            background-color: var(--bg-card);
-            width: 100%;
-            height: 80px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            padding: 0 40px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .product-price { 
+            font-family: monospace; font-weight: bold; font-size: 1.1rem; color: #0b5394; 
         }
-
-        .topbar-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .topbar a {
-            color: var(--body-text);
-            font-weight: 500;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .topbar a:hover {
-            color: var(--accent-color);
-            border-bottom: none;
-            opacity: 0.8;
-        }
-
-        .topbar-title {
-            color: var(--primary-text);
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-left: 1px solid var(--border-color);
-            padding-left: 30px;
-        }
-
-        /* Main Content Adjustments for Store */
-        .main-content-store {
-            width: 100%;
-            margin-left: 0;
-            padding: 60px 0;
-        }
-
-        /* Product Grid */
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-soft);
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            border-color: #444;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .product-image {
-            height: 220px;
-            background: #0d0d0d;
-            border-bottom: 1px solid var(--border-color);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-            opacity: 1;
-        }
-
-        .product-info {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-title {
-            color: var(--primary-text);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .product-footer {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-price {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* Modal Overlay */
+        
+        /* Modal styled like a Vista/7 Dialog window */
         .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); z-index: 1000;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
         }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
+        .modal-overlay.active { 
+            opacity: 1; pointer-events: auto; 
         }
-
+        
         .modal-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-soft);
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            background: linear-gradient(180deg, #ffffff 0%, #eef5fa 100%);
+            border: 1px solid rgba(255,255,255,0.9);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+            border-radius: 8px; width: 90%; max-width: 800px;
+            max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column;
+            transform: scale(0.95); transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
         }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
+        .modal-overlay.active .modal-content { 
+            transform: scale(1); 
         }
-
-        .modal-header {
-            padding: 20px 30px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background: var(--bg-card);
-            z-index: 10;
+        
+        .modal-header { 
+            padding: 15px 25px; border-bottom: 1px solid #ccc; 
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(220,230,240,0.8) 100%);
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 10;
         }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: var(--body-text);
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .close-btn { 
+            background: linear-gradient(180deg, #ffaaaa, #cc0000); border: 1px solid #990000; 
+            color: white; border-radius: 4px; padding: 5px 15px; cursor: pointer; 
+            font-weight: bold; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
             font-family: inherit;
-            transition: var(--transition-fast);
         }
-
-        .close-btn:hover {
-            color: var(--accent-color);
+        .close-btn:hover { 
+            background: linear-gradient(180deg, #ffcccc, #ff0000); 
         }
-
-        .modal-body {
-            padding: 30px;
+        
+        .modal-body { 
+            padding: 30px; 
         }
-
-        /* Carousel inside Modal */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            background: #0d0d0d;
-            border-radius: 8px;
+        
+        .carousel-container { 
+            position: relative; height: 350px; background: #fff; border: 1px solid #ccc;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); border-radius: 4px;
+            display: flex; justify-content: center; align-items: center; margin-bottom: 20px;
             overflow: hidden;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        .carousel-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .carousel-img { 
+            max-height: 100%; max-width: 100%; object-fit: contain; padding: 10px; 
         }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(26, 26, 26, 0.8);
-            color: var(--primary-text);
-            border: 1px solid var(--border-color);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition-fast);
-            z-index: 2;
+        .carousel-btn { 
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: linear-gradient(180deg, #fff, #ddd); color: #333; 
+            border: 1px solid #999; border-radius: 20px; width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-weight: bold; font-size: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2;
         }
-
-        .carousel-btn:hover {
-            background: var(--primary-text);
-            color: var(--bg-card);
+        .carousel-btn:hover { 
+            background: linear-gradient(180deg, #fff, #eee); 
         }
-
-        .carousel-prev { left: 15px; }
+        .carousel-prev { left: 15px; } 
         .carousel-next { right: 15px; }
 
         .image-counter {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-family: 'Space Mono', monospace;
-        }
-
-        /* Modal Details */
-        .modal-title {
-            font-size: 1.8rem;
-            color: var(--primary-text);
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .modal-desc {
-            color: var(--body-text);
-            margin-bottom: 30px;
-            font-size: 1rem;
-            line-height: 1.6;
-            white-space: pre-wrap; /* Preserves paragraph line breaks */
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid transparent;
-        }
-
-        /* Disabled Button */
-        .btn-disabled {
-            background: #2a2a2a;
-            color: #666;
-            border: 1px solid #333;
-            cursor: not-allowed;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            position: absolute; bottom: 15px; right: 15px;
+            background: rgba(0,0,0,0.6); color: #fff; padding: 4px 10px;
+            border-radius: 12px; font-size: 0.8rem; font-family: monospace;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
         }
         
-        .btn-disabled:hover {
-            background: #2a2a2a;
-            color: #666;
-            border-color: #333;
+        .status-badge { 
+            display: inline-block; padding: 5px 15px; border-radius: 15px; 
+            font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; 
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.2);
         }
-
+        .btn-disabled { 
+            background: linear-gradient(180deg, #eee, #ccc); border: 1px solid #aaa; 
+            color: #777; cursor: not-allowed; width: 100%; padding: 12px; 
+            border-radius: 20px; font-weight: bold; font-size: 1.1rem;
+            text-transform: uppercase; text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
     </style>
 </head>
 <body>
     
-    <nav class="topbar">
-        <div class="topbar-content">
-            <a href="index.html">← Back</a>
-            <div class="topbar-title">Aetriq's Personal Site - Store</div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="img/AetriqDynamics 1.0.png" alt="Logo">
+                <div class="logo-text">Aetriq Store</div>
+            </div>
+            <button class="mobile-menu-btn">☰ Menu</button>
+            <ul class="nav-links">
+                <li><a href="index.html">← Back to Main Site</a></li>
+                <li><a href="#" class="active">Storefront</a></li>
+            </ul>
         </div>
     </nav>
 
-    <div class="main-content-store">
-        <div class="container">
+    <div class="main-content">
+        <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
             <h1 class="section-title reveal-element">Storefront</h1>
             <p class="reveal-element reveal-delay-100" style="max-width: 600px;">
-                Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or facebook marketplace! 
+                Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or facebook marketplace!
             </p>
 
-            <div class="store-grid" id="productGrid"></div>
+            <div class="store-grid" id="productGrid" style="margin-top: 40px;"></div>
         </div>
     </div>
 
     <div class="modal-overlay" id="productModal">
         <div class="modal-content" id="modalContent">
             <div class="modal-header">
-                <button class="close-btn" id="closeModalBtn">← Back to Store</button>
+                <h3 style="margin:0; font-size:1.1rem; color: #1a3644;">Product Details</h3>
+                <button class="close-btn" id="closeModalBtn">Close Window</button>
             </div>
             <div class="modal-body">
                 <div class="carousel-container">
@@ -359,8 +145,8 @@
                 </div>
                 
                 <div class="status-badge" id="modalStatusBadge">Sold Out</div>
-                <h2 class="modal-title" id="modalTitle">Product Title</h2>
-                <p class="modal-desc" id="modalDesc"></p>
+                <h2 id="modalTitle" style="border:none; box-shadow:none; font-size: 1.8rem; margin-bottom: 15px; color: #1a3644;">Product Title</h2>
+                <p id="modalDesc" style="white-space: pre-wrap; margin-bottom: 30px; font-size: 1rem; color: #334455; line-height: 1.6;"></p>
                 
                 <button class="btn btn-disabled" id="modalActionBtn" disabled>Sold Out</button>
             </div>
@@ -370,6 +156,7 @@
     <script>
         const defaultSoldOutDesc = "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.";
 
+        // Fully restored product array
         const products = [
             { 
                 id: 101, 
@@ -409,7 +196,7 @@
                     "https://i.ebayimg.com/images/g/c-MAAeSwtdFp1to~/s-l1600.webp" ,
                     "https://i.ebayimg.com/images/g/BgsAAeSwmH9p1tpA/s-l1600.webp" ,
                     "https://i.ebayimg.com/images/g/BgsAAeSwmH9p1tpA/s-l1600.webp" ,
-                    "https://i.ebayimg.com/images/g/D-wAAeSw6SNp1tpA/s-l1600.webp" ,
+                    "https://i.ebayimg.com/images/g/D-wAAeSw6SNp1tpA/s-l1600.webp"
                 ] 
             },
             { 
@@ -444,15 +231,12 @@
             { id: 16, title: "Custom NAS", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/16.1.jpg"] }
         ];
 
-        // State variables for modal
         let currentProductIndex = 0;
         let currentImageIndex = 0;
 
-        // DOM Elements
         const grid = document.getElementById('productGrid');
         const modal = document.getElementById('productModal');
         const closeBtn = document.getElementById('closeModalBtn');
-        
         const carouselImg = document.getElementById('carouselImg');
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
@@ -463,7 +247,7 @@
         const modalStatusBadge = document.getElementById('modalStatusBadge');
         const modalActionBtn = document.getElementById('modalActionBtn');
 
-        // 1. Render Grid
+        // Render Grid
         function initGrid() {
             products.forEach((prod, index) => {
                 const isAvailable = prod.status === 'available';
@@ -474,16 +258,17 @@
                 
                 card.innerHTML = `
                     <div class="product-image">
-                        <img src="${prod.images[0]}" alt="${prod.title}" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/555555?text=Image+Missing'">
+                        <img src="${prod.images[0]}" alt="${prod.title}" onerror="this.src='https://via.placeholder.com/400x300/f0f0f0/666666?text=Image+Missing'">
                     </div>
                     <div class="product-info">
-                        <div class="product-title">${prod.title}</div>
+                        <div style="font-weight: bold; color: var(--primary-text); margin-bottom:10px; font-size: 1.1rem; line-height: 1.4;">${prod.title}</div>
                         <div class="product-footer">
-                            <span class="product-price" style="color: ${isAvailable ? 'var(--accent-color)' : '#666'};">
+                            <span class="product-price" style="color: ${isAvailable ? '#2b7a0b' : '#777'};">
                                 ${isAvailable ? prod.price : 'Sold'}
                             </span>
-                            <button class="btn ${isAvailable ? 'btn-primary' : 'btn-outline'}" 
-                                    style="padding: 5px 15px; ${isAvailable ? '' : 'pointer-events: none; opacity: 0.5;'}">
+                            <button class="btn ${isAvailable ? 'btn-primary' : 'btn-disabled'}" 
+                                    style="padding: 5px 15px; text-transform: uppercase; font-size: 0.85rem;" 
+                                    ${isAvailable ? '' : 'disabled'}>
                                 ${isAvailable ? 'View' : 'Sold Out'}
                             </button>
                         </div>
@@ -495,21 +280,21 @@
             });
         }
 
-        // 2. Open Modal Logic
+        // Open Modal Logic
         function openModal(productIndex) {
             currentProductIndex = productIndex;
             currentImageIndex = 0;
             const prod = products[currentProductIndex];
             
             modalTitle.textContent = prod.title;
-            modalDesc.textContent = prod.desc; // Using textContent with CSS white-space preserves the format safely
+            modalDesc.textContent = prod.desc; 
             
-            // Handle Availability Styling
+            // Handle Availability Styling (Frutiger Aero Styles)
             if (prod.status === 'available') {
                 modalStatusBadge.textContent = 'Available';
-                modalStatusBadge.style.color = '#6dffa5'; // Greenish
-                modalStatusBadge.style.borderColor = '#6dffa5';
-                modalStatusBadge.style.background = 'rgba(109, 255, 165, 0.1)';
+                modalStatusBadge.style.background = 'linear-gradient(180deg, #a8e063, #56ab2f)';
+                modalStatusBadge.style.border = '1px solid #488a26';
+                modalStatusBadge.style.color = '#fff';
                 
                 modalActionBtn.textContent = `Buy Now - ${prod.price}`;
                 modalActionBtn.className = 'btn btn-primary';
@@ -519,9 +304,9 @@
                 modalActionBtn.onclick = () => window.open(prod.link, '_blank');
             } else {
                 modalStatusBadge.textContent = 'Sold Out';
-                modalStatusBadge.style.color = '#ff6b6b'; // Redish
-                modalStatusBadge.style.borderColor = '#ff6b6b';
-                modalStatusBadge.style.background = 'rgba(255, 107, 107, 0.1)';
+                modalStatusBadge.style.background = 'linear-gradient(180deg, #ffaaaa, #cc0000)';
+                modalStatusBadge.style.border = '1px solid #990000';
+                modalStatusBadge.style.color = '#fff';
 
                 modalActionBtn.textContent = 'Sold Out';
                 modalActionBtn.className = 'btn btn-disabled';
@@ -535,13 +320,13 @@
             document.body.style.overflow = 'hidden'; 
         }
 
-        // 3. Update Carousel Image
+        // Update Carousel Image
         function updateCarousel() {
             const prod = products[currentProductIndex];
             
             carouselImg.src = prod.images[currentImageIndex];
             carouselImg.onerror = function() {
-                this.src = 'https://via.placeholder.com/800x600/1a1a1a/555555?text=Image+Missing';
+                this.src = 'https://via.placeholder.com/800x600/f0f0f0/666666?text=Image+Missing';
             };
 
             imageCounter.textContent = `${currentImageIndex + 1} / ${prod.images.length}`;
@@ -549,13 +334,15 @@
             if (prod.images.length > 1) {
                 prevBtn.style.display = 'flex';
                 nextBtn.style.display = 'flex';
+                imageCounter.style.display = 'block';
             } else {
                 prevBtn.style.display = 'none';
                 nextBtn.style.display = 'none';
+                imageCounter.style.display = 'none';
             }
         }
 
-        // 4. Close Modal Logic
+        // Close Modal Logic
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = ''; 
@@ -565,7 +352,6 @@
         closeBtn.addEventListener('click', closeModal);
         
         modal.addEventListener('click', (e) => {
-            // Click outside the box to close
             if (e.target === modal) closeModal();
         });
 
@@ -587,6 +373,11 @@
             if (e.key === 'Escape') closeModal();
             if (e.key === 'ArrowRight' && products[currentProductIndex].images.length > 1) nextBtn.click();
             if (e.key === 'ArrowLeft' && products[currentProductIndex].images.length > 1) prevBtn.click();
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
 
         // Initialize Everything

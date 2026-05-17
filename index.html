@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq's Personal Site</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Space+Mono&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,15 +12,14 @@
         <div class="container">
             <div class="logo">
                 <img src="img/AetriqDynamics 1.0.png" alt="Logo">
+                <div class="logo-text">Aetriq</div>
             </div>
-            
-            <button class="mobile-menu-btn">☰</button>
-            
+            <button class="mobile-menu-btn">☰ Menu</button>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#highlight">Highlighted Project</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#3d-models">3D Models</a></li>
                 <li><a href="#tech-stack">Tech Stack</a></li>
                 <li><a href="#creative">Creative Work</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -34,376 +28,226 @@
     </nav>
 
     <div class="main-content">
-        <section id="home">
+        <section id="home" class="section" style="padding-top: 100px; padding-bottom: 80px;">
             <div class="container">
                 <div class="hero">
                     <h1 class="reveal-element">Aetriq's Personal Site</h1>
-                    <div class="hero-description reveal-element reveal-delay-200">
-                        Welcome!  
-                        <br><br>
-                        I'm Alex and I go by Veetwo in some instances online (also my copyright label). Aetriq is my newer label seen on my PCB designs and hardware projects.
-                        <br><br>
-                        I've been repairing/restoring electronics at component and PCB levels since 2019 and provide these services for hardware, from general diagnostics to board-level soldering, as well as specialized PC building. 
+                    <div class="hero-description reveal-element reveal-delay-100">
+                        <p>Welcome!</p>
+                        <p>I'm Alex and I go by Veetwo in some instances online (also my copyright label). Aetriq is my newer label seen on my PCB designs and hardware projects.</p>
+                        <p>I've been repairing/restoring electronics at component and PCB levels since 2019 and provide these services for hardware, from general diagnostics to board-level soldering, as well as specialized PC building.</p>
                     </div>
+                    <div class="hero-buttons reveal-element reveal-delay-200">
+                        <a href="store.html" class="btn btn-primary">Storefront</a>
+                        <a href="#projects" class="btn btn-outline">Current Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact</a>
                     </div>
-            </div>
-        </section>
-
-        <section id="navigation" class="section" style="padding: 30px 0; border-bottom: none;">
-            <div class="container">
-                <div class="hero-buttons reveal-element reveal-delay-200">
-                    <a href="store.html" class="btn btn-primary">Storefront</a>
-                    <a href="#projects" class="btn btn-outline">Current Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact</a>
                 </div>
             </div>
         </section>
 
-        
-        <section class="chimera-hero" id="highlight">
+        <section id="highlight" class="section">
             <div class="container">
-                <div class="chimera-hero-content">
-                    <h2 class="section-title reveal-element">Latest Project</h2>
-
-                    <h1 class="reveal-element">Chimera iXY v2.4</h1>
-                    <div class="chimera-subtitle reveal-element reveal-delay-100">Custom High-Speed CoreXY 3D Printer</div>
-                    <div class="chimera-description reveal-element reveal-delay-200">
-                        A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X. 
-                        Demonstrating the usability of RepRap in modern printers.
+                <h2 class="section-title reveal-element">Latest Project</h2>
+                <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
+                    <div class="card-content" style="flex: 1; min-width: 300px;">
+                        <h1>Chimera iXY v2.4</h1>
+                        <h3 style="color: #0b5394; margin-bottom: 10px;">Custom High-Speed CoreXY 3D Printer</h3>
+                        <p>A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X. Demonstrating the usability of RepRap in modern printers.</p>
+                        <p style="font-style: italic; background: rgba(0,0,0,0.05); padding: 5px 10px; border-left: 3px solid #56ab2f; margin-bottom: 15px;">Still printing. Still free. Still RepRap.</p>
+                        <p style="font-size: 0.9rem; color: #555;"><strong>Current Status (2-21-26):</strong> v2.4 released; check page for more details!</p>
+                        <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                            <a href="chimera.html" class="btn btn-primary" target="_blank">Official Page</a>
+                            <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">GitHub</a>
+                            <a href="chimeradocfull.html" class="btn btn-outline">Documentation</a>
+                        </div>
                     </div>
-                    <div class="chimera-tagline reveal-element reveal-delay-200">
-                        Still printing. Still free. Still RepRap.
-                    </div>
-                    <div class="project-links reveal-element reveal-delay-200">
-                        <a href="chimera" class="btn btn-primary" target="_blank">Official Page</a>
-                        <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">GitHub</a>
-                        <a href="chimeradocfull.html" class="btn btn-outline">Documentation</a>
-                    </div>
-                    <div class="project-status reveal-element reveal-delay-200">
-                        <p style="font-size: 0.9rem; color: #888;"><strong>Current Status (2-21-26):</strong> v2.4 released; check page for more details!</p>
+                    <div class="card-image" style="flex: 1; min-width: 300px; height: auto; border-left: 1px solid rgba(0,0,0,0.1); border-bottom: none;">
+                        <img src="img/chimera2.0.png" alt="Chimera iXY 3D Printer">
                     </div>
                 </div>
-                <div class="chimera-hero-image reveal-element reveal-delay-100">
-                    <img src="img/chimera2.0.png" alt="Chimera iXY 3D Printer">
+                <div class="hero-partners reveal-element reveal-delay-200" style="display: flex; gap: 20px; align-items: center; margin-top: 20px; flex-wrap: wrap;">
+                    <a href="https://reprap.org/" target="_blank" title="RepRap Project"><img src="https://reprap.org/mediawiki/images/reprap_logo.png?06a32" alt="RepRap" height="30"></a>
+                    <a href="https://e3d-online.com/" target="_blank" title="E3D Online"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorseek.com%2Fwp-content%2Fuploads%2F2023%2F12%2FE3D-Online-Logo-Vector.svg-.png&f=1&nofb=1&ipt=b34028798436c83d472fdf96098e7ce15c0c9c3e000faafdf0e0a843bb649793" alt="E3D" height="30" style="filter: invert(1);"></a>
+                    <a href="https://github.com/makerbase-mks" target="_blank" title="Makerbase MKS"><img src="img/mks.png" alt="Makerbase" height="30"></a>
+                    <a href="https://www.klipper3d.org/" target="_blank" title="Klipper Firmware"><img src="https://www.klipper3d.org/img/klipper-logo.png" alt="Klipper" height="30"></a>
                 </div>
-
-                <div class="hero-partners reveal-element reveal-delay-200">
-                    <div class="partners-logos">
-                        <a href="https://reprap.org/" target="_blank" title="RepRap Project">
-                            <img src="https://reprap.org/mediawiki/images/reprap_logo.png?06a32" alt="RepRap">
-                        </a>
-                        <a href="https://e3d-online.com/" target="_blank" title="E3D Online">
-                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorseek.com%2Fwp-content%2Fuploads%2F2023%2F12%2FE3D-Online-Logo-Vector.svg-.png&f=1&nofb=1&ipt=b34028798436c83d472fdf96098e7ce15c0c9c3e000faafdf0e0a843bb649793" alt="E3D" style="filter: invert(1);">
-                        </a>
-                        <a href="https://github.com/makerbase-mks" target="_blank" title="Makerbase MKS">
-                            <img src="img/mks.png" alt="Makerbase">
-                        </a>
-                        <a href="https://www.klipper3d.org/" target="_blank" title="Klipper Firmware">
-                            <img src="https://www.klipper3d.org/img/klipper-logo.png" alt="Klipper">
-                        </a>
-                    </div>
-                </div>
-                </div>
+            </div>
         </section>
 
         <section id="projects" class="section">
-
             <div class="container">
                 <h2 class="section-title reveal-element">Current Projects</h2>
                 <div class="project-list">
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="img/omv.jpeg" alt="SC Temp">
-                        </div>
+                        <div class="card-image"><img src="img/omv.jpeg" alt="OMV Status Screen"></div>
                         <div class="card-content">
                             <h3 class="card-title">OMV Status Screen add-on</h3>
-                            <p class="card-description">
-                                Very low cost basic status screen add-on for OpenMediaVault NAS servers. 
-                                <br><br>
-                                Based on the ESP32-C3 MCU, error detection and graphics recovery with 3 status LEDs.
-                                <br><br>
-                                Uses ESP-IDF, very modular for different full color tfts (supporting LVGL UI).
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">ESP32-C3</span>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com" class="btn btn-outline" target="_blank">Releasing soon...</a>
-                            </div>
+                            <p class="card-description">Very low cost basic status screen add-on for OpenMediaVault NAS servers. Based on the ESP32-C3 MCU, error detection and graphics recovery with 3 status LEDs. Uses ESP-IDF, very modular for different full color tfts (supporting LVGL UI).</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">ESP32-C3</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com" class="btn btn-outline" target="_blank">Releasing soon...</a></div>
                         </div>
                     </div>
                     
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="img/heltec.jpeg" alt="SC Temp">
-                        </div>
+                        <div class="card-image"><img src="img/heltec.jpeg" alt="Heltec"></div>
                         <div class="card-content">
                             <h3 class="card-title">Heltec IOT Tracker PEN testing tool</h3>
-                            <p class="card-description">
-                                A basic security pentesting tool using the Heltec IOT Wireless Tracker v1.1 with a 2.0" tft and 5 navigation buttons.
-                                <br><br>
-                                Beyond basic wifi/ble functions, it also features usage of the built-in sx1262 lora and uc6550 gnss modules.
-                            </p>
-                            <p style="color:rgb(255, 217, 0);">IN PROGRESS...</p>
+                            <p class="card-description">A basic security pentesting tool using the Heltec IOT Wireless Tracker v1.1 with a 2.0" tft and 5 navigation buttons. Beyond basic wifi/ble functions, it also features usage of the built-in sx1262 lora and uc6550 gnss modules.</p>
+                            <p style="color:#d35400; font-weight: bold;">IN PROGRESS...</p>
                             <div class="card-tech">
-                                <span class="tech-tag">Heltec IOT Tracker v1.1</span>
-                                <span class="tech-tag">WIFI/BLE</span>
-                                <span class="tech-tag">GNSS</span>
-                                <span class="tech-tag">LoRa</span>
+                                <span class="tech-tag">Heltec v1.1</span> <span class="tech-tag">WIFI/BLE</span>
+                                <span class="tech-tag">GNSS</span> <span class="tech-tag">LoRa</span>
                             </div>
-                            <div class="card-links">
-                                <a href="https://github.com" class="btn btn-outline" target="_blank">TBD...</a>
-                            </div>
+                            <div style="margin-top: 10px;"><a href="https://github.com" class="btn btn-outline" target="_blank">TBD...</a></div>
                         </div>
                     </div>
 
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="https://cdn.prod.website-files.com/62a0a0168756b795debc65bc/686323bdd813a2cd39a65f20_cb215493af6c0a8a4d53f27157cf5265_03-tertiary-stacked-white.png" alt="SC Temp">
-                        </div>
+                        <div class="card-image"><img src="https://cdn.prod.website-files.com/62a0a0168756b795debc65bc/686323bdd813a2cd39a65f20_cb215493af6c0a8a4d53f27157cf5265_03-tertiary-stacked-white.png" alt="AECl0ud"></div>
                         <div class="card-content">
                             <h3 class="card-title">AECl0ud</h3>
-                            <p class="card-description">
-                                A cydia tweak that fixes the soundcloud app, version 2.3.2 specifically. Supports A5 devices on iOS 6.1.3 only (For now).
-                            </p>
-                            <p style="color:rgb(255, 217, 0);">IN PROGRESS...</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">Proxy middleman</span>
-                                <span class="tech-tag">A4-A6</span>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Aetriq/CEG4195-Project" class="btn btn-outline" target="_blank">View Project</a>
-                            </div>
+                            <p class="card-description">A cydia tweak that fixes the soundcloud app, version 2.3.2 specifically. Supports A5 devices on iOS 6.1.3 only (For now).</p>
+                            <p style="color:#d35400; font-weight: bold;">IN PROGRESS...</p>
+                            <div class="card-tech"><span class="tech-tag">Proxy middleman</span> <span class="tech-tag">A4-A6</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/CEG4195-Project" class="btn btn-outline" target="_blank">View Project</a></div>
                         </div>
                     </div>
                     
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="https://github.com/Aetriq/CEG4195-Project/blob/main/img/repo-img/coolcloseuprender.png?raw=true" alt="ESPCAM">
-                        </div>
+                        <div class="card-image"><img src="https://github.com/Aetriq/CEG4195-Project/blob/main/img/repo-img/coolcloseuprender.png?raw=true" alt="Blob Detection"></div>
                         <div class="card-content">
                             <h3 class="card-title">Blob Detection (Name TBD)</h3>
-                            <p class="card-description">
-                                Lightweight ESP32-CAM Klipper Add-on for 3D printer nozzle clumping detection.
-                                <br><br>
-                                Entirely local inferencing model capable of catching nozzle blobbing occurring in real time, during prints. FSM-based 'resolution' for automated fixing without human intervention.
-                                <br>
-                                <br>
-                                Will be ported/installed on Project Intrastice.
-                                <br>
-                                <br>
-                                Jan. 26 - Apr. 26
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE (See Intrastice)</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">Edge ML</span>
-                                <span class="tech-tag">Embedded Systems</span>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Aetriq/CEG4195-Project" class="btn btn-outline" target="_blank">View Project</a>
-                            </div>
+                            <p class="card-description">Lightweight ESP32-CAM Klipper Add-on for 3D printer nozzle clumping detection. Entirely local inferencing model capable of catching nozzle blobbing occurring in real time, during prints. FSM-based 'resolution' for automated fixing without human intervention.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE (See Intrastice)</p>
+                            <div class="card-tech"><span class="tech-tag">Edge ML</span> <span class="tech-tag">Embedded Systems</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/CEG4195-Project" class="btn btn-outline" target="_blank">View Project</a></div>
                         </div>
                     </div>
 
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="img/intrastice.png" alt="Chimera iXY">
-                        </div>
+                        <div class="card-image"><img src="img/intrastice.png" alt="Intrastice"></div>
                         <div class="card-content">
                             <h3 class="card-title">Intrastice v0.1</h3>
-                            <p class="card-description">
-                                Planned '2nd generation' of my custom CoreXY 3D printer series.
-                                <br><br>
-                                A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch.
-                                This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.
-                                <br>
-                                <br>
-                                Feb. 26 - ???
-                            </p>
-                            <p style="color:rgb(255, 109, 109);">INCOMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">FDM (3D) Printing</span>
-                                <span class="tech-tag">Embedded Systems</span>
-                            </div>
-                            <div class="card-links">
-                                <a href="" class="btn btn-outline" target="_blank">PoC Soon...</a>
-                            </div>
+                            <p class="card-description">Planned '2nd generation' of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch. This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.</p>
+                            <p style="color:#c0392b; font-weight: bold;">INCOMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span> <span class="tech-tag">Embedded Systems</span></div>
+                            <div style="margin-top: 10px;"><a href="#" class="btn btn-outline">PoC Soon...</a></div>
                         </div>
                     </div>
                     
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.4/fronttopview.png?raw=true" alt="Chimera iXY">
-                        </div>
+                        <div class="card-image"><img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.4/fronttopview.png?raw=true" alt="Chimera iXY"></div>
                         <div class="card-content">
                             <h3 class="card-title">Chimera iXY v2.4</h3>
-                            <p class="card-description">
-                                Fully custom designed and built high-speed 3D printer from two bedslingers using ‘CoreXY’ kinematics.
-                                <br><br>
-                                Apr. 24 - Feb. 26
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">FDM (3D) Printing</span>
-                                <span class="tech-tag">Embedded Systems</span>
-                            </div>
-                            <div class="card-links">
+                            <p class="card-description">Fully custom designed and built high-speed 3D printer from two bedslingers using ‘CoreXY’ kinematics. Apr. 24 - Feb. 26</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span> <span class="tech-tag">Embedded Systems</span></div>
+                            <div style="margin-top: 10px; display:flex; gap:10px;">
                                 <a href="chimera.html" class="btn btn-outline" target="_blank">View Project</a>
                                 <a href="chimeradocfull.html" class="btn btn-outline" target="_blank">Docs</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="project-card reveal-element reveal-delay-100">
-                        <div class="card-image">
-                            <img src="img/4188.png" alt="CrunchLAN">
-                        </div>
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/4188.png" alt="CrunchLAN"></div>
                         <div class="card-content">
                             <h3 class="card-title">CrunchLAN</h3>
-                            <p class="card-description">
-                                TCP-Based realtime LAN game based on the Client-Server network model. Custom java protocols using the raw socket library.
-                                <br>
-                                <br>
-                                Sept. 25 - Dec. 25
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">Networking</span>
-                            </div>
-                            <a href="https://github.com/Aetriq/CEG4188-Project" class="btn btn-outline" target="_blank">View Code</a>
+                            <p class="card-description">TCP-Based realtime LAN game based on the Client-Server network model. Custom java protocols using the raw socket library.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">Java</span> <span class="tech-tag">Networking</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/CEG4188-Project" class="btn btn-outline" target="_blank">View Code</a></div>
                         </div>
                     </div>
 
-                    <div class="project-card reveal-element reveal-delay-100">
-                        <div class="card-image">
-                            <img src="img/mcats.jpg" alt="MCATS">
-                        </div>
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/mcats.jpg" alt="MCATS"></div>
                         <div class="card-content">
                             <h3 class="card-title">MCATS</h3>
-                            <p class="card-description">
-                                A comfortable, responsive assistive device for playing piano with minimal delay.
-                                <br>
-                                <br>
-                                May. 25 - July. 25
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">Assistive Tech</span>
-                                <span class="tech-tag">RP2040</span>
-                            </div>
-                            <div class="card-links">
+                            <p class="card-description">A comfortable, responsive assistive device for playing piano with minimal delay.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">Assistive Tech</span> <span class="tech-tag">RP2040</span></div>
+                            <div style="margin-top: 10px; display:flex; gap:10px;">
                                 <a href="https://makerepo.com/ctourangeau/2544.gng2101z13piano-assist-device" class="btn btn-outline" target="_blank">MakerRepo</a>
                                 <a href="https://github.com/Aetriq/GNG2101" class="btn btn-outline" target="_blank">Code</a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="project-card reveal-element reveal-delay-200">
-                        <div class="card-image">
-                            <img src="img/mips.png" alt="MIPS Processor">
-                        </div>
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/mips.png" alt="MIPS Processor"></div>
                         <div class="card-content">
                             <h3 class="card-title">MIPS Processor</h3>
-                            <p class="card-description">
-                                Designed entirely using RTL-based VHDL & programmed on the FPGA DE2-115.
-                                <br>
-                                <br>
-                                Jan. 25 - Apr. 25
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">VHDL</span>
-                                <span class="tech-tag">FPGA</span>
-                            </div>
-                            <a href="https://github.com/aetriq/CEG3156/tree/main/Lab%203" class="btn btn-outline" target="_blank">View Code</a>
+                            <p class="card-description">Designed entirely using RTL-based VHDL & programmed on the FPGA DE2-115.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">VHDL</span> <span class="tech-tag">FPGA</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/aetriq/CEG3156/tree/main/Lab%203" class="btn btn-outline" target="_blank">View Code</a></div>
                         </div>
                     </div>
 
-                    <div class="project-card reveal-element reveal-delay-200">
-                        <div class="card-image">
-                            <img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/flsun.jpg?raw=true" alt="flsun">
-                        </div>
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/flsun.jpg?raw=true" alt="flsun"></div>
                         <div class="card-content">
                             <h3 class="card-title">Flsun i3 Speed Mod</h3>
-                            <p class="card-description">
-                                A set of hardware/software modifications to increase speed/quality of the Flsun i3 C from 2017. Merged to Chimera iXY project.
-                                <br>
-                                <br>
-                                Aug. 24 - Jan. 25
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE (See Chimera iXY)</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">FDM (3D) Printing</span>
-                            </div>
-                            <a href="https://github.com/Aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">View Code</a>
+                            <p class="card-description">A set of hardware/software modifications to increase speed/quality of the Flsun i3 C from 2017. Merged to Chimera iXY project.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE (See Chimera iXY)</p>
+                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">View Code</a></div>
                         </div>
                     </div>
 
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="img/uart.png" alt="uart">
-                        </div>
+                        <div class="card-image"><img src="img/uart.png" alt="uart"></div>
                         <div class="card-content">
                             <h3 class="card-title">MAX232 UART</h3>
-                            <p class="card-description">
-                                Design of a low power Universal Asynchronous Receiver Transmitter with adaptive baudrate.
-                                <br>
-                                <br>
-                                Sept. 24 - Dec. 24
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">VHDL</span>
-                                <span class="tech-tag">FPGA</span>
-                            </div>
-                            <a href="https://github.com/Aetriq/CEG3155/tree/main/Final%20Project" class="btn btn-outline" target="_blank">View Code</a>
+                            <p class="card-description">Design of a low power Universal Asynchronous Receiver Transmitter with adaptive baudrate.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">VHDL</span> <span class="tech-tag">FPGA</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/CEG3155/tree/main/Final%20Project" class="btn btn-outline" target="_blank">View Code</a></div>
                         </div>
                     </div>
 
                     <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="img/gcc.png" alt="gcc">
-                        </div>
+                        <div class="card-image"><img src="img/gcc.png" alt="gcc"></div>
                         <div class="card-content">
                             <h3 class="card-title">Real-time Cycling Tracking APP</h3>
-                            <p class="card-description">
-                                A cycling mobile app designed for tracking of data & events. Features a real-time cloud (google firebase) database.
-                                <br>
-                                <br>
-                                Sept. 23 - Dec. 23
-                            </p>
-                            <p style="color:rgb(109, 255, 165);">COMPLETE</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">Android</span>
-                            </div>
-                            <a href="https://github.com/Aetriq/SEG2105" class="btn btn-outline" target="_blank">View Code</a>
+                            <p class="card-description">A cycling mobile app designed for tracking of data & events. Features a real-time cloud (google firebase) database.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">Kotlin</span> <span class="tech-tag">Java</span> <span class="tech-tag">Android</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/SEG2105" class="btn btn-outline" target="_blank">View Code</a></div>
                         </div>
                     </div>
 
-                    <div class="project-card reveal-element reveal-delay-100">
-                        <div class="card-image">
-                            <img src="img/SignalSculpt.png" alt="SignalSculpt">
-                        </div>
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/SignalSculpt.png" alt="SignalSculpt"></div>
                         <div class="card-content">
                             <h3 class="card-title">SignalSculpt</h3>
-                            <p class="card-description">
-                                Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click.
-                                <br>
-                                <br>
-                                Oct. 23 - Present (Ongoing)
-                            </p>
-                            <p style="color:rgb(255, 192, 109);">IN PROGRESS</p>
-                            <div class="card-tech">
-                                <span class="tech-tag">After Effects</span>
-                                <span class="tech-tag">Signal Processing</span>
-                            </div>
-                            <a href="https://github.com/aetriq/SignalSculpt" class="btn btn-outline" target="_blank">View Code</a>
+                            <p class="card-description">Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click.</p>
+                            <p style="color:#d35400; font-weight: bold;">IN PROGRESS</p>
+                            <div class="card-tech"><span class="tech-tag">After Effects</span> <span class="tech-tag">Signal Processing</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/aetriq/SignalSculpt" class="btn btn-outline" target="_blank">View Code</a></div>
                         </div>
                     </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="3d-models" class="section" style="background: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.8);">
+            <div class="container">
+                <h2 class="section-title reveal-element">3D Models (Coming soon...)</h2>
+                <div class="project-list">
+                     <!-- <div class="project-card reveal-element">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x300/e0e0e0/333333?text=Model+Render" alt="Chimera Parts">
+                        </div>
+                         <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">Chimera Gantry Parts</h3>
+                            <a href="https://printables.com" target="_blank" class="btn btn-primary" style="margin-top: 10px;">View on Printables</a>
+                        </div>
+                    </div>  -->
                 </div>
             </div>
         </section>
@@ -411,71 +255,36 @@
         <section id="tech-stack" class="section">
             <div class="container">
                 <h2 class="section-title reveal-element">Tech Stack</h2>
-                <div class="stack-intro reveal-element">
+                <div class="reveal-element" style="margin-bottom: 2rem;">
                     <p>I know the following stuff. Not limited to this though, I don't update it frequently.</p>
                 </div>
-                
                 <div class="stack-grid">
                     <div class="stack-category reveal-element">
                         <h3>Hardware & Systems</h3>
                         <div class="tech-pills">
-                            <span>Embedded Ultra-low power systems</span>
-                            <span>RP2040</span>
-                            <span>FPGA (DE2-115)</span>
-                            <span>FDM Additive Manufacturing</span>
-                            <span>ESP8266</span> <span>ESP32</span> <span>SPI, I2C, I2S</span> <span>PDM, UART, CAN</span> <span>Apple A5</span>
+                            <span>Embedded Ultra-low power systems</span> <span>RP2040</span> <span>FPGA (DE2-115)</span>
+                            <span>FDM Additive Manufacturing</span> <span>ESP8266</span> <span>ESP32</span> 
+                            <span>SPI, I2C, I2S</span> <span>PDM, UART, CAN</span> <span>Apple A5</span>
                             <span>Precision Autonomous Kinematics</span> <span>i3 | CoreXY</span>
-                            <span>RF Communication - 433MHz</span>  <span>ARM</span>
-                            <span>Real-Time Control Systems</span> <span>Microsoldering</span>
-                            <span>General Electronics Repair</span>
-                            
+                            <span>RF Communication - 433MHz</span> <span>ARM</span> <span>Real-Time Control Systems</span>
+                            <span>Microsoldering</span> <span>General Electronics Repair</span>
                         </div>
                     </div>
-
                     <div class="stack-category reveal-element reveal-delay-100">
                         <h3>Software & Languages</h3>
                         <div class="tech-pills">
-                            <span>C</span>
-                            <span>C++</span>
-                            <span>Java</span>
-                            <span>Edge AI</span>
-                            <span>FreeRTOS</span>
-                            <span>Embedded ML</span>
-                            <span>Kotlin</span>
-                            <span>Python</span>
-                            <span>VHDL</span>
-                            <span>OpenCL</span>
-                            <span>MATLAB</span>
-                            <span>HTML</span>
-                            <span>Assembly (HCS12/ARM)</span>
-                            <span>XML</span>
-                            <span>JavaScript</span>
-                            <span>C (ESP-IDF)</span>
-                            <span>LaTeX</span>
-                            <span>React</span>
-                            <span>Swift</span>
-                            <span>XCode</span>
-                            <span>GCode</span>
-                            <span>SQL</span>
-                            <span>QGIS</span>
-
+                            <span>C</span> <span>C++</span> <span>Java</span> <span>Edge AI</span>
+                            <span>FreeRTOS</span> <span>Embedded ML</span> <span>Kotlin</span> <span>Python</span>
+                            <span>VHDL</span> <span>OpenCL</span> <span>MATLAB</span> <span>HTML</span>
+                            <span>Assembly (HCS12/ARM)</span> <span>XML</span> <span>JavaScript</span>
+                            <span>C (ESP-IDF)</span> <span>LaTeX</span> <span>React</span> <span>Swift</span>
+                            <span>XCode</span> <span>GCode</span> <span>SQL</span> <span>QGIS</span>
                         </div>
-                        <br><br>
-                        <div class="tech-pills">
-                            <span>Fusion 360</span>
-                            <span>Adobe AE/ME</span>
-                            <span>Adobe PS</span>
-                            <span>Adobe IL</span>
-                            <span>Adobe Au</span>
-                            <span>Adobe Pr</span>
-                            <span>PlatformIO</span>
-                            <span>MultiSim</span>
-                            <span>Github</span>
-                            <span>Eclipse IDE</span>
-                            <span>Burp Suite</span>
-                            <span>FL Studio</span>
-                            <span>Docker</span>
-                            <span>Edge Impulse</span>
+                        <div class="tech-pills" style="margin-top: 20px;">
+                            <span>Fusion 360</span> <span>Adobe AE/ME</span> <span>Adobe PS</span> <span>Adobe IL</span>
+                            <span>Adobe Au</span> <span>Adobe Pr</span> <span>PlatformIO</span> <span>MultiSim</span>
+                            <span>Github</span> <span>Eclipse IDE</span> <span>Burp Suite</span> <span>FL Studio</span>
+                            <span>Docker</span> <span>Edge Impulse</span>
                         </div>
                     </div>
                 </div>
@@ -485,57 +294,19 @@
         <section id="creative" class="section">
             <div class="container">
                 <h2 class="section-title reveal-element">Creative Work</h2>
-                <div class="creative-intro reveal-element">
-                    <p>
-                        I'm always looking to improve my audio & visual skills through the Adobe Suite. Check out my music video channel where I've been (inconsistently) uploading my progress on my project SignalSculpt!.
-                    </p>
+                <div class="reveal-element" style="margin-bottom: 2rem;">
+                    <p>I'm always looking to improve my audio & visual skills through the Adobe Suite. Check out my music video channel where I've been (inconsistently) uploading my progress on my project SignalSculpt!</p>
                 </div>
                 <div class="creative-grid">
-                    <div class="creative-item reveal-element">
-                        <div class="creative-image">
-                            <img src="https://img.youtube.com/vi/zTSCu_5XSzQ/maxresdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-100">
-                        <div class="creative-image">
-                            <img src="img/2024.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-200">
-                        <div class="creative-image">
-                            <img src="https://img.youtube.com/vi/2Tm9Ugj7kDU/maxresdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element">
-                        <div class="creative-image">
-                            <img src="https://img.youtube.com/vi/7ZqgDnU2dnM/maxresdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-100">
-                        <div class="creative-image">
-                            <img src="https://i.ytimg.com/vi/dFaLl_wjvvg/hqdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-100">
-                        <div class="creative-image">
-                            <img src="https://i.ytimg.com/vi/kwPJufiLmvk/hqdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-100">
-                        <div class="creative-image">
-                            <img src="https://i.ytimg.com/vi/OrlwGJTSIq8/hqdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-100">
-                        <div class="creative-image">
-                            <img src="https://i.ytimg.com/vi/i4g1DOqy8fA/hqdefault.jpg" alt="thumbnail">
-                        </div>
-                    </div>
-                    <div class="creative-item reveal-element reveal-delay-100">
-                        <div class="creative-image">
-                            <img src="img/livinginstereo.jpeg" alt="thumbnail">
-                        </div>
-                    </div>
+                    <div class="creative-item reveal-element"><div class="creative-image"><img src="https://img.youtube.com/vi/zTSCu_5XSzQ/maxresdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element reveal-delay-100"><div class="creative-image"><img src="img/2024.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element reveal-delay-200"><div class="creative-image"><img src="https://img.youtube.com/vi/2Tm9Ugj7kDU/maxresdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element"><div class="creative-image"><img src="https://img.youtube.com/vi/7ZqgDnU2dnM/maxresdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element reveal-delay-100"><div class="creative-image"><img src="https://i.ytimg.com/vi/dFaLl_wjvvg/hqdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element reveal-delay-200"><div class="creative-image"><img src="https://i.ytimg.com/vi/kwPJufiLmvk/hqdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element"><div class="creative-image"><img src="https://i.ytimg.com/vi/OrlwGJTSIq8/hqdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element reveal-delay-100"><div class="creative-image"><img src="https://i.ytimg.com/vi/i4g1DOqy8fA/hqdefault.jpg" alt="thumbnail"></div></div>
+                    <div class="creative-item reveal-element reveal-delay-200"><div class="creative-image"><img src="img/livinginstereo.jpeg" alt="thumbnail"></div></div>
                 </div>
             </div>
         </section>
@@ -545,35 +316,20 @@
                 <h2 class="section-title reveal-element">Get In Touch</h2>
                 <div class="contact-grid">
                     <div class="contact-info reveal-element">
-                        <p>
-                            I also offer 3D printing services and specialized repair for electronics. Message me for quotes! <br> <br> NOTE*** this email is temporary and subject to change.
-                        </p>
-                        <div class="contact-item">
-                            <div>
-                                <h3>Email</h3>
-                                <a href="mailto:veetwomusic@gmail.com">veetwomusic@gmail.com</a>
-                                <br><br><br>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div>
-                                <h3>Location</h3>
-                                <p>Ottawa, Ontario, Canada</p>
-                            </div>
-                        </div>
+                        <p>I also offer 3D printing services and specialized repair for electronics. Message me for quotes! <br> <br> NOTE*** this email is temporary and subject to change.</p>
+                        <br>
+                        <h3>Email</h3>
+                        <p><a href="mailto:veetwomusic@gmail.com">veetwomusic@gmail.com</a></p>
+                        <br>
+                        <h3>Location</h3>
+                        <p>Ottawa, Ontario, Canada</p>
                     </div>
-                    <div class="contact-form reveal-element reveal-delay-200">
+                    <div class="contact-form reveal-element reveal-delay-100">
                         <form id="contactForm">
-                            <div class="form-group">
-                                <input type="text" id="name" class="form-control" placeholder="Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" class="form-control" placeholder="Email" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" class="form-control" placeholder="Message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                            <input type="text" class="form-control" placeholder="Name" required>
+                            <input type="email" class="form-control" placeholder="Email" required>
+                            <textarea class="form-control" placeholder="Message" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -586,52 +342,48 @@
                     <div class="footer-about">
                         <div class="footer-logo">
                             <img src="img/goeshard.png" alt="Logo">
-                            <div class="footer-logo-text">Alex Gordon</div>
+                            <span style="font-weight: bold; font-size: 1.1rem; color: var(--primary-text);">Alex Gordon</span>
                         </div>
                         <div class="social-links">
-                            <a href="https://github.com/aetriq" target="_blank">GH</a>
-                            <a href="https://www.youtube.com/@Veetwo_" target="_blank">YT</a>
-                            <a href="https://x.com/Veetwo__" target="_blank">TW</a>
-                            <a href="https://www.instagram.com/veetwo__/" target="_blank">IG</a>
+                            <a href="https://github.com/aetriq" target="_blank" title="GitHub"><img src="https://www.computerhope.com/jargon/g/github.png" alt="GitHub"></a>
+                            <a href="https://www.youtube.com/@Veetwo_" target="_blank" title="YouTube"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/YouTube_icon_%282011-2013%29.svg/500px-YouTube_icon_%282011-2013%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="YouTube"></a>
+                            <a href="https://www.youtube.com/@Aetriq" target="_blank" title="YouTube"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/YouTube_icon_%282011-2013%29.svg/500px-YouTube_icon_%282011-2013%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="YouTube"></a>
+                            <a href="https://x.com/Veetwo__" target="_blank" title="Twitter"><img src="https://files.softicons.com/download/social-media-icons/flat-social-media-icons-by-uiconstock/png/512x512/twitter2.png" alt="Twitter"></a>
+                            <a href="https://www.instagram.com/aetriqdynamics/" target="_blank" title="Instagram"><img src="https://whoisjuan.me/ig-logo/apple-touch-icon.png" alt="Instagram"></a>
                         </div>
-                        <br><br>
-                        <p>Published November 24th, 2024 <br> Last Updated March 21st, 2026 </p>
+                        <br>
+                        <p style="font-size: 0.85rem;">Published November 24th, 2024 <br> Last Updated March 21st, 2026 </p>
                     </div>
-                    
                     <div class="footer-links-container">
-                        <h3 class="footer-heading">Quick Links</h3>
+                        <h3 class="footer-heading">Navigate</h3>
                         <ul class="footer-links">
-                            <li><a href="#home">HOME</a></li>
-                            <li><a href="#projects">PROJECTS</a></li>
-                            <li><a href="#tech-stack">TECH STACK</a></li>
-                            <li><a href="#contact">CONTACT</a></li>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#tech-stack">Tech Stack</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
-                    
                     <div class="footer-links-container">
                         <h3 class="footer-heading">Resources</h3>
                         <ul class="footer-links">
-                            <li><a href="https://github.com/aetriq" target="_blank">GITHUB</a></li>
-                            <li><a href="https://linktr.ee/Aetriq" target="_blank">LINKTREE</a></li>
-                            <li><a href="https://veetwomusic.carrd.co/" target="_blank">CARRD</a></li>
+                            <li><a href="https://github.com/aetriq" target="_blank">GitHub</a></li>
+                            <li><a href="https://linktr.ee/Aetriq" target="_blank">Linktree</a></li>
+                            <li><a href="https://veetwomusic.carrd.co/" target="_blank">Carrd</a></li>
                         </ul>
                     </div>
                 </div>
-                
                 <div class="footer-bottom">
-                    <p>© 2026 under the copyright label Veetwo Music Ltd. All rights reserved.</p>
+                    <p>© 2026 Veetwo Music Ltd. for all projects applicable. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
 
     <script>
-        // Mobile Menu Toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Smooth Scroll handling (Clicking links)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -639,69 +391,36 @@
                 if(targetId === '#') return;
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    // Close mobile menu if open
                     document.querySelector('.nav-links').classList.remove('active');
-                    
-                    // Manually set active class immediately on click
                     document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
                     this.classList.add('active');
-
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: targetElement.offsetTop - 20, behavior: 'smooth' });
                 }
             });
         });
 
-        // ACTIVE NAVIGATION HIGHLIGHTING (Scroll Spy)
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
             let current = '';
             const scrollPosition = window.pageYOffset + 200;
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if(scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
+                if(scrollPosition >= sectionTop) current = section.getAttribute('id');
             });
-            
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-               current = 'contact'; 
-            }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if(link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
             });
         });
 
-        function initScrollAnimations() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            const elements = document.querySelectorAll('.reveal-element');
-            elements.forEach(el => observer.observe(el));
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
-            initScrollAnimations();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
         });
     </script>
 </body>
