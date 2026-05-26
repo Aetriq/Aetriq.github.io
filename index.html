@@ -24,7 +24,7 @@
                 <li><a href="#creative">Creative Work</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><hr style="border: 0; border-top: 1px solid rgba(150,150,150,0.3); margin: 5px 0;"></li>
-                <li><button id="themeToggleBtn" class="theme-toggle">🌙 Dark Mode</button></li>
+                <li><button id="themeToggleBtn" class="theme-toggle">Dark</button></li>
             </ul>
         </div>
     </nav>
@@ -53,8 +53,8 @@
                 <h2 class="section-title reveal-element">Latest Projects</h2>
                 <div class="highlight-container">
 
-                    <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                    <div class="project-card highlight-card reveal-element">
+                        <div class="highlight-body">
                             <div class="highlight-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
                                 <div class="highlight-banner-content">
                                     <h1 style="text-shadow: none;">Intrastice v0.1</h1>
@@ -70,13 +70,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-image" style="flex: 0.8; min-width: 280px; height: auto; border-left: 1px solid rgba(0,0,0,0.2); border-bottom: none; background: #000; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                        <div class="card-image" style="background: #000;">
                             <img src="img/intrastice.png" alt="Intrastice Concept" style="object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));">
                         </div>
                     </div>
                     
-                    <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                    <div class="project-card highlight-card reveal-element">
+                        <div class="highlight-body">
                             <div class="highlight-banner" style="background-image: url('img/bkgdchimera.png');">
                                 <div class="highlight-banner-content">
                                     <h1>Chimera iXY v2.4</h1>
@@ -87,6 +87,14 @@
                                 <p>A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X.</p>
                                 <p style="font-style: italic; background: rgba(0,0,0,0.05); padding: 5px 10px; border-left: 3px solid #56ab2f; margin-bottom: 15px;">Still printing. Still free. Still RepRap.</p>
                                 <p style="font-size: 0.9rem; color: var(--body-text);"><strong>Current Status (2-21-26):</strong> v2.4 released; check page for more details!</p>
+                                
+                                <div style="display: flex; gap: 15px; align-items: center; margin: 10px 0 20px 0; flex-wrap: wrap; padding: 10px; background: rgba(0,0,0,0.03); border-radius: var(--radius-soft); border: 1px solid rgba(0,0,0,0.05);">
+                                    <a href="https://reprap.org/" target="_blank" title="RepRap Project"><img src="https://reprap.org/mediawiki/images/reprap_logo.png?06a32" alt="RepRap" height="24"></a>
+                                    <a href="https://e3d-online.com/" target="_blank" title="E3D Online"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorseek.com%2Fwp-content%2Fuploads%2F2023%2F12%2FE3D-Online-Logo-Vector.svg-.png&f=1&nofb=1&ipt=b34028798436c83d472fdf96098e7ce15c0c9c3e000faafdf0e0a843bb649793" alt="E3D" height="24" style="filter: invert(1); opacity: 0.8;"></a>
+                                    <a href="https://github.com/makerbase-mks" target="_blank" title="Makerbase MKS"><img src="img/mks.png" alt="Makerbase" height="24"></a>
+                                    <a href="https://www.klipper3d.org/" target="_blank" title="Klipper Firmware"><img src="https://www.klipper3d.org/img/klipper-logo.png" alt="Klipper" height="24"></a>
+                                </div>
+
                                 <div style="display: flex; gap: 10px; margin-top: auto; flex-wrap: wrap;">
                                     <a href="chimera.html" class="btn btn-primary" target="_blank">Official Page</a>
                                     <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">GitHub</a>
@@ -94,14 +102,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-image" style="flex: 0.8; min-width: 280px; height: auto; border-left: 1px solid rgba(0,0,0,0.2); border-bottom: none;">
+                        <div class="card-image">
                             <img src="img/chimera2.0.png" alt="Chimera iXY 3D Printer">
                         </div>
                     </div>
 
-                    <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
-                            <div class="highlight-banner" style="background-image: url('https://media.printables.com/media/prints/188688d5-9bab-49b5-8a28-c11368f2e850/images/12967802_03a82413-ee13-4af2-8f9e-4c0580bec4ff_b0b71a42-39c4-4282-afcf-e2239aa7be0a/thumbs/inside/1280x960/jpg/topviewdiagram.webp');"> <div class="highlight-banner-content">
+                    <div class="project-card highlight-card reveal-element">
+                        <div class="highlight-body">
+                            <div class="highlight-banner" style="background-image: url('https://media.printables.com/media/prints/188688d5-9bab-49b5-8a28-c11368f2e850/images/12967802_03a82413-ee13-4af2-8f9e-4c0580bec4ff_b0b71a42-39c4-4282-afcf-e2239aa7be0a/thumbs/inside/1280x960/jpg/topviewdiagram.webp');"> 
+                                <div class="highlight-banner-content">
                                     <h1>OMV Status Screen add-on</h1>
                                     <h3 style="color: #a8e063;">ESP32-C3 Based NAS Monitor</h3>
                                 </div>
@@ -113,17 +122,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-image" style="flex: 0.8; min-width: 280px; height: auto; border-left: 1px solid rgba(0,0,0,0.2); border-bottom: none;">
+                        <div class="card-image">
                             <img src="https://media.printables.com/media/prints/409ea7f9-4d5d-42ae-97e0-5879822e942f/images/12967803_ce3e736e-a642-4527-ab09-30a9d5f6cd9a_d3d8c5fb-b94e-4800-b611-38b6db55efee/thumbs/cover/320x240/png/frontviewdiagram.webp" alt="OMV Status Screen">
                         </div>
                     </div>
-                </div>
-
-                <div class="hero-partners reveal-element reveal-delay-200" style="display: flex; gap: 20px; align-items: center; margin-top: 30px; flex-wrap: wrap; padding: 15px; background: var(--bg-glass); border-radius: var(--radius-soft); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 5px rgba(0,0,0,0.1); border: var(--border-glass);">
-                    <a href="https://reprap.org/" target="_blank" title="RepRap Project"><img src="https://reprap.org/mediawiki/images/reprap_logo.png?06a32" alt="RepRap" height="30"></a>
-                    <a href="https://e3d-online.com/" target="_blank" title="E3D Online"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorseek.com%2Fwp-content%2Fuploads%2F2023%2F12%2FE3D-Online-Logo-Vector.svg-.png&f=1&nofb=1&ipt=b34028798436c83d472fdf96098e7ce15c0c9c3e000faafdf0e0a843bb649793" alt="E3D" height="30" style="filter: invert(1);"></a>
-                    <a href="https://github.com/makerbase-mks" target="_blank" title="Makerbase MKS"><img src="img/mks.png" alt="Makerbase" height="30"></a>
-                    <a href="https://www.klipper3d.org/" target="_blank" title="Klipper Firmware"><img src="https://www.klipper3d.org/img/klipper-logo.png" alt="Klipper" height="30"></a>
                 </div>
             </div>
         </section>
@@ -489,7 +491,7 @@
                             <a href="https://www.instagram.com/aetriqdynamics/" target="_blank" title="Instagram"><img src="https://whoisjuan.me/ig-logo/apple-touch-icon.png" alt="Instagram"></a>
                         </div>
                         <br>
-                        <p style="font-size: 0.85rem;">Published November 24th, 2024 <br> Last Updated May 25th, 2026 <br> You are looking at v2.57 of my website.</p>
+                        <p style="font-size: 0.85rem;">Published November 24th, 2024 <br> Last Updated May 25th, 2026 <br> You are looking at v2.58 of my website.</p>
                     </div>
                     <div class="footer-links-container">
                         <h3 class="footer-heading">Navigate</h3>
@@ -519,23 +521,32 @@
     <script>
         // Dark Mode Logic
         const themeBtn = document.getElementById('themeToggleBtn');
-        const currentTheme = localStorage.getItem('theme');
-        
+        // Get the saved theme, defaulting to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // 1. Apply the correct theme and text immediately on load
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeBtn.textContent = 'Light';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeBtn.textContent = 'Dark';
         }
 
+        // 2. Handle the toggle click cleanly
         themeBtn.addEventListener('click', () => {
-            let targetTheme = 'light';
-            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-                targetTheme = 'dark';
-                themeBtn.textContent = 'Light';
-            } else {
-                themeBtn.textContent = 'Dark';
-            }
+            // Check what the CURRENT theme is in the DOM
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            
+            // Flip it
+            const targetTheme = isDark ? 'light' : 'dark';
+            
+            // Apply and save
             document.documentElement.setAttribute('data-theme', targetTheme);
             localStorage.setItem('theme', targetTheme);
+            
+            // Update button text
+            themeBtn.textContent = isDark ? 'Dark' : 'Light';
         });
 
         // Mobile Menu
