@@ -91,6 +91,8 @@ body::before {
     text-decoration: none; transition: var(--transition-fast);
     border: 1px solid transparent; cursor: pointer; background: transparent;
     text-align: left; width: 100%; font-family: inherit;
+    -webkit-appearance: none; /* Removes default iOS/Safari styling */
+    appearance: none;         /* Removes default browser styling */
 }
 
 .nav-links a:hover, .theme-toggle:hover {
@@ -287,24 +289,23 @@ a:hover { text-decoration: underline; }
 /* --- Highlight / Horizontal Cards Fix --- */
 .highlight-card {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevents messy wrapping mid-size */
 }
 
 .highlight-card .highlight-body {
     flex: 1;
-    min-width: 300px;
+    /* Removed min-width to allow graceful shrinking before breakpoint */
     display: flex;
     flex-direction: column;
 }
 
 .highlight-card .card-image {
     flex: 0.8;
-    min-width: 280px;
     height: auto;
-    min-height: 280px; /* Forces space to be reserved before image loads */
+    min-height: 280px; 
     border-left: var(--border-dark);
     border-bottom: none;
-    position: relative; /* Anchors the absolute image */
+    position: relative; 
 }
 
 .highlight-card .card-image img {
@@ -318,11 +319,16 @@ a:hover { text-decoration: underline; }
 
 /* Mobile responsive fallback */
 @media (max-width: 992px) {
+    .highlight-card {
+        flex-direction: column;
+    }
     .highlight-card .card-image {
+        order: -1; /* Moves the image to the TOP of the card on mobile */
         border-left: none;
         border-bottom: var(--border-dark);
-        min-height: 200px;
-        flex: 1 1 100%;
+        min-height: 250px;
+        flex: auto;
+        width: 100%;
     }
 }
 

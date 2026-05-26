@@ -521,8 +521,14 @@
     <script>
         // Dark Mode Logic
         const themeBtn = document.getElementById('themeToggleBtn');
-        // Get the saved theme, defaulting to 'light'
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+
+        // Safely attempt to get the saved theme
+        try {
+            currentTheme = localStorage.getItem('theme') || 'light';
+        } catch (error) {
+            console.warn("Local storage blocked: proceeding with default theme.");
+        }
 
         // 1. Apply the correct theme and text immediately on load
         if (currentTheme === 'dark') {
@@ -533,20 +539,20 @@
             themeBtn.textContent = 'Dark';
         }
 
-        // 2. Handle the toggle click cleanly
+        // 2. Handle the toggle click cleanly and safely
         themeBtn.addEventListener('click', () => {
-            // Check what the CURRENT theme is in the DOM
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            
-            // Flip it
             const targetTheme = isDark ? 'light' : 'dark';
             
-            // Apply and save
             document.documentElement.setAttribute('data-theme', targetTheme);
-            localStorage.setItem('theme', targetTheme);
-            
-            // Update button text
             themeBtn.textContent = isDark ? 'Dark' : 'Light';
+            
+            // Safely attempt to save the theme
+            try {
+                localStorage.setItem('theme', targetTheme);
+            } catch (error) {
+                console.warn("Local storage blocked: could not save theme preference.");
+            }
         });
 
         // Mobile Menu
