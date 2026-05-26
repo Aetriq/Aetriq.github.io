@@ -17,18 +17,20 @@
             <button class="mobile-menu-btn">☰ Menu</button>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#highlight">Highlighted Project</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#highlight">Highlighted Projects</a></li>
+                <li><a href="#projects">All Projects</a></li>
                 <li><a href="#3d-models">3D Models</a></li>
                 <li><a href="#tech-stack">Tech Stack</a></li>
                 <li><a href="#creative">Creative Work</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><hr style="border: 0; border-top: 1px solid rgba(150,150,150,0.3); margin: 5px 0;"></li>
+                <li><button id="themeToggleBtn" class="theme-toggle">🌙 Dark Mode</button></li>
             </ul>
         </div>
     </nav>
 
     <div class="main-content">
-        <section id="home" class="section" style="padding-top: 100px; padding-bottom: 80px;">
+        <section id="home" class="section" style="padding-top: 80px; padding-bottom: 60px;">
             <div class="container">
                 <div class="hero">
                     <h1 class="reveal-element">Aetriq's Personal Site</h1>
@@ -37,7 +39,7 @@
                         <p>I'm Alex and I go by Veetwo in some instances online (also my copyright label). Aetriq is my newer label seen on my PCB designs and hardware projects.</p>
                         <p>I've been repairing/restoring electronics at component and PCB levels since 2019 and provide these services for hardware, from general diagnostics to board-level soldering, as well as specialized PC building.</p>
                     </div>
-                    <div class="hero-buttons reveal-element reveal-delay-200">
+                    <div class="hero-buttons reveal-element reveal-delay-200" style="margin-top: 20px;">
                         <a href="store.html" class="btn btn-primary">Storefront</a>
                         <a href="#projects" class="btn btn-outline">Current Projects</a>
                         <a href="#contact" class="btn btn-outline">Contact</a>
@@ -48,25 +50,76 @@
 
         <section id="highlight" class="section">
             <div class="container">
-                <h2 class="section-title reveal-element">Latest Project</h2>
-                <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
-                    <div class="card-content" style="flex: 1; min-width: 300px;">
-                        <h1>Chimera iXY v2.4</h1>
-                        <h3 style="color: #0b5394; margin-bottom: 10px;">Custom High-Speed CoreXY 3D Printer</h3>
-                        <p>A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X. Demonstrating the usability of RepRap in modern printers.</p>
-                        <p style="font-style: italic; background: rgba(0,0,0,0.05); padding: 5px 10px; border-left: 3px solid #56ab2f; margin-bottom: 15px;">Still printing. Still free. Still RepRap.</p>
-                        <p style="font-size: 0.9rem; color: #555;"><strong>Current Status (2-21-26):</strong> v2.4 released; check page for more details!</p>
-                        <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="chimera.html" class="btn btn-primary" target="_blank">Official Page</a>
-                            <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">GitHub</a>
-                            <a href="chimeradocfull.html" class="btn btn-outline">Documentation</a>
+                <h2 class="section-title reveal-element">Latest Projects</h2>
+                <div class="highlight-container">
+
+                    <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                            <div class="highlight-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                                <div class="highlight-banner-content">
+                                    <h1 style="text-shadow: none;">Intrastice v0.1</h1>
+                                    <h3 style="color: #00f3ff; text-shadow: none; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem;">Next-Gen Ultra-Compact CoreXY</h3>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers, featuring a custom edge-ML vision system for real-time anomaly detection.</p>
+                                <p style="font-style: italic; background: rgba(0,0,0,0.05); padding: 5px 10px; border-left: 3px solid #c0392b; margin-bottom: 15px;">Status: <strong style="color:#c0392b;">INCOMPLETE / CONCEPT</strong></p>
+                                <div style="display: flex; gap: 10px; margin-top: auto; flex-wrap: wrap;">
+                                    <a href="intrastice.html" class="btn btn-primary" style="background: linear-gradient(180deg, #111, #000); border-color: #333; color: #fff !important;">View Concept</a>
+                                    <a href="https://github.com/Aetriq/CEG4195-Project" target="_blank" class="btn btn-outline">ESP32 Blob Detection PoC</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-image" style="flex: 0.8; min-width: 280px; height: auto; border-left: 1px solid rgba(0,0,0,0.2); border-bottom: none; background: #000; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <img src="img/intrastice.png" alt="Intrastice Concept" style="object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));">
                         </div>
                     </div>
-                    <div class="card-image" style="flex: 1; min-width: 300px; height: auto; border-left: 1px solid rgba(0,0,0,0.1); border-bottom: none;">
-                        <img src="img/chimera2.0.png" alt="Chimera iXY 3D Printer">
+                    
+                    <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                            <div class="highlight-banner" style="background-image: url('img/bkgdchimera.png');">
+                                <div class="highlight-banner-content">
+                                    <h1>Chimera iXY v2.4</h1>
+                                    <h3 style="color: #f66464;">Custom High-Speed CoreXY 3D Printer</h3>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X.</p>
+                                <p style="font-style: italic; background: rgba(0,0,0,0.05); padding: 5px 10px; border-left: 3px solid #56ab2f; margin-bottom: 15px;">Still printing. Still free. Still RepRap.</p>
+                                <p style="font-size: 0.9rem; color: var(--body-text);"><strong>Current Status (2-21-26):</strong> v2.4 released; check page for more details!</p>
+                                <div style="display: flex; gap: 10px; margin-top: auto; flex-wrap: wrap;">
+                                    <a href="chimera.html" class="btn btn-primary" target="_blank">Official Page</a>
+                                    <a href="https://github.com/aetriq/ChimeraiXY" class="btn btn-outline" target="_blank">GitHub</a>
+                                    <a href="chimeradocfull.html" class="btn btn-outline">Documentation</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-image" style="flex: 0.8; min-width: 280px; height: auto; border-left: 1px solid rgba(0,0,0,0.2); border-bottom: none;">
+                            <img src="img/chimera2.0.png" alt="Chimera iXY 3D Printer">
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element" style="flex-direction: row; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                            <div class="highlight-banner" style="background-image: url('https://media.printables.com/media/prints/188688d5-9bab-49b5-8a28-c11368f2e850/images/12967802_03a82413-ee13-4af2-8f9e-4c0580bec4ff_b0b71a42-39c4-4282-afcf-e2239aa7be0a/thumbs/inside/1280x960/jpg/topviewdiagram.webp');"> <div class="highlight-banner-content">
+                                    <h1>OMV Status Screen add-on</h1>
+                                    <h3 style="color: #a8e063;">ESP32-C3 Based NAS Monitor</h3>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>Very low cost basic status screen add-on for OpenMediaVault NAS servers. Based on the ESP32-C3 MCU, error detection and graphics recovery with 3 status LEDs. Uses ESP-IDF, very modular for different full color tfts (LVGL UI).</p>
+                                <div style="display: flex; gap: 10px; margin-top: auto; flex-wrap: wrap;">
+                                    <a href="https://github.com" class="btn btn-primary" target="_blank">Releasing soon...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-image" style="flex: 0.8; min-width: 280px; height: auto; border-left: 1px solid rgba(0,0,0,0.2); border-bottom: none;">
+                            <img src="https://media.printables.com/media/prints/409ea7f9-4d5d-42ae-97e0-5879822e942f/images/12967803_ce3e736e-a642-4527-ab09-30a9d5f6cd9a_d3d8c5fb-b94e-4800-b611-38b6db55efee/thumbs/cover/320x240/png/frontviewdiagram.webp" alt="OMV Status Screen">
+                        </div>
                     </div>
                 </div>
-                <div class="hero-partners reveal-element reveal-delay-200" style="display: flex; gap: 20px; align-items: center; margin-top: 20px; flex-wrap: wrap;">
+
+                <div class="hero-partners reveal-element reveal-delay-200" style="display: flex; gap: 20px; align-items: center; margin-top: 30px; flex-wrap: wrap; padding: 15px; background: var(--bg-glass); border-radius: var(--radius-soft); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 5px rgba(0,0,0,0.1); border: var(--border-glass);">
                     <a href="https://reprap.org/" target="_blank" title="RepRap Project"><img src="https://reprap.org/mediawiki/images/reprap_logo.png?06a32" alt="RepRap" height="30"></a>
                     <a href="https://e3d-online.com/" target="_blank" title="E3D Online"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorseek.com%2Fwp-content%2Fuploads%2F2023%2F12%2FE3D-Online-Logo-Vector.svg-.png&f=1&nofb=1&ipt=b34028798436c83d472fdf96098e7ce15c0c9c3e000faafdf0e0a843bb649793" alt="E3D" height="30" style="filter: invert(1);"></a>
                     <a href="https://github.com/makerbase-mks" target="_blank" title="Makerbase MKS"><img src="img/mks.png" alt="Makerbase" height="30"></a>
@@ -77,30 +130,71 @@
 
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title reveal-element">Current Projects</h2>
+                <h2 class="section-title reveal-element">All Projects</h2>
                 <div class="project-list">
+
                     <div class="project-card reveal-element">
-                        <div class="card-image"><img src="img/omv.jpeg" alt="OMV Status Screen"></div>
+                        <div class="card-image"><img src="img/heltec.jpg" alt="Heltec"></div>
                         <div class="card-content">
-                            <h3 class="card-title">OMV Status Screen add-on</h3>
-                            <p class="card-description">Very low cost basic status screen add-on for OpenMediaVault NAS servers. Based on the ESP32-C3 MCU, error detection and graphics recovery with 3 status LEDs. Uses ESP-IDF, very modular for different full color tfts (supporting LVGL UI).</p>
-                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
-                            <div class="card-tech"><span class="tech-tag">ESP32-C3</span></div>
-                            <div style="margin-top: 10px;"><a href="https://github.com" class="btn btn-outline" target="_blank">Releasing soon...</a></div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card reveal-element">
-                        <div class="card-image"><img src="img/heltec.jpeg" alt="Heltec"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Heltec IOT Tracker PEN testing tool</h3>
-                            <p class="card-description">A basic security pentesting tool using the Heltec IOT Wireless Tracker v1.1 with a 2.0" tft and 5 navigation buttons. Beyond basic wifi/ble functions, it also features usage of the built-in sx1262 lora and uc6550 gnss modules.</p>
+                            <h3 class="card-title">Heltec IOT Tracker Bruce Port</h3>
+                            <p class="card-description">A reliable port of the Bruce Firmware for the Heltec IOT Tracker (v1.1, no tft). Uses a ST7789 2.0 inch TFT and 6 buttons.<br><br>All functions planned to work, including the UC6580 GNSS and SX1262 LoRa.</p>
                             <p style="color:#d35400; font-weight: bold;">IN PROGRESS...</p>
                             <div class="card-tech">
                                 <span class="tech-tag">Heltec v1.1</span> <span class="tech-tag">WIFI/BLE</span>
                                 <span class="tech-tag">GNSS</span> <span class="tech-tag">LoRa</span>
                             </div>
                             <div style="margin-top: 10px;"><a href="https://github.com" class="btn btn-outline" target="_blank">TBD...</a></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/intrastice.png" alt="Intrastice"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Intrastice v0.1</h3>
+                            <p class="card-description">Planned '2nd generation' of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch. This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.</p>
+                            <p style="color:#c0392b; font-weight: bold;">INCOMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span> <span class="tech-tag">Embedded Systems</span></div>
+                            <div style="margin-top: 10px;"><a href="#" class="btn btn-outline">PoC Soon...</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/omv.jpeg" alt="OMV Status Screen"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">OMV Status Screen add-on</h3>
+                            <p class="card-description">Very low cost basic status screen add-on for OpenMediaVault NAS servers. Based on the ESP32-C3 MCU, error detection and graphics recovery.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">ESP32-C3</span></div>
+                            <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/ESP32-OMV-StatusScreen" class="btn btn-outline" target="_blank">View Project</a>
+                            <a href="https://www.printables.com/model/1729305-acer-aspire-ax3400-omv-nas-mod" class="btn btn-outline" target="_blank">Printables</a></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="img/echolog.png" alt="Chimera iXY"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">EchoLog</h3>
+                            <p class="card-description">Based on the needs of our client, EchoLog is designed to be applicable with similar goals of recording and storing different forms of logs in high intensity/stress environments.
+
+</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div style="margin-top: 10px; display:flex; gap:10px;">
+                                <a href="https://github.com/Aetriq/CEG491X-Capstone" class="btn btn-outline" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image"><img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.4/fronttopview.png?raw=true" alt="Chimera iXY"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Chimera iXY v2.4</h3>
+                            <p class="card-description">Fully custom designed and built high-speed 3D printer from two bedslingers using ‘CoreXY’ kinematics.</p>
+                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
+                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span> <span class="tech-tag">Embedded Systems</span></div>
+                            <div style="margin-top: 10px; display:flex; gap:10px;">
+                                <a href="chimera.html" class="btn btn-outline" target="_blank">View Project</a>
+                                <a href="chimeradocfull.html" class="btn btn-outline" target="_blank">Docs</a>
+                            </div>
                         </div>
                     </div>
 
@@ -123,31 +217,6 @@
                             <p style="color:#2b7a0b; font-weight: bold;">COMPLETE (See Intrastice)</p>
                             <div class="card-tech"><span class="tech-tag">Edge ML</span> <span class="tech-tag">Embedded Systems</span></div>
                             <div style="margin-top: 10px;"><a href="https://github.com/Aetriq/CEG4195-Project" class="btn btn-outline" target="_blank">View Project</a></div>
-                        </div>
-                    </div>
-
-                    <div class="project-card reveal-element">
-                        <div class="card-image"><img src="img/intrastice.png" alt="Intrastice"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Intrastice v0.1</h3>
-                            <p class="card-description">Planned '2nd generation' of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch. This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.</p>
-                            <p style="color:#c0392b; font-weight: bold;">INCOMPLETE</p>
-                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span> <span class="tech-tag">Embedded Systems</span></div>
-                            <div style="margin-top: 10px;"><a href="#" class="btn btn-outline">PoC Soon...</a></div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card reveal-element">
-                        <div class="card-image"><img src="https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.4/fronttopview.png?raw=true" alt="Chimera iXY"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Chimera iXY v2.4</h3>
-                            <p class="card-description">Fully custom designed and built high-speed 3D printer from two bedslingers using ‘CoreXY’ kinematics. Apr. 24 - Feb. 26</p>
-                            <p style="color:#2b7a0b; font-weight: bold;">COMPLETE</p>
-                            <div class="card-tech"><span class="tech-tag">FDM (3D) Printing</span> <span class="tech-tag">Embedded Systems</span></div>
-                            <div style="margin-top: 10px; display:flex; gap:10px;">
-                                <a href="chimera.html" class="btn btn-outline" target="_blank">View Project</a>
-                                <a href="chimeradocfull.html" class="btn btn-outline" target="_blank">Docs</a>
-                            </div>
                         </div>
                     </div>
 
@@ -235,19 +304,87 @@
             </div>
         </section>
 
-        <section id="3d-models" class="section" style="background: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.8);">
+        <section id="3d-models" class="section" style="background: var(--bg-glass); border-top: var(--border-glass); border-bottom: var(--border-dark);">
             <div class="container">
-                <h2 class="section-title reveal-element">3D Models (Coming soon...)</h2>
+                <h2 class="section-title reveal-element">3D Models</h2>
+                <div class="reveal-element" style="margin-bottom: 2rem;">
+                    <p>I also do CAD design. Mostly enclosures, but I'm always improving my ability. Below are some free to use models from my Printables profile!</p>
+                    <br>
+                    <p>If you need a custom design, send me an email!</p>
+                </div>
                 <div class="project-list">
-                     <!-- <div class="project-card reveal-element">
-                        <div class="card-image">
-                            <img src="https://via.placeholder.com/400x300/e0e0e0/333333?text=Model+Render" alt="Chimera Parts">
+                    
+                    <div class="project-card reveal-element">
+                        <div class="card-image" style="position: relative;">
+                            <img src="https://media.printables.com/media/prints/409ea7f9-4d5d-42ae-97e0-5879822e942f/images/12967803_ce3e736e-a642-4527-ab09-30a9d5f6cd9a_d3d8c5fb-b94e-4800-b611-38b6db55efee/thumbs/inside/1920x1440/png/frontviewdiagram.webp" alt="Printables png">
+                            <div class="badge-printables">Printables</div>
                         </div>
-                         <div class="card-content" style="align-items: center; text-align: center;"> 
-                            <h3 class="card-title">Chimera Gantry Parts</h3>
-                            <a href="https://printables.com" target="_blank" class="btn btn-primary" style="margin-top: 10px;">View on Printables</a>
+                        <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">Acer Aspire AX3400 OMV NAS mod</h3>
+                            <p class="card-description" style="margin-bottom: 15px;"><i>updated May 21, 2026</i><br><br>A simple ESP32 based dashboard status screen for OpenMediaVault based NAS devices.</p>
+                            <a href="https://www.printables.com/model/1729305-acer-aspire-ax3400-omv-nas-mod" target="_blank" class="btn btn-primary" style="width: 100%;">View on Printables</a>
                         </div>
-                    </div>  -->
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image" style="position: relative;">
+                            <img src="https://media.printables.com/media/prints/70253bba-288e-4bc0-8864-fb05da866667/images/12043060_dc17d91a-1596-4e4a-8664-5dec3e7f9659_de8cee7e-1bf8-4037-8148-20e50bc2b478/thumbs/inside/1280x960/png/screenshot-2026-02-13-201656.webp" alt="Printables png">
+                            <div class="badge-printables">Printables</div>
+                        </div>
+                        <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">OPEN-SMART 3 Channel Button Sensor Module</h3>
+                            <p class="card-description" style="margin-bottom: 15px;"><i>updated February 13, 2026</i><br><br>Accurate placeholder model for the OPEN-SMART 3 Channel Colorful Big Key Analog Button Sensor Module</p>
+                            <a href="https://www.printables.com/model/1600381-open-smart-3-channel-button-sensor-module" target="_blank" class="btn btn-primary" style="width: 100%;">View on Printables</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image" style="position: relative;">
+                            <img src="https://media.printables.com/media/prints/24e3b97e-c0b3-442b-bf1d-2115bc1e5f50/images/11613333_67509c1c-6291-4969-8590-a07455dbf7d5_44a56e16-8459-4e70-908d-8c5367e4dfbd/thumbs/inside/1280x960/jpg/img_6188_cleaned.webp" alt="Printables png">
+                            <div class="badge-printables">Printables</div>
+                        </div>
+                        <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">Pi Zero Display Storage Rack</h3>
+                            <p class="card-description" style="margin-bottom: 15px;"><i>updated January 3, 2026</i><br><br>Display Storage Rack for Pi Zeroes with GPIO clearance</p>
+                            <a href="https://www.printables.com/model/1540177-pi-zero-display-storage-rack" target="_blank" class="btn btn-primary" style="width: 100%;">View on Printables</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image" style="position: relative;">
+                            <img src="https://media.printables.com/media/prints/05632cce-919d-4e3e-9a3a-f661a8271660/images/11589459_b02daffe-c854-440b-83ee-011c8586d54b_61beb577-96cc-4a31-9d55-aabc6ce5812e/thumbs/inside/1280x960/jpg/img_6162.webp" alt="Printables png">
+                            <div class="badge-printables">Printables</div>
+                        </div>
+                        <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">MKS Robin Nano v3.X + RPi Zero 2W case with 120mm fan</h3>
+                            <p class="card-description" style="margin-bottom: 15px;"><i>updated January 1, 2026</i><br><br>Case for MKS Robin Nano MCU, RPi/OPi Zero 2w and 5V regulator. Uses 120mm case fan.</p>
+                            <a href="https://www.printables.com/model/1537416-mks-robin-nano-v3x-rpi-zero-2w-case-with-120mm-fan" target="_blank" class="btn btn-primary" style="width: 100%;">View on Printables</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image" style="position: relative;">
+                            <img src="https://media.printables.com/media/prints/69f41d06-30ab-4d14-b4df-3faa5d502499/images/11244874_b62b8038-da2b-42b8-8f01-c2a12ea3cc4b_df330e1f-7208-4b2c-a7fc-9408b1c0f09c/thumbs/inside/1280x960/png/chimeradocgantryv1.webp" alt="Printables png">
+                            <div class="badge-printables">Printables</div>
+                        </div>
+                        <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">T-Slot 2020 Extrusion Gantry Plate + E3D V6 Hotend/SN08 Probe</h3>
+                            <p class="card-description" style="margin-bottom: 15px;"><i>updated November 24, 2025</i><br><br>T-Slot 2020 Extrusion Gantry Plate with mounting for the E3D V6 Hotend and SN08 Inductive Probe.</p>
+                            <a href="https://www.printables.com/model/1492330-t-slot-2020-extrusion-gantry-plate-e3d-v6-hotendsn" target="_blank" class="btn btn-primary" style="width: 100%;">View on Printables</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element">
+                        <div class="card-image" style="position: relative;">
+                            <img src="https://media.printables.com/media/prints/b348b5ad-d95b-4cc8-8aae-8ccb5962c923/images/9841222_28534179-dec7-4579-aaff-ba824dda3144_bd8d1c6c-2424-4bd2-bd3e-12ee25314536/thumbs/inside/1280x960/jpg/img_5748.webp" alt="Printables png">
+                            <div class="badge-printables">Printables</div>
+                        </div>
+                        <div class="card-content" style="align-items: center; text-align: center;"> 
+                            <h3 class="card-title">Mingda Magician X: X-axis Ribbon Cable Strain Relief Bracket</h3>
+                            <p class="card-description" style="margin-bottom: 15px;"><i>updated May 22, 2025</i><br><br>X-axis 20 pin ribbon cable strain relief bracket for the Magician X. Easy clip on.</p>
+                            <a href="https://www.printables.com/model/1304929-mingda-magician-x-x-axis-ribbon-cable-strain-relie" target="_blank" class="btn btn-primary" style="width: 100%;">View on Printables</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -352,7 +489,7 @@
                             <a href="https://www.instagram.com/aetriqdynamics/" target="_blank" title="Instagram"><img src="https://whoisjuan.me/ig-logo/apple-touch-icon.png" alt="Instagram"></a>
                         </div>
                         <br>
-                        <p style="font-size: 0.85rem;">Published November 24th, 2024 <br> Last Updated May 17th, 2026 </p>
+                        <p style="font-size: 0.85rem;">Published November 24th, 2024 <br> Last Updated May 25th, 2026 <br> You are looking at v2.57 of my website.</p>
                     </div>
                     <div class="footer-links-container">
                         <h3 class="footer-heading">Navigate</h3>
@@ -373,17 +510,40 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2026 Veetwo Music Ltd. for all projects applicable. All rights reserved.</p>
+                    <p>© 2026 Veetwo Music Ltd. for all projects applicable. All rights reserved.<br><br>By browsing my website, you agree to the cookies obtained via CloudFlare. This is done to prevent AI from scraping my site. You can turn this off at any time within your browser. </p>
                 </div>
             </div>
         </footer>
     </div>
 
     <script>
+        // Dark Mode Logic
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeBtn.textContent = 'Light';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            let targetTheme = 'light';
+            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+                themeBtn.textContent = 'Light';
+            } else {
+                themeBtn.textContent = 'Dark';
+            }
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+        });
+
+        // Mobile Menu
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -399,6 +559,7 @@
             });
         });
 
+        // Scroll Spy
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
@@ -416,6 +577,7 @@
             });
         });
 
+        // Intersection Observer for Animations
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });

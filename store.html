@@ -5,102 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq's Store</title>
-    
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Store specific layout overrides */
-        .product-footer { 
-            margin-top: 15px; display: flex; justify-content: space-between; align-items: center; 
-        }
-        .product-price { 
-            font-family: monospace; font-weight: bold; font-size: 1.1rem; color: #0b5394; 
-        }
+        .product-footer { margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .product-price { font-family: monospace; font-weight: bold; font-size: 1.2rem; color: #4da4e0; }
+        [data-theme="light"] .product-price { color: #0b5394; }
         
         /* Modal styled like a Vista/7 Dialog window */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); z-index: 1000;
+            background: rgba(0, 0, 0, 0.7); z-index: 1000;
+            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
             display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
-        .modal-overlay.active { 
-            opacity: 1; pointer-events: auto; 
-        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
         
         .modal-content {
-            background: linear-gradient(180deg, #ffffff 0%, #eef5fa 100%);
-            border: 1px solid rgba(255,255,255,0.9);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
-            border-radius: 8px; width: 90%; max-width: 800px;
+            background: var(--bg-card); border: var(--border-glass);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.8);
+            border-radius: var(--radius-soft); width: 90%; max-width: 800px;
             max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column;
-            transform: scale(0.95); transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            transform: scale(0.9) translateY(20px); transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
         }
-        .modal-overlay.active .modal-content { 
-            transform: scale(1); 
-        }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
         
         .modal-header { 
-            padding: 15px 25px; border-bottom: 1px solid #ccc; 
-            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(220,230,240,0.8) 100%);
-            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 25px; border-bottom: var(--border-dark); 
+            background: var(--bg-glass); display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 10;
         }
-        .close-btn { 
-            background: linear-gradient(180deg, #ffaaaa, #cc0000); border: 1px solid #990000; 
-            color: white; border-radius: 4px; padding: 5px 15px; cursor: pointer; 
-            font-weight: bold; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-            font-family: inherit;
-        }
-        .close-btn:hover { 
-            background: linear-gradient(180deg, #ffcccc, #ff0000); 
-        }
         
-        .modal-body { 
-            padding: 30px; 
+        .close-btn { 
+            background: linear-gradient(180deg, #ffaaaa 0%, #ff6666 49%, #cc0000 50%, #e60000 100%); 
+            border: 1px solid #990000; border-top: 1px solid rgba(255,255,255,0.6);
+            color: white; border-radius: 4px; padding: 6px 15px; cursor: pointer; 
+            font-weight: bold; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.2);
+            font-family: inherit; transition: var(--transition-fast);
         }
+        .close-btn:hover { background: linear-gradient(180deg, #ffcccc 0%, #ff9999 49%, #ff0000 50%, #ff3333 100%); transform: scale(1.05); }
+        
+        .modal-body { padding: 30px; }
         
         .carousel-container { 
-            position: relative; height: 350px; background: #fff; border: 1px solid #ccc;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); border-radius: 4px;
-            display: flex; justify-content: center; align-items: center; margin-bottom: 20px;
-            overflow: hidden;
+            position: relative; height: 350px; background: rgba(0,0,0,0.2); border: var(--border-dark);
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); border-radius: 4px;
+            display: flex; justify-content: center; align-items: center; margin-bottom: 20px; overflow: hidden;
         }
-        .carousel-img { 
-            max-height: 100%; max-width: 100%; object-fit: contain; padding: 10px; 
-        }
+        .carousel-img { max-height: 100%; max-width: 100%; object-fit: contain; padding: 10px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); }
+        
         .carousel-btn { 
             position: absolute; top: 50%; transform: translateY(-50%);
-            background: linear-gradient(180deg, #fff, #ddd); color: #333; 
-            border: 1px solid #999; border-radius: 20px; width: 40px; height: 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(220,220,220,0.8) 50%, rgba(200,200,200,0.9) 100%); 
+            color: #333; border: 1px solid #999; border-radius: 20px; width: 40px; height: 40px;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; font-weight: bold; font-size: 1.2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8); z-index: 2; transition: var(--transition-fast);
         }
-        .carousel-btn:hover { 
-            background: linear-gradient(180deg, #fff, #eee); 
-        }
-        .carousel-prev { left: 15px; } 
-        .carousel-next { right: 15px; }
+        .carousel-btn:hover { background: linear-gradient(180deg, #fff 0%, #eee 50%, #ddd 100%); transform: translateY(-50%) scale(1.1); }
+        .carousel-prev { left: 15px; } .carousel-next { right: 15px; }
 
         .image-counter {
             position: absolute; bottom: 15px; right: 15px;
-            background: rgba(0,0,0,0.6); color: #fff; padding: 4px 10px;
+            background: rgba(0,0,0,0.7); color: #fff; padding: 4px 12px;
             border-radius: 12px; font-size: 0.8rem; font-family: monospace;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
         }
         
         .status-badge { 
-            display: inline-block; padding: 5px 15px; border-radius: 15px; 
+            display: inline-block; padding: 6px 18px; border-radius: 15px; 
             font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; 
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.2);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 4px rgba(0,0,0,0.3);
         }
-        .btn-disabled { 
-            background: linear-gradient(180deg, #eee, #ccc); border: 1px solid #aaa; 
-            color: #777; cursor: not-allowed; width: 100%; padding: 12px; 
-            border-radius: 20px; font-weight: bold; font-size: 1.1rem;
-            text-transform: uppercase; text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-        }
+        
+        .store-grid { padding: 10px; border-radius: var(--radius-soft); }
     </style>
 </head>
 <body>
@@ -115,6 +94,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">← Back to Main Site</a></li>
                 <li><a href="#" class="active">Storefront</a></li>
+                <li><hr style="border: 0; border-top: 1px solid rgba(150,150,150,0.3); margin: 5px 0;"></li>
+                <li><button id="themeToggleBtn" class="theme-toggle">🌙 Dark Mode</button></li>
             </ul>
         </div>
     </nav>
@@ -122,9 +103,9 @@
     <div class="main-content">
         <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
             <h1 class="section-title reveal-element">Storefront</h1>
-            <p class="reveal-element reveal-delay-100" style="max-width: 600px;">
-                Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or facebook marketplace!
-            </p>
+            <div class="reveal-element reveal-delay-100" style="max-width: 600px; background: var(--bg-glass); padding: 15px; border-radius: var(--radius-soft); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 5px rgba(0,0,0,0.1); border: var(--border-glass);">
+                <p style="margin: 0;">Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or Facebook Marketplace!</p>
+            </div>
 
             <div class="store-grid" id="productGrid" style="margin-top: 40px;"></div>
         </div>
@@ -133,7 +114,7 @@
     <div class="modal-overlay" id="productModal">
         <div class="modal-content" id="modalContent">
             <div class="modal-header">
-                <h3 style="margin:0; font-size:1.1rem; color: #1a3644;">Product Details</h3>
+                <h3 style="margin:0; font-size:1.1rem; color: var(--primary-text);">Product Details</h3>
                 <button class="close-btn" id="closeModalBtn">Close Window</button>
             </div>
             <div class="modal-body">
@@ -145,8 +126,8 @@
                 </div>
                 
                 <div class="status-badge" id="modalStatusBadge">Sold Out</div>
-                <h2 id="modalTitle" style="border:none; box-shadow:none; font-size: 1.8rem; margin-bottom: 15px; color: #1a3644;">Product Title</h2>
-                <p id="modalDesc" style="white-space: pre-wrap; margin-bottom: 30px; font-size: 1rem; color: #334455; line-height: 1.6;"></p>
+                <h2 id="modalTitle" style="border:none; box-shadow:none; font-size: 1.8rem; margin-bottom: 15px; color: var(--primary-text);">Product Title</h2>
+                <p id="modalDesc" style="white-space: pre-wrap; margin-bottom: 30px; font-size: 1rem; color: var(--body-text); line-height: 1.6;"></p>
                 
                 <button class="btn btn-disabled" id="modalActionBtn" disabled>Sold Out</button>
             </div>
@@ -154,9 +135,28 @@
     </div>
 
     <script>
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeBtn.textContent = '☀️ Light Mode';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            let targetTheme = 'light';
+            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+                themeBtn.textContent = '☀️ Light Mode';
+            } else {
+                themeBtn.textContent = '🌙 Dark Mode';
+            }
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+        });
+
         const defaultSoldOutDesc = "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.";
 
-        // Fully restored product array
         const products = [
             { 
                 id: 101, 
@@ -247,27 +247,26 @@
         const modalStatusBadge = document.getElementById('modalStatusBadge');
         const modalActionBtn = document.getElementById('modalActionBtn');
 
-        // Render Grid
         function initGrid() {
             products.forEach((prod, index) => {
                 const isAvailable = prod.status === 'available';
                 
                 const card = document.createElement('div');
-                card.className = 'product-card reveal-element';
-                card.style.transitionDelay = `${(index % 4) * 100}ms`;
+                card.className = `product-card reveal-element`;
+                card.style.transitionDelay = `${(index % 4) * 50}ms`;
                 
                 card.innerHTML = `
-                    <div class="product-image">
+                    <div class="product-image" style="position: relative;">
                         <img src="${prod.images[0]}" alt="${prod.title}" onerror="this.src='https://via.placeholder.com/400x300/f0f0f0/666666?text=Image+Missing'">
+                        ${!isAvailable ? '<div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size:1.2rem; letter-spacing:2px; text-shadow:0 2px 4px rgba(0,0,0,0.8);">SOLD</div>' : ''}
                     </div>
                     <div class="product-info">
                         <div style="font-weight: bold; color: var(--primary-text); margin-bottom:10px; font-size: 1.1rem; line-height: 1.4;">${prod.title}</div>
                         <div class="product-footer">
-                            <span class="product-price" style="color: ${isAvailable ? '#2b7a0b' : '#777'};">
+                            <span class="product-price" style="${!isAvailable ? 'color: var(--body-text); opacity: 0.6;' : ''}">
                                 ${isAvailable ? prod.price : 'Sold'}
                             </span>
                             <button class="btn ${isAvailable ? 'btn-primary' : 'btn-disabled'}" 
-                                    style="padding: 5px 15px; text-transform: uppercase; font-size: 0.85rem;" 
                                     ${isAvailable ? '' : 'disabled'}>
                                 ${isAvailable ? 'View' : 'Sold Out'}
                             </button>
@@ -280,7 +279,6 @@
             });
         }
 
-        // Open Modal Logic
         function openModal(productIndex) {
             currentProductIndex = productIndex;
             currentImageIndex = 0;
@@ -289,22 +287,19 @@
             modalTitle.textContent = prod.title;
             modalDesc.textContent = prod.desc; 
             
-            // Handle Availability Styling (Frutiger Aero Styles)
             if (prod.status === 'available') {
                 modalStatusBadge.textContent = 'Available';
-                modalStatusBadge.style.background = 'linear-gradient(180deg, #a8e063, #56ab2f)';
-                modalStatusBadge.style.border = '1px solid #488a26';
+                modalStatusBadge.style.background = 'linear-gradient(180deg, #a8e063 0%, #76cc39 49%, #56ab2f 50%, #68c040 100%)';
+                modalStatusBadge.style.border = '1px solid #3c7a1f';
                 modalStatusBadge.style.color = '#fff';
                 
                 modalActionBtn.textContent = `Buy Now - ${prod.price}`;
                 modalActionBtn.className = 'btn btn-primary';
-                modalActionBtn.style.width = '100%';
-                modalActionBtn.style.padding = '15px';
                 modalActionBtn.disabled = false;
                 modalActionBtn.onclick = () => window.open(prod.link, '_blank');
             } else {
                 modalStatusBadge.textContent = 'Sold Out';
-                modalStatusBadge.style.background = 'linear-gradient(180deg, #ffaaaa, #cc0000)';
+                modalStatusBadge.style.background = 'linear-gradient(180deg, rgba(200,50,50,0.8) 0%, rgba(180,20,20,0.9) 49%, rgba(150,0,0,0.9) 50%, rgba(170,0,0,0.9) 100%)';
                 modalStatusBadge.style.border = '1px solid #990000';
                 modalStatusBadge.style.color = '#fff';
 
@@ -320,7 +315,6 @@
             document.body.style.overflow = 'hidden'; 
         }
 
-        // Update Carousel Image
         function updateCarousel() {
             const prod = products[currentProductIndex];
             
@@ -342,13 +336,11 @@
             }
         }
 
-        // Close Modal Logic
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = ''; 
         }
 
-        // Event Listeners
         closeBtn.addEventListener('click', closeModal);
         
         modal.addEventListener('click', (e) => {
@@ -375,15 +367,12 @@
             if (e.key === 'ArrowLeft' && products[currentProductIndex].images.length > 1) prevBtn.click();
         });
 
-        // Mobile Menu Toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Initialize Everything
         document.addEventListener('DOMContentLoaded', () => {
             initGrid();
-            
             setTimeout(() => {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {

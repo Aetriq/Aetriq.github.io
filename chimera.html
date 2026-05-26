@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="img/logo.png" href="https://avatars.githubusercontent.com/u/93527958?v=4">
+    <link rel="shortcut icon" type="image/png" href="img/AetriqDynamics 1.0.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq's Personal Site | Project Chimera iXY</title>
@@ -19,9 +19,6 @@
             --border-color: #332a2a;  
             --transition-fast: all 0.2s ease;
             --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            
-            /* Sidebar variables inherited from style.css for seamless integration */
-            --sidebar-w: 260px;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,51 +27,49 @@
         body {
             font-family: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
             background-color: var(--bg-body); color: var(--body-text);
-            line-height: 1.6; display: flex; flex-direction: row; 
+            line-height: 1.6; display: flex; flex-direction: column; 
             min-height: 100vh;
         }
 
         /* ==========================================================================
-           INJECTED FRUTIGER AERO SIDEBAR CSS (Matches style.css exactly)
+           FIXED HOME BUTTON
            ========================================================================== */
-        .navbar {
-            background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            width: var(--sidebar-w); height: 100vh; position: fixed; top: 0; left: 0; z-index: 100;
-            padding: 30px 20px; display: flex; flex-direction: column;
-            border-right: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1), inset -1px 0 0 rgba(0,0,0,0.05); overflow-y: auto;
-        }
-        
-        .navbar::before {
-            content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
-            background: linear-gradient(180deg, #d9edf7 0%, #e6f5ff 100%);
-            z-index: -1; opacity: 0.9;
+        .home-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(28, 24, 24, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--primary-text);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
-        .navbar .container { width: 100%; padding: 0; display: flex; flex-direction: column; gap: 30px; }
-        .logo { display: flex; align-items: center; gap: 15px; padding: 0 10px; }
-        .logo img { width: 45px; height: 45px; border-radius: 5px; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); filter: none; }
-        .logo-text { color: #1a3644; font-size: 1.3rem; font-weight: bold; text-shadow: 1px 1px 0px rgba(255,255,255,0.8); }
-        .nav-links { display: flex; flex-direction: column; list-style: none; width: 100%; gap: 8px; }
-        .nav-links a {
-            color: #1a3644; font-weight: bold; padding: 10px 15px; font-size: 0.95rem; display: block; 
-            border-radius: 8px; text-decoration: none; transition: var(--transition-fast); border: 1px solid transparent;
+        .home-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4);
+            text-shadow: none;
         }
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: inset 0 1px 0 white, 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .nav-links a.active {
-            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(220,235,245,0.8) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.9); border-bottom: 1px solid rgba(0,0,0,0.1);
-            box-shadow: inset 0 1px 0 white, 0 2px 4px rgba(0,0,0,0.1); color: #0b5394; text-shadow: none;
-        }
-        .mobile-menu-btn { display: none; }
 
         /* ==========================================================================
-           CHIMERA MAIN CONTENT (Dark Theme Retained from original file)
+           CHIMERA MAIN CONTENT (100% Width)
            ========================================================================== */
-        .main-content { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); display: flex; flex-direction: column; }
+        .main-content { width: 100%; display: flex; flex-direction: column; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 60px; }
         .section { padding: 100px 0; position: relative; }
         
@@ -112,6 +107,7 @@
         .chimera-hero {
             background: radial-gradient(circle at top right, #2c0e0e 0%, var(--bg-body) 60%);
             min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden;
+            padding-top: 60px; /* Offset for the home button */
         }
         .chimera-hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; z-index: 2; }
         .chimera-hero::before {
@@ -219,7 +215,7 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: all 0.5s ease; }
         .gallery-item:hover img { opacity: 1; transform: scale(1.05); }
 
-        /* Footer (Dark mode for Chimera specifically) */
+        /* Footer */
         .footer { background: #0a0a0a; padding: 80px 0 40px; border-top: 1px solid var(--border-color); margin-top: auto; }
         .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; margin-bottom: 50px; }
         .footer-logo img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; filter: grayscale(100%); transition: 0.3s; }
@@ -242,24 +238,8 @@
 
         /* Mobile Adjustments */
         @media (max-width: 992px) {
-            body { flex-direction: column; }
-            .navbar {
-                width: 100%; height: auto; position: relative; flex-direction: row;
-                align-items: center; justify-content: space-between; padding: 15px 20px;
-                border-right: none; border-bottom: 1px solid rgba(0,0,0,0.2);
-            }
-            .navbar .container { flex-direction: row; align-items: center; justify-content: space-between; gap: 0;}
-            .main-content { margin-left: 0; width: 100%; }
-            .nav-links {
-                display: none; position: absolute; top: 100%; left: 0;
-                background: #e6f5ff; padding: 15px; box-shadow: 0 5px 10px rgba(0,0,0,0.2); border-bottom: 1px solid #ccc;
-            }
-            .nav-links.active { display: flex; }
-            .mobile-menu-btn { 
-                display: block; background: linear-gradient(180deg, #fff, #e0e0e0);
-                border: 1px solid #aaa; color: #333; font-size: 1.2rem; cursor: pointer;
-                padding: 5px 10px; border-radius: 4px;
-            }
+            .home-btn { top: 15px; left: 15px; padding: 8px 15px; font-size: 0.75rem; }
+            .chimera-hero { padding-top: 80px; }
             .chimera-hero .container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
             .chimera-hero-image { order: -1; margin-bottom: 20px; }
             .chimera-description { margin: 0 auto 2rem auto; }
@@ -285,23 +265,10 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjXp8g4X5FjYLBSJxg7lTaYiHfgPkocGQBSMHo5M5HNx2AhWOWg=s240-p-k-rw-no" alt="Logo" onerror="this.src='https://via.placeholder.com/45'">
-                <div class="logo-text">Aetriq</div>
-            </div>
-            <button class="mobile-menu-btn">☰ Menu</button>
-            <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#archives">Archives</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="chimera.html" class="active">Chimera iXY</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    <a href="index.html" class="home-btn">
+        <span>←</span> Home
+    </a>
 
     <div class="main-content">
         <section class="chimera-hero">
@@ -679,10 +646,6 @@
     </div>
 
     <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
         function initScrollAnimations() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
