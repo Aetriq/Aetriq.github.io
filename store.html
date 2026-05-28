@@ -95,7 +95,7 @@
                 <li><a href="index.html">← Back to Main Site</a></li>
                 <li><a href="#" class="active">Storefront</a></li>
                 <li><hr style="border: 0; border-top: 1px solid rgba(150,150,150,0.3); margin: 5px 0;"></li>
-                <li><button id="themeToggleBtn" class="theme-toggle">🌙 Dark Mode</button></li>
+                <li><button id="themeToggleBtn" class="theme-toggle">Dark</button></li>
             </ul>
         </div>
     </nav>
@@ -140,16 +140,16 @@
         
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            themeBtn.textContent = '☀️ Light Mode';
+            themeBtn.textContent = 'Light';
         }
 
         themeBtn.addEventListener('click', () => {
             let targetTheme = 'light';
             if (document.documentElement.getAttribute('data-theme') !== 'dark') {
                 targetTheme = 'dark';
-                themeBtn.textContent = '☀️ Light Mode';
+                themeBtn.textContent = 'Light';
             } else {
-                themeBtn.textContent = '🌙 Dark Mode';
+                themeBtn.textContent = 'Dark';
             }
             document.documentElement.setAttribute('data-theme', targetTheme);
             localStorage.setItem('theme', targetTheme);
