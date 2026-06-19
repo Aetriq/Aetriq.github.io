@@ -1,0 +1,103 @@
+/* assets/css/sidebar.css - Universal Liquid Glass Navigation */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
+
+:root {
+    --sidebar-w: 280px; 
+    --nav-accent-red: #c0392b;     
+    --nav-bg-glass: rgba(12, 14, 18, 0.85); 
+    --nav-primary-text: #ffffff;
+    --nav-body-text: #a0aab5;
+    --nav-border-glass: 1px solid rgba(255, 255, 255, 0.08);
+    --nav-glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.8);
+    --nav-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ensure the main page is pushed over to make room for the fixed sidebar */
+.main-content { 
+    margin-left: var(--sidebar-w); 
+    width: calc(100% - var(--sidebar-w)); 
+    min-height: 100vh;
+}
+
+/* ---------- Liquid Glass Sidebar ---------- */
+.navbar {
+    box-sizing: border-box;
+    width: var(--sidebar-w);
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    background: var(--nav-bg-glass);
+    backdrop-filter: saturate(180%) blur(25px);
+    -webkit-backdrop-filter: saturate(180%) blur(25px);
+    border-right: var(--nav-border-glass);
+    box-shadow: var(--nav-glass-shadow);
+    padding: 40px 25px;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999; 
+    font-family: 'Space Grotesk', sans-serif; 
+}
+
+.navbar * {
+    box-sizing: border-box;
+}
+
+.navbar .logo { display: flex; align-items: center; gap: 15px; margin-bottom: 50px; }
+.navbar .logo img { width: 50px; height: 50px; border-radius: 0; display: block; }
+.navbar .logo-text { color: var(--nav-primary-text); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+.navbar .nav-links { display: flex; flex-direction: column; list-style: none; gap: 12px; margin: 0; padding: 0; }
+.navbar .nav-links a {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--nav-body-text); 
+    font-weight: 600; 
+    padding: 14px 20px;
+    text-decoration: none; 
+    transition: var(--nav-transition);
+    background: transparent; 
+    border-left: 3px solid transparent;
+    text-align: left; 
+    font-size: 1.05rem;
+}
+
+.navbar .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--nav-primary-text);
+    border-left: 3px solid var(--nav-accent-red);
+}
+
+.navbar .nav-links a.active {
+    background: rgba(192, 57, 43, 0.15);
+    color: #ffffff;
+    border-left: 3px solid var(--nav-accent-red);
+}
+
+.navbar .nav-divider {
+    border: 0; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    margin: 15px 0;
+}
+
+.navbar .mobile-menu-btn { display: none; }
+
+/* Responsive Sidebar */
+@media (max-width: 992px) {
+    .main-content { margin-left: 0; width: 100%; }
+    .navbar { 
+        width: 100%; height: auto; position: sticky; flex-direction: row; 
+        justify-content: space-between; align-items: center; padding: 15px 20px; 
+    }
+    .navbar .logo { margin-bottom: 0; }
+    .navbar .nav-links { 
+        display: none; position: absolute; top: 100%; left: 0; width: 100%; 
+        background: var(--nav-bg-glass); backdrop-filter: saturate(180%) blur(25px); 
+        padding: 20px; border-bottom: var(--nav-border-glass); 
+    }
+    .navbar .nav-links.active { display: flex !important; }
+    .navbar .mobile-menu-btn { 
+        display: block; background: transparent; border: 1px solid var(--nav-primary-text); 
+        color: var(--nav-primary-text); padding: 10px 20px; font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+}

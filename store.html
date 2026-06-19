@@ -1,113 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/png" href="img/AetriqDynamics 1.0.png">
+    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq's Store</title>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .product-footer { margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .product-price { font-family: monospace; font-weight: bold; font-size: 1.2rem; color: #4da4e0; }
-        [data-theme="light"] .product-price { color: #0b5394; }
-        
-        /* Modal styled like a Vista/7 Dialog window */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7); z-index: 1000;
-            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-        }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        
-        .modal-content {
-            background: var(--bg-card); border: var(--border-glass);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.8);
-            border-radius: var(--radius-soft); width: 90%; max-width: 800px;
-            max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column;
-            transform: scale(0.9) translateY(20px); transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-        }
-        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
-        
-        .modal-header { 
-            padding: 15px 25px; border-bottom: var(--border-dark); 
-            background: var(--bg-glass); display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 10;
-        }
-        
-        .close-btn { 
-            background: linear-gradient(180deg, #ffaaaa 0%, #ff6666 49%, #cc0000 50%, #e60000 100%); 
-            border: 1px solid #990000; border-top: 1px solid rgba(255,255,255,0.6);
-            color: white; border-radius: 4px; padding: 6px 15px; cursor: pointer; 
-            font-weight: bold; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.2);
-            font-family: inherit; transition: var(--transition-fast);
-        }
-        .close-btn:hover { background: linear-gradient(180deg, #ffcccc 0%, #ff9999 49%, #ff0000 50%, #ff3333 100%); transform: scale(1.05); }
-        
-        .modal-body { padding: 30px; }
-        
-        .carousel-container { 
-            position: relative; height: 350px; background: rgba(0,0,0,0.2); border: var(--border-dark);
-            box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); border-radius: 4px;
-            display: flex; justify-content: center; align-items: center; margin-bottom: 20px; overflow: hidden;
-        }
-        .carousel-img { max-height: 100%; max-width: 100%; object-fit: contain; padding: 10px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); }
-        
-        .carousel-btn { 
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(220,220,220,0.8) 50%, rgba(200,200,200,0.9) 100%); 
-            color: #333; border: 1px solid #999; border-radius: 20px; width: 40px; height: 40px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-weight: bold; font-size: 1.2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8); z-index: 2; transition: var(--transition-fast);
-        }
-        .carousel-btn:hover { background: linear-gradient(180deg, #fff 0%, #eee 50%, #ddd 100%); transform: translateY(-50%) scale(1.1); }
-        .carousel-prev { left: 15px; } .carousel-next { right: 15px; }
-
-        .image-counter {
-            position: absolute; bottom: 15px; right: 15px;
-            background: rgba(0,0,0,0.7); color: #fff; padding: 4px 12px;
-            border-radius: 12px; font-size: 0.8rem; font-family: monospace;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-        
-        .status-badge { 
-            display: inline-block; padding: 6px 18px; border-radius: 15px; 
-            font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; 
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .store-grid { padding: 10px; border-radius: var(--radius-soft); }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="img/AetriqDynamics 1.0.png" alt="Logo">
-                <div class="logo-text">Aetriq Store</div>
-            </div>
-            <button class="mobile-menu-btn">☰ Menu</button>
-            <ul class="nav-links">
-                <li><a href="index.html">← Back to Main Site</a></li>
-                <li><a href="#" class="active">Storefront</a></li>
-                <li><hr style="border: 0; border-top: 1px solid rgba(150,150,150,0.3); margin: 5px 0;"></li>
-                <li><button id="themeToggleBtn" class="theme-toggle">Dark</button></li>
-            </ul>
+        <div class="logo fade-up visible">
+            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
+            <div class="logo-text">Aetriq Store</div>
         </div>
+        <button class="mobile-menu-btn">☰ Menu</button>
+        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
+            <li><a href="index.html">← Back to Main Site</a></li>
+            <li><a href="#" class="active">Storefront</a></li>
+        </ul>
     </nav>
 
     <div class="main-content">
-        <div class="container" style="padding-top: 60px; padding-bottom: 60px;">
-            <h1 class="section-title reveal-element">Storefront</h1>
-            <div class="reveal-element reveal-delay-100" style="max-width: 600px; background: var(--bg-glass); padding: 15px; border-radius: var(--radius-soft); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 5px rgba(0,0,0,0.1); border: var(--border-glass);">
-                <p style="margin: 0;">Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or Facebook Marketplace!</p>
+        <div class="container section">
+            <h1 class="fade-up visible">Storefront</h1>
+            
+            <div class="fade-up visible" style="max-width: 800px; margin-bottom: 40px; padding: 25px; background: rgba(255,255,255,0.03); border-left: 4px solid var(--accent-red); border-bottom: var(--border-subtle); transition-delay: 100ms;">
+                <p style="margin: 0; font-size: 1.1rem;">Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or Facebook Marketplace!</p>
             </div>
 
-            <div class="store-grid" id="productGrid" style="margin-top: 40px;"></div>
+            <div class="store-grid" id="productGrid"></div>
         </div>
     </div>
 
@@ -115,7 +37,7 @@
         <div class="modal-content" id="modalContent">
             <div class="modal-header">
                 <h3 style="margin:0; font-size:1.1rem; color: var(--primary-text);">Product Details</h3>
-                <button class="close-btn" id="closeModalBtn">Close Window</button>
+                <button class="close-btn" id="closeModalBtn">Close [X]</button>
             </div>
             <div class="modal-body">
                 <div class="carousel-container">
@@ -125,263 +47,15 @@
                     <div class="image-counter" id="imageCounter">1 / 1</div>
                 </div>
                 
-                <div class="status-badge" id="modalStatusBadge">Sold Out</div>
-                <h2 id="modalTitle" style="border:none; box-shadow:none; font-size: 1.8rem; margin-bottom: 15px; color: var(--primary-text);">Product Title</h2>
-                <p id="modalDesc" style="white-space: pre-wrap; margin-bottom: 30px; font-size: 1rem; color: var(--body-text); line-height: 1.6;"></p>
+                <div class="status-badge" id="modalStatusBadge">Status</div>
+                <h2 id="modalTitle" style="border:none; margin: 10px 0; padding: 0;">Product Title</h2>
+                <p id="modalDesc" style="white-space: pre-wrap; font-size: 1.05rem; color: var(--body-text);"></p>
                 
-                <button class="btn btn-disabled" id="modalActionBtn" disabled>Sold Out</button>
+                <button class="btn" id="modalActionBtn" style="width: 100%; margin-top: 10px;">Action</button>
             </div>
         </div>
     </div>
 
-    <script>
-        const themeBtn = document.getElementById('themeToggleBtn');
-        const currentTheme = localStorage.getItem('theme');
-        
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeBtn.textContent = 'Light';
-        }
-
-        themeBtn.addEventListener('click', () => {
-            let targetTheme = 'light';
-            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-                targetTheme = 'dark';
-                themeBtn.textContent = 'Light';
-            } else {
-                themeBtn.textContent = 'Dark';
-            }
-            document.documentElement.setAttribute('data-theme', targetTheme);
-            localStorage.setItem('theme', targetTheme);
-        });
-
-        const defaultSoldOutDesc = "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.";
-
-        const products = [
-            { 
-                id: 101, 
-                title: "Makerbot Motherboard & Extruder Daughterboard for Replicator+ 3D Printer", 
-                price: "$100.00",
-                status: "available",
-                link: "https://www.ebay.ca/itm/397600610508",
-                desc: `Motherboard and carriage/toolhead daughterboard combo for the Makerbot Replicator+ (5th gen) 3D printer. This is the 2nd revision, Rev G (2015) and Rev I (2016) as seen in the photos. Motherboard currently has the factory default 2.6.3 firmware installed. Daughterboard supports both Makerbot Smart Extruder+ and Tough Smart Extruder+. \n\nThese were pulled out of a working unit and function perfectly. There is no cosmetic or physical damage. Included is the motherboard (+ backplate), extruder daughterboard and the ribbon cable.`,
-                images: [
-                    "https://i.ebayimg.com/images/g/InIAAeSwoNppjfzm/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/MwIAAeSwWahpjfzm/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/MhQAAeSwqz1pjfzm/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/L~gAAeSwIUVpjfzm/s-l1600.webp"
-                ] 
-            },
-            { 
-                id: 102, 
-                title: "Makerbot Hoboken LCD control board for Makerbot Replicator+ 3D Printer", 
-                price: "$75.00",
-                status: "available",
-                link: "https://www.ebay.ca/itm/397611086142",
-                desc: `Makerbot Hoboken TFT LCD control board and rotary encoder for Makerbot Replicator+ (5th generation) 3D Printer. This is the 2nd revision (Rev. I 2015) model.\n\nThe board was pulled out of a working unit and works perfectly with no issues. Everything is in like new condition with no damage. Included is the board, the PoE hdmi cable (to connect to mainboard) and the screen protector cover.`,
-                images: [
-                    "https://i.ebayimg.com/images/g/cm8AAeSwwsBpjgYe/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/HRcAAeSwG6xpjgYe/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/480AAeSwl8VpjgYe/s-l1600.webp"
-                ] 
-            },
-            { 
-                id: 103, 
-                title: "Apple iPhone 4s - 16 GB - Black (iOS 7) (LOT OF 2)", 
-                price: "$63.00",
-                status: "available",
-                link: "https://www.ebay.ca/itm/397847521679",
-                desc: `A lot of two (2) iPhone 4S for sale. Both devices are in great condition with no cracks and only have minor wear as seen in pictures. Both have been factory reset and are ready for use. \n\nIndividual specs:\niOS 7.1.2 | Verizon 16.0 | 16GB Black \n\niOS 7.0.2 | Sprint 15.0 | 16GB Black\n\nThe batteries in both are in great condition, and hold a charge for at least a couple of days. All the hardware works as expected, and the iPhones can sync with iTunes. Due to the old nature of the device, both are being sold AS-IS. Comes with the two iPhones only, no charger included.`,
-                images: [
-                    "https://i.ebayimg.com/images/g/c-MAAeSwtdFp1to~/s-l1600.webp" ,
-                    "https://i.ebayimg.com/images/g/BgsAAeSwmH9p1tpA/s-l1600.webp" ,
-                    "https://i.ebayimg.com/images/g/BgsAAeSwmH9p1tpA/s-l1600.webp" ,
-                    "https://i.ebayimg.com/images/g/D-wAAeSw6SNp1tpA/s-l1600.webp"
-                ] 
-            },
-            { 
-                id: 104, 
-                title: "Apple iPhone 4s 8 GB - Black (Sprint)", 
-                price: "$40.00",
-                status: "available",
-                link: "https://www.ebay.ca/itm/397755837773",
-                desc: `An Apple iPhone 4s A1387 in Black with 8GB of storage. It has been factory reset, and is ready for use. Comes jailbroken, with Cydia installed with a few apps, including YouTube, Veteris (Custom app store), and others. Comes only with the phone, no accessories or charger. \n\nDetails\nFMI: Unknown - SEE BELOW FOR DETAILS*\nCellular Status: Sprint\nColor: Black\nStorage: 8GB\nVersion: iOS 6.1.3 w/ Cydia\nBattery Health: 89% \nModem firmware: 6.7.00\n\n* There is no iCloud account signed into the device as seen in photos, and iTunes shows "Welcome to your new iPhone", so you can restore, sync media and back it up as normal. However, this phone should be treated AS-IS with FMI potentially enabled. \n\nThe phone is in great cosmetic condition with almost no wear as seen in photos. All sides of the phone have no significant scratches, cracks or scuffs. The onboard hardware works without any issues.\n\nIMPORTANT NOTE!!! Because Apple has officially classified this model as "Obsolete," their activation servers no longer communicate with iOS 6. DO NOT perform a factory reset or use the "Erase All Content and Settings" option in the phone's menu. If you do, there is a chance you will get a 'Activation server is temporarily unavailable' message. As long as you do not reset the phone, it will remain fully functional as described.`,
-                images: [
-                    "https://i.ebayimg.com/images/g/7JoAAeSwPO5pwtCx/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/GasAAeSwmgBpwtCw/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/RJEAAeSwV5dpwtCw/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/MXMAAeSwve5pwtCw/s-l1600.webp",
-                    "https://i.ebayimg.com/images/g/DEIAAeSwbzRpwtCw/s-l1600.webp"
-                ] 
-            },
-            // Legacy Archive Items
-            { id: 1, title: "Dell Optiplex 790", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/1.1.jpg", "shopimg/1.2.jpg"] },
-            { id: 2, title: "Vintage PC (ID, Apex SuperCase?)", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/2.1.jpg", "shopimg/2.2.jpg"] },
-            { id: 3, title: "Server PC Case", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/3.1.jpg"] },
-            { id: 4, title: "SteelSeries Custom Build", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/4.1.jpg", "shopimg/4.2.jpg"] },
-            { id: 6, title: "HP Pavillion (ID)", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/6.1.jpg"] },
-            { id: 7, title: "Dell Dimension 7400", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/7.1.jpg"] },
-            { id: 8, title: "Dell Optiplex GX620", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/8.1.jpg"] },
-            { id: 10, title: "Custom Medium Build", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/10.1.jpg", "shopimg/10.2.jpg", "shopimg/10.3.jpg"] },
-            { id: 11, title: "Custom Budget Build", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/11.1.jpg", "shopimg/11.2.jpg"] },
-            { id: 12, title: "HP Compaq Prescario sr5000", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/12.1.jpg"] },
-            { id: 13, title: "HP Compaq dc5850 sff", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/13.1.jpg", "shopimg/13.2.jpg", "shopimg/13.3.jpg", "shopimg/13.4.jpg", "shopimg/13.5.jpg"] },
-            { id: 14, title: "Custom High end build", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/14.1.jpeg", "shopimg/14.2.jpeg", "shopimg/14.3.jpeg", "shopimg/14.4.jpeg", "shopimg/14.5.jpeg"] },
-            { id: 15, title: "Cisnet OEM PC", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/15.1.jpg"] },
-            { id: 16, title: "Custom NAS", status: "sold_out", desc: defaultSoldOutDesc, images: ["shopimg/16.1.jpg"] }
-        ];
-
-        let currentProductIndex = 0;
-        let currentImageIndex = 0;
-
-        const grid = document.getElementById('productGrid');
-        const modal = document.getElementById('productModal');
-        const closeBtn = document.getElementById('closeModalBtn');
-        const carouselImg = document.getElementById('carouselImg');
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
-        const imageCounter = document.getElementById('imageCounter');
-        
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const modalStatusBadge = document.getElementById('modalStatusBadge');
-        const modalActionBtn = document.getElementById('modalActionBtn');
-
-        function initGrid() {
-            products.forEach((prod, index) => {
-                const isAvailable = prod.status === 'available';
-                
-                const card = document.createElement('div');
-                card.className = `product-card reveal-element`;
-                card.style.transitionDelay = `${(index % 4) * 50}ms`;
-                
-                card.innerHTML = `
-                    <div class="product-image" style="position: relative;">
-                        <img src="${prod.images[0]}" alt="${prod.title}" onerror="this.src='https://via.placeholder.com/400x300/f0f0f0/666666?text=Image+Missing'">
-                        ${!isAvailable ? '<div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size:1.2rem; letter-spacing:2px; text-shadow:0 2px 4px rgba(0,0,0,0.8);">SOLD</div>' : ''}
-                    </div>
-                    <div class="product-info">
-                        <div style="font-weight: bold; color: var(--primary-text); margin-bottom:10px; font-size: 1.1rem; line-height: 1.4;">${prod.title}</div>
-                        <div class="product-footer">
-                            <span class="product-price" style="${!isAvailable ? 'color: var(--body-text); opacity: 0.6;' : ''}">
-                                ${isAvailable ? prod.price : 'Sold'}
-                            </span>
-                            <button class="btn ${isAvailable ? 'btn-primary' : 'btn-disabled'}" 
-                                    ${isAvailable ? '' : 'disabled'}>
-                                ${isAvailable ? 'View' : 'Sold Out'}
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                card.addEventListener('click', () => openModal(index));
-                grid.appendChild(card);
-            });
-        }
-
-        function openModal(productIndex) {
-            currentProductIndex = productIndex;
-            currentImageIndex = 0;
-            const prod = products[currentProductIndex];
-            
-            modalTitle.textContent = prod.title;
-            modalDesc.textContent = prod.desc; 
-            
-            if (prod.status === 'available') {
-                modalStatusBadge.textContent = 'Available';
-                modalStatusBadge.style.background = 'linear-gradient(180deg, #a8e063 0%, #76cc39 49%, #56ab2f 50%, #68c040 100%)';
-                modalStatusBadge.style.border = '1px solid #3c7a1f';
-                modalStatusBadge.style.color = '#fff';
-                
-                modalActionBtn.textContent = `Buy Now - ${prod.price}`;
-                modalActionBtn.className = 'btn btn-primary';
-                modalActionBtn.disabled = false;
-                modalActionBtn.onclick = () => window.open(prod.link, '_blank');
-            } else {
-                modalStatusBadge.textContent = 'Sold Out';
-                modalStatusBadge.style.background = 'linear-gradient(180deg, rgba(200,50,50,0.8) 0%, rgba(180,20,20,0.9) 49%, rgba(150,0,0,0.9) 50%, rgba(170,0,0,0.9) 100%)';
-                modalStatusBadge.style.border = '1px solid #990000';
-                modalStatusBadge.style.color = '#fff';
-
-                modalActionBtn.textContent = 'Sold Out';
-                modalActionBtn.className = 'btn btn-disabled';
-                modalActionBtn.disabled = true;
-                modalActionBtn.onclick = null;
-            }
-
-            updateCarousel();
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function updateCarousel() {
-            const prod = products[currentProductIndex];
-            
-            carouselImg.src = prod.images[currentImageIndex];
-            carouselImg.onerror = function() {
-                this.src = 'https://via.placeholder.com/800x600/f0f0f0/666666?text=Image+Missing';
-            };
-
-            imageCounter.textContent = `${currentImageIndex + 1} / ${prod.images.length}`;
-
-            if (prod.images.length > 1) {
-                prevBtn.style.display = 'flex';
-                nextBtn.style.display = 'flex';
-                imageCounter.style.display = 'block';
-            } else {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-                imageCounter.style.display = 'none';
-            }
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; 
-        }
-
-        closeBtn.addEventListener('click', closeModal);
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            const prod = products[currentProductIndex];
-            currentImageIndex = (currentImageIndex + 1) % prod.images.length;
-            updateCarousel();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            const prod = products[currentProductIndex];
-            currentImageIndex = (currentImageIndex - 1 + prod.images.length) % prod.images.length;
-            updateCarousel();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-            
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'ArrowRight' && products[currentProductIndex].images.length > 1) nextBtn.click();
-            if (e.key === 'ArrowLeft' && products[currentProductIndex].images.length > 1) prevBtn.click();
-        });
-
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initGrid();
-            setTimeout(() => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) entry.target.classList.add('visible');
-                    });
-                }, { threshold: 0.1 });
-                document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
-            }, 100);
-        });
-    </script>
+    <script src="assets/js/store.js"></script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+{
+  "products": [
+    {
+      "id": "101",
+      "title": "Makerbot Motherboard & Extruder Daughterboard for Replicator+ 3D Printer",
+      "price": "$100.00",
+      "status": "available",
+      "link": "https://www.ebay.ca/itm/397600610508",
+      "desc": "Motherboard and carriage/toolhead daughterboard combo for the Makerbot Replicator+ (5th gen) 3D printer. This is the 2nd revision, Rev G (2015) and Rev I (2016) as seen in the photos. Motherboard currently has the factory default 2.6.3 firmware installed. Daughterboard supports both Makerbot Smart Extruder+ and Tough Smart Extruder+.\n\nThese were pulled out of a working unit and function perfectly. There is no cosmetic or physical damage. Included is the motherboard (+ backplate), extruder daughterboard and the ribbon cable.",
+      "images": [
+        "https://i.ebayimg.com/images/g/InIAAeSwoNppjfzm/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/MwIAAeSwWahpjfzm/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/MhQAAeSwqz1pjfzm/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/L~gAAeSwIUVpjfzm/s-l1600.webp"
+      ]
+    },
+    {
+      "id": "102",
+      "title": "Makerbot Hoboken LCD control board for Makerbot Replicator+ 3D Printer",
+      "price": "$75.00",
+      "status": "available",
+      "link": "https://www.ebay.ca/itm/397611086142",
+      "desc": "Makerbot Hoboken TFT LCD control board and rotary encoder for Makerbot Replicator+ (5th generation) 3D Printer. This is the 2nd revision (Rev. I 2015) model.\n\nThe board was pulled out of a working unit and works perfectly with no issues. Everything is in like new condition with no damage. Included is the board, the PoE hdmi cable (to connect to mainboard) and the screen protector cover.",
+      "images": [
+        "https://i.ebayimg.com/images/g/cm8AAeSwwsBpjgYe/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/HRcAAeSwG6xpjgYe/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/480AAeSwl8VpjgYe/s-l1600.webp"
+      ]
+    },
+    {
+      "id": "103",
+      "title": "Apple iPhone 4s - 16 GB - Black (iOS 7) (LOT OF 2)",
+      "price": "$63.00",
+      "status": "available",
+      "link": "https://www.ebay.ca/itm/397847521679",
+      "desc": "A lot of two (2) iPhone 4S for sale. Both devices are in great condition with no cracks and only have minor wear as seen in pictures. Both have been factory reset and are ready for use.\n\nIndividual specs:\niOS 7.1.2 | Verizon 16.0 | 16GB Black\niOS 7.0.2 | Sprint 15.0 | 16GB Black\n\nThe batteries in both are in great condition, and hold a charge for at least a couple of days. All the hardware works as expected, and the iPhones can sync with iTunes. Due to the old nature of the device, both are being sold AS-IS. Comes with the two iPhones only, no charger included.",
+      "images": [
+        "https://i.ebayimg.com/images/g/c-MAAeSwtdFp1to~/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/BgsAAeSwmH9p1tpA/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/D-wAAeSw6SNp1tpA/s-l1600.webp"
+      ]
+    },
+    {
+      "id": "104",
+      "title": "Apple iPhone 4s 8 GB - Black (Sprint)",
+      "price": "$40.00",
+      "status": "available",
+      "link": "https://www.ebay.ca/itm/397755837773",
+      "desc": "An Apple iPhone 4s A1387 in Black with 8GB of storage. It has been factory reset, and is ready for use. Comes jailbroken, with Cydia installed with a few apps.\n\nIMPORTANT NOTE!!! Because Apple has officially classified this model as 'Obsolete,' their activation servers no longer communicate with iOS 6. DO NOT perform a factory reset.",
+      "images": [
+        "https://i.ebayimg.com/images/g/7JoAAeSwPO5pwtCx/s-l1600.webp",
+        "https://i.ebayimg.com/images/g/GasAAeSwmgBpwtCw/s-l1600.webp"
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Dell Optiplex 790",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/1.1.jpg", "assets/img/shopimg/1.2.jpg"]
+    },
+    {
+      "id": "2",
+      "title": "Vintage PC (ID, Apex SuperCase?)",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/2.1.jpg", "assets/img/shopimg/2.2.jpg"]
+    },
+    {
+      "id": "3",
+      "title": "Server PC Case",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/3.1.jpg"]
+    },
+    {
+      "id": "4",
+      "title": "SteelSeries Custom Build",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/4.1.jpg", "assets/img/shopimg/4.2.jpg"]
+    },
+    {
+      "id": "6",
+      "title": "HP Pavillion (ID)",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/6.1.jpg"]
+    },
+    {
+      "id": "7",
+      "title": "Dell Dimension 7400",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/7.1.jpg"]
+    },
+    {
+      "id": "8",
+      "title": "Dell Optiplex GX620",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/8.1.jpg"]
+    },
+    {
+      "id": "10",
+      "title": "Custom Medium Build",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/10.1.jpg", "assets/img/shopimg/10.2.jpg", "assets/img/shopimg/10.3.jpg"]
+    },
+    {
+      "id": "11",
+      "title": "Custom Budget Build",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/11.1.jpg", "assets/img/shopimg/11.2.jpg"]
+    },
+    {
+      "id": "12",
+      "title": "HP Compaq Prescario sr5000",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/12.1.jpg"]
+    },
+    {
+      "id": "13",
+      "title": "HP Compaq dc5850 sff",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/13.1.jpg", "assets/img/shopimg/13.2.jpg", "assets/img/shopimg/13.3.jpg", "assets/img/shopimg/13.4.jpg", "assets/img/shopimg/13.5.jpg"]
+    },
+    {
+      "id": "14",
+      "title": "Custom High end build",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/14.1.jpeg", "assets/img/shopimg/14.2.jpeg", "assets/img/shopimg/14.3.jpeg", "assets/img/shopimg/14.4.jpeg", "assets/img/shopimg/14.5.jpeg"]
+    },
+    {
+      "id": "15",
+      "title": "Cisnet OEM PC",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/15.1.jpg"]
+    },
+    {
+      "id": "16",
+      "title": "Custom NAS",
+      "price": "N/A",
+      "status": "sold_out",
+      "link": "#",
+      "desc": "This item has been sold out. Keep an eye out for future inventory updates or contact me for custom build inquiries similar to this listing.",
+      "images": ["assets/img/shopimg/16.1.jpg"]
+    }
+  ]
+}

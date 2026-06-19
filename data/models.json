@@ -1,0 +1,52 @@
+{
+  "models": [
+    {
+      "id": "omv-nas-mod",
+      "title": "Acer Aspire AX3400 OMV NAS mod",
+      "updated": "May 21, 2026",
+      "description": "A simple ESP32 based dashboard status screen for OpenMediaVault based NAS devices.",
+      "image": "https://media.printables.com/media/prints/409ea7f9-4d5d-42ae-97e0-5879822e942f/images/12967803_ce3e736e-a642-4527-ab09-30a9d5f6cd9a_d3d8c5fb-b94e-4800-b611-38b6db55efee/thumbs/inside/1920x1440/png/frontviewdiagram.webp",
+      "link": "https://www.printables.com/model/1729305-acer-aspire-ax3400-omv-nas-mod"
+    },
+    {
+      "id": "smart-sensor",
+      "title": "OPEN-SMART 3 Channel Button Sensor Module",
+      "updated": "February 13, 2026",
+      "description": "Accurate placeholder model for the OPEN-SMART 3 Channel Colorful Big Key Analog Button Sensor Module",
+      "image": "https://media.printables.com/media/prints/70253bba-288e-4bc0-8864-fb05da866667/images/12043060_dc17d91a-1596-4e4a-8664-5dec3e7f9659_de8cee7e-1bf8-4037-8148-20e50bc2b478/thumbs/inside/1280x960/png/screenshot-2026-02-13-201656.webp",
+      "link": "https://www.printables.com/model/1600381-open-smart-3-channel-button-sensor-module"
+    },
+    {
+      "id": "pi-zero-rack",
+      "title": "Pi Zero Display Storage Rack",
+      "updated": "January 3, 2026",
+      "description": "Display Storage Rack for Pi Zeroes with GPIO clearance",
+      "image": "https://media.printables.com/media/prints/24e3b97e-c0b3-442b-bf1d-2115bc1e5f50/images/11613333_67509c1c-6291-4969-8590-a07455dbf7d5_44a56e16-8459-4e70-908d-8c5367e4dfbd/thumbs/inside/1280x960/jpg/img_6188_cleaned.webp",
+      "link": "https://www.printables.com/model/1540177-pi-zero-display-storage-rack"
+    },
+    {
+      "id": "mks-robin-case",
+      "title": "MKS Robin Nano v3.X + RPi Zero 2W case with 120mm fan",
+      "updated": "January 1, 2026",
+      "description": "Case for MKS Robin Nano MCU, RPi/OPi Zero 2w and 5V regulator. Uses 120mm case fan.",
+      "image": "https://media.printables.com/media/prints/05632cce-919d-4e3e-9a3a-f661a8271660/images/11589459_b02daffe-c854-440b-83ee-011c8586d54b_61beb577-96cc-4a31-9d55-aabc6ce5812e/thumbs/inside/1280x960/jpg/img_6162.webp",
+      "link": "https://www.printables.com/model/1537416-mks-robin-nano-v3x-rpi-zero-2w-case-with-120mm-fan"
+    },
+    {
+      "id": "gantry-plate",
+      "title": "T-Slot 2020 Extrusion Gantry Plate + E3D V6 Hotend/SN08 Probe",
+      "updated": "November 24, 2025",
+      "description": "T-Slot 2020 Extrusion Gantry Plate with mounting for the E3D V6 Hotend and SN08 Inductive Probe.",
+      "image": "https://media.printables.com/media/prints/69f41d06-30ab-4d14-b4df-3faa5d502499/images/11244874_b62b8038-da2b-42b8-8f01-c2a12ea3cc4b_df330e1f-7208-4b2c-a7fc-9408b1c0f09c/thumbs/inside/1280x960/png/chimeradocgantryv1.webp",
+      "link": "https://www.printables.com/model/1492330-t-slot-2020-extrusion-gantry-plate-e3d-v6-hotendsn"
+    },
+    {
+      "id": "strain-relief",
+      "title": "Mingda Magician X: X-axis Ribbon Cable Strain Relief Bracket",
+      "updated": "May 22, 2025",
+      "description": "X-axis 20 pin ribbon cable strain relief bracket for the Magician X. Easy clip on.",
+      "image": "https://media.printables.com/media/prints/b348b5ad-d95b-4cc8-8aae-8ccb5962c923/images/9841222_28534179-dec7-4579-aaff-ba824dda3144_bd8d1c6c-2424-4bd2-bd3e-12ee25314536/thumbs/inside/1280x960/jpg/img_5748.webp",
+      "link": "https://www.printables.com/model/1304929-mingda-magician-x-x-axis-ribbon-cable-strain-relie"
+    }
+  ]
+}

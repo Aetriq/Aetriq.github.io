@@ -1,0 +1,26 @@
+{
+  "categories": [
+    {
+      "title": "Hardware & Systems",
+      "skills": [
+        "Embedded Ultra-low power systems", "RP2040", "FPGA (DE2-115)",
+        "FDM Manufacturing", "ESP8266", "ESP32", "SPI, I2C, I2S",
+        "PDM, UART, CAN", "Apple A5", "Prec. Auto. Kine.",
+        "i3 | CoreXY", "RF - 433MHz", "ARM", "LoRa 902~928MHz",
+        "RT Control Systems", "Microsoldering", "General Electronics Repair"
+      ]
+    },
+    {
+      "title": "Software & Languages",
+      "skills": [
+        "C", "C++", "Java", "Edge AI", "FreeRTOS", "Embedded ML", "Kotlin", 
+        "Python", "VHDL", "OpenCL", "MATLAB", "HTML", "Assembly (HCS12/ARM)", 
+        "XML", "JavaScript", "C (ESP-IDF)", "LaTeX", "React", "Swift", 
+        "XCode", "GCode", "SQL", "QGIS", "Fusion 360", "Adobe AE/ME", 
+        "Adobe PS", "Adobe IL", "Adobe Au", "Adobe Pr", "PlatformIO", 
+        "MultiSim", "Github", "Eclipse IDE", "Burp Suite", "FL Studio", 
+        "Docker", "Edge Impulse"
+      ]
+    }
+  ]
+}
