@@ -367,3 +367,71 @@ p { font-size: 1rem; }
 @media (max-width: 992px) {
     .system-banner { padding: 12px 15px; font-size: 0.75rem; }
 }
+
+/* ---------- Card Button Spacing Fix ---------- */
+.card-links {
+    display: flex;
+    flex-wrap: wrap;  /* Allows buttons to stack neatly on small screens */
+    gap: 15px;        /* Exact horizontal and vertical spacing */
+    margin-top: auto; /* Pushes buttons to the bottom of the card uniformly */
+}
+
+/* ---------- Store Grid & Modal Fix ---------- */
+.store-grid, .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.modal-overlay {
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 5, 7, 0.95); /* Deep industrial black */
+    z-index: 2000;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; 
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active { 
+    opacity: 1; pointer-events: auto; 
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: var(--border-highlight); 
+    border-radius: var(--radius-soft);
+    width: 90%; max-width: 900px; max-height: 90vh;
+    display: flex; flex-direction: column;
+    box-shadow: 0 0 50px rgba(0,0,0,1);
+    transform: scale(0.98) translateY(10px); 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-content { 
+    transform: scale(1) translateY(0); 
+}
+
+.modal-header {
+    padding: 20px 30px; 
+    border-bottom: var(--border-subtle);
+    display: flex; justify-content: space-between; align-items: center;
+    background: #000;
+}
+
+.modal-header h2 { margin: 0; padding: 0; }
+.modal-header h2::after { display: none; } /* Removes the red underline inside the modal */
+
+.close-btn {
+    background: transparent; border: 1px solid var(--body-text);
+    color: var(--primary-text); padding: 8px 16px; cursor: pointer;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    transition: var(--transition-smooth); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+}
+
+.close-btn:hover { background: var(--accent-red); border-color: var(--accent-red); color: white; }
+
+.modal-body { 
+    padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; 
+}
