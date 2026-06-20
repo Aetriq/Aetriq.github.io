@@ -1,7 +1,5 @@
 /* assets/css/style.css - Cyber-Industrial & Hardware Engineering Theme (v2) */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-
 :root {
     --sidebar-w: 280px; 
     
@@ -29,8 +27,12 @@
 
 /* ---------- Reset & Base ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
+html { 
+    scroll-behavior: smooth; 
+    /* Firefox Support */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.15) var(--bg-body);
+}
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-body); border-left: var(--border-subtle); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 0; }
@@ -49,6 +51,18 @@ body {
     line-height: 1.6;
     display: flex;
     min-height: 100vh;
+}
+
+/* Custom Keyboard Focus State */
+*:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* Remove default focus from non-keyboard clicks */
+*:focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* ---------- Sidebar ---------- */
@@ -434,4 +448,90 @@ p { font-size: 1rem; }
 
 .modal-body { 
     padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; 
+}
+
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   MOBILE OVERHAUL (Phones & Small Tablets)
+   Triggers automatically on screens 768px and smaller
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. Remove Hero Image & Tighten Spacing */
+    .hero-image-half { display: none !important; }
+    .hero-split { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text-half { padding: 40px 20px; }
+    h1 { font-size: 2.2rem; }
+
+    /* 2. Force 2x2 Grid for Projects and Creative */
+    .project-list, .creative-grid {
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 12px;
+    }
+
+    /* 3. Compact the Project Cards */
+    .card-description { 
+        display: none !important; /* Hides description to save vertical space */
+    }
+    .card-content { 
+        padding: 15px; 
+    }
+    .card-title { 
+        font-size: 1rem; 
+        margin-bottom: 10px; 
+        line-height: 1.2;
+    }
+    .card-image { 
+        height: 120px; /* Shorter images for mobile */
+    }
+
+    /* 4. Shrink Tags to fit 2-column mobile layout */
+    .card-tech { 
+        gap: 4px; 
+        margin-bottom: 15px; 
+    }
+    .tech-tag {
+        padding: 4px 6px;
+        font-size: 0.6rem;
+    }
+
+    /* 5. Stack Buttons Vertically inside small cards */
+    .card-links {
+        flex-direction: column; /* Stacks buttons on top of each other */
+        gap: 6px;
+    }
+    .btn {
+        padding: 8px 10px;
+        font-size: 0.7rem;
+        width: 100%; /* Makes buttons stretch to fill the card */
+        letter-spacing: 0.5px;
+    }
+
+    /* 6. Highlight Card adjustments */
+    .highlight-body { 
+        padding: 25px 20px; 
+    }
+    .highlight-card h1 { 
+        font-size: 1.6rem !important; 
+    }
+    .highlight-card .card-image { 
+        min-height: 200px; 
+    }
+
+    /* 7. Contact Grid Mobile Overrides */
+    .contact-grid {
+        grid-template-columns: 1fr !important; /* Stack contact vertically */
+        gap: 20px !important;
+    }
+    .contact-card {
+        padding: 25px !important;
+    }
 }

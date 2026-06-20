@@ -196,7 +196,27 @@ document.addEventListener('DOMContentLoaded', () => {
             observeNewElements(gridContainer);
         }
     }
-
+    // --- Contact Form Handling ---
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop page refresh
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            // Cyber-style success state
+            btn.innerText = "[ MESSAGE_TRANSMITTED ]";
+            btn.style.background = "#2b7a0b"; // Green success color
+            btn.style.color = "#fff";
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "var(--accent-red)";
+                contactForm.reset();
+            }, 3000);
+        });
+    }
     // Initialize the engine
     loadSiteData();
 });

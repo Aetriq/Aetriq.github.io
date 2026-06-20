@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -56,14 +59,22 @@
         <section id="highlight" class="section">
             <div class="container fade-up">
                 <h2>Highlighted Projects</h2>
-                <div id="highlight-container" class="highlight-container"></div>
+                <div id="highlight-container" class="highlight-container">
+                    <div class="terminal-loader" style="grid-column: 1 / -1; padding: 40px; font-family: 'JetBrains Mono', monospace; color: var(--accent-gold); font-size: 0.9rem;">
+                        > [SYS_INIT] Fetching hardware records...<span class="cursor-blink">_</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="section">
             <div class="container fade-up">
                 <h2>All Projects</h2>
-                <div id="all-projects-container" class="project-list"></div>
+                <div id="all-projects-container" class="project-list">
+                    <div class="terminal-loader" style="grid-column: 1 / -1; padding: 40px; font-family: 'JetBrains Mono', monospace; color: var(--accent-gold); font-size: 0.9rem;">
+                        > [SYS_INIT] Loading modules...<span class="cursor-blink">_</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -94,14 +105,18 @@
         <section id="contact" class="section">
             <div class="container fade-up">
                 <h2>Get In Touch</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 30px;">
-                    <div class="project-card" style="padding: 40px; box-shadow: none;">
+                <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 30px;">
+                    
+                    <div class="project-card contact-card" style="padding: 40px; box-shadow: none;">
                         <p>I also offer 3D printing services and specialized repair for electronics. Message me for quotes!</p>
+                        
                         <h3 style="margin-top: 30px; margin-bottom: 10px;">Email</h3>
                         <p><a href="mailto:aetriq@protonmail.com" style="color: var(--accent-red); font-weight: bold; text-decoration: none;">aetriq@protonmail.com</a></p>
+                        
                         <h3 style="margin-top: 30px; margin-bottom: 10px;">Location</h3>
                         <p>Ottawa, Ontario, Canada</p>
                     </div>
+                    
                     <div>
                         <form id="contactForm">
                             <input type="text" class="form-control" placeholder="Name" required>
