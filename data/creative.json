@@ -1,25 +1,131 @@
 {
-  "description": "I'm always looking to improve my audio & visual skills through the Adobe Suite. Check out my music video channel where I've been (inconsistently) uploading my progress on my project SignalSculpt!",
+  "description": "I'm always looking to improve my audio & visual skills through the Adobe Suite.\n\nI've been using After Effects since 2016 and in 2019 is when I focused on more automated script-based extension development; Check out my music video channel where I've been (inconsistently) uploading my progress on my fouried-based realtime extension project, SignalSculpt!\n\nI also do audio mastering using Audition, FL Studio, BandLabs, etc.\n\nThere are a large range of genres, most of which by request/commission. The ones below are ones that were my favourites to make.",
+  "legacyDescription": "These are my older, archived projects from Mid-2022 to 2016.\n\nMost of these were developed before Project SignalSculpt had a name and under a predecessing label.",
+  "channels": [
+    {
+      "id": "aetriq",
+      "name": "@Aetriq",
+      "banner": "https://yt3.googleusercontent.com/XM5jBcZXIoDWZqDlr88g4tFqTj7jRyYV1TyegpnkF7dtWjIRq91uxkqajmJUP6jSR0CgqeWGYw=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "avatar": "https://yt3.googleusercontent.com/QRRxtLwSzNl4OdHN4yXWPHVbEORp_pjmuU6kb-kPrI3Bg7KeNB1vWruTTwiELlzF3UfNG-7WEw=s160-c-k-c0x00ffffff-no-rj",
+      "url": "https://www.youtube.com/@Aetriq"
+    },
+    {
+      "id": "veetwo1",
+      "name": "@Veetwo_",
+      "banner": "https://yt3.googleusercontent.com/XXIu51NbaKvJ1jt4T0Ifc0B1PGFViq6_si7PyHJrZPeDySM5o_SCMOmNAeqSqQCsfVWTXS4RaA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "avatar": "https://yt3.googleusercontent.com/bqnaeB4buRSngNjDWujey_0NeeFy7D7W8Ssq2JBnvcy8zBXiIg_hkeBbhgBw9nNnSE1AQimNkw=s160-c-k-c0x00ffffff-no-rj",
+      "url": "https://youtube.com/@Veetwo_"
+    },
+    {
+      "id": "veetwo2",
+      "name": "@VeetwoMusic",
+      "banner": "https://yt3.googleusercontent.com/SWXF1FDGW5gYfIe_3LBMCwoRbWzmB2pkHNMamUHZQYM4MizO4-Dr6nA4RYjKpTwL-VC4PGBoWA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "avatar": "https://yt3.googleusercontent.com/ldJkz_maxobv1D3UxYHHEYZ4axBEX-3_FvJQJ_zduhEf2f84dft1wGoMAdIwxiUf87y4JOhLfw=s160-c-k-c0x00ffffff-no-rj",
+      "url": "https://youtube.com/@VeetwoMusic"
+    }
+  ],
   "items": [
-    {"image": "https://img.youtube.com/vi/zTSCu_5XSzQ/maxresdefault.jpg"},
-    {"image": "assets/img/2024.jpg"},
-    {"image": "https://img.youtube.com/vi/2Tm9Ugj7kDU/maxresdefault.jpg"},
-    {"image": "https://i.ytimg.com/vi/tjhFPDf3m-k/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCurYVDGOf4HJ_cxW8QSDr_31XfMw"},
-    {"image": "https://i.ytimg.com/vi/QSXIHncMHiQ/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCQYPnWun0EXaoT-PbKgpFDzqiOaQ"},
-    {"image": "https://img.youtube.com/vi/7ZqgDnU2dnM/maxresdefault.jpg"},
-    {"image": "https://i.ytimg.com/vi/dFaLl_wjvvg/hqdefault.jpg"},
-    {"image": "https://i.ytimg.com/vi/kwPJufiLmvk/hqdefault.jpg"},
-    {"image": "https://i.ytimg.com/vi/zYcyqB1UWu8/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLACJGk235fae4AgVFCnGlqJ0yiLUg"},
-    {"image": "https://i.ytimg.com/vi/HpL1dqX7VfI/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGBQgVCh_MA8=&rs=AOn4CLAwoISS35QKXvr-iRPBBicEgCW3UQ"},
-    {"image": "https://i.ytimg.com/vi/BKoMuUUmhM4/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGEEgEyh_MA8=&rs=AOn4CLDV8gO8vl8t8MSTQbhQC-bvfHiGuQ"},
-    {"image": "https://i.ytimg.com/vi/iEl9_l7UKZ8/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGHkgLSh_MA8=&rs=AOn4CLBkuhXsmoCBK3iN7QXOsjvuhafvyQ"},
-    {"image": "https://i.ytimg.com/vi/OrlwGJTSIq8/hqdefault.jpg"},
-    {"image": "https://i.ytimg.com/vi/fYwTZ94Ffo0/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGGIgSChlMA8=&rs=AOn4CLBcLr4uSrMa7wBn2TH7Xmk2oooM7A"},
-    {"image": "https://i.ytimg.com/vi/lpEC7UCtCAI/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGHcgKyh_MA8=&rs=AOn4CLBykM-nvp6Hxv7BAN8jjv2LPIklEA"},
-    {"image": "https://i.ytimg.com/vi/A99d3Ntnn_4/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&rs=AOn4CLCI_7g-P_K460cPrd-_iq9mqc2yOA"},
-    {"image": "https://i.ytimg.com/vi/Ot-iFM58oRI/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGFYgRyhlMA8=&rs=AOn4CLATEheaSRbZhkp01ZNvrUhbXDGB7Q"},
-    {"image": "https://i.ytimg.com/vi/i4g1DOqy8fA/hqdefault.jpg"},
-    {"image": "https://i.ytimg.com/vi/ZGb3iBrz-Xk/hqdefault.jpg?sqp=-oaymwExCOADEI4CSFryq4qpAyMIARUAAIhCGAHwAQH4Af4JgALQBYoCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLD4SXpgpisX-oelH51ry3AA3-NFFg"},
-    {"image": "https://i.ytimg.com/vi/Aqc3kRM28Qo/hqdefault.jpg?sqp=-oaymwFACKgBEF5IWvKriqkDMwgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAHwAQH4Af4JgALQBYoCDAgAEAEYfyATKGkwDw==&rs=AOn4CLChXqJhZDeRoatTcHyW4v3lU_rO_g"}
+    { "title": "Atura & Simona Shao - BRIGHT // SLOWED & BASS BOOSTED", "date": "Oct 5, 2025", "image": "https://img.youtube.com/vi/zTSCu_5XSzQ/maxresdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=zTSCu_5XSzQ", "channelId": "veetwo1" },
+    { "title": "Crankdat - B.T.W. (Blow the Whistle) // SLOWED & BASS BOOSTED", "date": "Aug 9, 2025", "image": "https://i.ytimg.com/vi/tjhFPDf3m-k/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=tjhFPDf3m-k", "channelId": "veetwo1" },
+    { "title": "Ruzer - White Out // BASS BOOSTED", "date": "May 26, 2025", "image": "https://i.ytimg.com/vi/QSXIHncMHiQ/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=QSXIHncMHiQ", "channelId": "veetwo1" },
+    { "title": "Mo Falk - Falling (CθRZEN REMIX)", "date": "Feb 18, 2025", "image": "https://img.youtube.com/vi/2Tm9Ugj7kDU/maxresdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=2Tm9Ugj7kDU", "channelId": "veetwo1" },
+    { "title": "Just Dance x Stereo Love (Leondis x COASTR. Remix) // SLOWED & BASS BOOSTED", "date": "Nov 30, 2024", "image": "https://i.ytimg.com/vi/k2nkh3XPOws/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=k2nkh3XPOws", "channelId": "veetwo2" },
+    { "title": "Knock2 - feel U luv Me // NEOKRONO REMIX", "date": "Nov 16, 2024", "image": "assets/img/2024.jpg", "videoUrl": "https://www.youtube.com/watch?v=SToqer5cP7Q", "channelId": "veetwo1" },
+    { "title": "PHANTASZZ - PROBLEMS // BASS BOOSTED", "date": "Oct 16, 2024", "image": "https://i.ytimg.com/vi/zYcyqB1UWu8/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=zYcyqB1UWu8", "channelId": "veetwo1" },
+    { "title": "Tantrum Desire - Unleashed (M∆RKO BOOTLEG) // BASS BOOSTED", "date": "Jun 7, 2024", "image": "https://i.ytimg.com/vi/dFaLl_wjvvg/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=dFaLl_wjvvg", "channelId": "veetwo1" },
+    { "title": "MUPP & Glichery - BATTERED // SLOWED & BASS BOOSTED", "date": "Jan 27, 2024", "image": "https://i.ytimg.com/vi/kwPJufiLmvk/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=kwPJufiLmvk", "channelId": "veetwo1" },
+    { "title": "NUEKI x TOLCHONOV x glichery - TIRED OF PROBLEMS // REMASTERED", "date": "Nov 20, 2023", "image": "https://i.ytimg.com/vi/HpL1dqX7VfI/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=HpL1dqX7VfI", "channelId": "veetwo1" },
+    { "title": "Black Eyed Peas - Meet Me Halfway (HYPERTECHNO REMIX) // BASS BOOSTED", "date": "Nov 1, 2023", "image": "https://i.ytimg.com/vi/BKoMuUUmhM4/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=BKoMuUUmhM4", "channelId": "veetwo1" },
+    { "title": "RAIZHELL, Glichery & Proof Nation - Sea Of Problems Phonk Version // BASS BOOSTED", "date": "Aug 22, 2023", "image": "https://i.ytimg.com/vi/iEl9_l7UKZ8/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=iEl9_l7UKZ8", "channelId": "veetwo1" },
+    { "title": "WRLD - By Design (Live Studio Session) // BASS BOOSTED", "date": "Aug 16, 2023", "image": "https://img.youtube.com/vi/7ZqgDnU2dnM/maxresdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=7ZqgDnU2dnM", "channelId": "veetwo1" },
+    { "title": "D-Block & S-te-fan - Harder Generation // SLOWED & BASS BOOSTED", "date": "Aug 13, 2023", "image": "https://i.ytimg.com/vi/fYwTZ94Ffo0/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=fYwTZ94Ffo0", "channelId": "veetwo1" },
+    { "title": "Everen Maxwell - Pink Clouds // BASS BOOSTED", "date": "Nov 30, 2022", "image": "https://i.ytimg.com/vi/lpEC7UCtCAI/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=lpEC7UCtCAI", "channelId": "veetwo1" },
+    { "title": "Kordhell - Killa // BASS BOOSTED", "date": "Nov 26, 2022", "image": "https://i.ytimg.com/vi/OrlwGJTSIq8/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=OrlwGJTSIq8", "channelId": "veetwo1" },
+    { "title": "Karma Fields - Build the Cities", "date": "Nov 24, 2022", "image": "https://i.ytimg.com/vi/A99d3Ntnn_4/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=A99d3Ntnn_4", "channelId": "veetwo1" },
+    { "title": "Kendrick Lamar - All The Stars", "date": "Nov 20, 2022", "image": "https://i.ytimg.com/vi/Ot-iFM58oRI/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=Ot-iFM58oRI", "channelId": "veetwo1" },
+    { "title": "TheFatRat ft. JJD - Prelude (VIP Edit) [Slowed & Bass Boosted]", "date": "Feb 1, 2021", "image": "https://i.ytimg.com/vi/i4g1DOqy8fA/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=i4g1DOqy8fA", "channelId": "veetwo1" },
+    { "title": "Glue70 - Casin", "date": "Sep 29, 2020", "image": "https://i.ytimg.com/vi/Aqc3kRM28Qo/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=Aqc3kRM28Qo", "channelId": "veetwo1" },
+    { "title": "DA Games- Brothers In Arms [SILENTWALL REMIX]", "date": "Apr 4, 2019", "image": "https://i.ytimg.com/vi/qN8VFbXzJw4/hqdefault.jpg", "videoUrl": "https://www.youtube.com/watch?v=qN8VFbXzJw4", "channelId": "veetwo1" },
+    
+    { 
+      "title": "PlayaPhonk - Keraunos", 
+      "date": "Feb 21, 2022", 
+      "image": "https://i.ytimg.com/vi/ZGb3iBrz-Xk/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "DJ Quads - Living In Stereo", 
+      "date": "Dec 31, 2021", 
+      "image": "/assets/img/livinginstereo.jpeg", 
+      "videoUrl": "https://www.youtube.com/", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "We'll Meet Again - TheFatRat // LOST ENERGY REMIX", 
+      "date": "Aug 21, 2021", 
+      "image": "https://i.ytimg.com/vi/dYc1Fero5AU/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=dYc1Fero5AU", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "Electus - Another World", 
+      "date": "Sep 27, 2020", 
+      "image": "https://i.ytimg.com/vi/GlGFQsmYF3Y/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=GlGFQsmYF3Y", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "TheFatRat - Close to the Sun (Bass Boosted)", 
+      "date": "Sep 20, 2019", 
+      "image": "https://i.ytimg.com/vi/xLb3D8k4mio/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=xLb3D8k4mio", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "Ricko James - A Samurai's Death (Bass Boosted)", 
+      "date": "May 29, 2019", 
+      "image": "https://i.ytimg.com/vi/gX8ZXuuXaao/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=gX8ZXuuXaao", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "Slynk & Kermode - Heel Flip (Bass Boosted)", 
+      "date": "Mar 2, 2019", 
+      "image": "https://i.ytimg.com/vi/jJK58UuK0rk/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=jJK58UuK0rk", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "OutKast - Hey Ya! (SWEATER BEATS & KAMAU Remix - Bass Boosted)", 
+      "date": "Oct 24, 2018", 
+      "image": "https://i.ytimg.com/vi/d-ffzk55b2M/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=d-ffzk55b2M", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "A Tribe Called Red - R.E.D.", 
+      "date": "Aug 2018", 
+      "image": "https://i.ytimg.com/vi/CVa3GtM8FAY/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=CVa3GtM8FAY", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "DAGames - Brothers in Arms (Silentwall Old Remix - Bass Boosted)", 
+      "date": "May 19 2018", 
+      "image": "https://i.ytimg.com/vi/khhCqwoFNPQ/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=khhCqwoFNPQ", 
+      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "isLegacy": true 
+    }
   ]
 }

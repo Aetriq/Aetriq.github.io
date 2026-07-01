@@ -19,6 +19,7 @@
         <button class="mobile-menu-btn">☰ Menu</button>
         <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
             <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about" class="about">About</a></li>
             <li><a href="#highlight">Highlighted Projects</a></li>
             <li><a href="#projects">All Projects</a></li>
             <li><a href="#3d-models">3D Models</a></li>
@@ -35,26 +36,38 @@
             <button id="closeBannerBtn" class="close-banner-btn" title="Dismiss for this session">×</button>
         </div>
         
-        <div id="home" class="hero-wrapper fade-up visible">
+
+        <div id="home" class="hero-wrapper fade-up visible" style="text-align: center; padding-bottom: 80px;">
             <img src="assets/img/narrow-banner.png" alt="Top Banner" class="top-banner-img">
             
-            <div class="hero-split">
-                <div class="hero-text-half">
-                    <h1>Aetriq's Personal Site</h1>
-                    <p style="color: #ccc; margin-bottom: 20px;">Welcome!</p>
-                    <p style="color: #ccc; margin-bottom: 20px;">I'm Alex and I go by Veetwo in some instances online (also my copyright label). Aetriq is my newer label seen on my PCB designs and hardware projects.</p>
-                    <p style="color: #ccc; margin-bottom: 30px;">I've been repairing/restoring electronics at component and PCB levels since 2019 and provide these services for hardware, from general diagnostics to board-level soldering, as well as specialized PC building.</p>
-                    
-                    <div style="display: flex; gap: 15px;">
-                        <a href="store.html" class="btn btn-primary">Storefront</a>
-                        <a href="#projects" class="btn btn-outline">Current Projects</a>
-                    </div>
-                </div>
-                <div class="hero-image-half">
-                    <img src="assets/img/hero-right.png" alt="Aetriq Setup">
+            <div class="container" style="max-width: 900px; margin-top: 80px;">
+                <h1 style="font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 40px; letter-spacing: -1px;">AETRIQ'S SITE</h1>
+                
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="store.html" class="btn btn-primary">Storefront</a>
+                    <a href="#projects" class="btn btn-outline">Current Projects</a>
+                    <a href="#3d-models" class="btn btn-outline">3D Models</a>
+                    <a href="#creative" class="btn btn-outline">Creative Work</a>
                 </div>
             </div>
         </div>
+
+        <!-- Spacious About Section -->
+        <section id="about" class="section" style="padding-top: 60px;">
+            <div class="container fade-up" style="max-width: 800px; text-align: center;">
+                <h2 style="margin-bottom: 40px;">About</h2>
+                
+                <p style="color: var(--body-text); margin-bottom: 25px; font-size: 1.15rem; line-height: 1.8;">Welcome to my website!</p>
+                
+                <p style="color: var(--body-text); margin-bottom: 25px; font-size: 1.15rem; line-height: 1.8;">
+                    I'm Alex and I go by Veetwo in some instances online (also my copyright label). Aetriq is my newer label seen on my PCB designs and hardware projects.
+                </p>
+                
+                <p style="color: var(--body-text); font-size: 1.15rem; line-height: 1.8;">
+                    I've been repairing/restoring electronics at component and PCB levels since 2019 and provide these services for hardware, from general diagnostics to board-level soldering, as well as specialized PC building.
+                </p>
+            </div>
+        </section>
 
         <section id="highlight" class="section">
             <div class="container fade-up">
@@ -98,7 +111,21 @@
             <div class="container fade-up">
                 <h2>Creative Work</h2>
                 <div id="creative-description" style="margin-bottom: 30px; max-width: 800px;"></div>
-                <div id="creative-grid" class="creative-grid"></div>
+                
+                <!-- Channels Container -->
+                <div id="channels-container" class="channels-grid"></div>
+                
+                <!-- Main Active Projects Grid (No Title) -->
+                <div id="creative-grid-main" class="creative-grid"></div>
+
+                <!-- Legacy Projects Wrapper (Hidden by default until JS finds legacy items) -->
+                <div id="legacy-section-wrapper" style="display: none; margin-top: 60px;">
+                    <h3 style="margin-bottom: 15px; color: var(--body-text); border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 1.2rem; letter-spacing: 1px;">Legacy Projects</h3>
+                    
+                    <div id="legacy-description" style="margin-bottom: 25px; max-width: 800px;"></div>
+                    
+                    <div id="creative-grid-legacy" class="creative-grid" style="opacity: 0.65; filter: grayscale(40%); transition: var(--transition-smooth);"></div>
+                </div>
             </div>
         </section>
 
@@ -134,13 +161,13 @@
                 <div class="footer-grid fade-up">
                     <div class="footer-brand">
                         <div class="footer-brand-header">
-                            <img src="assets/img/goeshard.png" alt="Logo">
+                            <img src="assets/img/AetriqDynamicsthumb.png" alt="Logo">
                             <div class="footer-title">Alex Gordon</div>
                         </div>
                         <p style="color: #666; font-size: 0.9rem; max-width: 400px; margin-top: 10px;">
                             Published November 24th, 2024<br>
-                            Last Updated June 19th, 2026<br>
-                            You are looking at v6.26 (build 2.64) of my website.
+                            Last Updated June 30th, 2026<br>
+                            You are looking at v6.26 (build 2.65) of my website.
                         </p>
                         <div class="social-links" style="margin-top: 15px;">
                             <a href="https://github.com/aetriq" target="_blank" title="GitHub">

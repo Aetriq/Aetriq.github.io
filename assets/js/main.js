@@ -91,23 +91,36 @@ document.addEventListener('DOMContentLoaded', () => {
     function buildProjects(data) {
         const highlightContainer = document.getElementById('highlight-container');
         if(highlightContainer && data.highlighted) {
-            // Build string in memory, append ONCE
             highlightContainer.innerHTML = data.highlighted.map((proj, index) => {
+                
+                // 1. Map main buttons
                 const linksHTML = proj.links ? proj.links.map(link => 
                     `<a href="${link.url}" class="btn btn-${link.type}" target="_blank">${link.text}</a>`
                 ).join('') : '';
 
+                // 2. NEW: Map affiliate icons
+                const affiliatesHTML = proj.affiliates ? `
+                    <div class="affiliate-links">
+                        ${proj.affiliates.map(aff => `
+                            <a href="${aff.url}" target="_blank" title="${aff.name}">
+                                <img src="${aff.icon}" alt="${aff.name}" class="affiliate-icon" loading="lazy">
+                            </a>
+                        `).join('')}
+                    </div>
+                ` : '';
+
+                // 3. Return the full HTML
                 return `
                     <div class="project-card highlight-card fade-up" style="transition-delay: ${index * 100}ms;">
                         <div class="highlight-body">
                             <h1 style="font-size: 2.5rem; margin-bottom: 5px;">${proj.title}</h1>
-                            <h3 class="accent-text" style="margin-bottom: 20px;">${proj.subtitle}</h3>
+                            <h3 class="accent-text" style="margin-bottom: 20px; color: var(--accent-red); font-family: 'JetBrains Mono', monospace;">${proj.subtitle}</h3>
                             <p class="card-description">${proj.description}</p>
-                            <div class="status-indicator" style="border-left-color: ${proj.statusColor};">
+                            <div class="status-indicator" style="border-left: 2px solid ${proj.statusColor}; padding-left: 15px; margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
                                 Status: <strong style="color:${proj.statusColor};">${proj.status}</strong>
                             </div>
                             <div class="card-links">${linksHTML}</div>
-                        </div>
+                            ${affiliatesHTML} </div>
                         <div class="card-image">
                             <img src="${proj.image}" alt="${proj.title}" loading="lazy">
                         </div>
@@ -181,19 +194,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function buildCreative(data) {
         const descContainer = document.getElementById('creative-description');
-        const gridContainer = document.getElementById('creative-grid');
+        const legacyDescContainer = document.getElementById('legacy-description'); // Added
+        const channelsContainer = document.getElementById('channels-container');
+        const mainGrid = document.getElementById('creative-grid-main');
+        const legacyGrid = document.getElementById('creative-grid-legacy');
+        const legacyWrapper = document.getElementById('legacy-section-wrapper');
         
-        if(descContainer && data.description) {
-            descContainer.innerHTML = `<p>${data.description}</p>`;
+        // Added white-space: pre-wrap to force \n\n line breaks
+        if (descContainer && data.description) {
+            descContainer.innerHTML = `<p style="font-size: 1.1rem; opacity: 0.85; white-space: pre-wrap;">${data.description}</p>`;
+        }
+        // 1. Build Channel Banners
+        if (channelsContainer && data.channels) {
+            channelsContainer.innerHTML = data.channels.map((channel, index) => `
+                <a href="${channel.url}" target="_blank" class="channel-card fade-up" style="transition-delay: ${index * 100}ms;">
+                    <img src="${channel.banner}" alt="Banner" class="channel-banner" loading="lazy">
+                    <div class="channel-info">
+                        <img src="${channel.avatar}" alt="${channel.name}" class="channel-avatar" loading="lazy">
+                        <h3 class="channel-name">${channel.name}</h3>
+                    </div>
+                </a>
+            `).join('');
+            observeNewElements(channelsContainer);
         }
         
-        if(gridContainer && data.items) {
-            gridContainer.innerHTML = data.items.map((item, index) => `
-                <div class="creative-item fade-up" style="transition-delay: ${(index % 3) * 100}ms;">
-                    <img src="${item.image}" alt="Creative Work Thumbnail" loading="lazy">
-                </div>
-            `).join('');
-            observeNewElements(gridContainer);
+        // Helper function to build the video card HTML
+        const generateVideoCards = (items) => {
+            return items.map((item, index) => {
+                const parentChannel = data.channels ? data.channels.find(c => c.id === item.channelId) : null;
+                const avatarSrc = item.customIcon ? item.customIcon : (parentChannel ? parentChannel.avatar : '');
+                const avatarHTML = avatarSrc ? `<img src="${avatarSrc}" class="video-channel-icon" alt="Channel Icon" loading="lazy">` : '';
+                const dateHTML = item.date ? `<span class="creative-date">${item.date}</span>` : '';
+
+                return `
+                    <a href="${item.videoUrl || '#'}" target="_blank" class="creative-card fade-up" style="transition-delay: ${(index % 4) * 100}ms;">
+                        <div class="creative-thumb">
+                            <img src="${item.image}" alt="${item.title || 'Creative Video'}" loading="lazy">
+                            <div class="play-overlay">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="creative-info">
+                            ${avatarHTML}
+                            <div class="creative-text-group">
+                                <h3 class="creative-title">${item.title || 'Video Title'}</h3>
+                                ${dateHTML}
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        };
+
+        // 2. Build Video Cards & Split by Legacy Status
+        if (data.items) {
+            const mainItems = data.items.filter(item => !item.isLegacy);
+            const legacyItems = data.items.filter(item => item.isLegacy);
+
+            if (mainGrid && mainItems.length > 0) {
+                mainGrid.innerHTML = generateVideoCards(mainItems);
+                observeNewElements(mainGrid);
+            }
+
+            if (legacyGrid && legacyWrapper) {
+                if (legacyItems.length > 0) {
+                    legacyGrid.innerHTML = generateVideoCards(legacyItems);
+                    legacyWrapper.style.display = 'block'; 
+                    
+                    // Inject the new legacy description with line break support
+                    if (legacyDescContainer && data.legacyDescription) {
+                        legacyDescContainer.innerHTML = `<p style="font-size: 1rem; color: #888; white-space: pre-wrap;">${data.legacyDescription}</p>`;
+                    }
+
+                    observeNewElements(legacyGrid);
+                    
+                    legacyGrid.addEventListener('mouseenter', () => { legacyGrid.style.opacity = '1'; legacyGrid.style.filter = 'grayscale(0%)'; });
+                    legacyGrid.addEventListener('mouseleave', () => { legacyGrid.style.opacity = '0.65'; legacyGrid.style.filter = 'grayscale(40%)'; });
+                }
+            }
         }
     }
     // --- Contact Form Handling ---
