@@ -1,61 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
+    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamics 1.0.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetriq's Store</title>
+    <title>Hardware Supply | Aetriq</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* --- Store Dashboard Overhauls --- */
+        
+        /* 1. Hero Section with deeper texture */
+        .store-hero {
+            padding: 140px 20px 80px 20px;
+            text-align: center;
+            border-bottom: var(--border-subtle);
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(245, 166, 35, 0.08), transparent 60%),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+            position: relative;
+        }
+
+        /* 2. Tactical Trust Badges */
+        .trust-badge-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .trust-badge {
+            flex: 1 1 200px; /* Stretches nicely on mobile */
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
+            border: var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            padding: 25px 20px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(4px);
+        }
+        .trust-badge:hover {
+            border-color: var(--accent-red);
+            background: rgba(211, 47, 47, 0.05);
+            transform: translateY(-4px);
+        }
+
+        /* 3. Structural Data Blocks for About Section */
+        .dossier-block {
+            background: rgba(255,255,255,0.02);
+            border: var(--border-subtle);
+            border-left: 3px solid rgba(255,255,255,0.2);
+            padding: 30px;
+            position: relative;
+        }
+        .sector-block {
+            display: flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: var(--border-subtle);
+            border-left: 3px solid var(--accent-red);
+            padding: 15px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--primary-text);
+            transition: var(--transition-smooth);
+        }
+        .sector-block:hover {
+            background: rgba(211, 47, 47, 0.1);
+            border-left-color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        /* 4. Live Terminal Feed Header */
+        .inventory-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .live-status {
+            font-family: 'JetBrains Mono', monospace;
+            color: #2ea043; /* System Success Green */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(46, 160, 67, 0.3);
+            padding: 6px 14px;
+            background: rgba(46, 160, 67, 0.05);
+            letter-spacing: 1px;
+        }
+        .pulse-dot {
+            width: 8px; height: 8px;
+            background-color: #2ea043;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #2ea043;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        /* 5. Platform Link Upgrades */
+        .platform-link {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 20px; background: var(--bg-card); border: var(--border-subtle);
+            text-decoration: none; color: var(--primary-text); transition: var(--transition-smooth);
+            font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+        }
+        .platform-link:hover {
+            border-color: var(--accent-red); background: rgba(211, 47, 47, 0.05);
+        }
+        .platform-link::after {
+            content: '>'; color: var(--accent-gold); font-weight: bold; opacity: 0; transition: 0.3s;
+        }
+        .platform-link:hover::after {
+            opacity: 1; transform: translateX(-5px);
+        }
+
+        /* Mobile specific spacing */
+        @media (max-width: 768px) {
+            .store-hero { padding: 100px 15px 50px 15px; }
+            .dossier-block { padding: 20px; }
+            .inventory-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
 </head>
 <body>
-    
+
     <nav class="navbar">
-        <div class="logo fade-up visible">
+        <div class="logo">
             <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
-            <div class="logo-text">Aetriq Store</div>
+            <div class="logo-text" style="font-size: 1.1rem;">Supply</div>
         </div>
         <button class="mobile-menu-btn">☰ Menu</button>
-        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
-            <li><a href="index.html">← Back to Main Site</a></li>
-            <li><a href="#" class="active">Storefront</a></li>
+        <ul class="nav-links">
+            <li><a href="index.html">← Back to Portfolio</a></li>
+            <li><hr class="nav-divider" style="border-top: var(--border-subtle); margin: 15px 0;"></li>
+            <li><a href="#store-home" class="active">Overview</a></li>
+            <li><a href="#store-about">About</a></li>
+            <li><a href="#storefront">Inventory</a></li>
+            <li><a href="#store-contact">Contact & Platforms</a></li>
         </ul>
     </nav>
 
     <div class="main-content">
-        <div class="container section">
-            <h1 class="fade-up visible">Storefront</h1>
-            
-            <div class="fade-up visible" style="max-width: 800px; margin-bottom: 40px; padding: 25px; background: rgba(255,255,255,0.03); border-left: 4px solid var(--accent-red); border-bottom: var(--border-subtle); transition-delay: 100ms;">
-                <p style="margin: 0; font-size: 1.1rem;">Currently showing past inventory and specialized PC builds. All links redirect to my eBay listing page or Facebook Marketplace!</p>
-            </div>
+        
+        <section id="store-home" class="store-hero fade-up visible">
+            <div class="container" style="max-width: 900px;">
+                <div class="tech-pill" style="margin-bottom: 25px; display: inline-block; color: var(--accent-gold); border-color: var(--accent-gold);">[ GORDALX DEPOT ]</div>
+                <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 25px; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">AETRIQ HARDWARE SUPPLY</h1>
+                <p style="font-size: 1.15rem; color: var(--body-text); max-width: 650px; margin: 0 auto; line-height: 1.8;">
+                    Sourcing, salvaging, and supplying specialized electronics, maker components, and vintage legacy hardware to Canada.
+                </p>
 
-            <div class="store-grid" id="productGrid"></div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="productModal">
-        <div class="modal-content" id="modalContent">
-            <div class="modal-header">
-                <h3 style="margin:0; font-size:1.1rem; color: var(--primary-text);">Product Details</h3>
-                <button class="close-btn" id="closeModalBtn">Close [X]</button>
+                <div class="trust-badge-grid">
+                    <div class="trust-badge">
+                        <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">100%</div>
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">Positive on eBay</div>
+                    </div>
+                    <div class="trust-badge">
+                        <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">5.0<span style="color: var(--accent-gold);">★</span></div>
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">FB Marketplace</div>
+                    </div>
+                    <div class="trust-badge">
+                        <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">2018</div>
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">Est. Operations</div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="carousel-container">
-                    <button class="carousel-btn carousel-prev" id="prevBtn">‹</button>
-                    <img src="" alt="Product view" class="carousel-img" id="carouselImg">
-                    <button class="carousel-btn carousel-next" id="nextBtn">›</button>
-                    <div class="image-counter" id="imageCounter">1 / 1</div>
+        </section>
+
+        <section id="store-about" class="section">
+            <div class="container fade-up">
+                <h2 style="margin-bottom: 40px;">About</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
+                    
+                    <div class="dossier-block">
+                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
+                            Located in Ottawa, the capital of Canada, <strong>Aetriq Hardware</strong> (operating under <em>gordalx</em>) has been a dedicated supplier of specialized electronics since 2018. 
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
+                            What began as a passion for repairing legacy devices has expanded into a comprehensive supply hub. Between maker ecosystems & vintage tech, parts are extensively tested, refurbished, or restored prior to shipping.
+                        </p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <h3 style="color: var(--body-text); margin-bottom: 10px; font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;">PRIMARY SUPPLY SECTORS</h3>
+                        <div class="sector-block">
+                            <span style="color: var(--accent-red);">[01]</span> Maker & CoreXY 3D Printer Components
+                        </div>
+                        <div class="sector-block">
+                            <span style="color: var(--accent-red);">[02]</span> Vintage Computing & PC Parts
+                        </div>
+                        <div class="sector-block">
+                            <span style="color: var(--accent-red);">[03]</span> Legacy Mobile Devices (Phones/Tablets)
+                        </div>
+                        <div class="sector-block">
+                            <span style="color: var(--accent-red);">[04]</span> Raw Electronic & PCB Level Components
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="storefront" class="section" style="background: var(--bg-card); border-top: var(--border-subtle); border-bottom: var(--border-subtle);">
+            <div class="container fade-up">
+                
+                <div class="inventory-header">
+                    <div>
+                        <h2 style="margin-bottom: 10px; border: none;">Active Inventory</h2>
+                        <p style="font-family: 'JetBrains Mono', monospace; color: #888; text-transform: uppercase; font-size: 0.85rem;">Notable items from local stock & direct fulfillment</p>
+                    </div>
                 </div>
                 
-                <div class="status-badge" id="modalStatusBadge">Status</div>
-                <h2 id="modalTitle" style="border:none; margin: 10px 0; padding: 0;">Product Title</h2>
-                <p id="modalDesc" style="white-space: pre-wrap; font-size: 1.05rem; color: var(--body-text);"></p>
+                <div id="productGrid" class="store-grid">
+                    <!-- Products will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="store-contact" class="section">
+            <div class="container fade-up">
+                <h2>Inquiries & Platforms</h2>
+                <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 30px;">
+                    
+                    <div class="project-card contact-card" style="padding: 40px; box-shadow: none;">
+                        <p style="margin-bottom: 30px; font-size: 1.05rem; line-height: 1.7;">Looking for a specific part not listed in the inventory? Requesting a quote for 3D printing or component-level repair? Reach out directly.</p>
+                        
+                        <h3 style="margin-bottom: 10px; font-size: 0.9rem; color: #888; font-family: 'JetBrains Mono', monospace;">DIRECT EMAIL</h3>
+                        <p style="margin-bottom: 40px;"><a href="mailto:aetriq@protonmail.com" style="color: var(--accent-red); font-size: 1.1rem; font-weight: bold; text-decoration: none; font-family: 'JetBrains Mono', monospace;">aetriq@protonmail.com</a></p>
+                        
+                        <h3 style="margin-bottom: 15px; font-size: 0.9rem; color: #888; font-family: 'JetBrains Mono', monospace;">EXTERNAL LINKS</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <a href="https://www.ebay.com/usr/gordalx" target="_blank" class="platform-link">
+                                <div><span style="color: var(--accent-gold); margin-right: 10px;">[ EBAY ]</span> gordalx (Global Shipping)</div>
+                            </a>
+                            <a href="#" target="_blank" class="platform-link">
+                                <div><span style="color: #1877F2; margin-right: 10px;">[ MARKET ]</span> Ottawa Local Pickup (Kanata, Old Ottawa South, Byward Market areas)</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="dossier-block" style="border-left-color: var(--accent-gold);">
+                        <h3 style="margin-bottom: 25px; font-size: 1.2rem;">Direct Inquiry Form</h3>
+                        <form id="contactForm">
+                            <input type="text" class="form-control" placeholder="Name" required>
+                            <input type="email" class="form-control" placeholder="Email" required>
+                            <input type="text" class="form-control" placeholder="Subject / Part Number" required>
+                            <textarea class="form-control" placeholder="Message" rows="5" required></textarea>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid fade-up">
+                    <div class="footer-brand">
+                        <div class="footer-brand-header">
+                            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
+                            <div class="footer-title">Aetriq Hardware</div>
+                    </div></div>
+                    
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <div class="footer-links">
+                            <a href="#store-home">Overview</a>
+                            <a href="#store-about">About</a>
+                            <a href="#storefront">Inventory</a>
+                            <a href="#store-contact">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Platforms</h4>
+                        <div class="footer-links">
+                            <a href="https://www.ebay.com/usr/gordalx" target="_blank">eBay Store</a>
+                            <a href="#" target="_blank">FB Marketplace</a>
+                        </div>
+                    </div>
+                </div>
                 
-                <button class="btn" id="modalActionBtn" style="width: 100%; margin-top: 10px;">Action</button>
+                <div class="footer-bottom fade-up" style="transition-delay: 200ms;">
+                    <div>© 2026 Veetwo Music Ltd. All rights reserved.</div>
+                    <div style="max-width: 500px; text-align: right;">By browsing my website, you agree to the cookies obtained via CloudFlare. This is done to prevent AI from scraping my site.</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- The Product Modal -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="font-size: 1.4rem; letter-spacing: 1px;">Product Details</h2>
+                <button id="closeModalBtn" class="close-btn">Close [X]</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Injected via JS -->
             </div>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="assets/js/store.js"></script>
+    <script>
+        // Form Submission Intercept
+        const contactForm = document.getElementById('contactForm');
+        if(contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault(); 
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerText;
+                
+                btn.innerText = "[ INQUIRY_TRANSMITTED ]";
+                btn.style.background = "#2ea043"; 
+                btn.style.color = "#fff";
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "var(--accent-red)";
+                    contactForm.reset();
+                }, 3000);
+            });
+        }
+
+        // Mobile Nav & Scroll Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            if(mobileBtn) {
+                mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+            }
+
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
