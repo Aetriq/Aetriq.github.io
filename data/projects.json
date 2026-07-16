@@ -2,12 +2,12 @@
   "highlighted": [
     {
       "id": "intrastice-high",
-      "title": "Intrastice v0.1",
-      "subtitle": "Custom Ultra-Compact CoreXY 3D Printer",
+      "title": "Intrastice",
+      "subtitle": "Ultra-Compact CoreXY 3D Printer",
       "description": "The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers. A direct successor to the Chimera iXY. \n\nFeaturing a custom edge-ML vision system for real-time anomaly detection, fully enclosed (in final design), CPAP cooling, and much more. \n\nFeatures the compact Micro4 and ADXL345 FLY by Mellow, the Orange Pi Zero 2W, and a multi voltage power bus solution for adaptable fans. \n\nVery modular design, easily upgrade and replace components with a simple bracket.",
       "status": "IN PROGRESS",
       "statusColor": "#FFFF00",
-      "image": "assets/img/intrastice/intrasticev0.1.png",
+      "image": "assets/img/intrasticev0.1banner.png",
       "links": [
         {"text": "Official Page", "url": "projects/intrastice.html", "type": "primary"},
         {"text": "GitHub", "url": "https://github.com/Aetriq/intrastice", "type": "outline"},
@@ -17,14 +17,15 @@
     },
     {
       "id": "chimera-high",
-      "title": "Chimera iXY v2.5",
-      "subtitle": "Custom High-Speed CoreXY 3D Printer",
+      "title": "Chimera iXY",
+      "subtitle": "High-Speed CoreXY 3D Printer",
       "description": "A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X.\n\nAchieves high-quality prints at 450mm/s & 800mm/s travel speeds.\n\nMarlin/Klipper ready, 230mm^3 build volume, 10k mm/s^3 accel, 40mm^3/s flow.\n\nFull docs, 3D models, & firmware configs are available for those looking to build their own hybrid machine. \n\nCurrent Status (7-1-26): v2.5 released; check the page for more details!",
       "status": "COMPLETE",
       "statusColor": "#2b7a0b",
-      "image": "assets/img/chimerav2.5.JPG.png",
+      "image": "assets/img/chimerav2.5banner.png",
       "links": [
         {"text": "Official Page", "url": "projects/chimera.html", "type": "primary"},
+        {"text": "Showcase Video", "url": "https://www.youtube.com/watch?v=Q-hPXHgwOV8", "type": "primary"},
         {"text": "GitHub", "url": "https://github.com/aetriq/ChimeraiXY", "type": "outline"},
         {"text": "Docs", "url": "projects/docs.html?page=chimera", "type": "outline"}
       ],

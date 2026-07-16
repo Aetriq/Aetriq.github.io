@@ -110,20 +110,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 ` : '';
 
                 // 3. Return the full HTML
+                // 3. Return the full HTML
                 return `
                     <div class="project-card highlight-card fade-up" style="transition-delay: ${index * 100}ms;">
+                        
+                        <div class="card-image">
+                            <img src="${proj.image}" alt="${proj.title}" loading="lazy">
+                            <div class="highlight-image-overlay">
+                                <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 5px; color: #fff; line-height: 1.1;">${proj.title}</h1>
+                                <h3 class="accent-text" style="margin: 0; color: var(--accent-red); font-family: 'JetBrains Mono', monospace; font-size: 1rem; letter-spacing: 1px;">${proj.subtitle}</h3>
+                            </div>
+                        </div>
+
                         <div class="highlight-body">
-                            <h1 style="font-size: 2.5rem; margin-bottom: 5px;">${proj.title}</h1>
-                            <h3 class="accent-text" style="margin-bottom: 20px; color: var(--accent-red); font-family: 'JetBrains Mono', monospace;">${proj.subtitle}</h3>
-                            <p class="card-description">${proj.description}</p>
                             <div class="status-indicator" style="border-left: 2px solid ${proj.statusColor}; padding-left: 15px; margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
                                 Status: <strong style="color:${proj.statusColor};">${proj.status}</strong>
                             </div>
+
+                            <div class="highlight-desc-container">
+                                <button class="desc-toggle-btn" onclick="this.parentElement.classList.toggle('expanded')">
+                                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg> Project Details
+                                </button>
+                                <div class="card-description-collapsible">
+                                    <p class="card-description" style="white-space: pre-wrap; opacity: 0.85; line-height: 1.7;">${proj.description}</p>
+                                </div>
+                            </div>
+
                             <div class="card-links">${linksHTML}</div>
-                            ${affiliatesHTML} </div>
-                        <div class="card-image">
-                            <img src="${proj.image}" alt="${proj.title}" loading="lazy">
+                            ${affiliatesHTML}
                         </div>
+                        
                     </div>
                 `;
             }).join('');
