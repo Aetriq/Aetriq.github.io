@@ -20,9 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentProductIndex = 0;
     let currentImageIndex = 0;
 
+    // --- DOM Elements ---
     const grid = document.getElementById('productGrid');
+    
+    // Target both ID and Class to ensure we grab the modal overlay
     const modal = document.getElementById('productModal');
     const closeBtn = document.getElementById('closeModalBtn');
+    
     const carouselImg = document.getElementById('carouselImg');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
@@ -46,20 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isAvailable = prod.status === 'available';
                 const mainImg = prod.images && prod.images.length > 0 ? prod.images[0] : 'https://via.placeholder.com/400x300/111/fff?text=No+Image';
                 
-                // Sold overlay logic
                 const soldOverlay = !isAvailable ? 
                     `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.5rem; letter-spacing:4px; text-transform:uppercase;">Sold Out</div>` : '';
 
                 const cardHTML = `
                     <div class="project-card fade-up" style="transition-delay: ${(index % 4) * 50}ms; cursor: pointer;" data-index="${index}">
                         <div class="card-image" style="position: relative;">
-                            <img src="${mainImg}" alt="${prod.title}">
+                            <img src="${mainImg}" alt="${prod.title}" style="width: 100%; height: 250px; object-fit: cover;">
                             ${soldOverlay}
                         </div>
                         <div class="card-content">
                             <h3 style="font-size: 1.15rem; margin-bottom: 15px; line-height: 1.4;">${prod.title}</h3>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05);">
-                                <span style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: ${isAvailable ? 'var(--accent-gold)' : 'var(--body-text)'};">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: bold; color: ${isAvailable ? 'var(--accent-gold)' : 'var(--body-text)'};">
                                     ${isAvailable ? prod.price : 'SOLD'}
                                 </span>
                                 <span class="btn ${isAvailable ? 'btn-outline' : ''}" style="${!isAvailable ? 'padding:0; border:none; color:var(--body-text); font-size:0.9rem;' : 'padding: 8px 16px;'}">
@@ -70,13 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
                 
-                // Append card
-                grid.insertAdjacentHTML('beforeend', cardHTML);
+                if (grid) grid.insertAdjacentHTML('beforeend', cardHTML);
             });
 
-            // Add click listeners to newly created cards
+            // Bind clicks to cards
             document.querySelectorAll('#productGrid .project-card').forEach(card => {
-                card.addEventListener('click', (e) => {
+                card.addEventListener('click', () => {
                     const idx = card.getAttribute('data-index');
                     openModal(parseInt(idx));
                 });
@@ -87,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Modal Logic ---
     function openModal(productIndex) {
+        if (!modal) return; // Prevent crashes if modal is missing
+        
         currentProductIndex = productIndex;
         currentImageIndex = 0;
         const prod = productsData[currentProductIndex];
@@ -96,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (prod.status === 'available') {
             modalStatusBadge.textContent = 'Available';
-            modalStatusBadge.className = 'status-badge status-available';
+            modalStatusBadge.style.color = '#4CAF50';
+            modalStatusBadge.style.border = '1px solid #4CAF50';
             
             modalActionBtn.textContent = `Buy Now - ${prod.price}`;
             modalActionBtn.className = 'btn btn-primary';
@@ -104,7 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
             modalActionBtn.onclick = () => window.open(prod.link, '_blank');
         } else {
             modalStatusBadge.textContent = 'Sold Out';
-            modalStatusBadge.className = 'status-badge status-sold';
+            modalStatusBadge.style.color = '#f44336';
+            modalStatusBadge.style.border = '1px solid #f44336';
 
             modalActionBtn.textContent = 'Item Unavailable';
             modalActionBtn.className = 'btn';
@@ -140,28 +146,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; 
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; 
+        }
     }
 
-    // Modal Event Listeners
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    // Modal Listeners
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-    nextBtn.addEventListener('click', () => {
-        const prod = productsData[currentProductIndex];
-        currentImageIndex = (currentImageIndex + 1) % prod.images.length;
-        updateCarousel();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const prod = productsData[currentProductIndex];
+            currentImageIndex = (currentImageIndex + 1) % prod.images.length;
+            updateCarousel();
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        const prod = productsData[currentProductIndex];
-        currentImageIndex = (currentImageIndex - 1 + prod.images.length) % prod.images.length;
-        updateCarousel();
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const prod = productsData[currentProductIndex];
+            currentImageIndex = (currentImageIndex - 1 + prod.images.length) % prod.images.length;
+            updateCarousel();
+        });
+    }
 
     document.addEventListener('keydown', (e) => {
-        if (!modal.classList.contains('active')) return;
+        if (!modal || !modal.classList.contains('active')) return;
         if (e.key === 'Escape') closeModal();
         if (e.key === 'ArrowRight' && productsData[currentProductIndex].images.length > 1) nextBtn.click();
         if (e.key === 'ArrowLeft' && productsData[currentProductIndex].images.length > 1) prevBtn.click();

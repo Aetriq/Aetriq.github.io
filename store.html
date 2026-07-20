@@ -1,230 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamics 1.0.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Supply | Aetriq</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Store | Aetriq</title>
+    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        /* --- Store Dashboard Overhauls --- */
-        
-        /* 1. Hero Section with deeper texture */
-        .store-hero {
-            padding: 140px 20px 80px 20px;
-            text-align: center;
-            border-bottom: var(--border-subtle);
-            background: 
-                radial-gradient(circle at 50% 0%, rgba(245, 166, 35, 0.08), transparent 60%),
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 20px 20px, 20px 20px;
-            position: relative;
-        }
-
-        /* 2. Tactical Trust Badges */
-        .trust-badge-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-        .trust-badge {
-            flex: 1 1 200px; /* Stretches nicely on mobile */
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
-            border: var(--border-subtle);
-            border-top: 2px solid var(--accent-gold);
-            padding: 25px 20px;
-            text-align: center;
-            transition: var(--transition-smooth);
-            backdrop-filter: blur(4px);
-        }
-        .trust-badge:hover {
-            border-color: var(--accent-red);
-            background: rgba(211, 47, 47, 0.05);
-            transform: translateY(-4px);
-        }
-
-        /* 3. Structural Data Blocks for About Section */
-        .dossier-block {
-            background: rgba(255,255,255,0.02);
-            border: var(--border-subtle);
-            border-left: 3px solid rgba(255,255,255,0.2);
-            padding: 30px;
-            position: relative;
-        }
-        .sector-block {
-            display: flex;
-            align-items: center;
-            background: var(--bg-card);
-            border: var(--border-subtle);
-            border-left: 3px solid var(--accent-red);
-            padding: 15px 20px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--primary-text);
-            transition: var(--transition-smooth);
-        }
-        .sector-block:hover {
-            background: rgba(211, 47, 47, 0.1);
-            border-left-color: var(--accent-gold);
-            transform: translateX(5px);
-        }
-
-        /* 4. Live Terminal Feed Header */
-        .inventory-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .live-status {
-            font-family: 'JetBrains Mono', monospace;
-            color: #2ea043; /* System Success Green */
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(46, 160, 67, 0.3);
-            padding: 6px 14px;
-            background: rgba(46, 160, 67, 0.05);
-            letter-spacing: 1px;
-        }
-        .pulse-dot {
-            width: 8px; height: 8px;
-            background-color: #2ea043;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #2ea043;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.5; }
-        }
-
-        /* 5. Platform Link Upgrades */
-        .platform-link {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 20px; background: var(--bg-card); border: var(--border-subtle);
-            text-decoration: none; color: var(--primary-text); transition: var(--transition-smooth);
-            font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
-        }
-        .platform-link:hover {
-            border-color: var(--accent-red); background: rgba(211, 47, 47, 0.05);
-        }
-        .platform-link::after {
-            content: '>'; color: var(--accent-gold); font-weight: bold; opacity: 0; transition: 0.3s;
-        }
-        .platform-link:hover::after {
-            opacity: 1; transform: translateX(-5px);
-        }
-
-        /* Mobile specific spacing */
-        @media (max-width: 768px) {
-            .store-hero { padding: 100px 15px 50px 15px; }
-            .dossier-block { padding: 20px; }
-            .inventory-header { flex-direction: column; align-items: flex-start; }
-        }
-    </style>
 </head>
 <body>
 
+    <!-- Sidebar Navigation (Matches index.html) -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
-            <div class="logo-text" style="font-size: 1.1rem;">AETRIQ</div>
+        <div class="logo fade-up visible">
+            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo" onerror="this.style.display='none'">
+            <div class="logo-text">Aetriq</div>
         </div>
-        <button class="mobile-menu-btn">☰ Menu</button>
-        <ul class="nav-links">
-            <li><a href="index.html">← Back to Homepage</a></li>
-            <li><hr class="nav-divider" style="border-top: var(--border-subtle); margin: 15px 0;"></li>
-            <li><a href="#store-home" class="active">Overview</a></li>
-            <li><a href="#store-about">About</a></li>
-            <li><a href="#storefront">Inventory</a></li>
-            <li><a href="#store-contact">Contact & Platforms</a></li>
+        <button class="mobile-menu-btn">Menu</button>
+        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
+            <li><a href="index.html">Back to Home</a></li>
+            <li><hr class="nav-divider"></li>
+            <li><a href="store.html" class="active" style="pointer-events: none;">Storefront</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- Main Content Wrapper (Pushes content right of the sidebar) -->
     <div class="main-content">
         
+        <!-- 3D Parallax Hero Section -->
         <section id="store-home" class="store-hero fade-up visible">
-            <div class="marquee-bg">
-                <div class="marquee-track">
-                    <img src="assets/img/pcpics/1c97a5f3-7254-4c34-8198-52038cea7317.jpg" alt="">
-                    <img src="assets/img/pcpics/21926b8c-134b-487e-95bb-ed153fde613c.jpg" alt="">
-                    <img src="assets/img/pcpics/569653a2-2144-45b8-b919-3194cbf867fa.jpg" alt="">
-                    <img src="assets/img/pcpics/57ba7f38-112d-442a-bb59-5d5f9d158fc6.jpg" alt="">
-                    <img src="assets/img/pcpics/5b4285c6-7d65-499b-82ed-2a3a1bbbcd91.jpg" alt="">
-                    <img src="assets/img/pcpics/63c7ea76-9975-4d8b-b614-d472f5a9509e.jpg" alt="">
-                    <img src="assets/img/pcpics/65NgRpYN3ksVQthI.jpg" alt="">
-                    <img src="assets/img/pcpics/6d799b62-f1d6-4039-bbf6-2c4174c64e28.jpg" alt="">
-                    <img src="assets/img/pcpics/6e8e5a5a-b5ec-4819-94cd-244e8dfb804c.jpg" alt="">
-                    <img src="assets/img/pcpics/824b43a9-08e5-458c-8440-df85e9677a02.jpg" alt="">
-                    <img src="assets/img/pcpics/8c61fcd7-2bd3-4531-bc65-ad09d8adce9f.jpg" alt="">
-                    <img src="assets/img/pcpics/b34b04df-e0fc-4b2f-9297-e0afd2f4d307.jpg" alt="">
-                    <img src="assets/img/pcpics/b3d250ce-03fe-4493-8918-4576f1a44633.jpg" alt="">
-                    <img src="assets/img/pcpics/b81a1e33-eaba-429d-9576-c697a7186889.jpg" alt="">
-                    <img src="assets/img/pcpics/b93bfea9-1d2b-4e4e-865f-87e027376240.jpg" alt="">
-                    <img src="assets/img/pcpics/c0e85932-c1e7-4f3c-81e5-4c437f86ca4b.jpg" alt="">
-                    <img src="assets/img/pcpics/d881c05d-6b4e-41a0-98e1-af3006a1a307.jpg" alt="">
-                    <img src="assets/img/pcpics/image1.jpg" alt="">
-                    <img src="assets/img/pcpics/image3.jpg" alt="">
-                    <img src="assets/img/pcpics/IMG_1536.JPEG" alt="">
-                    <img src="assets/img/pcpics/IMG_1544.JPEG" alt="">
-                    <img src="assets/img/pcpics/IMG_1545.JPEG" alt="">
-                    <img src="assets/img/pcpics/IMG_1662.JPG" alt="">
-                    <img src="assets/img/pcpics/IMG_4526.JPG" alt="">
-                    <img src="assets/img/pcpics/IMG_4534.JPG" alt="">
-                    <img src="assets/img/pcpics/IMG_5154.JPG" alt="">
+            <div class="parallax-bg">
+                <!-- Layer 3: Back -->
+                <div class="parallax-layer layer-back">
+                    <div class="parallax-track">
+                        <img src="assets/img/pcpics/image1.jpg" alt=""><img src="assets/img/pcpics/image3.jpg" alt=""><img src="assets/img/pcpics/IMG_1536.JPEG" alt=""><img src="assets/img/pcpics/IMG_1544.JPEG" alt=""><img src="assets/img/pcpics/IMG_1545.JPEG" alt=""><img src="assets/img/pcpics/IMG_1662.JPG" alt=""><img src="assets/img/pcpics/IMG_4526.JPG" alt=""><img src="assets/img/pcpics/IMG_4534.JPG" alt=""><img src="assets/img/pcpics/IMG_5154.JPG" alt="">
+                        <!-- Duplicate for looping -->
+                        <img src="assets/img/pcpics/image1.jpg" alt=""><img src="assets/img/pcpics/image3.jpg" alt=""><img src="assets/img/pcpics/IMG_1536.JPEG" alt=""><img src="assets/img/pcpics/IMG_1544.JPEG" alt=""><img src="assets/img/pcpics/IMG_1545.JPEG" alt=""><img src="assets/img/pcpics/IMG_1662.JPG" alt=""><img src="assets/img/pcpics/IMG_4526.JPG" alt=""><img src="assets/img/pcpics/IMG_4534.JPG" alt=""><img src="assets/img/pcpics/IMG_5154.JPG" alt="">
+                    </div>
+                </div>
 
-                    <img src="assets/img/pcpics/1c97a5f3-7254-4c34-8198-52038cea7317.jpg" alt="">
-                    <img src="assets/img/pcpics/21926b8c-134b-487e-95bb-ed153fde613c.jpg" alt="">
-                    <img src="assets/img/pcpics/569653a2-2144-45b8-b919-3194cbf867fa.jpg" alt="">
-                    <img src="assets/img/pcpics/57ba7f38-112d-442a-bb59-5d5f9d158fc6.jpg" alt="">
-                    <img src="assets/img/pcpics/5b4285c6-7d65-499b-82ed-2a3a1bbbcd91.jpg" alt="">
-                    <img src="assets/img/pcpics/63c7ea76-9975-4d8b-b614-d472f5a9509e.jpg" alt="">
-                    <img src="assets/img/pcpics/65NgRpYN3ksVQthI.jpg" alt="">
-                    <img src="assets/img/pcpics/6d799b62-f1d6-4039-bbf6-2c4174c64e28.jpg" alt="">
-                    <img src="assets/img/pcpics/6e8e5a5a-b5ec-4819-94cd-244e8dfb804c.jpg" alt="">
-                    <img src="assets/img/pcpics/824b43a9-08e5-458c-8440-df85e9677a02.jpg" alt="">
-                    <img src="assets/img/pcpics/8c61fcd7-2bd3-4531-bc65-ad09d8adce9f.jpg" alt="">
-                    <img src="assets/img/pcpics/b34b04df-e0fc-4b2f-9297-e0afd2f4d307.jpg" alt="">
-                    <img src="assets/img/pcpics/b3d250ce-03fe-4493-8918-4576f1a44633.jpg" alt="">
-                    <img src="assets/img/pcpics/b81a1e33-eaba-429d-9576-c697a7186889.jpg" alt="">
-                    <img src="assets/img/pcpics/b93bfea9-1d2b-4e4e-865f-87e027376240.jpg" alt="">
-                    <img src="assets/img/pcpics/c0e85932-c1e7-4f3c-81e5-4c437f86ca4b.jpg" alt="">
-                    <img src="assets/img/pcpics/d881c05d-6b4e-41a0-98e1-af3006a1a307.jpg" alt="">
-                    <img src="assets/img/pcpics/image1.jpg" alt="">
-                    <img src="assets/img/pcpics/image3.jpg" alt="">
-                    <img src="assets/img/pcpics/IMG_1536.JPEG" alt="">
-                    <img src="assets/img/pcpics/IMG_1544.JPEG" alt="">
-                    <img src="assets/img/pcpics/IMG_1545.JPEG" alt="">
-                    <img src="assets/img/pcpics/IMG_1662.JPG" alt="">
-                    <img src="assets/img/pcpics/IMG_4526.JPG" alt="">
-                    <img src="assets/img/pcpics/IMG_4534.JPG" alt="">
-                    <img src="assets/img/pcpics/IMG_5154.JPG" alt="">
+                <!-- Layer 2: Middle -->
+                <div class="parallax-layer layer-mid">
+                    <div class="parallax-track">
+                        <img src="assets/img/pcpics/6e8e5a5a-b5ec-4819-94cd-244e8dfb804c.jpg" alt=""><img src="assets/img/pcpics/824b43a9-08e5-458c-8440-df85e9677a02.jpg" alt=""><img src="assets/img/pcpics/8c61fcd7-2bd3-4531-bc65-ad09d8adce9f.jpg" alt=""><img src="assets/img/pcpics/b34b04df-e0fc-4b2f-9297-e0afd2f4d307.jpg" alt=""><img src="assets/img/pcpics/b3d250ce-03fe-4493-8918-4576f1a44633.jpg" alt=""><img src="assets/img/pcpics/b81a1e33-eaba-429d-9576-c697a7186889.jpg" alt=""><img src="assets/img/pcpics/b93bfea9-1d2b-4e4e-865f-87e027376240.jpg" alt=""><img src="assets/img/pcpics/c0e85932-c1e7-4f3c-81e5-4c437f86ca4b.jpg" alt=""><img src="assets/img/pcpics/d881c05d-6b4e-41a0-98e1-af3006a1a307.jpg" alt="">
+                        <!-- Duplicate for looping -->
+                        <img src="assets/img/pcpics/6e8e5a5a-b5ec-4819-94cd-244e8dfb804c.jpg" alt=""><img src="assets/img/pcpics/824b43a9-08e5-458c-8440-df85e9677a02.jpg" alt=""><img src="assets/img/pcpics/8c61fcd7-2bd3-4531-bc65-ad09d8adce9f.jpg" alt=""><img src="assets/img/pcpics/b34b04df-e0fc-4b2f-9297-e0afd2f4d307.jpg" alt=""><img src="assets/img/pcpics/b3d250ce-03fe-4493-8918-4576f1a44633.jpg" alt=""><img src="assets/img/pcpics/b81a1e33-eaba-429d-9576-c697a7186889.jpg" alt=""><img src="assets/img/pcpics/b93bfea9-1d2b-4e4e-865f-87e027376240.jpg" alt=""><img src="assets/img/pcpics/c0e85932-c1e7-4f3c-81e5-4c437f86ca4b.jpg" alt=""><img src="assets/img/pcpics/d881c05d-6b4e-41a0-98e1-af3006a1a307.jpg" alt="">
+                    </div>
+                </div>
+
+                <!-- Layer 1: Front -->
+                <div class="parallax-layer layer-front">
+                    <div class="parallax-track">
+                        <img src="assets/img/pcpics/1c97a5f3-7254-4c34-8198-52038cea7317.jpg" alt=""><img src="assets/img/pcpics/21926b8c-134b-487e-95bb-ed153fde613c.jpg" alt=""><img src="assets/img/pcpics/569653a2-2144-45b8-b919-3194cbf867fa.jpg" alt=""><img src="assets/img/pcpics/57ba7f38-112d-442a-bb59-5d5f9d158fc6.jpg" alt=""><img src="assets/img/pcpics/5b4285c6-7d65-499b-82ed-2a3a1bbbcd91.jpg" alt=""><img src="assets/img/pcpics/63c7ea76-9975-4d8b-b614-d472f5a9509e.jpg" alt=""><img src="assets/img/pcpics/65NgRpYN3ksVQthI.jpg" alt=""><img src="assets/img/pcpics/6d799b62-f1d6-4039-bbf6-2c4174c64e28.jpg" alt="">
+                        <!-- Duplicate for looping -->
+                        <img src="assets/img/pcpics/1c97a5f3-7254-4c34-8198-52038cea7317.jpg" alt=""><img src="assets/img/pcpics/21926b8c-134b-487e-95bb-ed153fde613c.jpg" alt=""><img src="assets/img/pcpics/569653a2-2144-45b8-b919-3194cbf867fa.jpg" alt=""><img src="assets/img/pcpics/57ba7f38-112d-442a-bb59-5d5f9d158fc6.jpg" alt=""><img src="assets/img/pcpics/5b4285c6-7d65-499b-82ed-2a3a1bbbcd91.jpg" alt=""><img src="assets/img/pcpics/63c7ea76-9975-4d8b-b614-d472f5a9509e.jpg" alt=""><img src="assets/img/pcpics/65NgRpYN3ksVQthI.jpg" alt=""><img src="assets/img/pcpics/6d799b62-f1d6-4039-bbf6-2c4174c64e28.jpg" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="hero-overlay"></div> <div class="container" style="max-width: 900px; position: relative; z-index: 2;">
-                <div class="tech-pill" style="margin-bottom: 25px; display: inline-block; color: var(--accent-gold); border-color: var(--accent-gold);">[ GORDALX DEPOT ]</div>
-                <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 25px; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">AETRIQ HARDWARE SUPPLY</h1>
-                <p style="font-size: 1.15rem; color: var(--body-text); max-width: 650px; margin: 0 auto; line-height: 1.8;">
-                    Sourcing, salvaging, and supplying specialized electronics, maker components, and vintage legacy hardware to engineers globally.
+            
+            <div class="hero-overlay"></div>
+
+            <!-- Centered Header Block -->
+            <div class="container" style="max-width: 900px; position: relative; z-index: 2; text-align: center;">
+                <div class="tech-pill" style="margin-bottom: 25px; display: inline-block; color: var(--accent-gold); border-color: var(--accent-gold);">Aetriq Hardware</div>
+                <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 25px; color: #ffffff; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">COMPONENT SUPPLY</h1>
+                <p style="font-size: 1.15rem; color: #ffffff; max-width: 650px; margin: 0 auto; line-height: 1.8; text-shadow: 0 2px 5px rgba(0,0,0,0.9);">
+                    Providing specialized electronic components, salvaged legacy hardware, and maker supplies for engineering and repair applications.
                 </p>
 
-                <div class="trust-badge-grid">
+                <div class="trust-badge-grid" style="justify-content: center;">
                     <div class="trust-badge">
                         <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">100<span style="color: var(--accent-red);">%</span></div>
                         <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">Positive on eBay</div>
@@ -241,185 +86,100 @@
             </div>
         </section>
 
-        <section id="store-about" class="section">
-            <div class="container fade-up">
-                <h2 style="margin-bottom: 40px;">About</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
-                    
-                    <div class="dossier-block">
-                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
-                            Located in Ottawa, the capital of Canada, <strong>Aetriq Hardware</strong> (operating under <em>gordalx</em>) has been a dedicated supplier of specialized electronics since 2018. 
-                        </p>
-                        <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
-                            What began as a passion for repairing legacy devices has expanded into a comprehensive supply hub. Between maker ecosystems & vintage tech, parts are extensively tested, refurbished, or restored prior to shipping.
-                        </p>
-                    </div>
-
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <h3 style="color: var(--body-text); margin-bottom: 10px; font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;">PRIMARY SUPPLY SECTORS</h3>
-                        <div class="sector-block">
-                            <span style="color: var(--accent-red);">[01]</span> Maker & CoreXY 3D Printer Components
-                        </div>
-                        <div class="sector-block">
-                            <span style="color: var(--accent-red);">[02]</span> Vintage Computing & PC Parts
-                        </div>
-                        <div class="sector-block">
-                            <span style="color: var(--accent-red);">[03]</span> Legacy Mobile Devices (Phones/Tablets)
-                        </div>
-                        <div class="sector-block">
-                            <span style="color: var(--accent-red);">[04]</span> Raw Electronic & PCB Level Components
-                        </div>
-                    </div>
-
-                </div>
+        <!-- Store About Section -->
+        <section id="about-store" class="section" style="padding-top: 80px; padding-bottom: 20px;">
+            <div class="container fade-up visible" style="max-width: 800px; text-align: center;">
+                <h2 style="margin-bottom: 30px;">About the Store</h2>
+                <p style="color: var(--body-text); font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px;">
+                    Every component listed here has been tested and verified. Whether it's a salvaged legacy motherboard or a brand-new 3D printing upgrade, my goal is to provide reliable, high-quality hardware for your projects.
+                </p>
+                <p style="color: var(--body-text); font-size: 1.15rem; line-height: 1.8;">
+                    Local pickup is available in Ottawa, Ontario. For shipping inquiries, custom build requests, or any other parts, please check out the <a href="index.html#contact" style="color: var(--accent-gold); text-decoration: underline;">Contact</a> page.
+                </p>
             </div>
         </section>
 
-        <section id="storefront" class="section" style="background: var(--bg-card); border-top: var(--border-subtle); border-bottom: var(--border-subtle);">
-            <div class="container fade-up">
-                
-                <div class="inventory-header">
-                    <div>
-                        <h2 style="margin-bottom: 10px; border: none;">Active Inventory</h2>
-                        <p style="font-family: 'JetBrains Mono', monospace; color: #888; text-transform: uppercase; font-size: 0.85rem;">Notable items from local stock & direct fulfillment</p>
-                    </div>
-                </div>
-                
-                <div id="productGrid" class="store-grid">
-                    <!-- Products will be injected here by JS -->
-                </div>
+        <!-- Product Grid Section -->
+        <section class="container" style="padding-top: 20px;">
+            <div id="productGrid" class="store-grid">
+                <!-- Products dynamically injected here via store.js -->
             </div>
         </section>
 
-        <section id="store-contact" class="section">
-            <div class="container fade-up">
-                <h2>Inquiries & Platforms</h2>
-                <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 30px;">
-                    
-                    <div class="project-card contact-card" style="padding: 40px; box-shadow: none;">
-                        <p style="margin-bottom: 30px; font-size: 1.05rem; line-height: 1.7;">Looking for a specific part not listed in the inventory? Requesting a quote for 3D printing or component-level repair? Reach out directly.</p>
-                        
-                        <h3 style="margin-bottom: 10px; font-size: 0.9rem; color: #888; font-family: 'JetBrains Mono', monospace;">DIRECT EMAIL</h3>
-                        <p style="margin-bottom: 40px;"><a href="mailto:aetriq@protonmail.com" style="color: var(--accent-red); font-size: 1.1rem; font-weight: bold; text-decoration: none; font-family: 'JetBrains Mono', monospace;">aetriq@protonmail.com</a></p>
-                        
-                        <h3 style="margin-bottom: 15px; font-size: 0.9rem; color: #888; font-family: 'JetBrains Mono', monospace;">EXTERNAL LINKS</h3>
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <a href="https://www.ebay.com/usr/gordalx" target="_blank" class="platform-link">
-                                <div><span style="color: var(--accent-gold); margin-right: 10px;">[ EBAY ]</span> gordalx (Global Shipping)</div>
-                            </a>
-                            <a href="#" target="_blank" class="platform-link">
-                                <div><span style="color: #1877F2; margin-right: 10px;">[ MARKET ]</span> Ottawa Local Pickup (Kanata, Old Ottawa South, Byward Market areas)</div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="dossier-block" style="border-left-color: var(--accent-gold);">
-                        <h3 style="margin-bottom: 25px; font-size: 1.2rem;">Direct Inquiry Form</h3>
-                        <form id="contactForm">
-                            <input type="text" class="form-control" placeholder="Name" required>
-                            <input type="email" class="form-control" placeholder="Email" required>
-                            <input type="text" class="form-control" placeholder="Subject / Part Number" required>
-                            <textarea class="form-control" placeholder="Message" rows="5" required></textarea>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
+        <!-- Universal Footer (Forced Visible) -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-grid fade-up">
+                <div class="footer-grid fade-up visible">
                     <div class="footer-brand">
                         <div class="footer-brand-header">
-                            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
-                            <div class="footer-title">Aetriq Hardware</div>
-                    </div></div>
+                            <img src="assets/img/AetriqDynamicsthumb.png" alt="Logo">
+                            <div class="footer-title">Alex Gordon</div>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; max-width: 400px; margin-top: 10px;">
+                            Published November 24th, 2024<br>
+                            Last Updated June 30th, 2026<br>
+                            You are looking at v6.26 (build 2.65) of my website.
+                        </p>
+                        <div class="social-links" style="margin-top: 15px;">
+                            <a href="https://github.com/aetriq" target="_blank" title="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                            <a href="https://www.youtube.com/@Aetriq" target="_blank" title="YouTube">
+                                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                    </div>
                     
                     <div class="footer-col">
                         <h4>Navigate</h4>
                         <div class="footer-links">
-                            <a href="#store-home">Overview</a>
-                            <a href="#store-about">About</a>
-                            <a href="#storefront">Inventory</a>
-                            <a href="#store-contact">Contact</a>
+                            <a href="index.html#home">Home</a>
+                            <a href="index.html#projects">Projects</a>
+                            <a href="index.html#tech-stack">Tech Stack</a>
+                            <a href="index.html#contact">Contact</a>
                         </div>
                     </div>
                     
                     <div class="footer-col">
-                        <h4>Platforms</h4>
+                        <h4>Resources</h4>
                         <div class="footer-links">
-                            <a href="https://www.ebay.com/usr/gordalx" target="_blank">eBay Store</a>
-                            <a href="#" target="_blank">FB Marketplace</a>
+                            <a href="https://github.com/aetriq" target="_blank">GitHub</a>
+                            <a href="https://linktr.ee/Aetriq" target="_blank">Linktree</a>
+                            <a href="https://veetwomusic.carrd.co/" target="_blank">Carrd</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="footer-bottom fade-up" style="transition-delay: 200ms;">
+                <div class="footer-bottom fade-up visible" style="transition-delay: 200ms;">
                     <div>© 2026 Veetwo Music Ltd. All rights reserved.</div>
                     <div style="max-width: 500px; text-align: right;">By browsing my website, you agree to the cookies obtained via CloudFlare. This is done to prevent AI from scraping my site.</div>
                 </div>
             </div>
         </footer>
+
     </div>
 
-    <!-- The Product Modal -->
-    <div id="productModal" class="modal-overlay">
+    <!-- Product Modal Structure -->
+    <div class="modal-overlay" id="productModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="font-size: 1.4rem; letter-spacing: 1px;">Product Details</h2>
-                <button id="closeModalBtn" class="close-btn">Close [X]</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Injected via JS -->
+            <button class="close-btn" id="closeModalBtn">&times;</button>
+            <div class="modal-layout">
+                <div class="modal-image-container">
+                    <img id="carouselImg" src="" alt="Product View">
+                    <button id="prevBtn" class="carousel-btn prev-btn">‹</button>
+                    <button id="nextBtn" class="carousel-btn next-btn">›</button>
+                    <div id="imageCounter" class="image-counter">1 / 1</div>
+                </div>
+                <div class="modal-details">
+                    <span id="modalStatusBadge" class="status-badge"></span>
+                    <h2 id="modalTitle">Loading...</h2>
+                    <p id="modalDesc"></p>
+                    <button id="modalActionBtn" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Buy Now</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/js/store.js"></script>
-    <script>
-        // Form Submission Intercept
-        const contactForm = document.getElementById('contactForm');
-        if(contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault(); 
-                const btn = contactForm.querySelector('button[type="submit"]');
-                const originalText = btn.innerText;
-                
-                btn.innerText = "[ INQUIRY_TRANSMITTED ]";
-                btn.style.background = "#2ea043"; 
-                btn.style.color = "#fff";
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = "var(--accent-red)";
-                    contactForm.reset();
-                }, 3000);
-            });
-        }
-
-        // Mobile Nav & Scroll Observer
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            if(mobileBtn) {
-                mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
-            }
-
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
