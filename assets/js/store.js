@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
     }
 
-    // --- Scroll Animations ---
-    const observer = new IntersectionObserver((entries) => {
+    // --- Optimized Scroll Animations ---
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target); // Stop tracking once visible
+            }
         });
     }, { threshold: 0.1 });
 
