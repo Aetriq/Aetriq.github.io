@@ -86,19 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Component Builders (DOM Thrashing Eliminated) ---
-    
-    function buildProjects(data) {
+function buildProjects(data) {
+        // Highlighted Projects - Dedicated Dropdown Button Restored
         const highlightContainer = document.getElementById('highlight-container');
         if(highlightContainer && data.highlighted) {
             highlightContainer.innerHTML = data.highlighted.map((proj, index) => {
-                
-                // 1. Map main buttons
                 const linksHTML = proj.links ? proj.links.map(link => 
                     `<a href="${link.url}" class="btn btn-${link.type}" target="_blank">${link.text}</a>`
                 ).join('') : '';
 
-                // 2. NEW: Map affiliate icons
                 const affiliatesHTML = proj.affiliates ? `
                     <div class="affiliate-links">
                         ${proj.affiliates.map(aff => `
@@ -109,11 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 ` : '';
 
-                // 3. Return the full HTML
-                // 3. Return the full HTML
                 return `
                     <div class="project-card highlight-card fade-up" style="transition-delay: ${index * 100}ms;">
-                        
                         <div class="card-image">
                             <img src="${proj.image}" alt="${proj.title}" loading="lazy">
                             <div class="highlight-image-overlay">
@@ -121,50 +114,60 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <h3 class="accent-text" style="margin: 0; color: var(--accent-red); font-family: 'JetBrains Mono', monospace; font-size: 1rem; letter-spacing: 1px;">${proj.subtitle}</h3>
                             </div>
                         </div>
-
                         <div class="highlight-body">
                             <div class="status-indicator" style="border-left: 2px solid ${proj.statusColor}; padding-left: 15px; margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
                                 Status: <strong style="color:${proj.statusColor};">${proj.status}</strong>
                             </div>
-
+                            
+                            <!-- Dedicated Dropdown Button Restored -->
                             <div class="highlight-desc-container">
                                 <button class="desc-toggle-btn" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg> Project Details
+                                    <span>View Details</span>
+                                    <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                                 </button>
                                 <div class="card-description-collapsible">
-                                    <p class="card-description" style="white-space: pre-wrap; opacity: 0.85; line-height: 1.7;">${proj.description}</p>
+                                    <p class="card-description" style="white-space: pre-wrap; opacity: 0.85; line-height: 1.7; padding-top: 10px; margin-bottom: 20px;">${proj.description}</p>
                                 </div>
                             </div>
 
                             <div class="card-links">${linksHTML}</div>
                             ${affiliatesHTML}
                         </div>
-                        
                     </div>
                 `;
             }).join('');
             observeNewElements(highlightContainer);
         }
 
+        // All Projects - Compact Buttons & Overlay
         const allContainer = document.getElementById('all-projects-container');
         if(allContainer && data.all) {
             allContainer.innerHTML = data.all.map((proj, index) => {
-                const tagsHTML = proj.techStack ? proj.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('') : '';
+                // Added btn-compact class here
                 const linksHTML = proj.links ? proj.links.map(link => 
-                    `<a href="${link.url}" class="btn btn-${link.type}">${link.text}</a>`
+                    `<a href="${link.url}" class="btn btn-${link.type} btn-compact">${link.text}</a>`
                 ).join('') : '';
 
                 return `
                     <div class="project-card fade-up" style="transition-delay: ${(index % 3) * 100}ms;">
-                        <div class="card-image">
+                        <div class="card-image" style="position: relative;">
                             <img src="${proj.image}" alt="${proj.title}" loading="lazy">
+                            
+                            <!-- The Text Box Overlay -->
+                            <div class="desc-popup-overlay">
+                                <p>${proj.description}</p>
+                                <p style="color:${proj.statusColor}; margin-top: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase;">STATUS: ${proj.status}</p>
+                            </div>
                         </div>
+                        
                         <div class="card-content">
-                            <h3 class="card-title">${proj.title}</h3>
-                            <p class="card-description">${proj.description}</p>
-                            <p class="status-text" style="color:${proj.statusColor};">${proj.status}</p>
-                            <div class="card-tech">${tagsHTML}</div>
-                            <div class="card-links">${linksHTML}</div>
+                            <!-- Clickable Title Bar with Arrow -->
+                            <div class="title-bar" onclick="this.closest('.project-card').classList.toggle('show-desc')">
+                                <svg class="toggle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                                <h3 class="card-title" style="margin: 0;">${proj.title}</h3>
+                            </div>
+                            
+                            <div class="card-links" style="margin-top: 20px;">${linksHTML}</div>
                         </div>
                     </div>
                 `;
@@ -178,21 +181,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if(modelsContainer && data.models) {
             modelsContainer.innerHTML = data.models.map((model, index) => `
                 <div class="project-card fade-up" style="transition-delay: ${(index % 3) * 100}ms;">
-                    <div class="card-image printables-img">
+                    <div class="card-image printables-img" style="position: relative;">
                         <img src="${model.image}" alt="${model.title}" loading="lazy">
                         <div class="printables-badge">Printables</div>
+                        
+                        <!-- The Text Box Overlay -->
+                        <div class="desc-popup-overlay">
+                            <p style="color: var(--accent-gold); font-size: 0.8rem; margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase;">UPDATED ${model.updated}</p>
+                            <p>${model.description}</p>
+                        </div>
                     </div>
+                    
                     <div class="card-content centered-content"> 
-                        <h3 class="card-title">${model.title}</h3>
-                        <p class="card-description"><i>updated ${model.updated}</i><br><br>${model.description}</p>
-                        <a href="${model.link}" target="_blank" class="btn btn-primary full-width">View on Printables</a>
+                        <!-- Clickable Title Bar with Arrow -->
+                        <div class="title-bar" onclick="this.closest('.project-card').classList.toggle('show-desc')" style="justify-content: center;">
+                            <svg class="toggle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                            <h3 class="card-title" style="margin: 0;">${model.title}</h3>
+                        </div>
+                        
+                        <!-- Added btn-compact class here -->
+                        <a href="${model.link}" target="_blank" class="btn btn-primary btn-compact full-width" style="margin-top: 20px;">View on Printables</a>
                     </div>
                 </div>
             `).join('');
             observeNewElements(modelsContainer);
         }
     }
-
+    
     function buildTechStack(data) {
         const container = document.getElementById('tech-stack-container');
         if(container && data.categories) {

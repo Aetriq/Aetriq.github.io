@@ -7,7 +7,7 @@
       "description": "The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers. A direct successor to the Chimera iXY. \n\nFeaturing a custom edge-ML vision system for real-time anomaly detection, fully enclosed (in final design), CPAP cooling, and much more. \n\nFeatures the compact Micro4 and ADXL345 FLY by Mellow, the Orange Pi Zero 2W, and a multi voltage power bus solution for adaptable fans. \n\nVery modular design, easily upgrade and replace components with a simple bracket.",
       "status": "IN PROGRESS",
       "statusColor": "#FFFF00",
-      "image": "assets/img/intrasticev0.1banner.png",
+      "image": "assets/img/intrastice/intrasticev0.1.png",
       "links": [
         {"text": "Official Page", "url": "projects/intrastice.html", "type": "primary"},
         {"text": "GitHub", "url": "https://github.com/Aetriq/intrastice", "type": "outline"},
@@ -54,7 +54,7 @@
     },
     {
       "id": "heltec-tracker",
-      "title": "Heltec IOT Tracker Bruce Port",
+      "title": "Bruce for Heltec Tracker",
       "description": "A reliable port of the Bruce Firmware for the Heltec IOT Tracker (v1.1, no tft). Uses a ST7789 2.0 inch TFT and 6 buttons. Functions include the UC6580 GNSS and SX1262 LoRa.",
       "status": "COMPLETE",
       "statusColor": "#2b7a0b",
@@ -105,7 +105,7 @@
 
     {
       "id": "blob-detection",
-      "title": "Blob Detection (Name TBD)",
+      "title": "FDM Blob Detection",
       "description": "Lightweight ESP32-CAM Klipper Add-on for 3D printer nozzle clumping detection. Entirely local inferencing model capable of catching nozzle blobbing occurring in real time, during prints. FSM-based 'resolution' for automated fixing without human intervention.",
       "status": "COMPLETE (See Intrastice)",
       "statusColor": "#2b7a0b",

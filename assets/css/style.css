@@ -363,7 +363,143 @@ p { font-size: 1rem; }
     padding-top: 25px; border-top: var(--border-subtle);
     font-size: 0.8rem; color: #555; font-family: 'JetBrains Mono', monospace;
 }
+/* --- Compact Collapsible Text Overlay --- */
+.title-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+}
 
+.title-bar:hover .card-title {
+    color: var(--accent-red);
+}
+
+.toggle-arrow {
+    color: var(--accent-gold);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+/* Rotate the arrow 90 degrees when open */
+.project-card.show-desc .toggle-arrow {
+    transform: rotate(90deg);
+}
+
+/* --- Compact Grid Buttons --- */
+.btn-compact {
+    padding: 8px 16px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px;
+}
+
+/* --- Highlighted Projects Dedicated Dropdown Button --- */
+.desc-toggle-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--primary-text);
+    padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition-fast);
+    margin-bottom: 10px;
+}
+
+.desc-toggle-btn:hover {
+    background: rgba(211, 47, 47, 0.1);
+    border-color: var(--accent-red);
+    color: #fff;
+}
+
+/* --- Tighter Card Content & Smaller Titles --- */
+.project-card .card-content {
+    /* Reduces the overall padding inside the bottom half of the card */
+    padding: 15px 20px !important; 
+}
+
+.title-bar .card-title {
+    /* Shrinks the title text */
+    font-size: 1.05rem !important; 
+    letter-spacing: 0.5px;
+}
+
+.title-bar {
+    /* Brings the arrow slightly closer to the text */
+    gap: 8px; 
+}
+
+.title-bar .toggle-arrow {
+    /* Scales the arrow down to match the smaller text */
+    width: 16px;
+    height: 16px;
+}
+
+.toggle-arrow {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expanded .desc-toggle-btn {
+    border-color: var(--accent-red);
+}
+
+.expanded .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.card-description-collapsible {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.expanded .card-description-collapsible {
+    max-height: 800px;
+    opacity: 1;
+}
+
+/* The Text Box Overlay */
+.desc-popup-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.90);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.project-card.show-desc .desc-popup-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.desc-popup-overlay p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ffffff;
+}
 /* ---------- Animations ---------- */
 .fade-up { 
     opacity: 0; 

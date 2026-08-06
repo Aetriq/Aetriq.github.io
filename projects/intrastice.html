@@ -137,7 +137,7 @@
         
         <section class="project-hero fade-up visible" id="overview">
             <div class="container" style="text-align: center;">
-                <img src="\assets\img\intrasticebanner.png" alt="Intrastice Banner" class="project-banner">
+                <img src="../assets/img/intrastice/intrasticebanner.png" alt="Intrastice Banner" class="project-banner">
                 <p style="font-family: 'JetBrains Mono', monospace; color: var(--accent-red); font-size: 1.1rem; letter-spacing: 2px;">EXTREMELY COMPACT 220MM HBOT 3D PRINTER</p>
             </div>
         </section>
@@ -258,24 +258,11 @@
             </div>
         </section>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-grid fade-up">
-                    <div class="footer-brand">
-                        <div class="footer-brand-header">
-                            <img src="../assets/img/AetriqDynamics 1.0.png" alt="Logo">
-                            <div class="footer-title">Intrastice</div>
-                        </div>
-                        <p style="color: #666; font-size: 0.85rem; max-width: 400px; margin-top: 10px; font-family: 'JetBrains Mono', monospace;">
-                            Project Concept<br>
-                            AetriqDynamics © 2026<br>
-                            Hardware Revision: 0.1
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <div id="global-footer"></div>
     </div>
+
+    <script>window.siteBasePath = '../';</script>
+    <script src="../assets/js/layout.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -300,5 +287,7 @@
             document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         });
     </script>
+
+    <script src="assets/js/layout.js"></script>
 </body>
 </html>

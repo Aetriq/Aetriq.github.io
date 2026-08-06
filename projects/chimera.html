@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="../assets/css/sidebar.css">
 
     <style>
+            /* ---------- Custom Title Font ---------- */
+            @font-face {
+                font-family: 'CNRGN Builder';
+                src: url('../assets/CNRGN%20Builder.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
         /* ---------- Base Variables (Chimera Dark Theme Maintained) ---------- */
         :root { 
             --bg-body: #121212;       
@@ -38,8 +45,18 @@
            ========================================================================== */
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 60px; }
         .section { padding: 100px 0; position: relative; }
-        
-        h1, h2, h3, h4, h5, h6 { color: var(--primary-text); margin-bottom: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+
+        .chimera-hero-content h1 {
+            font-family: 'CNRGN Builder', sans-serif !important;
+            line-height: 1.4 !important; /* Increases the vertical space between lines */
+        }
+        /* Apply custom font to all h2 elements */
+        h2 {
+            font-family: 'CNRGN Builder', sans-serif !important;
+            line-height: 1.4 !important; /* Adjust this specifically for h2 if needed */
+            letter-spacing: 1px; /* Sometimes blocky fonts need a little horizontal breathing room too */
+        }
+        h3, h4, h5, h6 { color: var(--primary-text); margin-bottom: 1rem; font-weight: 600; letter-spacing: -0.02em; }
         h1 { font-size: 3rem; line-height: 1.1; text-shadow: none;} h2 { font-size: 2.2rem; border: none; box-shadow: none;}
         p { margin-bottom: 1rem; color: var(--body-text); font-size: 1.05rem; }
         
