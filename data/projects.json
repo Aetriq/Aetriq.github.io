@@ -49,7 +49,8 @@
       "image": "assets/img/intrastice.png",
       "techStack": ["FDM (3D) Printing", "Embedded Systems"],
       "links": [
-        {"text": "PoC Soon...", "url": "#", "type": "outline"}
+        {"text": "View Project", "url": "projects/intrastice.html", "type": "outline"},
+        {"text": "Docs", "url": "projects/docs.html?page=intrastice", "type": "outline"}
       ]
     },
     {
@@ -61,7 +62,7 @@
       "image": "assets/img/heltec.png",
       "techStack": ["Heltec v1.1", "WIFI/BLE", "GNSS", "LoRa"],
       "links": [
-        {"text": "Pull request soon...", "url": "https://github.com", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/Aetriq/brucefirmwareheltectracker", "type": "outline"}
       ]
     },
     {
@@ -124,7 +125,7 @@
       "image": "assets/img/4188.png",
       "techStack": ["Java", "Networking"],
       "links": [
-        {"text": "View Code", "url": "https://github.com/Aetriq/CEG4188-Project", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/Aetriq/CEG4188-Project", "type": "outline"}
       ]
     },
     {
@@ -136,8 +137,8 @@
       "image": "assets/img/mcats.jpg",
       "techStack": ["Assistive Tech", "RP2040"],
       "links": [
-        {"text": "MakerRepo", "url": "https://makerepo.com/ctourangeau/2544.gng2101z13piano-assist-device", "type": "outline"},
-        {"text": "Code", "url": "https://github.com/Aetriq/GNG2101", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/Aetriq/GNG2101", "type": "outline"},
+        {"text": "MakerRepo", "url": "https://makerepo.com/ctourangeau/2544.gng2101z13piano-assist-device", "type": "outline"}
       ]
     },
     {
@@ -149,7 +150,7 @@
       "image": "assets/img/mips.png",
       "techStack": ["VHDL", "FPGA"],
       "links": [
-        {"text": "View Code", "url": "https://github.com/aetriq/CEG3156/tree/main/Lab%203", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/aetriq/CEG3156/tree/main/Lab%203", "type": "outline"}
       ]
     },
     {
@@ -161,7 +162,7 @@
       "image": "https://github.com/Aetriq/ChimeraiXY/blob/main/Img/flsun.jpg?raw=true",
       "techStack": ["FDM (3D) Printing"],
       "links": [
-        {"text": "View Code", "url": "https://github.com/Aetriq/ChimeraiXY", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/Aetriq/ChimeraiXY", "type": "outline"}
       ]
     },
     {
@@ -173,19 +174,19 @@
       "image": "assets/img/uart.png",
       "techStack": ["VHDL", "FPGA"],
       "links": [
-        {"text": "View Code", "url": "https://github.com/Aetriq/CEG3155/tree/main/Final%20Project", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/Aetriq/CEG3155/tree/main/Final%20Project", "type": "outline"}
       ]
     },
     {
       "id": "cycling-app",
-      "title": "Real-time Cycling Tracking APP",
+      "title": "Cycling Tracking APP",
       "description": "A cycling mobile app designed for tracking of data & events. Features a real-time cloud (google firebase) database.",
       "status": "COMPLETE",
       "statusColor": "#2b7a0b",
       "image": "assets/img/gcc.png",
       "techStack": ["Kotlin", "Java", "Android"],
       "links": [
-        {"text": "View Code", "url": "https://github.com/Aetriq/SEG2105", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/Aetriq/SEG2105", "type": "outline"}
       ]
     },
     {
@@ -197,7 +198,7 @@
       "image": "assets/img/SignalSculpt.png",
       "techStack": ["After Effects", "Signal Processing"],
       "links": [
-        {"text": "View Code", "url": "https://github.com/aetriq/SignalSculpt", "type": "outline"}
+        {"text": "View Project", "url": "https://github.com/aetriq/SignalSculpt", "type": "outline"}
       ]
     }
   ]
