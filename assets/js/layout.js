@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <p style="color: #8b949e; font-size: 0.9rem; max-width: 400px; margin-top: 10px;">
                             Published November 24th, 2024<br>
-                            Last Updated June 30th, 2026<br>
-                            You are looking at v6.26 (build 2.65) of my website.
+                            Last Updated September 13th, 2026<br>
+                            You are looking at v9.26 (build 2.80) of my website.
                         </p>
                         <div class="social-links" style="margin-top: 15px; display: flex; gap: 10px;">
                             <a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer" title="GitHub">GH</a>

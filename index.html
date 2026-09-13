@@ -19,6 +19,14 @@
     
     <!-- Page-Specific Styles (Keeps HTML clean without bloating style.css) -->
     <style>
+        /* Force the About section to the front AND disable CSS hardware containment */
+        #about {
+            position: relative;
+            z-index: 50;
+            overflow: visible !important;
+            content-visibility: visible !important; /* Turns off the containment clipping */
+            contain: none !important; /* Forces the browser to let elements bleed out */
+        }
         /* ---------- About Section & Services Grid ---------- */
         .about-text { 
             color: var(--body-text); 
@@ -35,39 +43,104 @@
             margin-top: 30px;
         }
 
+        /* ---------- Base Card ---------- */
         .service-card {
             background: rgba(255,255,255,0.01);
-            border: 5px solid rgba(255, 255, 255, 0.04);
-            padding: 5px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
             text-align: left;
             transition: var(--transition-smooth);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            
+            /* CRITICAL: Allows the overlay to anchor to this specific card */
+            position: relative; 
+            /* Notice 'overflow: hidden' is removed so the overlay can pop out */
         }
 
         .service-card:hover {
-            background: rgba(255,255,255,0.02);
-            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(255,255,255,0.03);
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
+            z-index: 10; /* Bring to front on hover */
+        }
+
+        /* ---------- Active/Expanded Card State ---------- */
+        .service-card.expanded {
+            border-color: var(--accent-red);
+            background: var(--bg-hover);
+            border-bottom-color: transparent; /* Blends seamlessly into the overlay */
+            z-index: 20; /* Keep the open card above everything else */
+            transform: none; /* Stabilize the card when reading */
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .service-title {
             color: var(--accent-gold);
             font-size: 1.05rem;
-            margin-bottom: 6px;
-            border-bottom: 5px solid rgba(255,255,255,0.05);
-            padding-bottom: 5px;
+            margin: 0;
             letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-title { color: var(--primary-text); }
+        .service-card.expanded .service-title { color: var(--accent-red); }
+
+        .service-arrow {
+            color: var(--accent-gold);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+        
+        .service-card.expanded .service-arrow {
+            transform: rotate(180deg);
+            color: var(--accent-red);
+        }
+
+        /* ---------- Floating Overlay Panel ---------- */
+        .service-body {
+            /* Detaches the box from the grid */
+            position: absolute;
+            top: 100%;
+            left: -2px; /* Aligns perfectly with the 2px parent border */
+            width: calc(100% + 4px); /* Spans the exact width of the card */
+            z-index: 20;
+            
+            background: var(--bg-hover);
+            border: 2px solid var(--accent-red);
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.85); /* Deep shadow to separate from content below */
+            
+            /* Hidden state */
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden; /* Prevents phantom clicks when closed */
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.4s;
+            
+            padding: 0 25px;
+        }
+
+        .service-card.expanded .service-body {
+            /* Open state */
+            max-height: 500px;
+            opacity: 1;
+            visibility: visible;
+            padding-top: 20px;
+            padding-bottom: 25px;
         }
 
         .service-desc {
             color: var(--body-text);
             font-size: 0.95rem;
             line-height: 1.6;
+            margin: 0;
         }
-        .service-row { display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.06); }
-        .service-row:last-child { border-bottom: none; }
-        .service-title { flex: 1 1 250px; padding: 15px 20px; color: var(--primary-text); font-weight: 600; background: rgba(255,255,255,0.02); }
-        .service-desc { flex: 2 1 400px; padding: 15px 20px; color: var(--body-text); }
         
         .social-flex { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
         .about-text { color: var(--body-text); margin-bottom: 25px; font-size: 1.15rem; line-height: 1.8; }
@@ -129,55 +202,85 @@
 
         <!-- About Section -->
         <!-- About Section -->
-<section id="about" class="section">
-    <div class="container fade-up" style="max-width: 1200px; text-align: center;">
-        <h2>Aetriq/Veetwo Personal Site</h2>
-        
-        <!-- Professional Intro -->
-        <p class="about-text">
-            I'm Alex, an Electrical & Computer Engineer specializing in hardware diagnostics, computers systems builds, and electronics restoration. You will frequently see my work under the aliases Aetriqfor custom PCBs and 3D designs, and Veetwo as my registered copyright label.
-        </p>
-        <p class="about-text" style="margin-bottom: 50px;">
-            I've been doing component-level repair since 2016 and specialized PCB-level diagnostics since 2019, I can provide hardware solutions ranging from legacy data retrieval to advanced micro-soldering.
-        </p>
+<!-- About Section -->
+        <section id="about" class="section">
+            <div class="container fade-up" style="max-width: 1200px; text-align: center;">
+                <h2>Aetriq/Veetwo Personal Site</h2>
+                
+                <!-- Professional Intro -->
+                <p class="about-text">
+                    I'm Alex, an Electrical/Computer Engineer specializing in hardware diagnostics, computer systems builds, & electronics restoration. You will frequently see my work under the aliases Aetriq for custom PCBs and 3D designs, & Veetwo as my (legacy) copyright.
+                </p>
+                <p class="about-text" style="margin-bottom: 50px;">
+                    I've been doing component-level repair since 2016 and specialized PCB-level diagnostics since 2019. I provide hardware solutions ranging from legacy data retrieval to advanced micro-soldering.
+                </p>
 
-        <!-- Scannable Services Grid -->
-        <div class="services-grid">
-            
-            <div class="service-card">
-                <h3 class="service-title">Computer/Mobile Systems Hardware</h3>
-                <p class="service-desc">Hardware diagnostics, board-level soldering, and repair for desktop PCs, servers, laptops, tablets, & smartphones. <br><br>I do what would be considered a 'Grade A' or 'Grade B' certified refurbishing.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3 class="service-title">Specialized PC Systems</h3>
-                <p class="service-desc">High-performance system building including hard-loop liquid cooling, full restoration, and component-level optimization.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3 class="service-title">3D Modeling/Printing</h3>
-                <p class="service-desc">0.1mm/0.1" precision CAD design (mainly electronic enclosures/brackets) alongside 3D printing services with options such as multi-color printing, engineering filaments, and vapor smoothing.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3 class="service-title">Vintage Tech Restoration</h3>
-                <p class="service-desc">Restoration of vintage PCs and monitors, including retr0brighting, recapping, mainboard repair, and legacy media data retrieval (ZIP, 3.5" Floppy, CD/DVD, SYQUEST, APS, etc.).<br><br>I also do full recaps of CRT monitors; this includes circuit analysis & electrolyte cleaning. I can also replace other parts (PSU, flyback transformer, etc.) provided you have the replacement parts.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3 class="service-title">Apple Hardware Solutions</h3>
-                <p class="service-desc">Full component-level repair for iPhones & MacBooks, plus firmware modifications & pwning/jailbreaking for legacy (32-bit) and select modern devices. <br><br>Just like the vintage tech I can also do repairs of original PowerPC's, Macintosh AIOs, and the like.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3 class="service-title">General Electronics & Printers</h3>
-                <p class="service-desc">Other things I do include repair of 3D printers, alongside general micro-soldering, diagnostics, and restoration for miscellaneous electronic hardware.</p>
-            </div>
+                <!-- Collapsible Services Grid -->
+                <div class="services-grid">
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)">
+                        <div class="service-header">
+                            <h3 class="service-title">Computer/Mobile Systems Hardware</h3>
+                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body">
+                            <p class="service-desc">Comprehensive hardware diagnostics, board-level soldering, and repair for desktop PCs, laptops, tablets, and smartphones.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)">
+                        <div class="service-header">
+                            <h3 class="service-title">Specialized PC Systems</h3>
+                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body">
+                            <p class="service-desc">High-performance system building including hard-loop liquid cooling, full restoration, and component-level optimization.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)">
+                        <div class="service-header">
+                            <h3 class="service-title">3D Modeling/Printing</h3>
+                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body">
+                            <p class="service-desc">0.1mm/0.1" precision CAD design (mainly electronic enclosures/brackets) alongside 3D printing services with options such as multi-color printing, engineering filaments, and vapor smoothing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)">
+                        <div class="service-header">
+                            <h3 class="service-title">Vintage Tech Restoration</h3>
+                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body">
+                            <p class="service-desc">Restoration of vintage PCs and monitors, including retr0brighting, recapping, mainboard repair, and legacy media data retrieval (ZIP, 3.5" Floppy, CD/DVD, SYQUEST, APS, etc.).<br><br>I also do full recaps of CRT monitors; this includes circuit analysis & electrolyte cleaning. I can also replace other parts (PSU, flyback transformer, etc.) provided you have the replacement parts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)">
+                        <div class="service-header">
+                            <h3 class="service-title">Apple Hardware Solutions</h3>
+                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body">
+                            <p class="service-desc">Full component-level repair for iPhones & MacBooks, plus firmware modifications & pwning/jailbreaking for legacy (32-bit) and select modern devices. <br><br>Just like the vintage tech I can also do repairs of original PowerPC's, Macintosh AIOs, and the like.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)">
+                        <div class="service-header">
+                            <h3 class="service-title">General Electronics & Printers</h3>
+                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body">
+                            <p class="service-desc">Other things I do include repair of 3D printers, alongside general micro-soldering, diagnostics, and restoration for miscellaneous electronic hardware.</p>
+                        </div>
+                    </div>
 
-        </div>
-    </div>
-</section>
-
+                </div>
+            </div>
+        </section>
         <!-- NICC Feature Section -->
         <section id="nicc-feature" class="nicc-section fade-up">
             <div class="nicc-bg" style="background-image: url('assets/img/nicc.png');"></div>
@@ -296,6 +399,26 @@
         <div id="global-footer"></div>
 
     </div>
+
+    <!-- Add this right above <script src="assets/js/layout.js"></script> -->
+    <script>
+        function toggleServiceCard(clickedCard) {
+            // Check if the card being clicked is already open
+            const isCurrentlyExpanded = clickedCard.classList.contains('expanded');
+            
+            // 1. Find every service card and close it
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.classList.remove('expanded');
+                card.style.zIndex = "1"; // Reset the stacking order
+            });
+            
+            // 2. If the clicked card was closed, open it and pull it to the absolute front
+            if (!isCurrentlyExpanded) {
+                clickedCard.classList.add('expanded');
+                clickedCard.style.zIndex = "60"; 
+            }
+        }
+    </script>
 
     <!-- Core Scripts -->
     <script src="assets/js/layout.js"></script>
