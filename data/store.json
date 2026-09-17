@@ -1,10 +1,65 @@
 {
   "products": [
     {
+      "id": "84",
+      "title": "LOT OF 4 - Apple iPhone 4S Black",
+      "price": "$45.00",
+      "status": "sold_out",
+      "link": "https://www.ebay.ca/itm/398245992803",
+      "desc": "A lot of four (4) A1387 Apple iPhone 4S in fair condition. All can be plugged in and appear to function but not tested beyond this, and as a result is being sold as untested AS IS. Two iPhones are able to boot and come with a plastic screen protector. The other two do not boot even when plugged in but show the apple logo. One is presumed to have a battery missing. All four iPhones do not have any cracks on the back glass or front screen.",
+      "images": [
+        "assets/img/shopimg/34.jpg"
+      ]
+    },
+    {
+      "id": "85",
+      "title": "HP 1030 G3 Laptop",
+      "price": "$350.00",
+      "status": "sold_out",
+      "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
+      "desc": "HP Elitebook X360 1030 G3 in great condition. Ultra portable and very fast for typical web browsing and office applications. This was the higher end model at the time of purchase, with more RAM and storage than the default model.\n\nCheck page for more specs.",
+      "images": [
+        "assets/img/shopimg/33.jpg"
+      ]
+    },
+    {
+      "id": "86",
+      "title": "iPhone 4S lot",
+      "price": "$0.00",
+      "status": "sold_out",
+      "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
+      "desc": "I'm downsizing my legacy Apple collection and looking to sell my iPhone 4Ses. \n\nThey were all used back when jailbreaking was popular but I have factory reset them since then. All of them are in pristine condition, no scratches or cracks anywhere. \n\n They are running iOS 6.0 by default but can be updated. Also syncs with iTunes fine, so you can upload music, videos, etc. I can upgrade if If you do end up wanting a different iOS (6-9).",
+      "images": [
+        "assets/img/shopimg/32.jpg"
+      ]
+    },
+    {
+      "id": "87",
+      "title": "A1342 Macbook Pro lot",
+      "price": "$0.00",
+      "status": "sold_out",
+      "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
+      "desc": "I'm downsizing my legacy Apple collection; A lot of 7 macbooks, model A1342. Some are 2009, some 2010. \n\n None are complete, but the parts not broken. Due to their age, no batteries are present. Some are missing keycaps, but once plugged in they will all boot fine. All the screens are in working order. I was supposed to be repairing them as part of a project, but I no longer have the time or space for them. (Second image shows them opened, but not all included).",
+      "images": [
+        "assets/img/shopimg/31.jpg"
+      ]
+    },
+    {
+      "id": "88",
+      "title": "Dell Optiplex GX110",
+      "price": "$100.00",
+      "status": "sold_out",
+      "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
+      "desc": "Dell Optiplex GX110 desktop pc in great condition. PC has been well kept and is very clean, without any major damage. Great for any vintage setup, I used to use it lightly for accessing diskettes, everything works perfectly.\n\nCheck page for more specs.",
+      "images": [
+        "assets/img/shopimg/30.jpg"
+      ]
+    },
+    {
       "id": "89",
       "title": "Custom Desktop Gaming PC",
       "price": "$150.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
       "desc": "A custom built gaming pc in good condition. This was a high end PC of last-gen, but still a capable machine today. Kept very clean and dust free.\n\nSpecs:\nIntel core i5-750\n12GB RAM - G.Skill ripjaws DDR3\nATI/AMD Radeon HD5870 1GB GPU\n500GB Seagate Barracuda HDD\nBiostar TH55B-HD Motherboard\nThermaltake Smart BX1 750W PSU\nThermaltake V3 Full-ATX Case\nAsus CD/DVD ODD\nWindows 10 Pro Enterprise (Activated)\n\nPlenty of room for expansion; I kept my personal SSD out, but I can include it for an additional 50$ (Adata SU650 240GB).",
       "images": [
@@ -15,7 +70,7 @@
       "id": "90",
       "title": "HP Slimline Desktop SFF PC",
       "price": "$40.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
       "desc": "HP pavillion slimline s3000 SFF PC in great condition. A bit on the older side, but everything works perfectly as expected. Has been kept very clean with minimal dust.\n\nSpecs:\nIntel Pentium E5200\n4GB DDR2 RAM\nNVIDIA GeForce 6150 LE Integrated GPU\nWired Ethernet and Wireless Wi-Fi Built-in\n500GB HDD & DVD-RW\nWindows 10 Enterprise (Activated)",
       "images": [
@@ -26,7 +81,7 @@
       "id": "91",
       "title": "Lenovo Desktop PC",
       "price": "$50.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
       "desc": "Lenovo Thinkcentre M57P full desktop in good condition. A bit on the older side, but everything works perfectly as expected, reliably and quiet.\n\nHas been kept very clean with minimal dust.\n\nSpecs:\nIntel Core 2 Duo E6750\n5GB DDR2 RAM\nIntel GMA5100 Integrated GPU\nWired Ethernet, you need a USB adapter for Wireless\n500GB HDD & DVD-RW\nWindows 10 Enterprise (Activated)",
       "images": [
@@ -37,7 +92,7 @@
       "id": "92",
       "title": "Macbook Pro White A1342",
       "price": "$75.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.facebook.com/marketplace/profile/61573217751700/",
       "desc": "Macbook Pro White Unibody in good condition. This is the A1342 model, Mid-2010, the very last white variant before they switched to aluminum. \n\nWell kept/maintained and clean with minimal dust. Typical cosmetic wear seen in photos but doesn't affect performance. Still capable of light usage like web browsing or videos. Battery is old but still holds a charge.\n\nSpecs:\nIntel Core 2 Duo\n160GB HDD\n4GB DDR3 RAM\nNvidia Geforce 320M GPU\nMacOS High Sierra",
       "images": [
@@ -199,7 +254,7 @@
       "id": "106",
       "title": "iPhone 4S 16GB Black - iOS 5.0",
       "price": "$110.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.ebay.ca/itm/398239492062",
       "desc": "Apple iPhone 4S Black A1387 in great condition. Phone has been maintained well, no cracks or scratches are present on the back glass or screen. Currently has 89% battery health, iOS 5.0 and 16GB of storage.\n\nThe phone is fully unlocked, please refer to the pictures if you'd like to check the serial number. Syncs with iTunes fine, so you can back it up, restore & upload music/videos. Please let me know if you have any questions!",
       "images": [

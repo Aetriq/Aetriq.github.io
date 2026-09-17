@@ -3,76 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store | Aetriq</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <title>Aetriq | Store</title>
+    
     <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-    <!-- Sidebar Navigation (Matches index.html) -->
     <nav class="navbar">
         <div class="logo fade-up visible">
-            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo" onerror="this.style.display='none'">
+            <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
             <div class="logo-text">Aetriq</div>
         </div>
         <button class="mobile-menu-btn">Menu</button>
         <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
-            <li><a href="index.html">Back to Home</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="models.html">3D Models</a></li>
+            <li><a href="tech.html">Tech Stack</a></li>
+            <li><a href="creative.html">Creative Work</a></li>
             <li><hr class="nav-divider"></li>
-            <li><a href="store.html" class="active" style="pointer-events: none;">Storefront</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="store.html" class="active">Storefront</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content Wrapper (Pushes content right of the sidebar) -->
     <div class="main-content">
-        
-        <!-- Optimized Static Hero Section -->
-        <section id="store-home" class="store-hero fade-up visible" style="background-image: url('assets/img/shopimg/14.5.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
-            <div class="hero-overlay" style="background: rgba(18, 18, 18, 0.85); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        <!-- Schematic Hero Section -->
+        <section style="padding-bottom: 60px; text-align: center;">
+            <div class="hero-banner-container fade-up visible">
+                <img src="assets/img/shopimg/14.5.jpeg" alt="Store Banner" class="hero-banner-img" style="filter: grayscale(40%) contrast(1.2);">
+                <div class="hero-banner-fade"></div>
+            </div>
             
-            <!-- Centered Header Block -->
-            <div class="container" style="max-width: 900px; position: relative; z-index: 2; text-align: center; padding: 100px 0;">
-                <div class="tech-pill" style="margin-bottom: 25px; display: inline-block; color: var(--accent-gold); border-color: var(--accent-gold);">Aetriq Hardware</div>
-                <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 25px; color: #ffffff; text-shadow: 0 10px 30px rgba(0,0,0,0.8);">COMPONENT SUPPLY</h1>
-                <p style="font-size: 1.15rem; color: #ffffff; max-width: 650px; margin: 0 auto; line-height: 1.8; text-shadow: 0 2px 5px rgba(0,0,0,0.9);">
-                    Providing specialized electronic components, salvaged legacy hardware, and maker supplies for engineering and repair applications.
+            <div class="container fade-up visible" style="max-width: 900px; margin-top: 10px;">
+                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;">
+                    Component Supply
+                </h1>
+                <p style="font-size: 1.1rem; color: var(--body-text); margin-bottom: 40px; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+                    I'm frequently looking to get rid of inventory. Most common things you see here are typical electronics (phones, laptops, PCs, etc.) but occasionally specialized & rare things. Local pickup is available in Ottawa, Ontario.
                 </p>
-                <div class="trust-badge-grid" style="justify-content: center; margin-top: 40px;">
-                    <div class="trust-badge">
-                        <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">100<span style="color: var(--accent-red);">%</span></div>
-                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">Positive on eBay</div>
+                
+                <div style="display: flex; gap: 30px; justify-content: center; margin-top: 50px; font-family: 'JetBrains Mono', monospace;">
+                    <div>
+                        <div style="font-size: 2rem; color: #fff; font-weight: bold;">100<span style="color: var(--accent-red);">%</span></div>
+                        <div style="font-size: 0.75rem; color: #666; margin-top: 5px;">POSITIVE ON EBAY</div>
                     </div>
-                    <div class="trust-badge">
-                        <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">5.0<span style="color: var(--accent-gold);"> </span></div>
-                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">FB Marketplace</div>
+                    <div>
+                        <div style="font-size: 2rem; color: #fff; font-weight: bold;">5.0<span style="color: var(--accent-gold);">★</span></div>
+                        <div style="font-size: 0.75rem; color: #666; margin-top: 5px;">FB MARKETPLACE</div>
                     </div>
-                    <div class="trust-badge">
-                        <div style="font-size: 2.2rem; color: var(--primary-text); font-weight: bold; font-variant-numeric: tabular-nums;">2018</div>
-                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-top: 5px;">Est. Operations</div>
+                    <div>
+                        <div style="font-size: 2rem; color: #fff; font-weight: bold;">2018</div>
+                        <div style="font-size: 0.75rem; color: #666; margin-top: 5px;">EST. OPERATIONS</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Store About Section -->
-        <section id="about-store" class="section" style="padding-top: 80px; padding-bottom: 20px;">
-            <div class="container fade-up visible" style="max-width: 800px; text-align: center;">
-                <h2 style="margin-bottom: 30px;">About the Store</h2>
-                <p style="color: var(--body-text); font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px;">
-                    Every component listed here has been tested and verified. Whether it's a salvaged legacy motherboard or a brand-new 3D printing upgrade, my goal is to provide reliable, high-quality hardware for your projects.
-                </p>
-                <p style="color: var(--body-text); font-size: 1.15rem; line-height: 1.8;">
-                    Local pickup is available in Ottawa, Ontario. For shipping inquiries, custom build requests, or any other parts, please check out the <a href="index.html#contact" style="color: var(--accent-gold); text-decoration: underline;">Contact</a> page.
-                </p>
-            </div>
-        </section>
-
         <!-- Product Grid Section -->
-        <section class="container" style="padding-top: 20px;">
-            <div id="productGrid" class="store-grid">
-                <!-- Products dynamically injected here via store.js -->
+        <section class="section" style="padding-top: 20px;">
+            <div class="container fade-up visible">
+                <div id="productGrid" class="store-grid">
+                    <!-- Products dynamically injected here via store.js -->
+                </div>
             </div>
         </section>
 
@@ -82,23 +84,28 @@
     <!-- Product Modal Structure -->
     <div class="modal-overlay" id="productModal">
         <div class="modal-content">
-            <button class="close-btn" id="closeModalBtn">&times;</button>
-            <div class="modal-layout">
-                <div class="modal-image-container">
-                    <img id="carouselImg" src="" alt="Product View">
-                    <button id="prevBtn" class="carousel-btn prev-btn">‹</button>
-                    <button id="nextBtn" class="carousel-btn next-btn">›</button>
-                    <div id="imageCounter" class="image-counter">1 / 1</div>
+            <button class="close-btn" id="closeModalBtn">X</button>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px;">
+                <div style="position: relative;">
+                    <img id="carouselImg" src="" alt="Product View" style="width: 100%; height: 350px; object-fit: cover; border: var(--border-main);">
+                    
+                    <button id="prevBtn" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 15px; cursor: pointer;">&lt;</button>
+                    <button id="nextBtn" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 15px; cursor: pointer;">&gt;</button>
+                    <div id="imageCounter" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">1 / 1</div>
                 </div>
-                <div class="modal-details">
-                    <span id="modalStatusBadge" class="status-badge"></span>
-                    <h2 id="modalTitle">Loading...</h2>
-                    <p id="modalDesc"></p>
-                    <button id="modalActionBtn" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Buy Now</button>
+                
+                <div style="display: flex; flex-direction: column;">
+                    <span id="modalStatusBadge" style="display: inline-block; padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; width: fit-content;"></span>
+                    <h2 id="modalTitle" style="border: none; margin-bottom: 20px; font-size: 1.5rem; padding: 0;">Loading...</h2>
+                    <style>#modalTitle::before { display: none; }</style>
+                    
+                    <p id="modalDesc" style="color: var(--body-text); line-height: 1.6; font-size: 0.95rem; margin-bottom: 30px; flex-grow: 1;"></p>
+                    <button id="modalActionBtn" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1rem;">Buy Now</button>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Scripts -->
     <script>window.siteBasePath = '';</script>
     <script src="assets/js/layout.js"></script>
