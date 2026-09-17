@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <title>Aetriq | Creative</title>
+    
+    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo fade-up visible">
+            <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
+            <div class="logo-text">Aetriq</div>
+        </div>
+        <button class="mobile-menu-btn">Menu</button>
+        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="models.html">3D Models</a></li>
+            <li><a href="tech.html">Tech Stack</a></li>
+            <li><a href="creative.html" class="active">Creative Work</a></li>
+            <li><hr class="nav-divider"></li>
+            <li><a href="store.html">Storefront</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <section id="creative" class="section">
+            <div class="container fade-up">
+                <h2>Creative Work</h2>
+                <div id="creative-description" style="margin-bottom: 30px; max-width: 800px;"></div>
+                
+                <div id="channels-container" class="channels-grid" style="margin-bottom: 30px;"></div>
+                <div id="creative-grid-main" class="creative-grid"></div>
+                
+                <div id="legacy-section-wrapper" style="display: none; margin-top: 60px;">
+                    <h3 style="margin-bottom: 15px; color: var(--body-text); border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 1.2rem; letter-spacing: 1px;">Legacy Projects</h3>
+                    <div id="legacy-description" style="margin-bottom: 25px; max-width: 800px;"></div>
+                    <div id="creative-grid-legacy" class="creative-grid" style="opacity: 0.65; filter: grayscale(40%); transition: var(--transition-smooth);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Footer Injection Point -->
+        <div id="global-footer"></div>
+    </div>
+
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <title>Aetriq | Projects</title>
+    
+    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo fade-up visible">
+            <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
+            <div class="logo-text">Aetriq</div>
+        </div>
+        <button class="mobile-menu-btn">Menu</button>
+        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="models.html">3D Models</a></li>
+            <li><a href="tech.html">Tech Stack</a></li>
+            <li><a href="creative.html">Creative Work</a></li>
+            <li><hr class="nav-divider"></li>
+            <li><a href="store.html">Storefront</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <section id="highlight" class="section">
+            <div class="container fade-up">
+                <h2>Highlighted Projects</h2>
+                <div id="highlight-container" class="highlight-container">
+                    <div class="terminal-loader" style="padding: 40px; font-family: 'JetBrains Mono', monospace; color: var(--accent-gold); font-size: 0.9rem;">
+                        > [SYS_INIT] Fetching hardware records...<span class="cursor-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container fade-up">
+                <h2>All Projects</h2>
+                <div id="all-projects-container" class="project-list">
+                    <div class="terminal-loader" style="padding: 40px; font-family: 'JetBrains Mono', monospace; color: var(--accent-gold); font-size: 0.9rem;">
+                        > [SYS_INIT] Loading modules...<span class="cursor-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Footer Injection Point -->
+        <div id="global-footer"></div>
+    </div>
+
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

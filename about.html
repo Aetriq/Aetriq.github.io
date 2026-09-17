@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <title>Aetriq | About</title>
+    
+    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo fade-up visible">
+            <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
+            <div class="logo-text">Aetriq</div>
+        </div>
+        <button class="mobile-menu-btn">Menu</button>
+        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="models.html">3D Models</a></li>
+            <li><a href="tech.html">Tech Stack</a></li>
+            <li><a href="creative.html">Creative Work</a></li>
+            <li><hr class="nav-divider"></li>
+            <li><a href="store.html">Storefront</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <section id="about" class="section">
+            <div class="container fade-up">
+                <h2>About</h2>
+                
+                <!-- Highly Professional Dossier Layout -->
+                <div class="dossier-card">
+                    <!-- Left Column: Credentials -->
+                    <div class="dossier-left">
+                        <img src="assets/img/AetriqDynamicsthumb.png" alt="Aetriq" style="width: 100px; height: 100px; margin: 0 auto 25px auto; filter: grayscale(100%);">
+                        <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 5px;">Alex Gordon</h3>
+                        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 25px; letter-spacing: 1px;">@AETRIQ // @VEETWO</p>
+                        
+                        <div style="border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 25px; text-align: left;">
+                            <div class="dossier-meta"><span>SPECIALIZATION:</span> <span style="color: #fff; text-align: right;">E.E. / C.E.</span></div>
+                            <div class="dossier-meta"><span>LOCATION:</span> <span style="color: #fff;">OTTAWA, ON</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Executive Summary -->
+                    <div class="dossier-right">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent-red); margin-bottom: 20px; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">
+                            <span style="width: 15px; height: 2px; background: var(--accent-red);"></span> 
+                        </div>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: var(--primary-text);">
+                            Specializing in hardware diagnostics, computer systems builds, and electronics restoration. You will frequently see my work under the aliases <strong style="color: #fff;">Aetriq</strong> for custom PCBs and 3D designs, and <strong style="color: #fff;">Veetwo</strong> as my legacy copyright.
+                        </p>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--body-text);">
+                            Operating since 2016 in component-level repair, and expanding into specialized PCB-level diagnostics in 2019. I provide precision hardware solutions ranging from legacy data retrieval to advanced micro-soldering and custom fabrication.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 80px;">Service Modules</h2>
+                
+                <!-- Interactive Schematic Service Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; text-align: left;">
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)" style="background: rgba(10,11,14,0.5); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #4CAF50; padding: 25px; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1.05rem; letter-spacing: 0;">Computer/Mobile Hardware</h3>
+                            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body" style="display: none; padding-top: 20px; margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1);">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--body-text);">Comprehensive hardware diagnostics, board-level soldering, and repair for desktop PCs, laptops, tablets, and smartphones.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)" style="background: rgba(10,11,14,0.5); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #4CAF50; padding: 25px; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1.05rem; letter-spacing: 0;">Specialized PC Systems</h3>
+                            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body" style="display: none; padding-top: 20px; margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1);">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--body-text);">High-performance system building including hard-loop liquid cooling, full restoration, and component-level optimization.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)" style="background: rgba(10,11,14,0.5); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent-gold); padding: 25px; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1.05rem; letter-spacing: 0;">3D Modeling & Printing</h3>
+                            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body" style="display: none; padding-top: 20px; margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1);">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--body-text);">0.1mm/0.1" precision CAD design (mainly electronic enclosures/brackets) alongside 3D printing services with options such as multi-color printing, engineering filaments, and vapor smoothing.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="toggleServiceCard(this)" style="background: rgba(10,11,14,0.5); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent-gold); padding: 25px; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1.05rem; letter-spacing: 0;">Vintage Tech Restoration</h3>
+                            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body" style="display: none; padding-top: 20px; margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1);">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--body-text);">Restoration of vintage PCs and monitors, including retr0brighting, recapping, mainboard repair, and legacy media data retrieval.<br><br>I also do full recaps of CRT monitors; this includes circuit analysis & electrolyte cleaning.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)" style="background: rgba(10,11,14,0.5); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent-red); padding: 25px; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1.05rem; letter-spacing: 0;">Apple Hardware Solutions</h3>
+                            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body" style="display: none; padding-top: 20px; margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1);">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--body-text);">Full component-level repair for iPhones & MacBooks, plus firmware modifications & pwning/jailbreaking for legacy and modern devices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="toggleServiceCard(this)" style="background: rgba(10,11,14,0.5); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent-red); padding: 25px; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1.05rem; letter-spacing: 0;">General Electronics</h3>
+                            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M6 9l6 6 6-6"/></svg>
+                        </div>
+                        <div class="service-body" style="display: none; padding-top: 20px; margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1);">
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--body-text);">Other things I do include repair of 3D printers, alongside general micro-soldering, diagnostics, and restoration for miscellaneous electronic hardware.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="global-footer"></div>
+    </div>
+
+    <!-- Dropdown Interaction Script -->
+    <script>
+        function toggleServiceCard(clickedCard) {
+            const isCurrentlyExpanded = clickedCard.classList.contains('expanded');
+            
+            // Close all
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.classList.remove('expanded');
+                card.style.background = 'rgba(10,11,14,0.5)';
+                card.style.borderColor = 'rgba(255,255,255,0.1)';
+                
+                const arrow = card.querySelector('.service-arrow');
+                if(arrow) { arrow.style.transform = 'rotate(0deg)'; arrow.style.stroke = 'var(--accent-gold)'; }
+                
+                const body = card.querySelector('.service-body');
+                if(body) body.style.display = 'none';
+            });
+            
+            // Open clicked
+            if (!isCurrentlyExpanded) {
+                clickedCard.classList.add('expanded');
+                clickedCard.style.background = 'rgba(255,255,255,0.03)';
+                clickedCard.style.borderColor = 'rgba(255,255,255,0.3)';
+                
+                const arrow = clickedCard.querySelector('.service-arrow');
+                if(arrow) { arrow.style.transform = 'rotate(180deg)'; arrow.style.stroke = 'var(--accent-red)'; }
+                
+                const body = clickedCard.querySelector('.service-body');
+                if(body) body.style.display = 'block';
+            }
+        }
+    </script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

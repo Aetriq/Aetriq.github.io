@@ -41,6 +41,28 @@
   ],
   "all": [
     {
+      "id": "crt1",
+      "title": "ViewSonic P655 Restoration",
+      "description": "My personal blog of doing a complete restoration of the Viewsonic P655 series CRT. My final docs should include a complete recap list, documentation and calibration.",
+      "status": "INCOMPLETE",
+      "statusColor": "#c0392b",
+      "image": "assets/img/p655.png",
+      "links": [
+        {"text": "Blog (WIP)", "url": "", "type": "outline"}
+      ]
+    },
+    {
+      "id": "crt2",
+      "title": "Apple 12\" RGB Restoration",
+      "description": "A complete restoration of the Apple 12\" RGB (M1296) CRT monitor from 1990. Paired originally for the Macintosh LCII, this is for my PowerPC 8100/100 setup!",
+      "status": "COMPLETE",
+      "statusColor": "#2b7a0b",
+      "image": "assets/img/m1296.png",
+      "links": [
+        {"text": "Credits to JB Retro for recap list!", "url": "https://jbretro.wordpress.com/2019/07/10/m1296-recap/", "type": "outline"}
+      ]
+    },
+    {
       "id": "intrastice",
       "title": "Intrastice v0.1",
       "description": "Planned '2nd generation' of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch. This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.",

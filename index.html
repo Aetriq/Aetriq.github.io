@@ -3,422 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Basic Security Headers for Scanners -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     
-    <title>Aetriq's site</title>
-    <meta name="description" content="Aetriq: Electronics repair, PCB design, and systems engineering by Alex Gordon.">
+    <title>Aetriq</title>
+    <meta name="description" content="Electronics repair, PCB design, and systems engineering by Alex Gordon.">
     
     <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Page-Specific Styles (Keeps HTML clean without bloating style.css) -->
     <style>
-        /* Force the About section to the front AND disable CSS hardware containment */
-        #about {
-            position: relative;
-            z-index: 50;
-            overflow: visible !important;
-            content-visibility: visible !important; /* Turns off the containment clipping */
-            contain: none !important; /* Forces the browser to let elements bleed out */
-        }
-        /* ---------- About Section & Services Grid ---------- */
-        .about-text { 
-            color: var(--body-text); 
-            font-size: 1.15rem; 
-            line-height: 1.8; 
-            margin: 0 auto 40px auto; 
-            max-width: 900px; 
-        }
-
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 20px; 
-            margin-top: 30px;
-        }
-
-        /* ---------- Base Card ---------- */
-        .service-card {
-            background: rgba(255,255,255,0.01);
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            text-align: left;
-            transition: var(--transition-smooth);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
-            cursor: pointer;
-            
-            /* CRITICAL: Allows the overlay to anchor to this specific card */
-            position: relative; 
-            /* Notice 'overflow: hidden' is removed so the overlay can pop out */
-        }
-
-        .service-card:hover {
-            background: rgba(255,255,255,0.03);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-            z-index: 10; /* Bring to front on hover */
-        }
-
-        /* ---------- Active/Expanded Card State ---------- */
-        .service-card.expanded {
-            border-color: var(--accent-red);
-            background: var(--bg-hover);
-            border-bottom-color: transparent; /* Blends seamlessly into the overlay */
-            z-index: 20; /* Keep the open card above everything else */
-            transform: none; /* Stabilize the card when reading */
-        }
-
-        .service-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .service-title {
-            color: var(--accent-gold);
-            font-size: 1.05rem;
-            margin: 0;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .service-card:hover .service-title { color: var(--primary-text); }
-        .service-card.expanded .service-title { color: var(--accent-red); }
-
-        .service-arrow {
-            color: var(--accent-gold);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0;
-        }
-        
-        .service-card.expanded .service-arrow {
-            transform: rotate(180deg);
-            color: var(--accent-red);
-        }
-
-        /* ---------- Floating Overlay Panel ---------- */
-        .service-body {
-            /* Detaches the box from the grid */
-            position: absolute;
-            top: 100%;
-            left: -2px; /* Aligns perfectly with the 2px parent border */
-            width: calc(100% + 4px); /* Spans the exact width of the card */
-            z-index: 20;
-            
-            background: var(--bg-hover);
-            border: 2px solid var(--accent-red);
-            border-top: 1px dashed rgba(255,255,255,0.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.85); /* Deep shadow to separate from content below */
-            
-            /* Hidden state */
-            max-height: 0;
-            opacity: 0;
-            visibility: hidden; /* Prevents phantom clicks when closed */
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.4s;
-            
-            padding: 0 25px;
-        }
-
-        .service-card.expanded .service-body {
-            /* Open state */
-            max-height: 500px;
-            opacity: 1;
-            visibility: visible;
-            padding-top: 20px;
-            padding-bottom: 25px;
-        }
-
-        .service-desc {
-            color: var(--body-text);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-        
-        .social-flex { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .about-text { color: var(--body-text); margin-bottom: 25px; font-size: 1.15rem; line-height: 1.8; }
+        /* Hide the default h2 '>>' arrows on these specific feature titles */
+        #intrastice-title::before, #nicc-title::before { display: none; }
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
     <nav class="navbar">
         <div class="logo fade-up visible">
             <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
             <div class="logo-text">Aetriq</div>
         </div>
-        <button class="mobile-menu-btn">☰ Menu</button>
+        <button class="mobile-menu-btn">Menu</button>
         <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about" class="about">About</a></li>
-            <li><a href="#highlight">Highlighted Projects</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#3d-models">3D Models</a></li>
-            <li><a href="#tech-stack">Tech Stack</a></li>
-            <li><a href="#creative">Creative Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="models.html">3D Models</a></li>
+            <li><a href="tech.html">Tech Stack</a></li>
+            <li><a href="creative.html">Creative Work</a></li>
+            <li><hr class="nav-divider"></li>
+            <li><a href="store.html">Storefront</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <div class="main-content">
-
         <!-- System Update Banner -->
-        <div id="updateBanner" class="system-banner hidden">
-            <div>ATTENTION: This website will be migrated to aetriq.ca in Sept. 2026. Check <a href="changelog.html">here</a> for the release notes.</div>
-            <button id="closeBannerBtn" class="close-banner-btn" title="Dismiss for this session">×</button>
+        <div id="updateBanner" class="system-banner hidden" style="background: rgba(168, 178, 193, 0.1); border-bottom: 1px solid rgba(168, 178, 193, 0.2); color: var(--primary-text); padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <div>ATTENTION: This website will be migrated to aetriq.ca in Sept. 2026. Check <a href="changelog.html" style="color: var(--accent-gold); text-decoration: underline;">here</a> for the release notes.</div>
+            <button id="closeBannerBtn" style="background: transparent; border: none; color: var(--primary-text); cursor: pointer; font-weight: bold;">X</button>
         </div>
         
-        <!-- Hero Section -->
-        <div id="home" class="hero-wrapper fade-up visible">
-            <img src="assets/img/narrow-banner.png" alt="Aetriq Top Banner" class="top-banner-img">
+        <!-- Hero Section with Faded Banner -->
+        <section id="home" style="padding-bottom: 80px; text-align: center;">
+            <div class="hero-banner-container fade-up visible">
+                <img src="assets/img/narrow-banner.png" alt="Aetriq Top Banner" class="hero-banner-img">
+                <div class="hero-banner-fade"></div>
+            </div>
             
-            <div class="container" style="max-width: 900px; margin-top: 80px;">
+            <div class="container fade-up visible" style="max-width: 900px; margin-top: 40px;">
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <a href="store.html" class="btn btn-primary">Storefront</a>
-                    <a href="#projects" class="btn btn-outline">Current Projects</a>
-                    <a href="#3d-models" class="btn btn-outline">3D Models</a>
-                    <a href="#creative" class="btn btn-outline">Creative Work</a>
+                    <a href="projects.html" class="btn btn-outline">Current Projects</a>
+                    <a href="models.html" class="btn btn-outline">3D Models</a>
+                    <a href="creative.html" class="btn btn-outline">Creative Work</a>
                 </div>
-
-                <div class="social-flex">
-                    <a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@Aetriq" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/aetriq_/" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <!-- About Section -->
-<!-- About Section -->
-        <section id="about" class="section">
-            <div class="container fade-up" style="max-width: 1200px; text-align: center;">
-                <h2>Aetriq/Veetwo Personal Site</h2>
                 
-                <!-- Professional Intro -->
-                <p class="about-text">
-                    I'm Alex, an Electrical/Computer Engineer specializing in hardware diagnostics, computer systems builds, & electronics restoration. You will frequently see my work under the aliases Aetriq for custom PCBs and 3D designs, & Veetwo as my (legacy) copyright.
-                </p>
-                <p class="about-text" style="margin-bottom: 50px;">
-                    I've been doing component-level repair since 2016 and specialized PCB-level diagnostics since 2019. I provide hardware solutions ranging from legacy data retrieval to advanced micro-soldering.
-                </p>
-
-                <!-- Collapsible Services Grid -->
-                <div class="services-grid">
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Computer/Mobile Systems Hardware</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Comprehensive hardware diagnostics, board-level soldering, and repair for desktop PCs, laptops, tablets, and smartphones.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Specialized PC Systems</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">High-performance system building including hard-loop liquid cooling, full restoration, and component-level optimization.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">3D Modeling/Printing</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">0.1mm/0.1" precision CAD design (mainly electronic enclosures/brackets) alongside 3D printing services with options such as multi-color printing, engineering filaments, and vapor smoothing.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Vintage Tech Restoration</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Restoration of vintage PCs and monitors, including retr0brighting, recapping, mainboard repair, and legacy media data retrieval (ZIP, 3.5" Floppy, CD/DVD, SYQUEST, APS, etc.).<br><br>I also do full recaps of CRT monitors; this includes circuit analysis & electrolyte cleaning. I can also replace other parts (PSU, flyback transformer, etc.) provided you have the replacement parts.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Apple Hardware Solutions</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Full component-level repair for iPhones & MacBooks, plus firmware modifications & pwning/jailbreaking for legacy (32-bit) and select modern devices. <br><br>Just like the vintage tech I can also do repairs of original PowerPC's, Macintosh AIOs, and the like.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">General Electronics & Printers</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Other things I do include repair of 3D printers, alongside general micro-soldering, diagnostics, and restoration for miscellaneous electronic hardware.</p>
-                        </div>
-                    </div>
-
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 50px;">
+                    <!-- GitHub -->
+                    <a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); width: 26px; transition: 0.2s;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@Aetriq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); width: 26px; transition: 0.2s;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/aetriq_/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); width: 26px; transition: 0.2s;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
+
+        <!-- INTRASTICE Active Prototype Section -->
+        <section class="section fade-up visible" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="container">
+                <!-- Main Container matched to 1000px max width -->
+                <div style="background: rgba(10, 11, 14, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #f10f0f; max-width: 1000px; margin: 0 auto; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%); display: flex; flex-direction: column; overflow: hidden; transition: all 0.3s ease;">
+                    
+                    <!-- Top Horizontal Banner -->
+                    <div style="width: 100%; height: 260px; position: relative;">
+                        <img src="assets/img/intrastice/intrasticev0.1.png" alt="Intrastice Prototype" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%) contrast(1.1);">
+                        
+                        <!-- Smooth fade to blend into the bottom data section -->
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; background: linear-gradient(to bottom, transparent, rgba(10, 11, 14, 1));"></div>
+                    </div>
+                    
+                    <!-- Bottom Data Text -->
+                    <div style="padding: 30px 50px 50px 50px; background: rgba(10, 11, 14, 0.5);">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #f1c40f; letter-spacing: 1px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <span class="blinking-dot" style="color: #f1c40f;"></span> IN PROGRESS
+                        </div>
+                        <h2 id="intrastice-title" style="border: none; padding: 0; margin-bottom: 10px; font-size: 2.8rem; color: #fff;">Intrastice</h2>
+                        
+                        <p style="font-size: 1.1rem; color: var(--primary-text); margin-bottom: 15px; font-weight: 600; letter-spacing: 0.5px;">Ultra-Compact CoreXY 3D Printer</p>
+                        
+                        <p style="color: var(--body-text); font-size: 1.05rem; margin-bottom: 30px; line-height: 1.7; opacity: 0.9;">
+                            The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers. Featuring a custom edge-ML vision system for real-time anomaly detection, multi-voltage power bus, and CPAP cooling.
+                        </p>
+                        
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="projects/intrastice.html" class="btn btn-outline" style="border-color: #ff0000; color: #f10f0f; background: rgba(241, 196, 15, 0.05);">View Page</a>
+                            <a href="https://github.com/Aetriq/intrastice" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- NICC Feature Section -->
-        <section id="nicc-feature" class="nicc-section fade-up">
-            <div class="nicc-bg" style="background-image: url('assets/img/nicc.png');"></div>
-            <div class="nicc-overlay"></div>
+        <section id="nicc-feature" class="section fade-up" style="position: relative; margin: 40px 0; padding: 80px 0; border-top: var(--border-main); border-bottom: var(--border-main); overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: url('assets/img/nicc.png') center/cover; filter: blur(4px) brightness(0.3); transform: scale(1.05);"></div>
             
-            <div class="container nicc-container" style="position: relative; z-index: 2;">
-                <div class="nicc-content-glass">
-                    <h2 class="nicc-title">National Indigenous Climate Compass</h2>
+            <div class="container" style="position: relative; z-index: 2;">
+                <!-- Main Container matched to 1000px max width -->
+                <div style="background: rgba(10, 11, 14, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent-red); padding: 50px; max-width: 1000px; margin: 0 auto; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);">
                     
-                    <p class="nicc-desc">
-                        The National Indigenous Climate Compass (NICC) is an online tool that will equip indigenous communities with information enabling them to better prepare themselves for the risks associated with climate change. This is a tool created by indigenous communities for indigenous communities, aimed to provide key data for specific indigenous territories to help drive community development projects in infrastructure, energy, and access to potable water.
+                    <h2 id="nicc-title" style="border: none; margin-bottom: 20px; font-size: 2.2rem; color: #fff; padding: 0;">National Indigenous Climate Compass</h2>
+                    
+                    <p style="font-size: 1.05rem; color: #e0e6ed; margin-bottom: 30px; line-height: 1.7; max-width: 800px;">
+                        An online tool created to equip indigenous communities with critical information for climate change risk preparation. It provides key territory-specific data to drive community development in infrastructure, energy, and potable water access.
                     </p>
-
-                    <div class="nicc-links">
-                        <a href="https://www.uottawa.ca/faculty-engineering/centre-indigenous-community-infrastructure/national-indigenous-climate-compass" target="_blank" rel="noopener noreferrer" class="btn nicc-btn">Official uOttawa Page</a>
-                        <a href="https://www.ecohlab-labecos.ca/nicc" target="_blank" rel="noopener noreferrer" class="btn nicc-btn-outline">ECoHLAB Dashboard</a>
+                    
+                    <div style="display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;">
+                        <a href="https://www.uottawa.ca/faculty-engineering/centre-indigenous-community-infrastructure/national-indigenous-climate-compass" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="background: #fff; color: #000; border-color: #fff;">Official uOttawa Page</a>
+                        <a href="https://www.ecohlab-labecos.ca/nicc" target="_blank" rel="noopener noreferrer" class="btn btn-outline">ECoHLAB Dashboard</a>
                     </div>
-
-                    <a href="https://www.uottawa.ca/faculty-engineering/news-all/weathering-climate-change-uottawa-receives-1m-td-ready-challenge-new-mitigation-initiative" target="_blank" rel="noopener noreferrer" class="nicc-article-card">
-                        <img src="https://www.uottawa.ca/faculty-engineering/sites/g/files/bhrskd396/files/styles/max_width_xl_5120px/public/2023-02/climate-change-glaciers-header.jpg?itok=ev8crcGL" alt="Article Header">
-                        <div class="nicc-article-info">
-                            <span class="nicc-article-tag">In the News</span>
-                            <h4>Weathering climate change: uOttawa receives $1M from TD Ready Challenge for new mitigation initiative to benefit Indigenous communities</h4>
-                            <span class="nicc-read-more">Read Full Article ➔</span>
+                    
+                    <a href="https://www.uottawa.ca/faculty-engineering/news-all/weathering-climate-change-uottawa-receives-1m-td-ready-challenge-new-mitigation-initiative" target="_blank" rel="noopener noreferrer" style="display: flex; flex-wrap: wrap; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); text-decoration: none; transition: all 0.3s ease;">
+                        <img src="https://www.uottawa.ca/faculty-engineering/sites/g/files/bhrskd396/files/styles/max_width_xl_5120px/public/2023-02/climate-change-glaciers-header.jpg?itok=ev8crcGL" alt="News" style="width: 250px; object-fit: cover; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.1);">
+                        <div style="padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent-gold); margin-bottom: 10px;">IN THE NEWS</span>
+                            <h4 style="color: #fff; font-size: 1.05rem; line-height: 1.5; margin-bottom: 10px; text-transform: none; font-family: 'Outfit', sans-serif; font-weight: 400;">Weathering climate change: uOttawa receives $1M from TD Ready Challenge for new mitigation initiative to benefit Indigenous communities</h4>
+                            <span style="color: var(--accent-red); font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; margin-top: auto;">READ ARTICLE ></span>
                         </div>
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dynamic Content Sections (Populated via JS) -->
-        <section id="highlight" class="section">
-            <div class="container fade-up">
-                <h2>Highlighted Projects</h2>
-                <div id="highlight-container" class="highlight-container">
-                    <div class="terminal-loader" style="grid-column: 1 / -1; padding: 40px; font-family: 'JetBrains Mono', monospace; color: var(--accent-gold); font-size: 0.9rem;">
-                        > [SYS_INIT] Fetching hardware records...<span class="cursor-blink">_</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <div class="container fade-up">
-                <h2>Projects</h2>
-                <div id="all-projects-container" class="project-list">
-                    <div class="terminal-loader" style="grid-column: 1 / -1; padding: 40px; font-family: 'JetBrains Mono', monospace; color: var(--accent-gold); font-size: 0.9rem;">
-                        > [SYS_INIT] Loading modules...<span class="cursor-blink">_</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="3d-models" class="section">
-            <div class="container fade-up">
-                <h2>3D Models</h2>
-                <p style="margin-bottom: 30px;">I also do CAD design. Mostly enclosures, but I'm always improving my ability. Below are some free to use models from my Printables profile!</p>
-                <div id="models-container" class="project-list"></div>
-            </div>
-        </section>
-
-        <section id="tech-stack" class="section">
-            <div class="container fade-up">
-                <h2>Tech Stack</h2>
-                <p style="margin-bottom: 30px;">I know the following stuff. Not limited to this though, I don't update it frequently.</p>
-                <div id="tech-stack-container" class="tech-container"></div>
-            </div>
-        </section>
-
-        <section id="creative" class="section">
-            <div class="container fade-up">
-                <h2>Creative Work</h2>
-                <div id="creative-description" style="margin-bottom: 30px; max-width: 800px;"></div>
-                
-                <div id="channels-container" class="channels-grid"></div>
-                <div id="creative-grid-main" class="creative-grid"></div>
-
-                <div id="legacy-section-wrapper" style="display: none; margin-top: 60px;">
-                    <h3 style="margin-bottom: 15px; color: var(--body-text); border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 1.2rem; letter-spacing: 1px;">Legacy Projects</h3>
-                    <div id="legacy-description" style="margin-bottom: 25px; max-width: 800px;"></div>
-                    <div id="creative-grid-legacy" class="creative-grid" style="opacity: 0.65; filter: grayscale(40%); transition: var(--transition-smooth);"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section id="contact" class="section">
-            <div class="container fade-up">
-                <h2>Get In Touch</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 30px;">
-                    
-                    <div class="project-card" style="padding: 40px; box-shadow: none;">
-                        <p>I also offer 3D printing services and specialized repair for electronics. Message me for quotes!</p>
-                        
-                        <h3 style="margin-top: 30px; margin-bottom: 10px; font-size: 1.2rem;">Email</h3>
-                        <p><a href="mailto:aetriq@protonmail.com" style="color: var(--accent-red); font-weight: bold; text-decoration: none;">aetriq@protonmail.com</a></p>
-                        
-                        <h3 style="margin-top: 30px; margin-bottom: 10px; font-size: 1.2rem;">Location</h3>
-                        <p>Ottawa, Ontario, Canada</p>
-                    </div>
-                    
-                    <div>
-                        <form id="contactForm">
-                            <!-- Basic HTML5 validation added -->
-                            <input type="text" class="form-control" placeholder="Name" required aria-label="Name">
-                            <input type="email" class="form-control" placeholder="Email" required aria-label="Email">
-                            <textarea class="form-control" placeholder="Message" rows="5" required aria-label="Message"></textarea>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Global Footer Injection Point -->
         <div id="global-footer"></div>
-
     </div>
-
-    <!-- Add this right above <script src="assets/js/layout.js"></script> -->
-    <script>
-        function toggleServiceCard(clickedCard) {
-            // Check if the card being clicked is already open
-            const isCurrentlyExpanded = clickedCard.classList.contains('expanded');
-            
-            // 1. Find every service card and close it
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.classList.remove('expanded');
-                card.style.zIndex = "1"; // Reset the stacking order
-            });
-            
-            // 2. If the clicked card was closed, open it and pull it to the absolute front
-            if (!isCurrentlyExpanded) {
-                clickedCard.classList.add('expanded');
-                clickedCard.style.zIndex = "60"; 
-            }
-        }
-    </script>
 
     <!-- Core Scripts -->
     <script src="assets/js/layout.js"></script>
