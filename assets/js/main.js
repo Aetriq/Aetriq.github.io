@@ -105,28 +105,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 return `
                     <div class="project-card highlight-card fade-up" style="transition-delay: ${index * 100}ms;">
-                        <!-- Banner Section -->
                         <div class="card-image" style="width: 100%; height: 400px; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
                             <img src="${proj.image}" alt="${proj.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                             
-                            <!-- Detached Transparent Black Box -->
                             <div style="position: absolute; bottom: 30px; left: 30px; max-width: calc(100% - 60px); background: rgba(14, 17, 22, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 25px 35px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
                                 <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 5px; color: var(--primary-text); line-height: 1.1;">${proj.title}</h1>
                                 <h3 style="margin: 0; color: var(--accent-red); font-family: 'JetBrains Mono', monospace; font-size: 1rem; letter-spacing: 1px;">${proj.subtitle}</h3>
                             </div>
                         </div>
                         
-                        <!-- Body Section -->
                         <div class="highlight-body" style="padding: 40px;">
                             <div style="border-left: 2px solid ${proj.statusColor}; padding-left: 15px; margin-bottom: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
                                 Status: <strong style="color:${proj.statusColor};">${proj.status}</strong>
                             </div>
                             
-                            <!-- Collapsible Description -->
                             <div class="highlight-desc-container" style="margin-bottom: 30px;">
-                                <button class="desc-toggle-btn" onclick="this.parentElement.classList.toggle('expanded')" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); color: var(--accent-red); padding: 12px 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 15px; transition: all 0.3s ease;">
+                                <button class="desc-toggle-btn btn btn-outline" onclick="this.parentElement.classList.toggle('expanded')" style="border-color: rgba(255,255,255,0.2); color: var(--primary-text); background: transparent;">
                                     <span>View Details</span>
-                                    <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><path d="M6 9l6 6 6-6"/></svg>
+                                    <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; transition: transform 0.3s ease;"><path d="M6 9l6 6 6-6"/></svg>
                                 </button>
                                 
                                 <div class="card-description-collapsible" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;">
@@ -143,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             observeNewElements(highlightContainer);
         }
 
-        // All Projects (Standard Grid)
+        // All Projects (Standard Grid) - NOW WITH EXPLICIT DETAILS BUTTON
         const allContainer = document.getElementById('all-projects-container');
         if(allContainer && data.all) {
             allContainer.innerHTML = data.all.map((proj, index) => {
@@ -160,12 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p style="color:${proj.statusColor}; margin-top: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase;">STATUS: ${proj.status}</p>
                             </div>
                         </div>
-                        <div class="card-content">
-                            <div class="title-bar" onclick="this.closest('.project-card').classList.toggle('show-desc')">
-                                <svg class="toggle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                                <h3 class="card-title" style="margin: 0;">${proj.title}</h3>
+                        <div class="card-content" style="display: flex; flex-direction: column;">
+                            <h3 class="card-title" style="margin: 0; margin-bottom: 15px;">${proj.title}</h3>
+                            
+                            <div style="margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                                <!-- Explicit Details Button -->
+                                <button class="btn btn-outline btn-compact desc-toggle-btn" onclick="this.closest('.project-card').classList.toggle('show-desc')" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-color: var(--accent-gold); color: var(--accent-gold); background: transparent;">
+                                    <span>Details</span>
+                                    <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M9 18l6-6-6-6"/></svg>
+                                </button>
+                                ${linksHTML}
                             </div>
-                            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">${linksHTML}</div>
                         </div>
                     </div>
                 `;
@@ -175,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildModels(data) {
+        // 3D Models - NOW WITH EXPLICIT DESCRIPTION BUTTON
         const modelsContainer = document.getElementById('models-container');
         if(modelsContainer && data.models) {
             modelsContainer.innerHTML = data.models.map((model, index) => `
@@ -186,12 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p>${model.description}</p>
                         </div>
                     </div>
-                    <div class="card-content centered-content"> 
-                        <div class="title-bar" onclick="this.closest('.project-card').classList.toggle('show-desc')" style="justify-content: center;">
-                            <svg class="toggle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                            <h3 class="card-title" style="margin: 0;">${model.title}</h3>
+                    <div class="card-content centered-content" style="display: flex; flex-direction: column; height: 100%;"> 
+                        <h3 class="card-title" style="margin: 0; margin-bottom: 25px; text-align: center;">${model.title}</h3>
+                        
+                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
+                            <!-- Explicit Details Button -->
+                            <button class="btn btn-outline btn-compact desc-toggle-btn" onclick="this.closest('.project-card').classList.toggle('show-desc')" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-color: var(--accent-gold); color: var(--accent-gold); background: transparent; width: 100%;">
+                                <span>Description</span>
+                                <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s;"><path d="M9 18l6-6-6-6"/></svg>
+                            </button>
+                            <a href="${model.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-compact" style="width: 100%;">View on Printables</a>
                         </div>
-                        <a href="${model.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-compact" style="margin-top: 20px; width: 100%;">View on Printables</a>
                     </div>
                 </div>
             `).join('');

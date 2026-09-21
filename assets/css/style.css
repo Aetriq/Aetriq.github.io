@@ -117,16 +117,19 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 .card-content { padding: 30px 40px 35px 30px; display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
 .card-title { font-size: 1.3rem; margin-bottom: 15px; }
 
-/* Interactive Elements */
-.title-bar { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-.title-bar svg { color: var(--accent-gold); transition: transform 0.3s ease; flex-shrink: 0; display: block; }
-.project-card.show-desc .title-bar svg { transform: rotate(90deg); color: var(--accent-red); }
+/* Interactive Elements (Explicit Buttons) */
+.desc-toggle-btn { transition: all 0.3s ease; }
+.desc-toggle-btn .toggle-arrow { color: currentColor; transition: transform 0.3s ease; flex-shrink: 0; display: block; }
+.project-card.show-desc .desc-toggle-btn { border-color: var(--accent-red) !important; color: #fff !important; background: var(--accent-red) !important; }
+.project-card.show-desc .desc-toggle-btn .toggle-arrow { transform: rotate(90deg); color: #fff; }
+.highlight-desc-container.expanded .desc-toggle-btn { border-color: var(--accent-red) !important; color: #fff !important; background: var(--accent-red) !important;}
+.highlight-desc-container.expanded .toggle-arrow { transform: rotate(180deg); color: #fff; }
 
 .desc-popup-overlay {
     position: absolute; inset: 0; background: rgba(5, 5, 7, 0.95); backdrop-filter: blur(4px);
     padding: 25px; opacity: 0; transform: translateX(-20px); pointer-events: none;
     transition: var(--transition-fast); display: flex; flex-direction: column; justify-content: center;
-    border-right: 2px solid var(--accent-red);
+    border-right: 2px solid var(--accent-red); z-index: 10;
 }
 .project-card.show-desc .desc-popup-overlay { opacity: 1; transform: translateX(0); pointer-events: auto; }
 .desc-popup-overlay p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
