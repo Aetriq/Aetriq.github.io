@@ -54,11 +54,12 @@
     {
       "id": "crt2",
       "title": "Apple 12\" RGB Restoration",
-      "description": "A complete restoration of the Apple 12\" RGB (M1296) CRT monitor from 1990. Paired originally for the Macintosh LCII, this is for my PowerPC 8100/100 setup!",
+      "description": "A complete restoration of the Apple 12\" RGB (M1296) CRT monitor from 1990. Includes FULL recap of main/neck boards, pot adjustment and vertical collapse repair.\n\n Paired originally for the Macintosh LCII, this is for my PowerPC 8100/100 setup!",
       "status": "COMPLETE",
       "statusColor": "#2b7a0b",
       "image": "assets/img/m1296.png",
       "links": [
+        {"text": "PowerPC 8100/100 RELOADED (WIP)", "url": "", "type": "outline"}
         {"text": "Credits to JB Retro for recap list!", "url": "https://jbretro.wordpress.com/2019/07/10/m1296-recap/", "type": "outline"}
       ]
     },
