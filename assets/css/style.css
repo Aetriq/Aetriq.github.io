@@ -1,8 +1,3 @@
-/* ==========================================================================
-   AETRIQ DYNAMICS | Precision Engineering Portfolio
-   Theme: Matte Industrial / Schematic
-   ========================================================================== */
-
 :root {
     --sidebar-w: 260px; 
     --bg-body: #050507;        
@@ -16,6 +11,7 @@
     --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* --- 1. Base & Layout --- */
 * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
 html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) var(--bg-body); }
 ::-webkit-scrollbar { width: 8px; }
@@ -28,6 +24,7 @@ body {
     color: var(--body-text); line-height: 1.7; display: flex; min-height: 100vh;
 }
 
+/* Blueprint Grid Background */
 body::before {
     content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -44,7 +41,7 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; width: 100%; }
 .section { padding: 60px 0; flex-grow: 1; }
 
-/* --- Buttons & Inputs --- */
+/* --- 2. Buttons & Inputs --- */
 .btn {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 10px 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; 
@@ -72,13 +69,9 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 
 /* --- Unique Intrastice Feature (Homepage) --- */
 .intrastice-feature {
-    background: rgba(10, 11, 14, 0.7);
-    border: var(--border-main);
-    border-left: 4px solid #f1c40f; /* High-visibility yellow prototype accent */
-    display: flex;
-    flex-direction: row;
+    background: rgba(10, 11, 14, 0.7); border: var(--border-main); border-left: 4px solid #f1c40f; 
+    display: flex; flex-direction: row; transition: var(--transition-fast);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
-    transition: var(--transition-fast);
 }
 .intrastice-feature:hover { border-color: rgba(255,255,255,0.3); background: var(--bg-panel); }
 .intrastice-data { padding: 40px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -99,25 +92,45 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 .dossier-right { width: 70%; padding: 40px 50px; }
 .dossier-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #8b949e; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; margin-bottom: 20px; }
 
-/* --- Projects & Highlight Cards --- */
+
+/* --- 3. Dynamic Components (Projects, Store, Tech, Creative) --- */
+
+/* A. Highlighted & All Projects (Wide Rows) */
 #highlight-container, #all-projects-container { display: grid; grid-template-columns: 1fr; gap: 30px; }
 #all-projects-container .project-card { flex-direction: row; min-height: 220px; }
 .project-card {
     display: flex; background: rgba(10, 11, 14, 0.5); border: var(--border-main); 
     border-left: 4px solid var(--accent-gold); transition: var(--transition-fast);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
 }
 .project-card:hover { border-color: rgba(255,255,255,0.3); border-left-color: var(--accent-red); background: var(--bg-panel); }
 
-.card-image { width: 40%; min-width: 280px; flex-shrink: 0; position: relative; border-right: var(--border-main); overflow: hidden; background: #000; }
-.card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: transform 0.6s ease; }
-.project-card:hover .card-image img { filter: grayscale(0%); transform: scale(1.03); }
+.card-image { 
+    width: 40%; min-width: 280px; max-width: 450px; flex-shrink: 0; position: relative; 
+    border-right: var(--border-main); overflow: hidden; background: var(--bg-panel); 
+    display: flex; align-items: center; justify-content: center;
+}
+.card-image img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    filter: grayscale(30%); transition: transform 0.6s ease; 
+}
 
-/* Safe padding to prevent chamfer cut-off */
-.card-content { padding: 30px 40px 35px 30px; display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
+/* STRICT 16:9 IMAGE RESIZING AND CROPPING FOR ALL NON-HIGHLIGHTED PROJECTS */
+#all-projects-container .card-image img {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+}
+
+.project-card:hover .card-image img { filter: grayscale(0%); transform: scale(1.03); }
+.card-content { padding: 30px 45px 30px 30px; display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
 .card-title { font-size: 1.3rem; margin-bottom: 15px; }
 
-/* Interactive Elements (Explicit Buttons) */
+/* Interactive Elements (Explicit Details Button) */
+.title-bar { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.title-bar svg { color: var(--accent-gold); transition: transform 0.3s ease; flex-shrink: 0; display: block; }
 .desc-toggle-btn { transition: all 0.3s ease; }
 .desc-toggle-btn .toggle-arrow { color: currentColor; transition: transform 0.3s ease; flex-shrink: 0; display: block; }
 .project-card.show-desc .desc-toggle-btn { border-color: var(--accent-red) !important; color: #fff !important; background: var(--accent-red) !important; }
@@ -134,20 +147,20 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 .project-card.show-desc .desc-popup-overlay { opacity: 1; transform: translateX(0); pointer-events: auto; }
 .desc-popup-overlay p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
+/* Highlight Card Special Styling */
 .highlight-card { flex-direction: row; }
 .highlight-card .card-image { flex: 1.2; height: auto; min-height: 350px; }
 .highlight-body { flex: 1; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
 .highlight-desc-container.expanded .card-description-collapsible { max-height: 1000px !important; opacity: 1 !important; }
-.highlight-desc-container.expanded .toggle-arrow { transform: rotate(180deg); color: var(--primary-text); }
 
-/* --- Storefront & 3D Models --- */
+/* B. Storefront & 3D Models (Vertical Grid) */
 .store-grid, #models-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
 .store-grid .project-card, #models-container .project-card { flex-direction: column; clip-path: none; border-left: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent-gold); min-height: auto; }
 .store-grid .project-card:hover, #models-container .project-card:hover { border-top-color: var(--accent-red); transform: translateY(-5px); }
-.store-grid .card-image, #models-container .card-image { width: 100%; height: 220px; border-right: none; border-bottom: var(--border-main); }
+.store-grid .card-image, #models-container .card-image { width: 100%; height: 220px; border-right: none; border-bottom: var(--border-main); max-width: none; }
 .store-grid .card-content, #models-container .card-content { padding: 25px; }
 
-/* --- Tech Stack --- */
+/* C. Tech Stack */
 .tech-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .tech-category-card { background: rgba(255,255,255,0.02); border: var(--border-main); border-top: 2px solid var(--body-text); padding: 30px; transition: var(--transition-fast); }
 .tech-category-card:hover { border-color: var(--accent-gold); border-top-color: var(--accent-gold); background: var(--bg-panel); }
@@ -155,7 +168,7 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 .tech-pill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .tech-pill { font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); padding: 6px 12px; font-size: 0.75rem; text-transform: uppercase; }
 
-/* --- Creative Work --- */
+/* D. Creative Work */
 .creative-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
 .creative-card { display: flex; flex-direction: column; text-decoration: none; padding: 15px; background: rgba(255,255,255,0.02); border: var(--border-main); transition: var(--transition-fast); }
 .creative-thumb { aspect-ratio: 16/9; background: #000; position: relative; overflow: hidden; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); }
@@ -201,11 +214,16 @@ h2 { font-size: 1.8rem; margin-bottom: 40px; padding-bottom: 10px; border-bottom
 @media (max-width: 992px) {
     .main-content { margin-left: 0; width: 100%; }
     #all-projects-container .project-card, .highlight-card, .intrastice-feature, .dossier-card { flex-direction: column; clip-path: none; }
-    .card-image, .highlight-card .card-image, .intrastice-img { width: 100%; height: 220px; border-right: none; border-bottom: var(--border-main); min-height: auto; }
+    .card-image, .highlight-card .card-image, .intrastice-img { width: 100%; height: 220px; border-right: none; border-bottom: var(--border-main); min-height: auto; max-width: none; }
     .dossier-left { width: 100%; border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.15); }
     .dossier-right { width: 100%; padding: 30px; }
     .intrastice-img { border-left: none; border-top: var(--border-main); }
     .desc-popup-overlay { transform: translateY(20px); border-right: none; border-bottom: 2px solid var(--accent-red); }
     .project-card.show-desc .desc-popup-overlay { transform: translateY(0); }
     .container { padding: 0 25px; }
+}
+
+a[href="tech.html"], 
+a[href="../tech.html"] {
+    display: none !important;
 }

@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <p style="color: #8b949e; font-size: 0.9rem; max-width: 400px;">
                             Published November 24th, 2024<br>
-                            Last Updated September 17th, 2026<br>
-                            You are looking at v9.26 (build 2.81).
+                            Last Updated September 13th, 2026<br>
+                            You are looking at v9.26 (build 2.80).
                         </p>
                         <div style="margin-top: 15px; display: flex; gap: 15px;">
                             <a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); text-decoration: none;">GH</a>
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <a href="${base}index.html" style="color: #8b949e; text-decoration: none; font-size: 0.9rem;">Home</a>
                             <a href="${base}projects.html" style="color: #8b949e; text-decoration: none; font-size: 0.9rem;">Projects</a>
-                            <a href="${base}tech.html" style="color: #8b949e; text-decoration: none; font-size: 0.9rem;">Tech Stack</a>
+                            <!-- <a href="${base}tech.html" style="color: #8b949e; text-decoration: none; font-size: 0.9rem;">Tech Stack</a> -->
                             <a href="${base}contact.html" style="color: #8b949e; text-decoration: none; font-size: 0.9rem;">Contact</a>
                         </div>
                     </div>
