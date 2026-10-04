@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="blog-title">Aetriq | Blog</title>
+    <!-- Add your standard CSS links here (sidebar.css, style.css, docs.css) -->
+    
+    <!-- Marked.js for parsing Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <!-- Your standard <nav> goes here -->
+
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="top-bar-meta">
+                SYSTEM.LOG // <span id="blog-date" style="color: #fff;">Loading Date...</span>
+            </div>
+            <a href="projects.html" class="btn btn-outline">Back to Projects</a>
+        </div>
+        
+        <div class="doc-container">
+            <div id="blog-content">
+                <!-- Markdown gets injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('post'); // e.g., ?post=my-update
+            
+            if(!postId) {
+                document.getElementById('blog-content').innerHTML = "<h1>No post specified.</h1>";
+                return;
+            }
+
+            // Fetch the markdown file from your data/posts/ folder
+            fetch(`data/posts/${postId}.md`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Post not found.");
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Convert markdown to HTML and inject it
+                    document.getElementById('blog-content').innerHTML = marked.parse(markdown);
+                    document.getElementById('blog-title').innerText = `Aetriq | ${postId}`;
+                })
+                .catch(err => {
+                    document.getElementById('blog-content').innerHTML = `<h1 style="color: red;">Error 404: Post not found.</h1>`;
+                });
+        });
+    </script>
+</body>
+</html>

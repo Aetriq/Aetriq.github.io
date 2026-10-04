@@ -59,7 +59,7 @@
       "statusColor": "#2b7a0b",
       "image": "assets/img/m1296.png",
       "links": [
-        {"text": "PowerPC 8100/100 RELOADED (WIP)", "url": "", "type": "outline"}
+        {"text": "PowerPC 8100/100 RELOADED (WIP)", "url": "", "type": "outline"},
         {"text": "Credits to JB Retro for recap list!", "url": "https://jbretro.wordpress.com/2019/07/10/m1296-recap/", "type": "outline"}
       ]
     },
