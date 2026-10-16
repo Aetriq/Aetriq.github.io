@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <p style="color: #999; font-size: 14px; max-width: 400px; margin-top: 10px;">
                             Published November 24th, 2024<br>
-                            Last Updated October 15th, 2026<br>
-                            You are looking at v10.26 (build 2.88) of my website.
+                            Last Updated October 16th, 2026<br>
+                            You are looking at v10.26 (build 2.89) of my website.
                         </p>
                         <div class="social-links" style="margin-top: 15px; display: flex; gap: 12px;">
                             <a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer" title="GitHub">GH</a>
                             <a href="https://www.youtube.com/@Aetriq" target="_blank" rel="noopener noreferrer" title="YouTube">YT</a>
-                            <a href="https://twitter.com/Veetwo__" target="_blank" rel="noopener noreferrer" title="X (Twitter)">Twitter</a>
+                            <a href="https://twitter.com/Veetwo__" target="_blank" rel="noopener noreferrer" title="X (Twitter)">TW</a>
                             <a href="https://www.instagram.com/aetriq_/" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
                         </div>
                     </div>

@@ -1,6 +1,28 @@
 {
   "products": [
     {
+      "id": "82",
+      "title": "Apple Macintosh Classic M0420 Logic Board",
+      "price": "$54.99",
+      "status": "available",
+      "link": "https://www.ebay.ca/itm/920030113487",
+      "desc": "Apple Macintosh Classic Logic Board for the model M0420 (Model from 1990), model number 820-0390-03/630-0390. Cosmetically in good condition, no signs of corrosion as seen in pictures. Selling strictly as-is due to age.\n\n\nMore details, (1) Currently shows a checkerboard as seen in photos. Sometimes the checkerboard will looking black and white, sometimes it is grainy. (2) SWIM/SCSI chip removed (but included). Initially used to show a grey screen with cursor, but it was believed one of these two chips was pulling down an interrupt line, preventing the mac from booting. (3) All SMD capacitors are new and recently replaced. (4) Battery connector negative side was manually wired. Included is the logic board itself, the SWIM controller desoldered, the SCSI controller desoldered, and the ROM chip. Macintosh not included. Please let me know if you have any questions!",
+      "images": [
+        "assets/img/shopimg/36.png"
+      ]
+    },
+    {
+      "id": "83",
+      "title": "Dell E771p CRT Monitor",
+      "price": "$130.00",
+      "status": "sold_out",
+      "link": "https://www.facebook.com/marketplace/item/962732966295389",
+      "desc": "Runs at 1024x768@85Hz. Uses VGA (D-sub) but supports adapters. Includes a power cable. It has been cleaned internally, so no dust. Caps were inspected and all look good. Externally is also kept very clean, aside from the usual wear for a monitor this age. Display/raster geometry and convergence have also been recently calibrated.",
+      "images": [
+        "assets/img/shopimg/35.jpg"
+      ]
+    },
+    {
       "id": "84",
       "title": "LOT OF 4 - Apple iPhone 4S Black",
       "price": "$45.00",
@@ -218,7 +240,7 @@
       "id": "103",
       "title": "Apple iPhone 4s - 16 GB - Black (iOS 7) (LOT OF 2)",
       "price": "$63.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.ebay.ca/itm/397847521679",
       "desc": "A lot of two (2) iPhone 4S for sale. Both devices are in great condition with no cracks and only have minor wear as seen in pictures. Both have been factory reset and are ready for use.\n\nIndividual specs:\niOS 7.1.2 | Verizon 16.0 | 16GB Black\niOS 7.0.2 | Sprint 15.0 | 16GB Black\n\nThe batteries in both are in great condition, and hold a charge for at least a couple of days. All the hardware works as expected, and the iPhones can sync with iTunes. Due to the old nature of the device, both are being sold AS-IS. Comes with the two iPhones only, no charger included.",
       "images": [
@@ -231,7 +253,7 @@
       "id": "104",
       "title": "Apple iPhone 4s 8 GB - Black (Sprint)",
       "price": "$40.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.ebay.ca/itm/397755837773",
       "desc": "An Apple iPhone 4s A1387 in Black with 8GB of storage. It has been factory reset, and is ready for use. Comes jailbroken, with Cydia installed with a few apps.\n\nIMPORTANT NOTE!!! Because Apple has officially classified this model as 'Obsolete,' their activation servers no longer communicate with iOS 6. DO NOT perform a factory reset.",
       "images": [
@@ -243,7 +265,7 @@
       "id": "105",
       "title": "Lot of 3 - Seagate Barracuda ST32171WC & ST34572WC",
       "price": "$80.00",
-      "status": "available",
+      "status": "sold_out",
       "link": "https://www.ebay.ca/itm/398239492062",
       "desc": "A lot of 3 Seagate Barracudas; two (2) ST32171WC 2.16GB 7200RPM and one (1) ST34572WC 4.55GB 7200RPM in excellent cosmetic condition. Both use the ultra wide SCSI 80-pin interface.\nDrives remain untested due to lack of testing hardware, but no history of physical damage. Kept in storage for a few years and was working perfectly in a pentium pro based server prior.",
       "images": [
