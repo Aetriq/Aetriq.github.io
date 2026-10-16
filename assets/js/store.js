@@ -1,46 +1,22 @@
 // assets/js/store.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Mobile Menu Toggle ---
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if(mobileBtn) {
-        mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
-    }
-
-    // --- Optimized Scroll Animations ---
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target); // Stop tracking once visible
-            }
-        });
-    }, { threshold: 0.1 });
-
     let productsData = [];
     let currentProductIndex = 0;
     let currentImageIndex = 0;
 
-    // --- DOM Elements ---
     const grid = document.getElementById('productGrid');
-    
-    // Target both ID and Class to ensure we grab the modal overlay
     const modal = document.getElementById('productModal');
     const closeBtn = document.getElementById('closeModalBtn');
-    
     const carouselImg = document.getElementById('carouselImg');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
     const imageCounter = document.getElementById('imageCounter');
-    
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const modalStatusBadge = document.getElementById('modalStatusBadge');
     const modalActionBtn = document.getElementById('modalActionBtn');
 
-    // --- Fetch Store Data ---
     fetch('data/store.json')
         .then(res => {
             if(!res.ok) throw new Error("Could not load store data");
@@ -54,21 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const mainImg = prod.images && prod.images.length > 0 ? prod.images[0] : 'https://via.placeholder.com/400x300/111/fff?text=No+Image';
                 
                 const soldOverlay = !isAvailable ? 
-                    `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.5rem; letter-spacing:4px; text-transform:uppercase;">Sold Out</div>` : '';
+                    `<div style="position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size:22px; letter-spacing:2px; text-transform:uppercase;">Sold Out</div>` : '';
 
                 const cardHTML = `
-                    <div class="project-card fade-up" style="transition-delay: ${(index % 4) * 50}ms; cursor: pointer;" data-index="${index}">
+                    <div class="project-card" style="cursor: pointer;" data-index="${index}">
                         <div class="card-image" style="position: relative;">
-                            <img src="${mainImg}" alt="${prod.title}" style="width: 100%; height: 250px; object-fit: cover;">
+                            <img src="${mainImg}" alt="${prod.title}" style="width: 100%; height: 220px; object-fit: cover;">
                             ${soldOverlay}
                         </div>
                         <div class="card-content">
-                            <h3 style="font-size: 1.15rem; margin-bottom: 15px; line-height: 1.4;">${prod.title}</h3>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05);">
-                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: bold; color: ${isAvailable ? 'var(--accent-gold)' : 'var(--body-text)'};">
+                            <h3 style="font-size: 18px; margin-bottom: 12px;">${prod.title}</h3>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid #222;">
+                                <span style="font-size: 18px; font-weight: bold; color: ${isAvailable ? 'var(--accent-gold)' : 'var(--body-text)'};">
                                     ${isAvailable ? prod.price : 'SOLD'}
                                 </span>
-                                <span class="btn ${isAvailable ? 'btn-outline' : ''}" style="${!isAvailable ? 'padding:0; border:none; color:var(--body-text); font-size:0.9rem;' : 'padding: 8px 16px;'}">
+                                <span class="btn ${isAvailable ? 'btn-outline' : ''}" style="${!isAvailable ? 'padding:0; border:none; color:var(--body-text); font-size:14px;' : 'padding: 5px 12px;'}">
                                     ${isAvailable ? 'View Details' : 'Archived'}
                                 </span>
                             </div>
@@ -79,21 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (grid) grid.insertAdjacentHTML('beforeend', cardHTML);
             });
 
-            // Bind clicks to cards
             document.querySelectorAll('#productGrid .project-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const idx = card.getAttribute('data-index');
                     openModal(parseInt(idx));
                 });
-                observer.observe(card);
             });
         })
         .catch(err => console.error("Error loading store:", err));
 
-    // --- Modal Logic ---
     function openModal(productIndex) {
-        if (!modal) return; // Prevent crashes if modal is missing
-        
+        if (!modal) return;
         currentProductIndex = productIndex;
         currentImageIndex = 0;
         const prod = productsData[currentProductIndex];
@@ -117,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             modalActionBtn.textContent = 'Item Unavailable';
             modalActionBtn.className = 'btn';
-            modalActionBtn.style.background = 'rgba(255,255,255,0.1)';
+            modalActionBtn.style.background = '#222';
             modalActionBtn.style.color = 'var(--body-text)';
             modalActionBtn.disabled = true;
             modalActionBtn.onclick = null;
@@ -137,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
             imageCounter.textContent = `${currentImageIndex + 1} / ${prod.images.length}`;
             
             const showControls = prod.images.length > 1;
-            prevBtn.style.display = showControls ? 'flex' : 'none';
-            nextBtn.style.display = showControls ? 'flex' : 'none';
+            prevBtn.style.display = showControls ? 'block' : 'none';
+            nextBtn.style.display = showControls ? 'block' : 'none';
             imageCounter.style.display = showControls ? 'block' : 'none';
         } else {
             carouselImg.src = 'https://via.placeholder.com/800x600/111/fff?text=No+Image';
@@ -155,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Modal Listeners
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
