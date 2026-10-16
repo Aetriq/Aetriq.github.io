@@ -1,6 +1,5 @@
 # Welcome to the Chimera iXY Project!
 By Alex Gordon | Published July 21st, 2025 | Last updated Janurary 12th, 2025
-This project is released under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
 
 ## 0.0 Preamble
 Chimera iXY is a DIY 3D printer with the primary goal of upcycling older Reprap-style FDM printers into a modern equivalent at a low cost. The top three design priorities from highest to lowest are reliablity, quality and speed.

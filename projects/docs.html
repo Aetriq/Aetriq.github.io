@@ -6,39 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetriq Documentation</title>
     
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/docs.css">
     
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Specific adjustments to fit docs into the new classic top nav layout */
+        .doc-layout {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        /* Style the dynamically generated Table of Contents list neatly */
+        #toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 10px 0;
+            background: #080808;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+        #toc li { display: inline-block; }
+        #toc a {
+            color: #aaa;
+            font-size: 13px;
+            font-family: monospace;
+            padding: 3px 8px;
+            border: 1px solid #333;
+            background: #111;
+            text-decoration: none;
+        }
+        #toc a:hover { color: #fff; border-color: var(--accent-red); background: #1a0808; }
+    </style>
 </head>
 <body>
 
+    <!-- Classic Top Navbar -->
     <nav class="navbar">
         <div class="logo">
             <img src="../assets/img/AetriqDynamics 1.0.png" alt="Logo">
             <div class="logo-text" id="doc-title">Docs</div>
         </div>
-        <button class="mobile-menu-btn">☰ Menu</button>
-        <ul class="nav-links" id="toc">
-            <li><a href="../index.html">← Back</a></li>
-            <li><hr class="nav-divider"></li>
-            </ul>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../projects.html" class="active">Projects</a></li>
+            <li><a href="../models.html">3D Models</a></li>
+            <li><a href="../creative.html">Creative Work</a></li>
+            <li><a href="../store.html">Storefront</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
     </nav>
 
     <div class="main-content">
-        
-        <div class="top-bar">
-            <div class="top-bar-meta">
-                By Alex Gordon<br>
-                This project is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPLv3</a> license.
+        <div class="container doc-layout">
+            
+            <div class="top-bar" style="background: #0d0d0d; border: 1px solid #333; padding: 15px; margin-bottom: 25px;">
+                <div class="top-bar-meta" style="font-family: monospace; font-size: 13px;">
+                    By Alex Gordon<br>
+                    This project is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" style="color: var(--accent-red);">GPLv3</a> license.
+                </div>
+            </div>
+
+            <!-- Injected Table of Contents Container -->
+            <div id="toc" style="display:none;"></div>
+
+            <div class="doc-container" id="doc-content" style="background: var(--bg-panel); border: var(--border-main); padding: 30px;">
+                <div style="padding: 40px; color: #888; font-family: monospace;">Loading documentation...</div>
             </div>
         </div>
 
-        <div class="doc-container" id="doc-content">
-            <div style="padding: 100px; color: #888; font-family: monospace;">Loading documentation...</div>
-        </div>
+        <div id="global-footer"></div>
     </div>
 
+    <!-- Script to inject global footer matching layout.js -->
+    <script>window.siteBasePath = '../';</script>
+    <script src="../assets/js/layout.js"></script>
     <script src="../assets/js/docs.js"></script>
 </body>
 </html>
