@@ -5,7 +5,7 @@
     {
       "id": "aetriq",
       "name": "@Aetriq",
-      "banner": "/assets/img/bkgdchimera3.png",
+      "banner": "assets/img/bkgdchimera3.jpg",
       "avatar": "https://yt3.googleusercontent.com/QRRxtLwSzNl4OdHN4yXWPHVbEORp_pjmuU6kb-kPrI3Bg7KeNB1vWruTTwiELlzF3UfNG-7WEw=s160-c-k-c0x00ffffff-no-rj",
       "url": "https://www.youtube.com/@Aetriq"
     },
@@ -52,15 +52,15 @@
       "date": "Feb 21, 2022", 
       "image": "https://i.ytimg.com/vi/ZGb3iBrz-Xk/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.s.png", 
       "isLegacy": true 
     },
     { 
       "title": "DJ Quads - Living In Stereo", 
       "date": "Dec 31, 2021", 
-      "image": "/assets/img/livinginstereo.jpeg", 
+      "image": "assets/img/livinginstereo.jpeg", 
       "videoUrl": "https://www.youtube.com/", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.s.png", 
       "isLegacy": true 
     },
     { 
@@ -68,7 +68,7 @@
       "date": "Aug 21, 2021", 
       "image": "https://i.ytimg.com/vi/dYc1Fero5AU/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=dYc1Fero5AU", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.s.png", 
       "isLegacy": true 
     },
     { 
@@ -76,7 +76,7 @@
       "date": "Sep 27, 2020", 
       "image": "https://i.ytimg.com/vi/GlGFQsmYF3Y/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=GlGFQsmYF3Y", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.5 PNG.s.png", 
       "isLegacy": true 
     },
     { 
@@ -84,7 +84,7 @@
       "date": "Sep 20, 2019", 
       "image": "https://i.ytimg.com/vi/xLb3D8k4mio/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=xLb3D8k4mio", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.5.s.png", 
       "isLegacy": true 
     },
     { 
@@ -92,7 +92,7 @@
       "date": "May 29, 2019", 
       "image": "https://i.ytimg.com/vi/gX8ZXuuXaao/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=gX8ZXuuXaao", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.5.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.5.s.png", 
       "isLegacy": true 
     },
     { 
@@ -100,7 +100,7 @@
       "date": "Mar 2, 2019", 
       "image": "https://i.ytimg.com/vi/jJK58UuK0rk/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=jJK58UuK0rk", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.0.s.png", 
       "isLegacy": true 
     },
     { 
@@ -108,7 +108,7 @@
       "date": "Oct 24, 2018", 
       "image": "https://i.ytimg.com/vi/d-ffzk55b2M/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=d-ffzk55b2M", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.0.s.png", 
       "isLegacy": true 
     },
     { 
@@ -116,7 +116,15 @@
       "date": "Aug 2018", 
       "image": "https://i.ytimg.com/vi/CVa3GtM8FAY/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=CVa3GtM8FAY", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.0.s.png", 
+      "isLegacy": true 
+    },
+    { 
+      "title": "DAGames - Brothers in Arms (Silentwall Remix): B3qualizer release", 
+      "date": "May 19 2018", 
+      "image": "https://i.ytimg.com/vi/qN8VFbXzJw4/hqdefault.jpg", 
+      "videoUrl": "https://www.youtube.com/watch?v=qN8VFbXzJw4&pp=0gcJCUEMAYcqIYzv", 
+      "customIcon": "assets/img/legacyiconpack/bass3qualizer.png", 
       "isLegacy": true 
     },
     { 
@@ -124,7 +132,7 @@
       "date": "May 19 2018", 
       "image": "https://i.ytimg.com/vi/khhCqwoFNPQ/hqdefault.jpg", 
       "videoUrl": "https://www.youtube.com/watch?v=khhCqwoFNPQ", 
-      "customIcon": "/assets/img/legacyiconpack/Official Profile Logo 3.0.png", 
+      "customIcon": "assets/img/legacyiconpack/Official Profile Logo 3.0.s.png", 
       "isLegacy": true 
     }
   ]

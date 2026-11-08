@@ -1,92 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    
-    <title>Aetriq | Intrastice</title>
-    
-    <link rel="shortcut icon" type="image/png" href="../assets/img/AetriqDynamicsthumb.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aetriq | Intrastice</title>
+<meta name="description" content="Intrastice: ultra-compact CoreXY 3D printer by Aetriq.">
+<meta name="theme-color" content="#0f0d0d">
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/css/style.css?v=4">
+<style>
+.o{--bg-body:#050505;--bg-card:#0c0c0c;--bg-hover:#141414;--accent-red:#c0392b;--accent-gold:#d4a017;--accent-grey:#868686;--primary-text:#ffffff;--body-text:#cccccc;--border-subtle:1px solid #333333;--border-highlight:1px solid #666666}
+.o *{box-sizing:border-box;margin:0;padding:0;border-radius:0 !important;animation:none !important;transition:none !important}
+html,.o{background-color:var(--bg-body);color:var(--body-text);font-family:"Times New Roman",Times,Georgia,serif;font-size:16px;line-height:1.5;min-height:100vh}
+.o img{max-width:100%;height:auto;display:block}
+.o h1,.o h2,.o h3,.o h4{font-family:"Times New Roman",Times,Georgia,serif;color:var(--primary-text);font-weight:bold;margin-bottom:12px}
+.o h1{font-size:32px}
+.o h2{font-size:24px;border-bottom:1px solid var(--accent-red);padding-bottom:5px;margin-bottom:20px}
+.o h3{font-size:19px;color:var(--primary-text)}
+.o a{color:var(--accent-red);text-decoration:underline}
+.o a:hover{color:#ffffff}
+.o .container{width:100%;max-width:1000px;margin:0 auto;padding:0 20px}
+.o .section{padding:35px 0}
+.o .btn{display:inline-block;padding:6px 14px;background-color:#141414;color:#ffffff;border:1px solid #555555;font-family:"Times New Roman",Times,serif;font-size:15px;text-decoration:none;cursor:pointer}
+.o .btn:hover{background-color:#2a0a0a;border-color:var(--accent-red);color:#fff;text-decoration:none}
+.o .btn-primary{background-color:var(--accent-red);border-color:#ff5555;color:#ffffff;font-weight:bold}
+.o .btn-primary:hover{background-color:#9e2a1f}
+.o .btn-outline{background-color:#111111;border-color:#555555;color:#ffffff}
+.o .btn-compact{padding:5px 10px;font-size:14px}
+.o .form-control{width:100%;padding:8px 10px;margin-bottom:15px;background-color:#000000;border:1px solid #444444;color:#ffffff;font-family:"Times New Roman",Times,serif;font-size:16px}
+.o .form-control:focus{border-color:var(--accent-red);outline:none}
+.o .hero-banner-container{position:relative;width:100%;max-width:1000px;margin:0 auto;height:240px;overflow:hidden}
+.o .hero-banner-img{width:100%;height:100%;object-fit:cover}
+.o .hero-banner-fade{position:absolute;bottom:0;left:0;width:100%;height:100px;background:linear-gradient(to bottom,transparent,var(--bg-body))}
+.o .close-banner-btn{background:transparent;border:1px solid #fff;color:#fff;padding:2px 8px;cursor:pointer}
+.o .feature-box{background-color:var(--bg-card);border:var(--border-subtle);margin-bottom:25px}
+.o .feature-box-banner{width:100%;height:220px;position:relative;border-bottom:1px solid #222}
+.o .feature-box-banner img{width:100%;height:100%;object-fit:cover}
+.o .feature-box-body{padding:20px 25px}
+.o .about-text{color:var(--body-text);font-size:17px;line-height:1.6;margin:0 auto 25px auto;max-width:900px}
+.o .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;margin-top:25px}
+.o .service-card{background:var(--bg-card);border:var(--border-subtle);padding:15px 20px;text-align:left;cursor:pointer;position:relative}
+.o .service-card:hover,.o .service-card.expanded{border-color:var(--accent-red);background:var(--bg-hover)}
+.o .service-header{display:flex;justify-content:space-between;align-items:center}
+.o .service-title{color:var(--accent-grey);font-size:17px;margin:0}
+.o .service-card.expanded .service-title{color:var(--accent-red)}
+.o .service-arrow{color:var(--accent-red);flex-shrink:0}
+.o .service-card.expanded .service-arrow{transform:rotate(180deg);color:var(--accent-red)}
+.o .service-body{display:none;padding-top:12px;margin-top:12px;border-top:1px dashed #333}
+.o .service-card.expanded .service-body{display:block}
+.o .service-desc{color:var(--body-text);font-size:15px;line-height:1.5;margin:0}
+.o .highlight-container{display:flex;flex-direction:column;gap:25px}
+.o .project-list,.o .store-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.o .project-card{background:var(--bg-card);border:var(--border-subtle);display:flex;flex-direction:column}
+.o .project-card:hover{border-color:var(--border-highlight)}
+.o .card-image{width:100%;position:relative;background:#000;border-bottom:var(--border-subtle);overflow:hidden}
+.o .project-list .card-image img{width:100% !important;height:auto !important;aspect-ratio:16 / 9 !important;object-fit:cover !important}
+.o .card-content{padding:15px;display:flex;flex-direction:column;flex-grow:1}
+.o .card-title{font-size:18px;margin-bottom:10px}
+.o .desc-popup-overlay{position:absolute;inset:0;background:rgba(5,5,5,0.95);padding:15px;display:none;flex-direction:column;justify-content:center;overflow-y:auto;z-index:5;border-bottom:2px solid var(--accent-red)}
+.o .project-card.show-desc .desc-popup-overlay{display:flex}
+.o .project-card.show-desc .desc-toggle-btn{background:var(--accent-red) !important;color:#fff !important;border-color:var(--accent-red) !important}
+.o .project-card.show-desc .toggle-arrow{transform:rotate(90deg)}
+.o .highlight-card .card-image{height:280px}
+.o .highlight-card .card-image img{width:100%;height:100%;object-fit:cover}
+.o .highlight-body{padding:25px}
+.o .highlight-desc-container .card-description-collapsible{display:none;padding-top:15px}
+.o .highlight-desc-container.expanded .card-description-collapsible{display:block}
+.o .highlight-desc-container.expanded .toggle-arrow{transform:rotate(180deg)}
+.o .channels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:35px}
+.o .channel-card{background:var(--bg-card);border:var(--border-subtle);text-decoration:none;display:block}
+.o .channel-card:hover{border-color:var(--accent-red)}
+.o .channel-banner{width:100%;height:90px;object-fit:cover;border-bottom:var(--border-subtle)}
+.o .channel-info{display:flex;align-items:center;gap:12px;padding:12px}
+.o .channel-avatar{width:48px;height:48px;border:1px solid #444}
+.o .channel-name{font-size:18px;margin:0;color:#fff}
+.o .creative-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.o .creative-card{background:var(--bg-card);border:var(--border-subtle);padding:12px;text-decoration:none;display:flex;flex-direction:column}
+.o .creative-card:hover{border-color:var(--accent-red)}
+.o .creative-thumb{aspect-ratio:16 / 9;background:#000;position:relative;overflow:hidden;border:1px solid #222;margin-bottom:10px}
+.o .creative-thumb img{width:100%;height:100%;object-fit:cover}
+.o .play-overlay{display:none}
+.o .creative-info{display:flex;gap:10px;align-items:flex-start}
+.o .video-channel-icon{width:32px;height:32px;border:1px solid #333;flex-shrink:0}
+.o .creative-title{font-size:15px;color:#fff;margin-bottom:4px;line-height:1.3}
+.o .creative-date{font-size:13px;color:#888}
+.o .trust-badge-grid{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+.o .trust-badge{background:#0a0a0a;border:1px solid #333;padding:12px 20px;text-align:center}
+.o .tech-pill{border:1px solid #444;padding:4px 10px;font-size:14px;background:#000}
+.o .prev-btn{left:8px}
+.o .next-btn{right:8px}
+.o a[href="tech.html"],.o a[href="../tech.html"]{display:none !important}
+</style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="logo fade-up visible">
-            <img src="../assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
-            <div class="logo-text">Aetriq</div>
-        </div>
-        <button class="mobile-menu-btn">Menu</button>
-        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../projects.html" class="active">Projects</a></li>
-            <li><a href="../models.html">3D Models</a></li>
-            <li><a href="../tech.html">Tech Stack</a></li>
-            <li><a href="../creative.html">Creative Work</a></li>
-            <li><hr class="nav-divider"></li>
-            <li><a href="../store.html">Storefront</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="main-content">
-        <!-- Project Hero Section -->
-        <section style="padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); background: #000;">
-            <div class="hero-banner-container fade-up visible" style="height: 350px;">
-                <img src="https://github.com/Aetriq/Intrastice/raw/main/repo_img/banner/banner2.0.png" alt="Intrastice" class="hero-banner-img">
-                <div class="hero-banner-fade"></div>
-            </div>
-            
-            <div class="container fade-up visible" style="max-width: 900px; margin-top: 40px; text-align: center;">
-                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;">
-                    Intrastice <span style="color: var(--accent-red);">v0.1</span>
-                </h1>
-                <p style="font-size: 1.15rem; color: var(--primary-text); margin-bottom: 40px; font-weight: 600;">
-                    Ultra-Compact CoreXY 3D Printer
-                </p>
-                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                    <a href="docs.html?page=intrastice" class="btn btn-primary">Read Documentation</a>
-                    <a href="https://github.com/Aetriq/intrastice" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub Source</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Details Section -->
-        <section class="section fade-up">
-            <div class="container" style="max-width: 900px;">
-                <h2>Overview</h2>
-                <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px;">
-                    The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers. A direct successor to the Chimera iXY.
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 40px;">
-                    Featuring a custom edge-ML vision system for real-time anomaly detection, fully enclosed (in final design), CPAP cooling, and much more. It uses the compact Micro4 and ADXL345 FLY by Mellow, the Orange Pi Zero 2W, and a multi-voltage power bus solution for adaptable fans.
-                </p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-                    <div style="background: rgba(10,11,14,0.5); border: var(--border-main); border-top: 3px solid #f1c40f; padding: 25px;">
-                        <h4 style="color: var(--accent-gold); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-bottom: 10px;">EDGE-ML VISION</h4>
-                        <p style="font-size: 0.9rem; margin: 0;">Real-time anomaly detection identifying nozzle blobs and layer shifts.</p>
-                    </div>
-                    <div style="background: rgba(10,11,14,0.5); border: var(--border-main); border-top: 3px solid #f1c40f; padding: 25px;">
-                        <h4 style="color: var(--accent-gold); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-bottom: 10px;">SPACE EFFICIENCY</h4>
-                        <p style="font-size: 0.9rem; margin: 0;">Optimized kinematics footprint housing a full 220mm³ build volume.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="global-footer"></div>
-    </div>
-
-    <!-- Inject ../ path before layout.js runs so footer loads images properly -->
-    <script>window.siteBasePath = '../';</script>
-    <script src="../assets/js/layout.js"></script>
-    <script src="../assets/js/main.js"></script>
+<body data-b="../">
+<header id="h"></header>
+<main class="o">
+<section style="padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); background: #000;">
+<div class="hero-banner-container fade-up visible" style="height: 350px;">
+<img alt="Intrastice" class="hero-banner-img" src="https://github.com/Aetriq/Intrastice/raw/main/repo_img/banner/banner2.0.png"/>
+<div class="hero-banner-fade"></div>
+</div>
+<div class="container fade-up visible" style="max-width: 900px; margin-top: 40px; text-align: center;">
+<h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;">
+Intrastice <span style="color: var(--accent-red);">v0.1</span>
+</h1>
+<p style="font-size: 1.15rem; color: var(--primary-text); margin-bottom: 40px; font-weight: 600;">
+Ultra-Compact CoreXY 3D Printer
+</p>
+<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+<a class="btn btn-primary" href="docs.html?page=intrastice">Read Documentation</a>
+<a class="btn btn-outline" href="https://github.com/Aetriq/intrastice" rel="noopener noreferrer" target="_blank">GitHub Source</a>
+</div>
+</div>
+</section>
+<section class="section fade-up">
+<div class="container" style="max-width: 900px;">
+<h2>Overview</h2>
+<p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px;">
+The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers. A direct successor to the Chimera iXY.
+</p>
+<p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 40px;">
+Featuring a custom edge-ML vision system for real-time anomaly detection, fully enclosed (in final design), CPAP cooling, and much more. It uses the compact Micro4 and ADXL345 FLY by Mellow, the Orange Pi Zero 2W, and a multi-voltage power bus solution for adaptable fans.
+</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+<div style="background: rgba(10,11,14,0.5); border: var(--border-main); border-top: 3px solid #f1c40f; padding: 25px;">
+<h4 style="color: var(--accent-gold); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-bottom: 10px;">EDGE-ML VISION</h4>
+<p style="font-size: 0.9rem; margin: 0;">Real-time anomaly detection identifying nozzle blobs and layer shifts.</p>
+</div>
+<div style="background: rgba(10,11,14,0.5); border: var(--border-main); border-top: 3px solid #f1c40f; padding: 25px;">
+<h4 style="color: var(--accent-gold); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-bottom: 10px;">SPACE EFFICIENCY</h4>
+<p style="font-size: 0.9rem; margin: 0;">Optimized kinematics footprint housing a full 220mm³ build volume.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer id="f"></footer>
+<script src="../assets/js/main.js?v=4"></script>
 </body>
 </html>

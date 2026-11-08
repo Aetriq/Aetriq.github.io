@@ -6,8 +6,7 @@
       "subtitle": "Ultra-Compact CoreXY 3D Printer",
       "description": "The planned 2nd generation of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Replicator Plus, designed to be one of the world's most space-efficient 220mm³ CoreXY 3D printers. A direct successor to the Chimera iXY. \n\nFeaturing a custom edge-ML vision system for real-time anomaly detection, fully enclosed (in final design), CPAP cooling, and much more. \n\nFeatures the compact Micro4 and ADXL345 FLY by Mellow, the Orange Pi Zero 2W, and a multi voltage power bus solution for adaptable fans. \n\nVery modular design, easily upgrade and replace components with a simple bracket.",
       "status": "IN PROGRESS",
-      "statusColor": "#FFFF00",
-      "image": "assets/img/intrastice/intrasticev0.1.png",
+      "image": "assets/img/intrastice/intrasticev0.1.jpg",
       "links": [
         {"text": "Official Page", "url": "projects/intrastice.html", "type": "primary"},
         {"text": "GitHub", "url": "https://github.com/Aetriq/intrastice", "type": "outline"},
@@ -21,8 +20,7 @@
       "subtitle": "High-Speed CoreXY 3D Printer",
       "description": "A fast 3D Printer using CoreXY kinematics, built from two different bedslingers; the Flsun i3 2017 and Mingda Magician X.\n\nAchieves high-quality prints at 450mm/s & 800mm/s travel speeds.\n\nMarlin/Klipper ready, 230mm^3 build volume, 10k mm/s^3 accel, 40mm^3/s flow.\n\nFull docs, 3D models, & firmware configs are available for those looking to build their own hybrid machine. \n\nCurrent Status (7-1-26): v2.5 released; check the page for more details!",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/chimerav2.5banner.png",
+      "image": "assets/img/chimerav2.5banner.jpg",
       "links": [
         {"text": "Official Page", "url": "projects/chimera.html", "type": "primary"},
         {"text": "Showcase Video", "url": "https://www.youtube.com/watch?v=Q-hPXHgwOV8", "type": "primary"},
@@ -34,8 +32,8 @@
         { "name": "E3D", "url": "https://e3d-online.com/", "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfQCTSMC4qE7n2VyATaETC1rDsgUpAf5wt2nmy4NO3xA&s" },
         { "name": "Reprap", "url": "https://reprap.org/wiki/RepRap", "icon": "https://hackaday.com/wp-content/uploads/2016/03/reprap-logo.png?w=600&h=600" },
         { "name": "Mainsail", "url": "https://docs.mainsail.xyz/", "icon": "https://docs.mainsail.xyz/assets/logo.svg" },
-        { "name": "MKS", "url": "https://makerbase3d.com/", "icon": "/assets/img/mks.png" },
-        { "name": "Marlin", "url": "https://marlinfw.org/", "icon": "/assets/img/marlin.png" }
+        { "name": "MKS", "url": "https://makerbase3d.com/", "icon": "assets/img/mks.s.png" },
+        { "name": "Marlin", "url": "https://marlinfw.org/", "icon": "assets/img/marlin.s.png" }
       ]
     }
   ],
@@ -45,8 +43,7 @@
       "title": "ViewSonic P655 Restoration",
       "description": "My personal blog of doing a complete restoration of the Viewsonic P655 series CRT. My final docs should include a complete recap list, documentation and calibration.",
       "status": "INCOMPLETE",
-      "statusColor": "#c0392b",
-      "image": "assets/img/p655.png",
+      "image": "assets/img/p655.jpg",
       "links": [
         {"text": "Blog (WIP)", "url": "", "type": "outline"}
       ]
@@ -56,8 +53,7 @@
       "title": "Apple 12\" RGB Restoration",
       "description": "A complete restoration of the Apple 12\" RGB (M1296) CRT monitor from 1990. Includes FULL recap of main/neck boards, pot adjustment and vertical collapse repair.\n\n Paired originally for the Macintosh LCII, this is for my PowerPC 8100/100 setup!",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/m1296.png",
+      "image": "assets/img/m1296.jpg",
       "links": [
         {"text": "PowerPC 8100/100 RELOADED (WIP)", "url": "", "type": "outline"},
         {"text": "Credits to JB Retro for recap list!", "url": "https://jbretro.wordpress.com/2019/07/10/m1296-recap/", "type": "outline"}
@@ -68,8 +64,7 @@
       "title": "Intrastice v0.1",
       "description": "Planned '2nd generation' of my custom CoreXY 3D printer series. A RepRap-ified Makerbot Repliacator Plus (5th gen), but can also be built entirely from scratch. This will be one of the world's most space-efficient 220mm^3 CoreXY 3d printer.",
       "status": "INCOMPLETE",
-      "statusColor": "#c0392b",
-      "image": "assets/img/intrastice.png",
+      "image": "assets/img/intrastice.jpg",
       "techStack": ["FDM (3D) Printing", "Embedded Systems"],
       "links": [
         {"text": "View Project", "url": "projects/intrastice.html", "type": "outline"},
@@ -81,8 +76,7 @@
       "title": "Bruce for Heltec Tracker",
       "description": "A reliable port of the Bruce Firmware for the Heltec IOT Tracker (v1.1, no tft). Uses a ST7789 2.0 inch TFT and 6 buttons. Functions include the UC6580 GNSS and SX1262 LoRa.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/heltec.png",
+      "image": "assets/img/heltec.jpg",
       "techStack": ["Heltec v1.1", "WIFI/BLE", "GNSS", "LoRa"],
       "links": [
         {"text": "View Project", "url": "https://github.com/Aetriq/brucefirmwareheltectracker", "type": "outline"}
@@ -93,7 +87,6 @@
       "title": "OMV Status Screen add-on",
       "description": "Very low cost basic status screen add-on for OpenMediaVault NAS servers. Based on the ESP32-C3 MCU, error detection and graphics recovery.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
       "image": "https://media.printables.com/media/prints/409ea7f9-4d5d-42ae-97e0-5879822e942f/images/12967803_ce3e736e-a642-4527-ab09-30a9d5f6cd9a_d3d8c5fb-b94e-4800-b611-38b6db55efee/thumbs/inside/1920x1440/png/frontviewdiagram.webp",
       "techStack": ["ESP32-C3"],
       "links": [
@@ -106,8 +99,7 @@
       "title": "EchoLog",
       "description": "Based on the needs of our client, EchoLog is designed to be applicable with similar goals of recording and storing different forms of logs in high intensity/stress environments.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/echolog.png",
+      "image": "assets/img/echolog.jpg",
       "techStack": ["Software", "Client-Project"],
       "links": [
         {"text": "View Project", "url": "https://github.com/Aetriq/CEG491X-Capstone", "type": "outline"}
@@ -118,12 +110,11 @@
       "title": "Chimera iXY v2.5",
       "description": "Fully custom designed and built high-speed 3D printer from two bedslingers using ‘CoreXY’ kinematics.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
       "image": "https://github.com/Aetriq/ChimeraiXY/blob/main/Img/v2.4/fronttopview.png?raw=true",
       "techStack": ["FDM (3D) Printing", "Embedded Systems"],
       "links": [
         {"text": "View Project", "url": "projects/chimera.html", "type": "outline"},
-        {"text": "Docs", "url": "projects/chimeradocfull.html", "type": "outline"}
+        {"text": "Docs", "url": "projects/docs.html?page=chimera", "type": "outline"}
       ]
     },
 
@@ -132,7 +123,6 @@
       "title": "FDM Blob Detection",
       "description": "Lightweight ESP32-CAM Klipper Add-on for 3D printer nozzle clumping detection. Entirely local inferencing model capable of catching nozzle blobbing occurring in real time, during prints. FSM-based 'resolution' for automated fixing without human intervention.",
       "status": "COMPLETE (See Intrastice)",
-      "statusColor": "#2b7a0b",
       "image": "https://github.com/Aetriq/CEG4195-Project/blob/main/img/repo-img/coolcloseuprender.png?raw=true",
       "techStack": ["Edge ML", "Embedded Systems"],
       "links": [
@@ -144,8 +134,7 @@
       "title": "CrunchLAN",
       "description": "TCP-Based realtime LAN game based on the Client-Server network model. Custom java protocols using the raw socket library.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/4188.png",
+      "image": "assets/img/4188.jpg",
       "techStack": ["Java", "Networking"],
       "links": [
         {"text": "View Project", "url": "https://github.com/Aetriq/CEG4188-Project", "type": "outline"}
@@ -156,7 +145,6 @@
       "title": "MCATS",
       "description": "A comfortable, responsive assistive device for playing piano with minimal delay.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
       "image": "assets/img/mcats.jpg",
       "techStack": ["Assistive Tech", "RP2040"],
       "links": [
@@ -169,8 +157,7 @@
       "title": "MIPS Processor",
       "description": "Designed entirely using RTL-based VHDL & programmed on the FPGA DE2-115.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/mips.png",
+      "image": "assets/img/mips.jpg",
       "techStack": ["VHDL", "FPGA"],
       "links": [
         {"text": "View Project", "url": "https://github.com/aetriq/CEG3156/tree/main/Lab%203", "type": "outline"}
@@ -181,7 +168,6 @@
       "title": "Flsun i3 Speed Mod",
       "description": "A set of hardware/software modifications to increase speed/quality of the Flsun i3 C from 2017. Merged to Chimera iXY project.",
       "status": "COMPLETE (See Chimera iXY)",
-      "statusColor": "#2b7a0b",
       "image": "https://github.com/Aetriq/ChimeraiXY/blob/main/Img/flsun.jpg?raw=true",
       "techStack": ["FDM (3D) Printing"],
       "links": [
@@ -193,8 +179,7 @@
       "title": "MAX232 UART",
       "description": "Design of a low power Universal Asynchronous Receiver Transmitter with adaptive baudrate.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/uart.png",
+      "image": "assets/img/uart.jpg",
       "techStack": ["VHDL", "FPGA"],
       "links": [
         {"text": "View Project", "url": "https://github.com/Aetriq/CEG3155/tree/main/Final%20Project", "type": "outline"}
@@ -205,8 +190,7 @@
       "title": "Cycling Tracking APP",
       "description": "A cycling mobile app designed for tracking of data & events. Features a real-time cloud (google firebase) database.",
       "status": "COMPLETE",
-      "statusColor": "#2b7a0b",
-      "image": "assets/img/gcc.png",
+      "image": "assets/img/gcc.jpg",
       "techStack": ["Kotlin", "Java", "Android"],
       "links": [
         {"text": "View Project", "url": "https://github.com/Aetriq/SEG2105", "type": "outline"}
@@ -217,8 +201,7 @@
       "title": "SignalSculpt",
       "description": "Audio reacting engine for After Effects. React any waveform frequency with a layer property in one click.",
       "status": "IN PROGRESS",
-      "statusColor": "#d35400",
-      "image": "assets/img/SignalSculpt.png",
+      "image": "assets/img/SignalSculpt.jpg",
       "techStack": ["After Effects", "Signal Processing"],
       "links": [
         {"text": "View Project", "url": "https://github.com/aetriq/SignalSculpt", "type": "outline"}

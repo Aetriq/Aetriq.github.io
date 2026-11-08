@@ -1,104 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store | Aetriq</title>
-    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aetriq | Storefront</title>
+<meta name="description" content="Tested electronic components, salvaged legacy hardware and maker supplies in Ottawa.">
+<meta name="theme-color" content="#0f0d0d">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo" onerror="this.style.display='none'">
-            <div class="logo-text">Aetriq</div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="models.html">3D Models</a></li>
-            <li><a href="tech.html">Tech Stack</a></li>
-            <li><a href="creative.html">Creative Work</a></li>
-            <li><a href="store.html" class="active">Storefront</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="main-content">
-        <!-- Store Hero Section (Exact Original Text) -->
-        <section id="store-home" style="background-image: url('assets/img/shopimg/14.5.jpeg'); background-size: cover; background-position: center; position: relative; border-bottom: 1px solid #333;">
-            <div style="background: rgba(10, 10, 10, 0.88); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-            
-            <div class="container" style="max-width: 900px; position: relative; z-index: 2; text-align: center; padding: 60px 20px;">
-                <div class="tech-pill" style="margin-bottom: 20px; display: inline-block; color: var(--accent-gold); border-color: var(--accent-gold);">Aetriq Hardware</div>
-                <h1 style="font-size: 42px; margin-bottom: 20px; color: #ffffff;">COMPONENT SUPPLY</h1>
-                <p style="font-size: 18px; color: #ffffff; max-width: 650px; margin: 0 auto;">
-                    Providing specialized electronic components, salvaged legacy hardware, and maker supplies for engineering and repair applications.
-                </p>
-                <div class="trust-badge-grid">
-                    <div class="trust-badge">
-                        <div style="font-size: 28px; color: var(--primary-text); font-weight: bold;">100<span style="color: var(--accent-red);">%</span></div>
-                        <div style="font-size: 13px; color: #888; text-transform: uppercase; margin-top: 5px;">Positive on eBay</div>
-                    </div>
-                    <div class="trust-badge">
-                        <div style="font-size: 28px; color: var(--primary-text); font-weight: bold;">5.0<span style="color: var(--accent-gold);">★</span></div>
-                        <div style="font-size: 13px; color: #888; text-transform: uppercase; margin-top: 5px;">FB Marketplace</div>
-                    </div>
-                    <div class="trust-badge">
-                        <div style="font-size: 28px; color: var(--primary-text); font-weight: bold;">2018</div>
-                        <div style="font-size: 13px; color: #888; text-transform: uppercase; margin-top: 5px;">Est. Operations</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Store About Section (Exact Original Text) -->
-        <section id="about-store" class="section" style="padding-bottom: 10px;">
-            <div class="container" style="max-width: 800px; text-align: center;">
-                <h2>About the Store</h2>
-                <p style="color: var(--body-text); font-size: 17px; margin-bottom: 15px;">
-                    Every component listed here has been tested and verified. Whether it's a salvaged legacy motherboard or a brand-new 3D printing upgrade, my goal is to provide reliable, high-quality hardware for your projects.
-                </p>
-                <p style="color: var(--body-text); font-size: 17px;">
-                    Local pickup is available in Ottawa, Ontario. For shipping inquiries, custom build requests, or any other parts, please check out the <a href="contact.html" style="color: var(--accent-gold); text-decoration: underline;">Contact</a> page.
-                </p>
-            </div>
-        </section>
-
-        <!-- Product Grid Section -->
-        <section class="section" style="padding-top: 20px;">
-            <div class="container">
-                <div id="productGrid" class="store-grid"></div>
-            </div>
-        </section>
-
-        <div id="global-footer"></div>
-    </div>
-
-    <!-- Product Modal Structure -->
-    <div class="modal-overlay" id="productModal">
-        <div class="modal-content">
-            <button class="close-btn" id="closeModalBtn">&times;</button>
-            <div class="modal-layout">
-                <div class="modal-image-container">
-                    <img id="carouselImg" src="" alt="Product View">
-                    <button id="prevBtn" class="carousel-btn prev-btn">‹</button>
-                    <button id="nextBtn" class="carousel-btn next-btn">›</button>
-                    <div id="imageCounter" class="image-counter">1 / 1</div>
-                </div>
-                <div class="modal-details">
-                    <span id="modalStatusBadge" class="status-badge"></span>
-                    <h2 id="modalTitle">Loading...</h2>
-                    <p id="modalDesc" style="margin-bottom: 20px;"></p>
-                    <button id="modalActionBtn" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Buy Now</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>window.siteBasePath = '';</script>
-    <script src="assets/js/layout.js"></script>
-    <script src="assets/js/store.js"></script>
+<header id="h"></header>
+<main>
+<section class="shop"><div class="w"><span class="pill">Aetriq Hardware</span><h1>COMPONENT SUPPLY</h1><p>Providing specialized electronic components, salvaged legacy hardware, and maker supplies for engineering and repair applications.</p>
+<div class="tb"><div><b>100<i>%</i></b><small>Positive on eBay</small></div><div><b>5.0<i style="color:var(--gd)">★</i></b><small>FB Marketplace</small></div><div><b>2018</b><small>Est. Operations</small></div></div></div></section>
+<section class="sec c" style="padding-bottom:10px"><div class="w" style="max-width:800px"><h2>About the Store</h2>
+<p class="tx" style="font-size:17px">Every component listed here has been tested and verified. Whether it's a salvaged legacy motherboard or a brand-new 3D printing upgrade, my goal is to provide reliable, high-quality hardware for your projects.</p>
+<p class="tx" style="font-size:17px">Local pickup is available in Ottawa, Ontario. For shipping inquiries, custom build requests, or any other parts, please check out the <a href="contact.html">Contact</a> page.</p></div></section>
+<section class="sec" style="padding-top:20px"><div class="w"><div id="pg" class="grid"></div></div></section>
+</main>
+<div class="mo" id="mo" role="dialog" aria-modal="true" aria-labelledby="mt" hidden><div class="mc"><button class="cl" id="cl" aria-label="Close">&times;</button><div class="ml">
+<div class="mi" id="mi"><img id="ci" alt=""><button class="cr l" id="pv" aria-label="Previous image">&lsaquo;</button><button class="cr r" id="nx" aria-label="Next image">&rsaquo;</button><div class="cn" id="cn"></div></div>
+<div><span class="bd" id="bd"></span><h2 id="mt"></h2><p class="pl" id="ds"></p><a class="b p" id="ma"></a></div></div></div></div>
+<footer id="f"></footer>
+<script src="assets/js/main.js?v=4"></script>
 </body>
 </html>

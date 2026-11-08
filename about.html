@@ -1,132 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetriq | About</title>
-    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aetriq | About</title>
+<meta name="description" content="About Alex Gordon (Aetriq/Veetwo): electrical and computer engineer, electronics repair and 3D design in Ottawa.">
+<meta name="theme-color" content="#0f0d0d">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
-            <div class="logo-text">Aetriq</div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="models.html">3D Models</a></li>
-            <li><a href="tech.html">Tech Stack</a></li>
-            <li><a href="creative.html">Creative Work</a></li>
-            <li><a href="store.html">Storefront</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="main-content">
-        <section id="about" class="section">
-            <div class="container" style="text-align: center;">
-                <h2>Aetriq | Veetwo Personal Site</h2>
-                
-                <p class="about-text">
-                    I'm Alex, an Electrical/Computer Engineer specializing in hardware diagnostics, computer systems builds, &amp; electronics restoration. 
-                </p>
-                
-                <p class="about-text" style="margin-bottom: 40px;">
-                    I've been doing component-level repair since 2016 and specialized PCB-level diagnostics since 2019. I provide hardware solutions ranging from legacy data retrieval to micro-soldering. Please contect me about these services; I'm located in Ottawa, Canada.
-                </p>
-
-                <p class="about-text" style="margin-bottom: 40px;">
-                    I graduated from B.ASc Computer Engineering at uOttawa, I'm currently studying M.ASc in Electrical & Computer Engineering at uOttawa, working on my thesis related to automated precision robotics & realtime control systems.
-                </p>
-
-                <p class="about-text">
-                    You will frequently see my work under the aliases Aetriq for custom PCBs and 3D designs, &amp; Veetwo as my (legacy) copyright. Aetriq has been my latest name since 2025. Seems like Veetwo is pretty common, so I decided to change it to something more uniquely identifiable on my project designs. I'm also part of the IEEE society.
-                </p>
-
-                <!-- Collapsible Services Grid (Exact Original Text) -->
-                <div class="services-grid">
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Computer/Mobile Systems Hardware</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Comprehensive hardware diagnostics, board-level soldering, and repair for desktop PCs, laptops, tablets, and smartphones.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Specialized PC Systems</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">High-performance system building including hard-loop liquid cooling, full restoration, and component-level optimization.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">3D Modeling/Printing</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">0.1mm/0.1" precision CAD design (mainly electronic enclosures/brackets) alongside 3D printing services with options such as multi-color printing, engineering filaments, and vapor smoothing.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Vintage Tech Restoration</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Restoration of vintage PCs and monitors, including retr0brighting, recapping, mainboard repair, and legacy media data retrieval (ZIP, 3.5" Floppy, CD/DVD, SYQUEST, APS, etc.).<br><br>I also do CRT monitors/tvs; this includes FULL recaps, B+ rail rebuild, low voltage rail sag fix (+15, +12, -12, +5), circuit analysis &amp; electrolyte cleaning. I can also replace other parts (PSU, flyback transformer, etc.) provided you have the replacement parts. I also have a decent stock of quality power resistors, diodes, transistors, control button/switch replacements, etc. are low prices.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">Apple Hardware Solutions</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Full component-level repair for iPhones &amp; MacBooks, plus firmware modifications &amp; pwning/jailbreaking for legacy (32-bit) and select modern devices. <br><br>Just like the vintage tech I can also do repairs of original PowerPC's, Macintosh AIOs, and the like.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceCard(this)">
-                        <div class="service-header">
-                            <h3 class="service-title">General Electronics &amp; Printers</h3>
-                            <svg class="service-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                        </div>
-                        <div class="service-body">
-                            <p class="service-desc">Other things I do include repair of 3D printers, alongside general micro-soldering, diagnostics, and restoration for miscellaneous electronic hardware.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="global-footer"></div>
-    </div>
-
-    <script>
-        function toggleServiceCard(clickedCard) {
-            const isCurrentlyExpanded = clickedCard.classList.contains('expanded');
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.classList.remove('expanded');
-            });
-            if (!isCurrentlyExpanded) {
-                clickedCard.classList.add('expanded');
-            }
-        }
-    </script>
-    <script src="assets/js/layout.js"></script>
-    <script src="assets/js/main.js"></script>
+<header id="h"></header>
+<main><section class="sec c"><div class="w">
+<h2>Aetriq | Veetwo Personal Site</h2>
+<p class="tx">I'm Alex, an Electrical/Computer Engineer specializing in hardware diagnostics, computer systems builds, &amp; electronics restoration.</p>
+<p class="tx">I've been doing component-level repair since 2016 and specialized PCB-level diagnostics since 2019. I provide hardware solutions ranging from legacy data retrieval to micro-soldering. Please contact me about these services; I'm located in Ottawa, Canada.</p>
+<p class="tx">I graduated from B.ASc Computer Engineering at uOttawa, I'm currently studying M.ASc in Electrical &amp; Computer Engineering at uOttawa, working on my thesis related to automated precision robotics &amp; realtime control systems.</p>
+<p class="tx">You will frequently see my work under the aliases Aetriq for custom PCBs and 3D designs, &amp; Veetwo as my (legacy) copyright. Aetriq has been my latest name since 2025. Seems like Veetwo is pretty common, so I decided to change it to something more uniquely identifiable on my project designs. I'm also part of the IEEE society.</p>
+<div class="sv">
+<details class="sc"><summary>Computer/Mobile Systems Hardware</summary><p>Comprehensive hardware diagnostics, board-level soldering, and repair for desktop PCs, laptops, tablets, and smartphones.</p></details>
+<details class="sc"><summary>Specialized PC Systems</summary><p>High-performance system building including hard-loop liquid cooling, full restoration, and component-level optimization.</p></details>
+<details class="sc"><summary>3D Modeling/Printing</summary><p>0.1mm/0.1" precision CAD design (mainly electronic enclosures/brackets) alongside 3D printing services with options such as multi-color printing, engineering filaments, and vapor smoothing.</p></details>
+<details class="sc"><summary>Vintage Tech Restoration</summary><p>Restoration of vintage PCs and monitors, including retr0brighting, recapping, mainboard repair, and legacy media data retrieval (ZIP, 3.5" Floppy, CD/DVD, SYQUEST, APS, etc.).<br><br>I also do CRT monitors/tvs; this includes FULL recaps, B+ rail rebuild, low voltage rail sag fix (+15, +12, -12, +5), circuit analysis &amp; electrolyte cleaning. I can also replace other parts (PSU, flyback transformer, etc.) provided you have the replacement parts. I also have a decent stock of quality power resistors, diodes, transistors, control button/switch replacements, etc. at low prices.</p></details>
+<details class="sc"><summary>Apple Hardware Solutions</summary><p>Full component-level repair for iPhones &amp; MacBooks, plus firmware modifications &amp; pwning/jailbreaking for legacy (32-bit) and select modern devices.<br><br>Just like the vintage tech I can also do repairs of original PowerPC's, Macintosh AIOs, and the like.</p></details>
+<details class="sc"><summary>General Electronics &amp; Printers</summary><p>Other things I do include repair of 3D printers, alongside general micro-soldering, diagnostics, and restoration for miscellaneous electronic hardware.</p></details>
+</div></div></section></main>
+<footer id="f"></footer>
+<script src="assets/js/main.js?v=4"></script>
 </body>
 </html>

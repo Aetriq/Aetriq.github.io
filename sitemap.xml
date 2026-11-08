@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://aetriq.ca/index.html</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://aetriq.ca/store.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aetriq.ca/changelog.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://aetriq.ca/docs.html</loc>
-    <priority>0.8</priority>
-  </url>
+<url><loc>https://aetriq.ca/index.html</loc><priority>1.0</priority></url>
+<url><loc>https://aetriq.ca/about.html</loc><priority>0.7</priority></url>
+<url><loc>https://aetriq.ca/projects.html</loc><priority>0.8</priority></url>
+<url><loc>https://aetriq.ca/projects/chimera.html</loc><priority>0.6</priority></url>
+<url><loc>https://aetriq.ca/projects/intrastice.html</loc><priority>0.6</priority></url>
+<url><loc>https://aetriq.ca/models.html</loc><priority>0.6</priority></url>
+<url><loc>https://aetriq.ca/creative.html</loc><priority>0.6</priority></url>
+<url><loc>https://aetriq.ca/store.html</loc><priority>0.8</priority></url>
+<url><loc>https://aetriq.ca/contact.html</loc><priority>0.6</priority></url>
+<url><loc>https://aetriq.ca/changelog.html</loc><priority>0.4</priority></url>
 </urlset>

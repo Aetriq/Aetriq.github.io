@@ -1,165 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <title>Aetriq | Home</title>
-    <meta name="description" content="Electronics repair, PCB design, and systems engineering by Alex Gordon.">
-    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamicsthumb.png">
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aetriq | Home</title>
+<meta name="description" content="Electronics repair, PCB design, and systems engineering by Alex Gordon.">
+<meta name="theme-color" content="#0f0d0d">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/img/AetriqDynamics 1.0.png" alt="Aetriq Logo">
-            <div class="logo-text">Aetriq</div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="models.html">3D Models</a></li>
-            <li><a href="tech.html">Tech Stack</a></li>
-            <li><a href="creative.html">Creative Work</a></li>
-            <li><a href="store.html">Storefront</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="main-content">
-        <!-- System Update Banner -->
-        <div id="updateBanner" class="system-banner hidden">
-            <div>ATTENTION: Website fully transferred to .ca! Old domain closed now. Check <a href="changelog.html">here</a> for the release notes.</div>
-            <button id="closeBannerBtn" class="close-banner-btn" title="Dismiss for this session">X</button>
-        </div>
-        
-        <!-- Hero Section with Faded Banner -->
-        <section id="home" style="padding-bottom: 30px; text-align: center;">
-            <div class="hero-banner-container">
-                <img src="assets/img/v3.5optimization/narrow-banner.png" alt="Top Banner" class="hero-banner-img">
-                <div class="hero-banner-fade"></div>
-            </div>
-            
-            <div class="hero-banner-container" style="margin-top: 15px; height: 260px; display: flex; align-items: center; justify-content: center; position: relative;">
-                <img src="assets/img/narrow-banner-2.png" alt="Lab Banner" class="hero-banner-img" style="filter: brightness(0.45); position: absolute; inset: 0;">
-                <div class="hero-banner-fade" style="background: linear-gradient(to bottom, rgba(5,5,5,0.2), var(--bg-body));"></div>
-                
-                <div style="position: relative; z-index: 2; padding: 20px;">
-                    <h1 style="font-size: 38px; color: #ffffff; letter-spacing: 2px; margin-bottom: 6px; border: none; padding: 0; text-transform: uppercase;">Aetriq Labs</h1>
-                    <p style="font-family: 'Times New Roman', Times, serif; font-size: 16px; color: var(--accent-red); letter-spacing: 1px; font-style: italic;">
-                        Electronics, Computer, Vintage &amp; CRT Repair Services <br>FDM 3D Modelling/Design for Electronics <br>Embdedded Mechatronics & EdgeAI/ML research<br> Located in Ottawa, est. 2019
-                    </p>
-                </div>
-            </div>
-
-            <div class="container" style="margin-top: 25px;">
-                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                    <a href="store.html" class="btn btn-primary">Storefront</a>
-                    <a href="projects.html" class="btn btn-outline">Current Projects</a>
-                    <a href="models.html" class="btn btn-outline">3D Models</a>
-                    <a href="creative.html" class="btn btn-outline">Creative Work</a>
-                </div>
-                
-                <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 30px;">
-                    <a href="https://orcid.org/0009-0001-7169-2396" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); display: inline-flex; align-items: center; justify-content: center;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
-                        <div style="width: 24px; height: 24px; background-color: currentColor; mask: url('https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/orcid.svg') center/contain no-repeat; -webkit-mask: url('https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/orcid.svg') center/contain no-repeat;"></div>
-                    </a>
-                        <a href="https://ieeexplore.ieee.org/author/101679893" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); display: inline-flex; align-items: center; justify-content: center; position: relative;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
-                        <div style="width: 24px; height: 24px; background-color: currentColor; mask: url('https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/ieee.svg') center / 135% no-repeat; -webkit-mask: url('https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/ieee.svg') center / 135% no-repeat;"></div>
-                        <span style="position: absolute; top: -6px; right: -12px; font-size: 8px; font-weight: bold; background-color: var(--accent-red); color: white; padding: 1px 3px; border-radius: 3px; line-height: 1; pointer-events: none;">WIP</span>
-                    </a>
-
-                    <a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); width: 24px;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@Aetriq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); width: 24px;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/aetriq_/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); width: 24px;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
-                    <a href="https://www.printables.com/@Aetriq_3225563" target="_blank" rel="noopener noreferrer" style="color: var(--primary-text); display: inline-flex; align-items: center; justify-content: center;" onmouseover="this.style.color='var(--accent-red)'" onmouseout="this.style.color='var(--primary-text)'">
-                        <div style="width: 24px; height: 24px; background-color: currentColor; mask: url('https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/printables.svg') center/contain no-repeat; -webkit-mask: url('https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/printables.svg') center/contain no-repeat;"></div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Highlighted Projects (Intrastice & Chimera iXY - No Descriptions) -->
-        <section class="section" style="padding-top: 10px;">
-            <div class="container">
-                
-                <!-- INTRASTICE -->
-                <div class="feature-box" style="border-left: 4px solid #f1c40f;">
-                    <div class="feature-box-banner">
-                        <img src="assets/img/v3.5optimization/intrasticev0.1.png" alt="Intrastice Prototype">
-                    </div>
-                    <div class="feature-box-body">
-                        <div style="font-size: 13px; color: #f1c40f; font-weight: bold; margin-bottom: 8px;">IN PROGRESS</div>
-                        <h2 style="border: none; padding: 0; margin-bottom: 15px; font-size: 28px;">
-                            Intrastice<span style="font-size: 18px; color: var(--accent-red); margin-left: 15px;">Ultra Compact H-Bot 3D Printer | v0.5</span>
-                        </h2>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <a href="projects/intrastice.html" class="btn btn-outline" style="border-color: #f1c40f; color: #f1c40f;">View Prototype</a>
-                            <a href="https://github.com/Aetriq/intrastice" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub Source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CHIMERA iXY -->
-                <div class="feature-box" style="border-left: 4px solid #4CAF50;">
-                    <div class="feature-box-banner">
-                        <img src="assets/img/v3.5optimization/chimerav2.5.JPG.png" alt="Chimera iXY">
-                    </div>
-                    <div class="feature-box-body">
-                        <div style="font-size: 13px; color: #4CAF50; font-weight: bold; margin-bottom: 8px;">COMPLETE</div>
-                        <h2 style="border: none; padding: 0; margin-bottom: 15px; font-size: 28px;">
-                            Chimera iXY <span style="font-size: 18px; color: var(--accent-red); margin-left: 10px;">High-speed CoreXY 3D Printer | v2.5</span>
-                        </h2>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <a href="projects/chimera.html" class="btn btn-outline" style="border-color: #4CAF50; color: #4CAF50;">View Project</a>
-                            <a href="projects/docs.html?page=chimera" class="btn btn-outline">Read Docs</a>
-                            <a href="https://github.com/aetriq/ChimeraiXY" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub Source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NICC Feature Section (Exact Original Text) -->
-                <div class="feature-box" style="border-left: 4px solid var(--accent-red);">
-                    <div class="feature-box-banner">
-                        <img src="assets/img/nicc.png" alt="National Indigenous Climate Compass">
-                    </div>
-                    <div class="feature-box-body">
-                        <h2 style="border: none; padding: 0; margin-bottom: 12px; font-size: 26px;">National Indigenous Climate Compass</h2>
-                        <p style="margin-bottom: 20px;">
-                            The National Indigenous Climate Compass (NICC) is an online tool that will equip indigenous communities with information enabling them to better prepare themselves for the risks associated with climate change. This is a tool created by indigenous communities for indigenous communities, aimed to provide key data for specific indigenous territories to help drive community development projects in infrastructure, energy, and access to potable water.
-                        </p>
-                        
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-                            <a href="https://www.uottawa.ca/faculty-engineering/centre-indigenous-community-infrastructure/national-indigenous-climate-compass" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Official uOttawa Page</a>
-                            <a href="https://www.ecohlab-labecos.ca/nicc" target="_blank" rel="noopener noreferrer" class="btn btn-outline">ECoHLAB Dashboard</a>
-                        </div>
-                        
-                        <a href="https://www.uottawa.ca/faculty-engineering/news-all/weathering-climate-change-uottawa-receives-1m-td-ready-challenge-new-mitigation-initiative" target="_blank" rel="noopener noreferrer" style="display: flex; flex-wrap: wrap; background: #050505; border: 1px solid #333; text-decoration: none;">
-                            <img src="https://www.uottawa.ca/faculty-engineering/sites/g/files/bhrskd396/files/styles/max_width_xl_5120px/public/2023-02/climate-change-glaciers-header.jpg?itok=ev8crcGL" alt="Article Header" style="width: 220px; object-fit: cover; border-right: 1px solid #333;">
-                            <div style="padding: 15px 20px; flex: 1; min-width: 240px;">
-                                <div style="font-size: 12px; color: var(--accent-gold); font-weight: bold; margin-bottom: 6px;">IN THE NEWS</div>
-                                <h4 style="color: #fff; font-size: 16px; margin-bottom: 8px;">Weathering climate change: uOttawa receives $1M from TD Ready Challenge for new mitigation initiative to benefit Indigenous communities</h4>
-                                <span style="color: var(--accent-red); font-size: 14px; text-decoration: underline;">Read Full Article &gt;</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <div id="global-footer"></div>
-    </div>
-
-    <script src="assets/js/layout.js"></script>
-    <script src="assets/js/main.js"></script>
+<header id="h"></header>
+<main>
+<div class="bn" id="bn" hidden><div>ATTENTION: Website fully transferred to .ca! Old domain closed now. Check <a href="changelog.html">here</a> for the release notes.</div><button id="bx" title="Dismiss for this session">X</button></div>
+<section class="c">
+<div class="ban"><img src="assets/img/v3.5optimization/narrow-banner.jpg" alt="10 years of Aetriq/Veetwo" width="1800" height="327"></div>
+<div class="ban hero"><img src="assets/img/narrow-banner-2.jpg" alt="" width="1800" height="447"><div><h1>Aetriq Labs</h1><p>Electronics, Computer, Vintage &amp; CRT Repair Services<br>FDM 3D Modelling/Design for Electronics<br>Embedded Mechatronics &amp; EdgeAI/ML research<br>Located in Ottawa, est. 2019</p></div></div>
+<div class="w">
+<div class="row" style="margin-top:24px"><a class="b p" href="store.html">Storefront</a><a class="b" href="projects.html">Current Projects</a><a class="b" href="models.html">3D Models</a><a class="b" href="creative.html">Creative Work</a></div>
+<div class="lk"><a href="https://orcid.org/0009-0001-7169-2396" target="_blank" rel="noopener noreferrer">ORCID</a><a href="https://ieeexplore.ieee.org/author/101679893" target="_blank" rel="noopener noreferrer">IEEE<small>WIP</small></a><a href="https://github.com/aetriq" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.youtube.com/@Aetriq" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.instagram.com/aetriq_/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.printables.com/@Aetriq_3225563" target="_blank" rel="noopener noreferrer">Printables</a></div>
+</div>
+</section>
+<section class="sec"><div class="w">
+<article class="fb g"><img src="assets/img/v3.5optimization/intrasticev0.1.jpg" alt="Intrastice Prototype" width="1600" height="503" loading="lazy"><div class="cb"><div class="st s-wip">IN PROGRESS</div><h2>Intrastice<small>Ultra Compact H-Bot 3D Printer | v0.5</small></h2><div class="row"><a class="b g" href="projects/intrastice.html">View Prototype</a><a class="b" href="https://github.com/Aetriq/intrastice" target="_blank" rel="noopener noreferrer">GitHub Source</a></div></div></article>
+<article class="fb o"><img src="assets/img/v3.5optimization/chimerav2.5.JPG.jpg" alt="Chimera iXY" width="1365" height="1024" loading="lazy"><div class="cb"><div class="st s-ok">COMPLETE</div><h2>Chimera iXY<small>High-speed CoreXY 3D Printer | v2.5</small></h2><div class="row"><a class="b p" href="projects/chimera.html">View Project</a><a class="b" href="projects/docs.html?page=chimera">Read Docs</a><a class="b" href="https://github.com/aetriq/ChimeraiXY" target="_blank" rel="noopener noreferrer">GitHub Source</a></div></div></article>
+<article class="fb"><img src="assets/img/nicc.jpg" alt="National Indigenous Climate Compass" width="853" height="263" loading="lazy"><div class="cb"><h2>National Indigenous Climate Compass</h2>
+<p>The National Indigenous Climate Compass (NICC) is an online tool that will equip indigenous communities with information enabling them to better prepare themselves for the risks associated with climate change. This is a tool created by indigenous communities for indigenous communities, aimed to provide key data for specific indigenous territories to help drive community development projects in infrastructure, energy, and access to potable water.</p>
+<div class="row" style="margin-bottom:16px"><a class="b p" href="https://www.uottawa.ca/faculty-engineering/centre-indigenous-community-infrastructure/national-indigenous-climate-compass" target="_blank" rel="noopener noreferrer">Official uOttawa Page</a><a class="b" href="https://www.ecohlab-labecos.ca/nicc" target="_blank" rel="noopener noreferrer">ECoHLAB Dashboard</a></div>
+<a class="news" href="https://www.uottawa.ca/faculty-engineering/news-all/weathering-climate-change-uottawa-receives-1m-td-ready-challenge-new-mitigation-initiative" target="_blank" rel="noopener noreferrer"><img src="https://www.uottawa.ca/faculty-engineering/sites/g/files/bhrskd396/files/styles/max_width_xl_5120px/public/2023-02/climate-change-glaciers-header.jpg?itok=ev8crcGL" alt="" width="220" loading="lazy" decoding="async"><div><small>IN THE NEWS</small><h4>Weathering climate change: uOttawa receives $1M from TD Ready Challenge for new mitigation initiative to benefit Indigenous communities</h4><span>Read Full Article &gt;</span></div></a>
+</div></article>
+</div></section>
+</main>
+<footer id="f"></footer>
+<script src="assets/js/main.js?v=4"></script>
 </body>
 </html>

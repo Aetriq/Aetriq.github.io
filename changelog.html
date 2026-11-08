@@ -1,196 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/png" href="assets/img/AetriqDynamics 1.0.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Changelog | Aetriq</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .log-date {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-red);
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            display: inline-block;
-            border: 1px solid rgba(211, 47, 47, 0.3);
-            padding: 4px 10px;
-            background: rgba(211, 47, 47, 0.05);
-        }
-        .log-section {
-            margin-bottom: 20px;
-        }
-        .log-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 15px;
-        }
-        .log-list li {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-            color: var(--body-text);
-            font-size: 0.95rem;
-        }
-        .log-list li::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-        }
-        .log-highlight {
-            color: var(--primary-text);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            margin-right: 8px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>System Changelog | Aetriq</title>
+<meta name="description" content="Release notes for the Aetriq website.">
+<meta name="theme-color" content="#0f0d0d">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo fade-up visible">
-            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
-            <div class="logo-text" style="font-size: 1.3rem;">Aetriq</div>
-        </div>
-        <button class="mobile-menu-btn">☰ Menu</button>
-        <ul class="nav-links fade-up visible" style="transition-delay: 100ms;">
-            <li><a href="index.html">← Back to Home</a></li>
-            <li><hr class="nav-divider"></li>
-            <li><a href="#" class="active" style="pointer-events: none;">Changelog</a></li>
-        </ul>
-    </nav>
-
-    <div class="main-content">
-        <section class="section">
-            <div class="container fade-up">
-                <h1 style="margin-bottom: 10px;">System Log</h1>
-
-                 <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2026.10.15</span>
-                    <h2 style="font-size: 1.8rem; margin-bottom: 0; border: none;">v3.5</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[DOMAIN]</span> aetriq.xyz retired, everything now points to the .ca domain.</li>
-                            <li><span class="log-highlight">[JAVASCRIPT]</span> Signficiant engine performance increase for older/slower devices.</li>
-                            <li><span class="log-highlight">[UI/UX]</span> I'm done with fancy websites.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2026.06.19</span>
-                    <h2 style="font-size: 1.8rem; margin-bottom: 0; border: none;">v3.0</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[ARCHITECTURE]</span> Migrated from raw HTML to dynamic JSON-based data generation.</li>
-                            <li><span class="log-highlight">[JAVASCRIPT]</span> Optimized rendering engine. Eliminated DOM thrashing and patched Intersection Observer memory leaks.</li>
-                            <li><span class="log-highlight">[UI/UX]</span> Redesigned interface to a dark industrial theme for more cool factor. I might regret it later though due to performance. Replaced CSS blurs with hardware-accelerated solid rendering.</li>
-                            <li><span class="log-highlight">[CONTENT]</span> Integrated Intrastice Gen 2 project pages and data structure.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 30px 40px; margin-bottom: 20px; background: transparent; border-style: dashed;">
-                    <span class="log-date" style="color: var(--body-text); border-color: var(--border-subtle); background: transparent;">2026.06.06</span>
-                    <h2 style="font-size: 1.2rem; margin-bottom: 0; border: none; color: var(--body-text);">Site Maintenance</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li style="color: #666;"><span class="log-highlight" style="color: #888;">[STATUS]</span> Site taken offline for backend restructuring and v3.0 deployment preparation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2026.03.23</span>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0; border: none;">v2.5</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[BACKEND]</span> Optimized existing JavaScript execution for faster load times.</li>
-                            <li><span class="log-highlight">[ASSETS]</span> Resolved minor graphic and image rendering bugs across project pages.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2026.01.09</span>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0; border: none;">v2.0</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[CONTENT]</span> Deployed complete global project list and technology stack directories.</li>
-                            <li><span class="log-highlight">[CONTENT]</span> Finalized and published comprehensive Chimera iXY documentation.</li>
-                            <li><span class="log-highlight">[UI/UX]</span> Added dedicated contact module and redesigned creative portfolio grids.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2025.09.05</span>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0; border: none;">v1.5</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[NETWORK]</span> Domain migration: Transferred from aetriq.github.io to aetriq.xyz via Cloudflare.</li>
-                            <li><span class="log-highlight">[ARCHITECTURE]</span> Split CSS into modular stylesheets for improved maintainability, monolithic I guess if you put it in fancy words.</li>
-                            <li><span class="log-highlight">[JAVASCRIPT]</span> Introduced new JS-driven animation libraries for UI components.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2025.05.10</span>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0; border: none;">v1.2</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[CONTENT]</span> Integrated Chimera project documentation and repository links.</li>
-                            <li><span class="log-highlight">[CONTENT]</span> Added listings for minor engineering and creative projects.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2025.01.24</span>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0; border: none;">v1.1</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[UI/UX]</span> Cool navigation routing across all active sub-pages.</li>
-                            <li><span class="log-highlight">[UI/UX]</span> Streamlined layouts to maintain design linearity.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-card" style="padding: 40px; margin-bottom: 20px;">
-                    <span class="log-date">2024.11.24</span>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 0; border: none;">v1.0</h2>
-                    <div class="log-section">
-                        <ul class="log-list">
-                            <li><span class="log-highlight">[RELEASE]</span> Initial site deployment.</li>
-                            <li><span class="log-highlight">[ARCHITECTURE]</span> Raw static HTML layout established.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-grid fade-up">
-                    <div class="footer-brand">
-                        <div class="footer-brand-header">
-                            <img src="assets/img/AetriqDynamics 1.0.png" alt="Logo">
-                            <div class="footer-title">Aetriq</div>
-                        </div>
-                        <p style="color: #666; font-size: 0.85rem; max-width: 400px; margin-top: 10px; font-family: 'JetBrains Mono', monospace;">
-                            System Changelog<br>
-                            Current Build: v3.5
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <script src="assets/js/main.js"></script>
+<header id="h"></header>
+<main><section class="sec"><div class="w"><h1>System Log</h1>
+<div class="lg"><time>2026.11.07</time><h2>v4.0</h2><ul><li><b>[ASSETS]</b>Every image resized and recompressed; about 93 MB of referenced images down to under 9 MB. Card grids load small thumbnails.</li><li><b>[JAVASCRIPT]</b>Five scripts merged into one. Removed the CDN icon masks, the blurred background video and scroll animations. The YouTube embed now loads on click.</li><li><b>[UI/UX]</b>Softer palette, same sharp geometry. Mobile menu, mobile-friendly cards, store modal and tables.</li><li><b>[CODE]</b>One stylesheet, no inline styles or comments. Contact form now opens your email app instead of pretending to send.</li></ul></div>
+<div class="lg"><time>2026.10.15</time><h2>v3.5</h2><ul><li><b>[DOMAIN]</b>aetriq.xyz retired, everything now points to the .ca domain.</li><li><b>[JAVASCRIPT]</b>Significant engine performance increase for older/slower devices.</li><li><b>[UI/UX]</b>I'm done with fancy websites.</li></ul></div>
+<div class="lg"><time>2026.06.19</time><h2>v3.0</h2><ul><li><b>[ARCHITECTURE]</b>Migrated from raw HTML to dynamic JSON-based data generation.</li><li><b>[JAVASCRIPT]</b>Optimized rendering engine. Eliminated DOM thrashing and patched Intersection Observer memory leaks.</li><li><b>[UI/UX]</b>Redesigned interface to a dark industrial theme for more cool factor. I might regret it later though due to performance. Replaced CSS blurs with hardware-accelerated solid rendering.</li><li><b>[CONTENT]</b>Integrated Intrastice Gen 2 project pages and data structure.</li></ul></div>
+<div class="lg m"><time>2026.06.06</time><h2>Site Maintenance</h2><ul><li><b>[STATUS]</b>Site taken offline for backend restructuring and v3.0 deployment preparation.</li></ul></div>
+<div class="lg"><time>2026.03.23</time><h2>v2.5</h2><ul><li><b>[BACKEND]</b>Optimized existing JavaScript execution for faster load times.</li><li><b>[ASSETS]</b>Resolved minor graphic and image rendering bugs across project pages.</li></ul></div>
+<div class="lg"><time>2026.01.09</time><h2>v2.0</h2><ul><li><b>[CONTENT]</b>Deployed complete global project list and technology stack directories.</li><li><b>[CONTENT]</b>Finalized and published comprehensive Chimera iXY documentation.</li><li><b>[UI/UX]</b>Added dedicated contact module and redesigned creative portfolio grids.</li></ul></div>
+<div class="lg"><time>2025.09.05</time><h2>v1.5</h2><ul><li><b>[NETWORK]</b>Domain migration: Transferred from aetriq.github.io to aetriq.xyz via Cloudflare.</li><li><b>[ARCHITECTURE]</b>Split CSS into modular stylesheets for improved maintainability, monolithic I guess if you put it in fancy words.</li><li><b>[JAVASCRIPT]</b>Introduced new JS-driven animation libraries for UI components.</li></ul></div>
+<div class="lg"><time>2025.05.10</time><h2>v1.2</h2><ul><li><b>[CONTENT]</b>Integrated Chimera project documentation and repository links.</li><li><b>[CONTENT]</b>Added listings for minor engineering and creative projects.</li></ul></div>
+<div class="lg"><time>2025.01.24</time><h2>v1.1</h2><ul><li><b>[UI/UX]</b>Cool navigation routing across all active sub-pages.</li><li><b>[UI/UX]</b>Streamlined layouts to maintain design linearity.</li></ul></div>
+<div class="lg"><time>2024.11.24</time><h2>v1.0</h2><ul><li><b>[RELEASE]</b>Initial site deployment.</li><li><b>[ARCHITECTURE]</b>Raw static HTML layout established.</li></ul></div>
+</div></section></main>
+<footer id="f"></footer>
+<script src="assets/js/main.js?v=4"></script>
 </body>
 </html>
