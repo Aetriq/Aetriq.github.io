@@ -39,6 +39,34 @@
   ],
   "all": [
     {
+      "id": "crtmaster",
+      "title": "Compaq S700 Full Repair + Guide",
+      "description": "My most difficult & last repair of my CRT series, the Compaq S700. I would fix two of them, both with different issues. Includes full retrobrite/clean of the outer shell, disassembly, full recap, & entire B+/15V rail rebuild.",
+      "status": "IN PROGRESS",
+      "image": "assets/img/s700.jpg",
+      "links": [
+        {"text": "Blog (WIP)", "url": "", "type": "outline"}
+      ]
+    },
+    {
+      "id": "crt3",
+      "title": "Compaq S710 Restoration",
+      "description": "Full restoration of the Compaq S710 series CRT. Includes full retrobrite/clean of the outer shell, disassembly and raster blooming fix.",
+      "status": "COMPLETE",
+      "image": "https://i.redd.it/y51o0td0zhth1.jpg",
+      "links": [
+      ]
+    },
+    {
+      "id": "crt4",
+      "title": "Dell E771p Restoration",
+      "description": "Full restoration of the Compaq S710 series CRT. Includes full retrobrite/clean of the outer shell, disassembly and raster blooming fix.",
+      "status": "COMPLETE",
+      "image": "assets/img/e771p.jpg",
+      "links": [
+      ]
+    },
+    {
       "id": "crt1",
       "title": "ViewSonic P655 Restoration",
       "description": "My personal blog of doing a complete restoration of the Viewsonic P655 series CRT. My final docs should include a complete recap list, documentation and calibration.",
